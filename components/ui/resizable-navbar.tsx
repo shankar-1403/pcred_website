@@ -7,7 +7,7 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-import logo from "../../public/logo.png"
+import logo from "../../public/logo.webp"
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 
@@ -67,9 +67,11 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   });
 
   return (
-    <div
-      className={cn("fixed bg-white/80 inset-x-0 top-0 py-1 z-40 w-full", className)}
-    >{children}    </div>
+    <div className={cn("fixed bg-white shadow-xl inset-x-0 top-0 py-1 z-40 w-full", className)}>
+      <div>
+        {children}
+      </div>
+    </div>
   );
 };
 
@@ -93,7 +95,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-60 mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
+        "relative z-60 mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent py-2 lg:flex dark:bg-transparent",
         visible && "bg-white/80 dark:bg-neutral-950/80",
         className,
       )}
@@ -125,7 +127,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-gray-100 dark:bg-neutral-800"
+              className="absolute inset-0 h-full w-full rounded-full bg-gray-100"
             />
           )}
           <span className="relative z-20">{item.name}</span>
@@ -222,8 +224,8 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   return (
-    <a href="#" className="relative z-20 mr-4 flex items-center space-x-2 px-2 text-sm font-normal text-black">
-      <Image src={logo} alt="logo" width={180} height={180}/>
+      <a href="#" className="relative z-20 flex items-center text-sm font-normal text-black">
+      <Image src={logo} alt="logo" width={160} height={180}/>
     </a>
   );
 };

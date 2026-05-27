@@ -26,10 +26,6 @@ export default function Header() {
       name: "Blogs",
       link: "#contact",
     },
-    {
-      name: "Contact",
-      link: "#contact",
-    },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,8 +37,7 @@ export default function Header() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Login</NavbarButton>
-            <NavbarButton variant="primary">Book a call</NavbarButton>
+            <button className="px-6 py-3 rounded-lg bg-[#084E75] text-white text-sm cursor-pointer text-center">Contact Us</button>
           </div>
         </NavBody>
  
@@ -71,20 +66,7 @@ export default function Header() {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Login
-              </NavbarButton>
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Book a call
-              </NavbarButton>
+              <NavbarButton onClick={() => setIsMobileMenuOpen(false)} variant="primary" className="w-full">Contact Us</NavbarButton>
             </div>
           </MobileNavMenu>
         </MobileNav>
