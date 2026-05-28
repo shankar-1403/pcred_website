@@ -6,6 +6,7 @@ import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import Image from "next/image";
+import HorizontalScrollCarousel from "@/components/ui/card-carousel";
 
 export default function Home() {
   const achievements = [
@@ -16,81 +17,97 @@ export default function Home() {
 
   const services = [
     {
+      id: 1,
       label: 'CAPITAL MARKET ADVISORY',
       description:
         'Helping businesses access the right capital opportunities and navigate financial markets with confidence.',
     },
     {
+      id: 2,
       label: 'FISCAL OPTIMIZATION',
       description:
         'Creating efficient financial structures that support profitability, compliance, and long-term business growth.',
     },
     {
+      id: 3,
       label: 'INVESTMENT STRATEGY CONSULTING',
       description:
         'Designing investment strategies that align financial resources with business objectives and future aspirations.',
     },
     {
+      id: 4,
       label: 'CREDIT RATING OPTIMIZATION',
       description:
         'Strengthening your credit profile to improve financing opportunities and build greater lender confidence.',
     },
     {
+      id: 5,
       label: 'VIRTUAL CFO SERVICES',
       description:
         'Providing strategic financial leadership, insights, and oversight to support informed business decisions.',
     },
     {
+      id: 6,
       label: 'RISK MANAGEMENT ADVISORY',
       description:
         'Identifying potential risks and developing practical strategies to protect business stability and performance.',
     },
     {
+      id: 7,
       label: 'TREASURY MANAGEMENT SERVICES',
       description:
         'Enhancing cash flow visibility and liquidity management to support efficient financial operations.',
     },
     {
+      id: 8,
       label: 'SUCCESSION PLANNING ADVISORY',
       description:
         'Preparing businesses for seamless leadership transitions while preserving long-term continuity and value.',
     },
     {
+      id: 9,
       label: 'CORPORATE GOVERNANCE ADVISORY',
       description:
         'Establishing strong governance practices that promote accountability, transparency, and sustainable growth.',
     },
     {
+      id: 10,
       label: 'ESG & SUSTAINABILITY ADVISORY',
       description:
         'Helping businesses integrate responsible practices that create lasting value for stakeholders and society.',
     },
     {
+      id: 11,
       label: 'BUSINESS VALUATION SERVICES',
       description:
         'Delivering reliable valuation insights to support fundraising, transactions, and strategic business decisions.',
     },
     {
+      id: 12,
       label: 'PRIVATE FUND ADVISORY',
       description:
         'Connecting businesses with suitable capital sources to support expansion and growth initiatives.',
     },
     {
+      id: 13,
       label: 'GOVERNMENT SCHEME ADVISORY',
       description:
         'Guiding businesses in identifying and leveraging government programs, incentives, and support opportunities.',
     },
     {
+      id: 14,
       label: 'DEBT ADVISORY',
       description:
         'Structuring debt solutions that strengthen financial stability and support future business objectives.',
     },
     {
+      id: 15,
       label: 'IPO ADVISORY',
       description:
         'Supporting businesses through every stage of their journey towards capital market readiness.',
     },
     {
+      id: 16,
       label: 'WEALTH MANAGEMENT & FAMILY OFFICE SERVICES',
       description:
         'Offering personalized wealth strategies focused on preservation, growth, and legacy planning.',
@@ -101,51 +118,64 @@ export default function Home() {
     const root = am5.Root.new("chartdiv");
     root._logo?.dispose();
 
-    root.setThemes([
-      am5themes_Animated.new(root)
-    ]);
+    root.setThemes([am5themes_Animated.new(root)]);
 
     const chart = root.container.children.push(
       am5xy.XYChart.new(root, {
         panX: false,
         panY: false,
-        wheelX: "none",
-        wheelY: "none",
         layout: root.verticalLayout,
       })
     );
 
     const data = [
-      { year: "2019", revenue: 850 },
-      { year: "2020", revenue: 1080 },
-      { year: "2021", revenue: 1370 },
-      { year: "2022", revenue: 1740 },
-      { year: "2023", revenue: 2070 },
-      { year: "2024", revenue: 2450 },
+      { year: "2021", revenue: 120 },
+      { year: "2022", revenue: 130 },
+      { year: "2023", revenue: 200 },
+      { year: "2024", revenue: 280 },
+      { year: "2025", revenue: 340 },
     ];
 
     // X Axis
+    const xRenderer = am5xy.AxisRendererX.new(root, {
+      minGridDistance: 1,
+    });
+
+    xRenderer.grid.template.set("visible", false);
+    xRenderer.labels.template.setAll({
+      centerX: am5.percent(50),
+      textAlign: "center",
+      paddingTop: 10,
+      fill: am5.color(0xffffff),
+    });
     const xAxis = chart.xAxes.push(
       am5xy.CategoryAxis.new(root, {
         categoryField: "year",
-        renderer: am5xy.AxisRendererX.new(root, {
-          minGridDistance: 30,
-        }),
+        renderer: xRenderer,
+        startLocation: 0.3,
+        endLocation: 0.7,
       })
     );
 
     xAxis.data.setAll(data);
 
     // Y Axis
+    const yRenderer = am5xy.AxisRendererY.new(root, {});
+    yRenderer.grid.template.set("visible", false);
+    yRenderer.labels.template.setAll({
+      visible: false,
+      fill: am5.color(0xffffff),
+    });
+
     const yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
-        renderer: am5xy.AxisRendererY.new(root, {}),
+        renderer: yRenderer,
       })
     );
 
-    // Series
+    // Smooth Line Series
     const series = chart.series.push(
-      am5xy.ColumnSeries.new(root, {
+      am5xy.SmoothedXLineSeries.new(root, {
         name: "Revenue",
         xAxis,
         yAxis,
@@ -157,35 +187,38 @@ export default function Home() {
       })
     );
 
-    // Column Design
-    series.columns.template.setAll({
-      width: am5.percent(60),
-      strokeOpacity: 0,
-      cornerRadiusTL: 12,
-      cornerRadiusTR: 12,
+    // Line Style
+    series.strokes.template.setAll({
+      strokeWidth: 4,
+      strokeOpacity: 1,
+      stroke: am5.color(0x084E75),
+    });
+
+    // Area Fill
+    series.fills.template.setAll({
+      visible: true,
       fillGradient: am5.LinearGradient.new(root, {
         stops: [
           {
             color: am5.color(0x084E75),
+            opacity: 0.9,
           },
           {
-            color: am5.color(0x084E75),
+            color: am5.color(0x5BBCEB),
+            opacity: 0.1,
           },
         ],
       }),
     });
 
-    // Labels
+    // Dots
     series.bullets.push(() => {
       return am5.Bullet.new(root, {
-        locationY: 1,
-        sprite: am5.Label.new(root, {
-          text: "₹ {valueY}M",
-          populateText: true,
-          centerX: am5.percent(50),
-          centerY: am5.percent(100),
-          dy: -10,
-          fill: am5.color(0x000000),
+        sprite: am5.Circle.new(root, {
+          radius: 6,
+          fill: am5.color(0x084E75),
+          stroke: am5.color(0xffffff),
+          strokeWidth: 2,
         }),
       });
     });
@@ -249,52 +282,46 @@ export default function Home() {
             </div>
           </div>
           <div className="flex justify-center items-center relative">
-            <div className="h-full bg-[#084E75]/10 rounded-lg w-130 p-6 flex justify-center items-center">
-              <div
-                id="chartdiv"
-                style={{
-                  width: "100%",
-                  height: "450px",
-                }}
-              />
-            </div>
-            <div className="bg-white absolute rounded-lg flex gap-2 justify-center items-center p-4 -bottom-6 -left-2 shadow-lg">
-              <p className="text-lg font-bold">Total:</p>
-              <p className="text-lg">3,40,000</p>
+            <div className="h-150 bg-[#084E75] rounded-lg w-130 p-6 relative">
+              <div className="h-120">
+                <div className="absolute top-10 left-6 flex flex-col gap-3">
+                  <p className="uppercase text-xs text-white">Disbursements Facilitated</p>
+                  <p className="text-4xl font-bold text-white">₹340Cr+</p>
+                  <p className="text-base text-white">Fueling business growth <br/>accross India</p>
+                </div>
+
+                <div
+                  id="chartdiv"
+                  className="relative"
+                  style={{
+                    width: "100%",
+                    height: "450px",
+                  }}
+                />
+              </div>
+              <div className="grid grid-cols-3 gap-3">
+                {achievements.map((data)=>
+                  <div className="bg-[#0a5d8a] flex flex-col items-center gap-2 p-2 rounded-lg">
+                    <p className="text-lg text-white font-bold">{data.heading}</p>
+                    <p className="text-sm text-white">{data.label}</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="bg-[#084E75] relative py-20">
+      <div className="bg-[#084E75] relative pt-20 pb-0">
         <div className="max-w-7xl mx-auto">
           <h3 className="text-4xl font-bold text-white">Expert Solutions For Every Stage Of Growth</h3>
-          <div className="mt-8 grid grid-cols-3">
-            {services.map((service, i) => (
-              <div
-                key={service.label}
-                className="group relative bg-[#084E75] p-4 hover:bg-[#0a5d8a] transition-all duration-500 cursor-pointer"
-              >
-                {/* index */}
-                <div className="flex items-start justify-between mb-8">
-                  <span className="text-cyan-300/60 text-xs font-mono tracking-wider">
-                    {i + 1}
-                  </span>
-                </div>
-
-                <h4 className="text-white text-lg font-medium capitalize mb-3 h-14">
-                  {service.label}
-                </h4>
-                <p className="text-white/60 text-base leading-relaxed mb-8 h-20">
-                  {service.description}
-                </p>
-
-                {/* animated bottom rule */}
-                <div className="h-px w-full bg-white/10 relative overflow-hidden">
-                  <div className="absolute inset-y-0 left-0 w-0 group-hover:w-full bg-linear-to-r from-cyan-300 to-transparent transition-all duration-700" />
-                </div>
-              </div>
-            ))}
+          <div className="mt-8">
+            <HorizontalScrollCarousel cards={services}/>
           </div>
+        </div>
+      </div>
+      <div className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+
         </div>
       </div>
     </>
