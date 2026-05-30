@@ -12,15 +12,15 @@ export default function Header() {
   const navItems = [
     {
       name: "Home",
-      link: "#features",
+      link: "/",
     },
     {
       name: "About Us",
-      link: "#pricing",
+      link: "/about-us",
     },
     {
       name: "Services",
-      link: "#contact",
+      link: "/services",
     },
     {
       name: "Blogs",

@@ -1,12 +1,125 @@
 'use client';
-import { useLayoutEffect } from "react";
+import { useCallback, useEffect, useLayoutEffect, useState, type FormEvent } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import {
+  IconChevronLeft,
+  IconChevronRight,
+  IconQuote,
+  IconStarFilled,
+  IconMail,
+  IconMapPin,
+  IconPhone,
+  IconClock,
+  IconSend,
+  IconCheck,
+} from "@tabler/icons-react";
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import initial from "../public/logo.png";
 import * as am5 from "@amcharts/amcharts5";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import Image from "next/image";
+import Link from "next/link";
 import HorizontalScrollCarousel from "@/components/ui/card-carousel";
+
+const reviews = [
+  {
+    id: 1,
+    quote:"PCRED helped us streamline our finances and plan growth more confidently.",
+    name: "Arvind Mehra",
+    role: "Founder",
+    rating: 5,
+  },
+  {
+    id: 2,
+    quote:"Their financial guidance was practical, transparent, and truly business-focused.",
+    name: "Neha Agarwal",
+    role: "Director",
+    rating: 5,
+  },
+  {
+    id: 3,
+    quote:"PCRED understands MSME challenges and delivers solutions that actually work.",
+    name: "Amit Kulkarni",
+    role: "Managing Partner",
+    rating: 5,
+  },
+  {
+    id: 4,
+    quote:"Professional support and smooth execution throughout the entire advisory process.",
+    name: "Priya Nair",
+    role: "Founder",
+    rating: 5,
+  },
+  {
+    id: 5,
+    quote: "Their strategic insights helped us improve financial stability and planning.",
+    name: "Sandeep Mehta",
+    role: "CEO",
+    rating: 5,
+  },
+  {
+    id: 6,
+    quote: "Reliable financial advisory backed by strong business understanding.",
+    name: "Rohan Shah",
+    role: "Co-Founder",
+    rating: 5,
+  },
+  {
+    id: 7,
+    quote: "PCRED made our funding and expansion process much more structured.",
+    name: "Kunal Arora",
+    role: "Director",
+    rating: 5,
+  },
+  {
+    id: 8,
+    quote: "The team provided personalized guidance aligned with our business goals.",
+    name: "Aditi Deshmukh",
+    role: "Founder",
+    rating: 5,
+  },
+  {
+    id: 9,
+    quote: "Their structured financial approach helped us plan growth more effectively.",
+    name: "Vivek Jain",
+    role: "Managing Director",
+    rating: 5,
+  },
+  {
+    id: 10,
+    quote: "Transparent communication and dependable support at every stage.",
+    name: "Pooja Malhotra",
+    role: "Operations Head",
+    rating: 5,
+  },
+  {
+    id: 11,
+    quote: "PCRED simplified complex financial decisions and made the process seamless.",
+    name: "Harsh Vardhan",
+    role: "Founder",
+    rating: 5,
+  },
+];
+
+const contactServices = [
+  "Capital Market Advisory",
+  "Debt Advisory",
+  "Virtual CFO Services",
+  "IPO Advisory",
+  "Investment Strategy Consulting",
+  "Other",
+];
+
+const contactInfo = [
+  { icon: IconPhone, label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
+  { icon: IconMail, label: "Email", value: "contact@pcred.org", href: "mailto:contact@pcred.org" },
+  { icon: IconMapPin, label: "Office", value: "Mumbai, Maharashtra, India", href: undefined as string | undefined },
+  { icon: IconClock, label: "Hours", value: "Mon – Sat, 9:00 AM – 6:00 PM", href: undefined as string | undefined },
+];
+
+const inputClass =
+  "w-full rounded-xl border border-[#084E75]/15 bg-white px-4 py-3.5 text-[#084E75] placeholder:text-[#8E8E90]/60 outline-none transition-all duration-200 focus:border-[#084E75] focus:ring-2 focus:ring-[#084E75]/15";
 
 export default function Home() {
   const achievements = [
@@ -233,6 +346,61 @@ export default function Home() {
       root.dispose();
     };
   }, []);
+
+  const [activeReview, setActiveReview] = useState(0);
+  const [reviewDirection, setReviewDirection] = useState(0);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    service: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const goToReview = useCallback(
+    (index: number) => {
+      setReviewDirection(index > activeReview ? 1 : -1);
+      setActiveReview(index);
+    },
+    [activeReview]
+  );
+
+  const goNextReview = useCallback(() => {
+    setReviewDirection(1);
+    setActiveReview((prev) => (prev + 1) % reviews.length);
+  }, []);
+
+  const goPrevReview = useCallback(() => {
+    setReviewDirection(-1);
+    setActiveReview((prev) => (prev - 1 + reviews.length) % reviews.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(goNextReview, 6000);
+    return () => clearInterval(timer);
+  }, [goNextReview]);
+
+  const handleFormChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  const activeReviewData = reviews[activeReview];
+  const reviewInitials = activeReviewData.name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .slice(0, 2);
+
   return (
     <>
       <div className="relative w-full h-screen overflow-hidden">
@@ -265,7 +433,8 @@ export default function Home() {
       <div className="bg-white py-30">
         <div className="max-w-7xl mx-auto grid grid-cols-2 gap-6">
           <div>
-            <h2 className="text-4xl leading-normal capitalize"><span className="text-[#8E8E90] font-semibold">Delivering Strategic Financial Solutions That</span><br/><span className="font-bold text-[#084E75]"> Empower Businesses to Grow with Confidence </span></h2>
+            <span className="mb-3 inline-block rounded-full bg-[#084E75]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#084E75]">About Us</span>
+            <h2 className="text-5xl leading-normal capitalize font-bold"><span className="text-[#084E75]">Delivering Strategic Financial Solutions That</span><span className="text-[#8E8E90]"> Empower Businesses to Grow with Confidence </span></h2>
             <div className="mt-4">
               <ul className="list-disc ml-4">
                 <li className="text-lg text-[#084E75] py-2">Funding and financial solutions designed for sustainable business growth</li>
@@ -275,9 +444,7 @@ export default function Home() {
                 <li className="text-lg text-[#084E75] py-2">Helping MSMEs and enterprises scale with financial confidence</li>
               </ul>
               <div className="flex gap-4 mt-6">
-                <div>
-                  <button className="px-6 py-3 rounded-lg bg-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40">Learn More About Us</button>
-                </div>
+                <Link href="/about-us" className="px-6 py-3 rounded-lg bg-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40">Learn More About Us</Link>
               </div>
             </div>
           </div>
@@ -289,7 +456,6 @@ export default function Home() {
                   <p className="text-4xl font-bold text-white">₹340Cr+</p>
                   <p className="text-base text-white">Fueling business growth <br/>accross India</p>
                 </div>
-
                 <div
                   id="chartdiv"
                   className="relative"
@@ -301,7 +467,7 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-3 gap-3">
                 {achievements.map((data)=>
-                  <div className="bg-[#0a5d8a] flex flex-col items-center gap-2 p-2 rounded-lg">
+                  <div key={data.id} className="bg-[#0a5d8a] flex flex-col items-center gap-2 p-2 rounded-lg">
                     <p className="text-lg text-white font-bold">{data.heading}</p>
                     <p className="text-sm text-white">{data.label}</p>
                   </div>
@@ -312,18 +478,296 @@ export default function Home() {
         </div>
       </div>
       <div className="bg-[#084E75] relative pt-20 pb-0">
-        <div className="max-w-7xl mx-auto">
-          <h3 className="text-4xl font-bold text-white">Expert Solutions For Every Stage Of Growth</h3>
+        <div className="max-w-7xl mx-auto px-6">
+          <span className="mb-3 inline-block rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/80">Services</span>
+          <h3 className="text-5xl font-bold text-white leading-relaxed">Expert Solutions For Every <br /><span className="text-white/70">Stage Of Growth</span></h3>
+          <p className="text-white max-w-3xl text-lg leading-relaxed mt-2">Comprehensive advisory solutions designed to strengthen financial performance, support business expansion, and build long-term stability. We partner with businesses to create strategies that drive sustainable success.</p>
           <div className="mt-8">
             <HorizontalScrollCarousel cards={services}/>
           </div>
         </div>
       </div>
-      <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto">
+      {/* Client Reviews */}
+      <section className="relative overflow-hidden bg-white py-24">
+        <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -left-32 size-96 rounded-full bg-[#5BBCEB]/10 blur-3xl" />
 
+        <div className="relative mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-14 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end"
+          >
+            <div className="max-w-2xl">
+              <span className="mb-3 inline-block rounded-full bg-[#084E75]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#084E75]">
+                Client Reviews
+              </span>
+              <h2 className="text-4xl font-bold leading-tight text-[#084E75] md:text-5xl">
+                Trusted by Businesses
+                <br />
+                <span className="text-[#8E8E90]">Across India</span>
+              </h2>
+            </div>
+
+            <div className="flex items-center gap-6 rounded-2xl border border-[#084E75]/10 bg-[#084E75]/5 px-6 py-4">
+              <div className="text-center">
+                <p className="text-3xl font-bold text-[#084E75]">4.9</p>
+                <div className="mt-1 flex justify-center gap-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <IconStarFilled key={i} className="size-4 text-amber-400" />
+                  ))}
+                </div>
+              </div>
+              <div className="h-10 w-px bg-[#084E75]/15" />
+              <div>
+                <p className="text-2xl font-bold text-[#084E75]">1600+</p>
+                <p className="text-sm text-[#8E8E90]">Satisfied Clients</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="relative">
+            <div className="overflow-hidden">
+              <AnimatePresence mode="wait" custom={reviewDirection}>
+                <motion.div
+                  key={activeReview}
+                  custom={reviewDirection}
+                  initial={{ opacity: 0, x: reviewDirection >= 0 ? 80 : -80 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: reviewDirection >= 0 ? -80 : 80 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                >
+                  <div className="relative overflow-hidden rounded-2xl bg-[#084E75] p-8 md:p-10">
+                    <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-white/5" />
+                    <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-[#5BBCEB]/10" />
+                    <div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
+                      <div>
+                        <IconQuote className="mb-4 size-10 text-white/20" />
+                        <p className="mb-6 text-lg leading-relaxed text-white/90 md:text-xl">
+                          &ldquo;{activeReviewData.quote}&rdquo;
+                        </p>
+                        <div className="flex items-center gap-4">
+                          <div className="flex size-12 items-center justify-center rounded-full bg-white/15 text-sm font-semibold text-white">
+                            {reviewInitials}
+                          </div>
+                          <div>
+                            <p className="font-semibold text-white">{activeReviewData.name}</p>
+                            <p className="text-sm text-white/60">
+                              {activeReviewData.role}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex gap-0.5">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <IconStarFilled key={i} className="size-4 text-amber-400" />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            <div className="mt-8 flex items-center justify-between gap-4">
+              <div className="flex gap-2">
+                {reviews.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    aria-label={`Go to review ${i + 1}`}
+                    onClick={() => goToReview(i)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === activeReview
+                        ? "w-8 bg-[#084E75]"
+                        : "w-2 bg-[#084E75]/25 hover:bg-[#084E75]/50"
+                    }`}
+                  />
+                ))}
+              </div>
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  aria-label="Previous review"
+                  onClick={goPrevReview}
+                  className="flex size-11 cursor-pointer items-center justify-center rounded-full border border-[#084E75]/15 bg-white text-[#084E75] transition-colors hover:bg-[#084E75] hover:text-white"
+                >
+                  <IconChevronLeft className="size-5" />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next review"
+                  onClick={goNextReview}
+                  className="flex size-11 cursor-pointer items-center justify-center rounded-full border border-[#084E75]/15 bg-white text-[#084E75] transition-colors hover:bg-[#084E75] hover:text-white"
+                >
+                  <IconChevronRight className="size-5" />
+                </button>
+              </div>
+            </div>
+            <p className="mt-4 text-center text-sm text-[#8E8E90]">
+              {String(activeReview + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Contact Form */}
+      <section id="contact" className="relative overflow-hidden bg-[#f4f8fb] py-24">
+        <div className="pointer-events-none absolute -left-40 top-0 size-125 rounded-full bg-[#084E75]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-40 bottom-0 size-100 rounded-full bg-[#5BBCEB]/15 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-14 text-center"
+          >
+            <span className="mb-3 inline-block rounded-full bg-[#084E75]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#084E75]">
+              Get In Touch
+            </span>
+            <h2 className="text-4xl font-bold text-[#084E75] md:text-5xl">
+              Let&apos;s Start a Conversation
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-lg text-[#8E8E90]">
+              Tell us about your business goals. Our advisory team will respond within one business day.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="flex flex-col gap-6"
+            >
+              <div className="rounded-2xl bg-[#084E75] p-8 text-white">
+                <h3 className="mb-2 text-2xl font-bold">Ready to Move Your Business Forward?</h3>
+                <p className="leading-relaxed text-white/70">Whether you’re planning expansion, improving financial efficiency, or exploring new opportunities, our team is here to guide you with strategic expertise and practical solutions.</p>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                {contactInfo.map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
+                    className="group flex items-start gap-4 rounded-2xl border border-[#084E75]/10 bg-white p-5 transition-all duration-300 hover:border-[#084E75]/25 hover:shadow-md hover:shadow-[#084E75]/8"
+                  >
+                    <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#084E75]/10 text-[#084E75] transition-colors group-hover:bg-[#084E75] group-hover:text-white">
+                      <item.icon className="size-5" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#8E8E90]">{item.label}</p>
+                      {item.href ? (
+                        <a href={item.href} className="mt-0.5 block font-medium text-[#084E75] hover:underline">
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="mt-0.5 font-medium text-[#084E75]">{item.value}</p>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="rounded-2xl border border-[#084E75]/10 bg-white p-8 shadow-xl shadow-[#084E75]/5 md:p-10"
+            >
+              {submitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex min-h-105 flex-col items-center justify-center text-center"
+                >
+                  <div className="mb-6 flex size-16 items-center justify-center rounded-full bg-[#084E75]/10 text-[#084E75]">
+                    <IconCheck className="size-8" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#084E75]">Message Sent!</h3>
+                  <p className="mt-3 max-w-sm text-[#8E8E90]">
+                    Thank you for reaching out. Our team will get back to you shortly.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setForm({ name: "", email: "", phone: "", company: "", service: "", message: "" });
+                    }}
+                    className="mt-8 cursor-pointer rounded-xl border-2 border-[#084E75] px-6 py-3 text-sm font-semibold text-[#084E75] transition-colors hover:bg-[#084E75] hover:text-white"
+                  >
+                    Send Another Message
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleFormSubmit} className="space-y-5">
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#084E75]">
+                        Full Name <span className="text-red-500">*</span>
+                      </label>
+                      <input id="name" name="name" type="text" required value={form.name} onChange={handleFormChange} placeholder="John Doe" className={inputClass} />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#084E75]">
+                        Email <span className="text-red-500">*</span>
+                      </label>
+                      <input id="email" name="email" type="email" required value={form.email} onChange={handleFormChange} placeholder="you@company.com" className={inputClass} />
+                    </div>
+                  </div>
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[#084E75]">
+                        Phone <span className="text-red-500">*</span>
+                      </label>
+                      <input id="phone" name="phone" type="tel" required value={form.phone} onChange={handleFormChange} placeholder="+91 98765 43210" className={inputClass} />
+                    </div>
+                    <div>
+                      <label htmlFor="company" className="mb-2 block text-sm font-medium text-[#084E75]">
+                        Company
+                      </label>
+                      <input id="company" name="company" type="text" value={form.company} onChange={handleFormChange} placeholder="Your company name" className={inputClass} />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="service" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      Service of Interest
+                    </label>
+                    <select id="service" name="service" value={form.service} onChange={handleFormChange} className={`${inputClass} cursor-pointer appearance-none`}>
+                      <option value="">Select a service</option>
+                      {contactServices.map((s) => (
+                        <option key={s} value={s}>{s}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      Message <span className="text-red-500">*</span>
+                    </label>
+                    <textarea id="message" name="message" required rows={5} value={form.message} onChange={handleFormChange} placeholder="Tell us about your business needs and goals..." className={`${inputClass} resize-none`} />
+                  </div>
+                  <button
+                    type="submit"
+                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#084E75] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl hover:shadow-[#084E75]/30"
+                  >
+                    Send Message
+                    <IconSend className="size-5 transition-transform group-hover:translate-x-1" />
+                  </button>
+                </form>
+              )}
+            </motion.div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
