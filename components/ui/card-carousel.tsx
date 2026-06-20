@@ -1,24 +1,10 @@
 "use client";
 
 import { motion, useTransform, useScroll } from "motion/react";
-import Link from "next/link";
+import { StaticImageData } from "next/image";
 import { useRef } from "react";
-import {
-  IconArrowRight,
-  IconBriefcase,
-  IconBuilding,
-  IconBuildingBank,
-  IconCalculator,
-  IconChartLine,
-  IconCoins,
-  IconCreditCard,
-  IconLeaf,
-  IconReportAnalytics,
-  IconRocket,
-  IconShield,
-  IconTrendingUp,
-  IconUsers,
-  IconWallet,
+import Image from "next/image";
+import {IconBriefcase,IconBuilding,IconBuildingBank,IconCalculator,IconChartLine,IconCoins,IconCreditCard,IconLeaf,IconReportAnalytics,IconRocket,IconShield,IconTrendingUp,IconUsers,IconWallet,
   type TablerIcon,
 } from "@tabler/icons-react";
 
@@ -53,6 +39,8 @@ type CardType = {
   id: number;
   label: string;
   description: string;
+  color:string;
+  image:StaticImageData;
 };
 
 interface HorizontalScrollCarouselProps {
@@ -78,7 +66,7 @@ const HorizontalScrollCarousel = ({
           className="flex gap-6 pl-6 md:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]"
         >
           {cards.map((card, i) => (
-            <Card key={card.id} card={card} fallbackIndex={i} />
+            <Card key={card.id} card={card} />
           ))}
         </motion.div>
       </div>
@@ -88,47 +76,23 @@ const HorizontalScrollCarousel = ({
 
 interface CardProps {
   card: CardType;
-  fallbackIndex: number;
 }
 
-const Card = ({ card, fallbackIndex }: CardProps) => {
-  const Icon =
-    serviceIcons[card.id] ??
-    serviceIcons[(fallbackIndex % 16) + 1] ??
-    IconChartLine;
-
+const Card = ({ card }: CardProps) => {
+  
   return (
     <div className="group relative w-100 shrink-0">
-      <div className="relative flex h-140 flex-col overflow-hidden rounded-2xl bg-white p-7 shadow-[0_12px_40px_rgba(0,0,0,0.22)] ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.28)]">
-        <div className="absolute inset-x-0 top-0 h-1.5 bg-[#084E75] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className={`relative flex h-120 flex-col overflow-hidden rounded-4xl px-7 py-8 shadow-lg ${card.color}`}>
 
-        <div className="mb-5 flex items-start justify-between gap-3">
-          <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#084E75] text-white shadow-md shadow-[#084E75]/25 transition-transform duration-300 group-hover:scale-105">
-            <Icon className="size-6" stroke={1.5} />
-          </div>
-          <span className="rounded-lg bg-[#084E75]/8 px-2.5 py-1 font-mono text-xs font-semibold text-[#084E75]/50">
-            {String(card.id).padStart(2, "0")}
-          </span>
-        </div>
-
-        <h3 className="mb-3 line-clamp-3 text-lg font-bold leading-snug text-[#084E75]">
+        <p className="mb-3 line-clamp-3 text-3xl font-medium leading-snug">
           {formatServiceLabel(card.label)}
-        </h3>
-
-        <p className="line-clamp-4 flex-1 text-sm leading-relaxed text-[#8E8E90]">
-          {card.description}
         </p>
 
-        <div className="mt-6 border-t border-[#084E75]/10 pt-5">
-          <Link
-            href="/#contact"
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#084E75] transition-colors hover:text-[#0a5d8a]"
-          >
-            Enquire now
-            <span className="flex size-8 items-center justify-center rounded-full bg-[#084E75]/10 transition-colors group-hover:bg-[#084E75] group-hover:text-white">
-              <IconArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
-            </span>
-          </Link>
+        <p className="line-clamp-4 flex-1 text-lg leading-relaxed">
+          {card.description}
+        </p>
+        <div className="flex justify-center">
+          <Image src={card.image} alt={card.label} className="h-40 w-full"/>
         </div>
       </div>
     </div>

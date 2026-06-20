@@ -67,7 +67,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   });
 
   return (
-    <div className={cn("fixed bg-white shadow-xl inset-x-0 top-0 py-1 z-40 w-full", className)}>
+    <div className={cn("fixed bg-white/70 shadow-xl backdrop-blur-lg border-b border-b-gray-300 inset-x-0 top-0 z-40 w-full", className)}>
       <div>
         {children}
       </div>
@@ -224,8 +224,8 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   return (
-      <a href="#" className="relative z-20 flex items-center text-sm font-normal text-black">
-      <Image src={logo} alt="logo" width={160} height={180}/>
+    <a href="/" className="relative z-20 flex items-center text-sm font-normal text-black">
+      <Image src={logo} alt="logo" width={110} height={130}/>
     </a>
   );
 };

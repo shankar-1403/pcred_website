@@ -146,10 +146,7 @@ const services: Service[] = [
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-[#084E75] py-28">
-        <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/30 to-transparent" />
-        <div className="pointer-events-none absolute -right-32 top-0 size-96 rounded-full bg-[#0a5d8a]/40 blur-3xl" />
-        <div className="pointer-events-none absolute -left-32 bottom-0 size-80 rounded-full bg-white/5 blur-3xl" />
+      <section className="relative bg-linear-to-b from-[#084E75] via-[#084E75]/50 to-white backdrop-blur-2xl h-150 py-30 flex items-end">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
@@ -159,22 +156,19 @@ export default function ServicesPage() {
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="relative mx-auto max-w-7xl w-full">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <span className="mb-4 inline-block rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/80 backdrop-blur-sm">
-              Our Services
-            </span>
             <h1 className="text-4xl font-bold leading-[1.15] text-white md:text-5xl lg:text-6xl">
               Expert Solutions For
               <br />
-              <span className="text-white/70">Every Stage Of Growth</span>
+              <span className="text-[#084E75]">Every Stage Of Growth</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#084E75]">
               Comprehensive financial advisory designed to strengthen performance,
               support expansion, and build long-term stability for MSMEs and enterprises.
             </p>
@@ -194,9 +188,6 @@ export default function ServicesPage() {
             className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end"
           >
             <div>
-              <span className="mb-3 inline-block rounded-full bg-[#084E75]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#084E75]">
-                Advisory Services
-              </span>
               <h2 className="text-3xl font-bold text-[#084E75] md:text-4xl">
                 How We Help Your Business Grow
               </h2>
@@ -211,21 +202,21 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#084E75]/10 bg-[#084E75]/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#084E75]/25 hover:shadow-lg hover:shadow-[#084E75]/10"
+                className="group relative flex flex-col overflow-hidden rounded-4xl bg-linear-to-br from-[#084E75] from-50% via-[#084E75]/80 via-80% to-[#084E75]/60 to-100% p-6 shadow-[5px_5px] shadow-[#084E75]/40"
               >
                 <div className="absolute inset-x-0 top-0 h-1 bg-[#084E75]/0 transition-colors duration-300 group-hover:bg-[#084E75]" />
                 <span className="absolute right-5 top-5 font-mono text-sm font-semibold text-[#084E75]/20">
                   {String(service.id).padStart(2, "0")}
                 </span>
 
-                <div className="mb-5 flex size-12 items-center justify-center rounded-xl bg-[#084E75] text-white shadow-md shadow-[#084E75]/20 transition-transform duration-300 group-hover:scale-105">
+                <div className="mb-5 flex size-12 items-center justify-center rounded-4xl bg-white text-[#084E75] shadow-md shadow-[#084E75]/20 transition-transform duration-300 group-hover:scale-105">
                   <service.icon className="size-6" stroke={1.5} />
                 </div>
 
-                <h3 className="mb-3 pr-8 text-lg font-bold leading-snug text-[#084E75]">
+                <h3 className="mb-3 pr-8 text-lg font-bold leading-snug text-white">
                   {service.label}
                 </h3>
-                <p className="mb-6 flex-1 text-sm leading-relaxed text-[#8E8E90]">
+                <p className="mb-6 flex-1 text-sm leading-relaxed text-white">
                   {service.description}
                 </p>
 
@@ -242,30 +233,28 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[#084E75]/5 py-16">
+      <section className="py-16">
         <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-2xl bg-[#084E75] px-8 py-12 md:px-14 md:py-14"
+            className="relative overflow-hidden rounded-4xl bg-[#084E75] px-8 py-12 md:px-14 md:py-14"
           >
-            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#0a5d8a]/50 blur-2xl" />
+            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#084E75]/50 blur-2xl" />
             <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
 
             <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
               <div className="max-w-xl">
-                <h2 className="text-2xl font-bold text-white md:text-3xl">
+                <h4 className="text-2xl font-bold text-white md:text-3xl">
                   Not sure which service fits your needs?
-                </h2>
+                </h4>
                 <p className="mt-3 text-white/70">
                   Speak with our advisory team — we&apos;ll recommend the right approach for your business goals.
                 </p>
               </div>
-              <Link
-                href="/#contact"
-                className="group inline-flex shrink-0 items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-semibold text-[#084E75] shadow-lg transition-all hover:bg-white/90"
+              <Link href="/#contact" className="group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-white px-8 py-4 text-base font-semibold text-[#084E75] transition-all shadow-[5px_5px] shadow-white/50"
               >
                 Get In Touch
                 <IconArrowRight className="size-5 transition-transform group-hover:translate-x-1" />

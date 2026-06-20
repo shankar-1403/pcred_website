@@ -37,7 +37,7 @@ export default function Header() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <button className="px-6 py-3 rounded-lg bg-[#084E75] text-white text-sm cursor-pointer text-center">Contact Us</button>
+            <button className="px-6 py-3 rounded-4xl bg-[#084E75] text-white text-xs cursor-pointer text-center">Contact Us</button>
           </div>
         </NavBody>
  

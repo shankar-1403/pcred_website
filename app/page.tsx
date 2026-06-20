@@ -1,18 +1,7 @@
 'use client';
 import { useCallback, useEffect, useLayoutEffect, useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import {
-  IconChevronLeft,
-  IconChevronRight,
-  IconQuote,
-  IconStarFilled,
-  IconMail,
-  IconMapPin,
-  IconPhone,
-  IconClock,
-  IconSend,
-  IconCheck,
-} from "@tabler/icons-react";
+import { IconChevronLeft, IconChevronRight, IconQuote, IconStarFilled,IconMail, IconMapPin, IconPhone, IconClock, IconSend, IconCheck, IconArrowRight} from "@tabler/icons-react";
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import initial from "../public/logo.png";
 import * as am5 from "@amcharts/amcharts5";
@@ -21,6 +10,9 @@ import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import Image from "next/image";
 import Link from "next/link";
 import HorizontalScrollCarousel from "@/components/ui/card-carousel";
+import serviceOne from "../public/services/service_2.png"
+import serviceTwo from "../public/services/service_2.png"
+import intro from "../public/intro_img.png"
 
 const reviews = [
   {
@@ -119,7 +111,7 @@ const contactInfo = [
 ];
 
 const inputClass =
-  "w-full rounded-xl border border-[#084E75]/15 bg-white px-4 py-3.5 text-[#084E75] placeholder:text-[#8E8E90]/60 outline-none transition-all duration-200 focus:border-[#084E75] focus:ring-2 focus:ring-[#084E75]/15";
+  "w-full rounded-4xl border border-[#084E75]/15 bg-white px-4 py-3.5 text-[#084E75] placeholder:text-[#8E8E90]/60 outline-none transition-all duration-200 focus:border-[#084E75] focus:ring-2 focus:ring-[#084E75]/15";
 
 export default function Home() {
   const achievements = [
@@ -132,98 +124,114 @@ export default function Home() {
     {
       id: 1,
       label: 'CAPITAL MARKET ADVISORY',
-      description:
-        'Helping businesses access the right capital opportunities and navigate financial markets with confidence.',
+      description:'Helping businesses access the right capital opportunities and navigate financial markets with confidence.',
+      color:"bg-linear-to-b from-[#084E75]/90 from-40% via-[#084E75]/60 via-80% to-[#084E75]/40 to-100% text-white",
+      image:serviceOne
     },
     {
       id: 2,
       label: 'FISCAL OPTIMIZATION',
-      description:
-        'Creating efficient financial structures that support profitability, compliance, and long-term business growth.',
+      description:'Creating efficient financial structures that support profitability, compliance, and long-term business growth.',
+      color:"bg-linear-to-br from-[#084E75]/20 from-40% to-[#8D1821]/20 backdrop-blur-lg text-[#084E75]",
+      image:serviceTwo
     },
     {
       id: 3,
       label: 'INVESTMENT STRATEGY CONSULTING',
-      description:
-        'Designing investment strategies that align financial resources with business objectives and future aspirations.',
+      description:'Designing investment strategies that align financial resources with business objectives and future aspirations.',
+      color:"bg-white border border-gray-200 text-[#084E75]",
+      image:serviceTwo
     },
     {
       id: 4,
       label: 'CREDIT RATING OPTIMIZATION',
-      description:
-        'Strengthening your credit profile to improve financing opportunities and build greater lender confidence.',
+      description:'Strengthening your credit profile to improve financing opportunities and build greater lender confidence.',
+      color:"bg-white border border-gray-200 text-[#084E75]",
+      image:serviceTwo
     },
     {
       id: 5,
       label: 'VIRTUAL CFO SERVICES',
-      description:
-        'Providing strategic financial leadership, insights, and oversight to support informed business decisions.',
+      description:'Providing strategic financial leadership, insights, and oversight to support informed business decisions.',
+      color:"bg-linear-to-b from-[#084E75]/90 from-40% via-[#084E75]/60 via-80% to-[#084E75]/40 to-100% text-white",
+      image:serviceTwo
     },
     {
       id: 6,
       label: 'RISK MANAGEMENT ADVISORY',
-      description:
-        'Identifying potential risks and developing practical strategies to protect business stability and performance.',
+      description:'Identifying potential risks and developing practical strategies to protect business stability and performance.',
+      color:"bg-linear-to-br from-[#084E75]/20 from-40% to-[#8D1821]/20 backdrop-blur-lg text-[#084E75]",
+      image:serviceTwo
     },
     {
       id: 7,
       label: 'TREASURY MANAGEMENT SERVICES',
-      description:
-        'Enhancing cash flow visibility and liquidity management to support efficient financial operations.',
+      description:'Enhancing cash flow visibility and liquidity management to support efficient financial operations.',
+      color:"bg-white border border-gray-200 text-[#084E75]",
+      image:serviceTwo
     },
     {
       id: 8,
       label: 'SUCCESSION PLANNING ADVISORY',
-      description:
-        'Preparing businesses for seamless leadership transitions while preserving long-term continuity and value.',
+      description:'Preparing businesses for seamless leadership transitions while preserving long-term continuity and value.',
+      color:"bg-white border border-gray-200 text-[#084E75]",
+      image:serviceTwo
     },
     {
       id: 9,
       label: 'CORPORATE GOVERNANCE ADVISORY',
-      description:
-        'Establishing strong governance practices that promote accountability, transparency, and sustainable growth.',
+      description:'Establishing strong governance practices that promote accountability, transparency, and sustainable growth.',
+      color:"bg-linear-to-b from-[#084E75]/90 from-40% via-[#084E75]/60 via-80% to-[#084E75]/40 to-100% text-white",
+      image:serviceTwo
     },
     {
       id: 10,
       label: 'ESG & SUSTAINABILITY ADVISORY',
-      description:
-        'Helping businesses integrate responsible practices that create lasting value for stakeholders and society.',
+      description:'Helping businesses integrate responsible practices that create lasting value for stakeholders and society.',
+      color:"bg-linear-to-br from-[#084E75]/20 from-40% to-[#8D1821]/20 backdrop-blur-lg text-[#084E75]",
+      image:serviceTwo
     },
     {
       id: 11,
       label: 'BUSINESS VALUATION SERVICES',
-      description:
-        'Delivering reliable valuation insights to support fundraising, transactions, and strategic business decisions.',
+      description:'Delivering reliable valuation insights to support fundraising, transactions, and strategic business decisions.',
+      color:"bg-white border border-gray-200 text-[#084E75]",
+      image:serviceTwo
     },
     {
       id: 12,
       label: 'PRIVATE FUND ADVISORY',
-      description:
-        'Connecting businesses with suitable capital sources to support expansion and growth initiatives.',
+      description:'Connecting businesses with suitable capital sources to support expansion and growth initiatives.',
+      color:"bg-white border border-gray-200 text-[#084E75]",
+      image:serviceTwo
     },
     {
       id: 13,
       label: 'GOVERNMENT SCHEME ADVISORY',
-      description:
-        'Guiding businesses in identifying and leveraging government programs, incentives, and support opportunities.',
+      description:'Guiding businesses in identifying and leveraging government programs, incentives, and support opportunities.',
+      color:"bg-linear-to-b from-[#084E75]/90 from-40% via-[#084E75]/60 via-80% to-[#084E75]/40 to-100% text-white",
+      image:serviceTwo
     },
     {
       id: 14,
       label: 'DEBT ADVISORY',
-      description:
-        'Structuring debt solutions that strengthen financial stability and support future business objectives.',
+      description:'Structuring debt solutions that strengthen financial stability and support future business objectives.',
+      color:"bg-linear-to-br from-[#084E75]/20 from-40% to-[#8D1821]/20 backdrop-blur-lg text-[#084E75]",
+      image:serviceTwo
     },
     {
       id: 15,
       label: 'IPO ADVISORY',
-      description:
-        'Supporting businesses through every stage of their journey towards capital market readiness.',
+      description:'Supporting businesses through every stage of their journey towards capital market readiness.',
+      color:"bg-white border border-gray-200 text-[#084E75]",
+      image:serviceTwo
     },
     {
       id: 16,
       label: 'WEALTH MANAGEMENT & FAMILY OFFICE SERVICES',
-      description:
-        'Offering personalized wealth strategies focused on preservation, growth, and legacy planning.',
+      description:'Offering personalized wealth strategies focused on preservation, growth, and legacy planning.',
+      color:"bg-white border border-gray-200 text-[#084E75]",
+      image:serviceTwo
     },
   ]
 
@@ -403,7 +411,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative w-full h-screen overflow-hidden">
+      <section className="relative w-full h-screen overflow-hidden">
         {/* Video */}
         <video
           src="/banner.webm"
@@ -415,84 +423,112 @@ export default function Home() {
         />
 
         {/* Content */}
-        <div className="relative z-20 flex flex-col gap-4 justify-end h-full max-w-7xl mx-auto px-6 py-30">
+        <div className="relative z-20 flex flex-col gap-4 justify-end h-full max-w-7xl mx-auto py-30">
           <h1 className="text-white text-3xl md:text-[80px] font-bold uppercase flex gap-2 items-start">
             <div className="text-[#084E75]"><Image src={initial} alt="inital" className="-mt-4" width={70} height={70}/></div><span><DiaTextReveal repeat duration={1.8} repeatDelay={1} text={["ERSISTANCE", "LANNING", "ERFORMANCE"]}/></span>
           </h1>
           <p className="text-white text-2xl leading-relaxed max-w-xl">Strategic Financial Advisory Solutions Designed to Strengthen and Scale Businesses</p>
           <div className="flex gap-5 mt-5">
             <div>
-              <button className="px-6 py-3 rounded-lg border-2 border-[#084E75] bg-[#084E75] text-white text-base font-semibold cursor-pointer text-center">Our Services</button>
+              <button className="px-6 py-3 rounded-4xl border-2 border-[#084E75] bg-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40">Our Services</button>
             </div>
             <div>
-              <button className="px-6 py-3 rounded-lg border-2 border-[#084E75] text-white text-base font-semibold cursor-pointer text-center">Our Services</button>
+              <button className="px-6 py-3 rounded-4xl border-2 border-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40">Our Services</button>
             </div>
           </div>
         </div>
-      </div>
-      <div className="bg-white py-30">
+      </section>
+
+      <section className="bg-white py-30">
         <div className="max-w-7xl mx-auto grid grid-cols-2 gap-6">
           <div>
-            <span className="mb-3 inline-block rounded-full bg-[#084E75]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#084E75]">About Us</span>
-            <h2 className="text-5xl leading-normal capitalize font-bold"><span className="text-[#084E75]">Delivering Strategic Financial Solutions That</span><span className="text-[#8E8E90]"> Empower Businesses to Grow with Confidence </span></h2>
+            <h2 className="text-5xl leading-14 capitalize font-bold"><span className="text-[#084E75]">Delivering Strategic Financial Solutions That</span><span className="text-[#8E8E90]"> Empower Businesses to Grow with Confidence </span></h2>
             <div className="mt-4">
               <ul className="list-disc ml-4">
-                <li className="text-lg text-[#084E75] py-2">Funding and financial solutions designed for sustainable business growth</li>
-                <li className="text-lg text-[#084E75] py-2">Advisory support focused on performance, stability, and expansion</li>
-                <li className="text-lg text-[#084E75] py-2">Strategic guidance for businesses across multiple growth stages</li>
-                <li className="text-lg text-[#084E75] py-2">Ethical, transparent, and client-focused advisory approach</li>
-                <li className="text-lg text-[#084E75] py-2">Helping MSMEs and enterprises scale with financial confidence</li>
+                <li className="text-lg text-black mb-2">Funding and financial solutions designed for sustainable business growth</li>
+                <li className="text-lg text-black mb-2">Advisory support focused on performance, stability, and expansion</li>
+                <li className="text-lg text-black mb-2">Strategic guidance for businesses across multiple growth stages</li>
+                <li className="text-lg text-black mb-2">Ethical, transparent, and client-focused advisory approach</li>
+                <li className="text-lg text-black mb-2">Helping MSMEs and enterprises scale with financial confidence</li>
               </ul>
               <div className="flex gap-4 mt-6">
-                <Link href="/about-us" className="px-6 py-3 rounded-lg bg-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40">Learn More About Us</Link>
+                <Link href="/about-us" className="px-6 py-3 rounded-4xl bg-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40">Learn More About Us</Link>
               </div>
             </div>
           </div>
-          <div className="flex justify-center items-center relative">
-            <div className="h-150 bg-[#084E75] rounded-lg w-130 p-6 relative">
-              <div className="h-120">
-                <div className="absolute top-10 left-6 flex flex-col gap-3">
-                  <p className="uppercase text-xs text-white">Disbursements Facilitated</p>
-                  <p className="text-4xl font-bold text-white">₹340Cr+</p>
-                  <p className="text-base text-white">Fueling business growth <br/>accross India</p>
+          <div className="flex justify-end items-center relative">
+            <div className="bg-linear-to-br from-[#084E75]/10 from-50% to-[#8D1821]/10 backdrop-blur-lg rounded-4xl w-130 p-6 relative">
+              <div className=" bg-[#084E75] rounded-4xl p-4">
+                <div className="absolute top-20 left-20 flex flex-col gap-3">
+                  <p className="text-xs text-white">Disbursements Facilitated</p>
+                  <p className="text-3xl font-bold text-white">₹340Cr+</p>
+                  <p className="text-sm text-white">Fueling business growth <br/>accross India</p>
                 </div>
                 <div
                   id="chartdiv"
                   className="relative"
                   style={{
                     width: "100%",
-                    height: "450px",
+                    height: "350px",
                   }}
                 />
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-3 mt-6">
                 {achievements.map((data)=>
-                  <div key={data.id} className="bg-[#0a5d8a] flex flex-col items-center gap-2 p-2 rounded-lg">
-                    <p className="text-lg text-white font-bold">{data.heading}</p>
-                    <p className="text-sm text-white">{data.label}</p>
+                  <div key={data.id} className="bg-[#084E75] flex flex-col items-center justify-center gap-0 p-4 rounded-4xl">
+                    <p className="text-lg text-white text-center font-bold">{data.heading}</p>
+                    <p className="text-sm text-white text-center">{data.label}</p>
                   </div>
                 )}
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="bg-[#084E75] relative pt-20 pb-0">
-        <div className="max-w-7xl mx-auto px-6">
-          <span className="mb-3 inline-block rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/80">Services</span>
-          <h3 className="text-5xl font-bold text-white leading-relaxed">Expert Solutions For Every <br /><span className="text-white/70">Stage Of Growth</span></h3>
-          <p className="text-white max-w-3xl text-lg leading-relaxed mt-2">Comprehensive advisory solutions designed to strengthen financial performance, support business expansion, and build long-term stability. We partner with businesses to create strategies that drive sustainable success.</p>
+      </section>
+
+      <section className="bg-white relative pt-20 pb-0">
+        <div className="max-w-7xl mx-auto">
+          <h3 className="text-5xl font-bold text-[#084E75] leading-14">Expert Solutions For Every <br /><span className="text-[#8E8E90]">Stage Of Growth</span></h3>
           <div className="mt-8">
             <HorizontalScrollCarousel cards={services}/>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section className="bg-[#8E8E90]/5 relative py-20">
+        <div className="max-w-7xl mx-auto h-120 bg-white shadow-lg backdrop-blur-lg rounded-4xl grid grid-cols-2 px-10 border border-gray-200">
+          <div className="flex flex-col justify-center">
+            <h4 className="text-5xl text-[#084E75] font-semibold mb-4 leading-16">Proactive Financial Expertise</h4>
+            <p className="text-lg">Tailored financial solutions designed to help MSMEs and businesses improve stability, optimize performance, and achieve sustainable growth</p>
+          </div>
+          <div className="flex flex-col justify-center">
+            <Image src={intro} alt="Intro Image" className="h-100 w-full"/>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-[#084E75] py-14">
+        <div className="max-w-7xl mx-auto flex justify-between">
+          <div className="max-w-xl">
+            <h5 className="text-5xl leading-16 font-bold text-white">Ready to strengthen your business finances?</h5>
+            <p className="mt-3 text-white/70 text-lg">Connect with our advisory team and discover solutions tailored to your growth goals.</p>
+          </div>
+          <div className="flex items-center">
+            <Link href="/contact" className="group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-white px-8 py-4 text-base font-semibold text-[#084E75] transition-all shadow-[5px_5px] shadow-white/50">
+              Get In Touch
+              <IconArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
       {/* Client Reviews */}
       <section className="relative overflow-hidden bg-white py-24">
         <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 -left-32 size-96 rounded-full bg-[#5BBCEB]/10 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="relative mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -501,17 +537,14 @@ export default function Home() {
             className="mb-14 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end"
           >
             <div className="max-w-2xl">
-              <span className="mb-3 inline-block rounded-full bg-[#084E75]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#084E75]">
-                Client Reviews
-              </span>
-              <h2 className="text-4xl font-bold leading-tight text-[#084E75] md:text-5xl">
+              <h5 className="text-4xl font-bold leading-tight text-[#084E75] md:text-5xl">
                 Trusted by Businesses
                 <br />
                 <span className="text-[#8E8E90]">Across India</span>
-              </h2>
+              </h5>
             </div>
 
-            <div className="flex items-center gap-6 rounded-2xl border border-[#084E75]/10 bg-[#084E75]/5 px-6 py-4">
+            <div className="flex items-center gap-6 rounded-4xl border border-[#084E75]/10 bg-[#084E75]/5 px-6 py-4">
               <div className="text-center">
                 <p className="text-3xl font-bold text-[#084E75]">4.9</p>
                 <div className="mt-1 flex justify-center gap-0.5">
@@ -539,7 +572,7 @@ export default function Home() {
                   exit={{ opacity: 0, x: reviewDirection >= 0 ? -80 : 80 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
-                  <div className="relative overflow-hidden rounded-2xl bg-[#084E75] p-8 md:p-10">
+                  <div className="relative overflow-hidden rounded-4xl bg-[#084E75] p-8 md:p-10">
                     <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-white/5" />
                     <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-[#5BBCEB]/10" />
                     <div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
@@ -614,9 +647,7 @@ export default function Home() {
       </section>
 
       {/* Contact Form */}
-      <section id="contact" className="relative overflow-hidden bg-[#f4f8fb] py-24">
-        <div className="pointer-events-none absolute -left-40 top-0 size-125 rounded-full bg-[#084E75]/5 blur-3xl" />
-        <div className="pointer-events-none absolute -right-40 bottom-0 size-100 rounded-full bg-[#5BBCEB]/15 blur-3xl" />
+      <section id="contact" className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 from-50% to-[#8D1821]/10 backdrop-blur-lg py-24">
 
         <div className="relative mx-auto max-w-7xl">
           <motion.div
@@ -626,12 +657,9 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="mb-14 text-center"
           >
-            <span className="mb-3 inline-block rounded-full bg-[#084E75]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#084E75]">
-              Get In Touch
-            </span>
-            <h2 className="text-4xl font-bold text-[#084E75] md:text-5xl">
+            <h5 className="text-4xl font-bold text-[#084E75] md:text-5xl">
               Let&apos;s Start a Conversation
-            </h2>
+            </h5>
             <p className="mx-auto mt-4 max-w-xl text-lg text-[#8E8E90]">
               Tell us about your business goals. Our advisory team will respond within one business day.
             </p>
@@ -645,9 +673,8 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="flex flex-col gap-6"
             >
-              <div className="rounded-2xl bg-[#084E75] p-8 text-white">
-                <h3 className="mb-2 text-2xl font-bold">Ready to Move Your Business Forward?</h3>
-                <p className="leading-relaxed text-white/70">Whether you’re planning expansion, improving financial efficiency, or exploring new opportunities, our team is here to guide you with strategic expertise and practical solutions.</p>
+              <div className="rounded-4xl bg-[#084E75] p-8 text-white shadow-md shadow-[#084E75]/8">
+                <h5 className="mb-2 text-2xl font-bold">Ready to Move Your Business Forward?</h5>
               </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
                 {contactInfo.map((item, i) => (
@@ -657,9 +684,9 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
-                    className="group flex items-start gap-4 rounded-2xl border border-[#084E75]/10 bg-white p-5 transition-all duration-300 hover:border-[#084E75]/25 hover:shadow-md hover:shadow-[#084E75]/8"
+                    className="group flex items-start gap-4 rounded-4xl border border-[#084E75]/10 bg-white p-5 transition-all duration-300 hover:border-[#084E75]/25 shadow-md shadow-[#084E75]/8"
                   >
-                    <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#084E75]/10 text-[#084E75] transition-colors group-hover:bg-[#084E75] group-hover:text-white">
+                    <div className="flex size-11 shrink-0 items-center justify-center rounded-4xl bg-[#084E75]/10 text-[#084E75] transition-colors group-hover:bg-[#084E75] group-hover:text-white">
                       <item.icon className="size-5" />
                     </div>
                     <div>
@@ -682,7 +709,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="rounded-2xl border border-[#084E75]/10 bg-white p-8 shadow-xl shadow-[#084E75]/5 md:p-10"
+              className="rounded-4xl border border-[#084E75]/10 bg-white p-8 shadow-xl shadow-[#084E75]/5 md:p-10"
             >
               {submitted ? (
                 <motion.div
@@ -693,7 +720,7 @@ export default function Home() {
                   <div className="mb-6 flex size-16 items-center justify-center rounded-full bg-[#084E75]/10 text-[#084E75]">
                     <IconCheck className="size-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#084E75]">Message Sent!</h3>
+                  <h5 className="text-2xl font-bold text-[#084E75]">Message Sent!</h5>
                   <p className="mt-3 max-w-sm text-[#8E8E90]">
                     Thank you for reaching out. Our team will get back to you shortly.
                   </p>
@@ -757,7 +784,7 @@ export default function Home() {
                   </div>
                   <button
                     type="submit"
-                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#084E75] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl hover:shadow-[#084E75]/30"
+                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl hover:shadow-[#084E75]/30"
                   >
                     Send Message
                     <IconSend className="size-5 transition-transform group-hover:translate-x-1" />

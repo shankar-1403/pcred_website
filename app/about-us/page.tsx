@@ -2,16 +2,10 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import {
-  IconTarget,
-  IconEye,
-  IconFlag,
-  IconChartLine,
-  IconTrendingUp,
-  IconUsers,
-  IconShieldCheck,
-  IconArrowRight,
-} from "@tabler/icons-react";
+import {IconTarget,IconEye,IconFlag,IconChartLine,IconTrendingUp,IconUsers,IconShieldCheck,IconArrowRight,IconChevronRight} from "@tabler/icons-react";
+import Image from "next/image";
+import AboutUs from "../../public/aboutpage1.png"
+import AboutUsTwo from "../../public/aboutpage2.png"
 
 const aboutPillars = [
   {
@@ -64,10 +58,7 @@ const coreBeliefs = [
 export default function AboutUsPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-[#084E75] py-28">
-        <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/30 to-transparent" />
-        <div className="pointer-events-none absolute -right-32 top-0 size-96 rounded-full bg-[#0a5d8a]/40 blur-3xl" />
-        <div className="pointer-events-none absolute -left-32 bottom-0 size-80 rounded-full bg-white/5 blur-3xl" />
+      <section className="relative bg-linear-to-b from-[#084E75] via-[#084E75]/50 to-white backdrop-blur-2xl h-150 py-30 flex items-end">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
@@ -77,22 +68,18 @@ export default function AboutUsPage() {
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-6">
+        <div className="relative mx-auto max-w-7xl w-full">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl"
           >
-            <span className="mb-4 inline-block rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/80 backdrop-blur-sm">
-              About Pcred
-            </span>
             <h1 className="text-4xl font-bold leading-[1.15] text-white md:text-5xl lg:text-6xl">
               Building Businesses
               <br />
-              <span className="text-white/70">Through Smart Finance</span>
+              <span className="text-[#084E75]">Through Smart Finance</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#084E75]">
               We partner with MSMEs and growing enterprises to deliver strategic
               financial advisory, funding solutions, and long-term growth support.
             </p>
@@ -101,6 +88,55 @@ export default function AboutUsPage() {
       </section>
 
       <section className="relative overflow-hidden bg-white py-24">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-6 relative">
+          <div className="relative h-160 rounded-4xl overflow-hidden">
+            {/* Background Image */}
+            <Image
+              src={AboutUs}
+              alt="About Section"
+              fill
+              className="object-cover"
+              priority
+            />
+
+            {/* Optional Dark Overlay */}
+            <div className="absolute inset-0 bg-black/40"></div>
+
+            {/* Content */}
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
+              <h2 className="max-w-4xl text-5xl font-bold leading-tight text-white mb-8">
+                Leading the Future of Financial Advisory for Businesses
+              </h2>
+
+              <Link href="/contact" className="rounded-full text-white flex gap-1 items-center">Get Started <IconChevronRight size={18}/></Link>
+            </div>
+          </div>
+          <div className="relative h-160 rounded-4xl overflow-hidden">
+            {/* Background Image */}
+            <Image
+              src={AboutUsTwo}
+              alt="About Section"
+              fill
+              className="object-cover"
+              priority
+            />
+
+            {/* Optional Dark Overlay */}
+            <div className="absolute inset-0 bg-black/40"></div>
+
+            {/* Content */}
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
+              <h2 className="max-w-4xl text-5xl font-bold leading-tight text-white mb-8">
+                Leading the Future of Financial Advisory for Businesses
+              </h2>
+
+              <Link href="/contact" className="rounded-full text-white flex gap-1 items-center">Get Started <IconChevronRight size={18}/></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden py-20">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl">
@@ -109,14 +145,11 @@ export default function AboutUsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-10 text-center"
+            className="mb-20 text-center"
           >
-            <span className="mb-3 inline-block rounded-full bg-[#084E75]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#084E75]">
-              What Drives Us
-            </span>
-            <h2 className="text-2xl font-bold text-[#084E75] md:text-3xl">
+            <h3 className="text-4xl font-semibold text-[#084E75]">
               Mission, Vision & Aim
-            </h2>
+            </h3>
           </motion.div>
 
           <div className="mb-20 grid gap-6 md:grid-cols-3">
@@ -127,70 +160,31 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative overflow-hidden rounded-2xl border border-[#084E75]/10 bg-[#084E75]/5 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#084E75]/25 hover:shadow-xl hover:shadow-[#084E75]/10"
+                className="group relative overflow-hidden rounded-4xl bg-linear-to-br from-[#084E75]/10 from-50% to-[#8D1821]/10 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#084E75]/25 hover:shadow-xl hover:shadow-[#084E75]/10"
               >
-                <div className="absolute inset-x-0 top-0 h-1 bg-[#084E75]" />
                 <span className="absolute right-6 top-6 font-mono text-4xl font-bold text-[#084E75]/10">
                   {pillar.number}
                 </span>
                 <div className="relative mb-6 flex size-14 items-center justify-center rounded-2xl bg-[#084E75] text-white shadow-lg shadow-[#084E75]/20 transition-transform duration-300 group-hover:scale-105">
                   <pillar.icon className="size-7" stroke={1.5} />
                 </div>
-                <h3 className="relative mb-3 text-xl font-bold text-[#084E75]">{pillar.title}</h3>
-                <p className="relative text-sm leading-relaxed text-[#8E8E90]">{pillar.text}</p>
+                <h4 className="relative mb-3 text-3xl font-bold text-[#084E75]">{pillar.title}</h4>
+                <p className="relative text-lg text-black">{pillar.text}</p>
               </motion.div>
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end"
-          >
-            <div className="max-w-2xl">
-              <span className="mb-3 inline-block rounded-full bg-[#084E75]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#084E75]">
-                Our Core Beliefs
-              </span>
-              <h2 className="text-3xl font-bold text-[#084E75] md:text-4xl">
-                Principles That Guide Every Partnership
-              </h2>
-            </div>
-          </motion.div>
-
-          <div className="grid gap-6 sm:grid-cols-2">
-            {coreBeliefs.map((belief, i) => (
-              <motion.div
-                key={belief.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group relative overflow-hidden rounded-2xl border border-[#084E75]/10 bg-[#084E75]/5 p-8 transition-all duration-300 hover:border-[#084E75]/25 hover:shadow-lg hover:shadow-[#084E75]/8"
-              >
-                <div className="absolute left-0 top-8 h-16 w-1 rounded-r-full bg-[#084E75]/0 transition-colors duration-300 group-hover:bg-[#084E75]" />
-                <div className="mb-5 flex size-12 items-center justify-center rounded-xl bg-[#084E75]/10 text-[#084E75] transition-all duration-300 group-hover:bg-[#084E75] group-hover:text-white">
-                  <belief.icon className="size-6" stroke={1.5} />
-                </div>
-                <h3 className="mb-3 text-lg font-semibold leading-snug text-[#084E75]">
-                  {belief.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-[#8E8E90]">{belief.description}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section className="bg-[#084E75]/5 py-16">
+      <section className="pb-20 pt-0">
         <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-2xl bg-[#084E75] px-8 py-12 md:px-14 md:py-14"
+            className="relative overflow-hidden rounded-4xl bg-[#084E75] px-8 py-12 md:px-14 md:py-14"
           >
             <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#0a5d8a]/50 blur-2xl" />
             <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
@@ -204,10 +198,7 @@ export default function AboutUsPage() {
                   Connect with our advisory team and discover solutions tailored to your growth goals.
                 </p>
               </div>
-              <Link
-                href="/#contact"
-                className="group inline-flex shrink-0 items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-semibold text-[#084E75] shadow-lg transition-all hover:bg-white/90"
-              >
+              <Link href="/#contact" className="group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-white px-8 py-4 text-base font-semibold text-[#084E75] transition-all shadow-[5px_5px] shadow-white/50">
                 Get In Touch
                 <IconArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
               </Link>
