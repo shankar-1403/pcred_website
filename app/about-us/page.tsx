@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import {IconTarget,IconEye,IconFlag,IconChartLine,IconTrendingUp,IconUsers,IconShieldCheck,IconArrowRight,IconChevronRight} from "@tabler/icons-react";
 import Image from "next/image";
-import AboutUs from "../../public/aboutpage1.png"
+import AboutUsThree from "../../public/aboutpage3.png"
 import AboutUsTwo from "../../public/aboutpage2.png"
 
 const aboutPillars = [
@@ -58,7 +58,7 @@ const coreBeliefs = [
 export default function AboutUsPage() {
   return (
     <>
-      <section className="relative bg-linear-to-b from-[#084E75] via-[#084E75]/50 to-white backdrop-blur-2xl h-150 py-30 flex items-end">
+      <section className="relative bg-white backdrop-blur-2xl h-150 py-30 flex items-end">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
@@ -74,12 +74,12 @@ export default function AboutUsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl font-bold leading-[1.15] text-white md:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-bold leading-[1.15] text-[#084E75] md:text-5xl lg:text-6xl text-shadow-lg">
               Building Businesses
               <br />
-              <span className="text-[#084E75]">Through Smart Finance</span>
+              <span className="text-[#8E8E90]">Through Smart Finance</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#084E75]">
+            <p className="mt-6 max-w-xl text-xl leading-relaxed text-[#084E75]">
               We partner with MSMEs and growing enterprises to deliver strategic
               financial advisory, funding solutions, and long-term growth support.
             </p>
@@ -87,31 +87,21 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-white py-24">
+      <section className="relative overflow-hidden bg-[#8E8E90]/10 py-24">
         <div className="max-w-7xl mx-auto grid grid-cols-2 gap-6 relative">
-          <div className="relative h-160 rounded-4xl overflow-hidden">
-            {/* Background Image */}
-            <Image
-              src={AboutUs}
-              alt="About Section"
-              fill
-              className="object-cover"
-              priority
-            />
-
-            {/* Optional Dark Overlay */}
-            <div className="absolute inset-0 bg-black/40"></div>
+          <div className="relative h-150 rounded-4xl overflow-hidden  bg-white border border-gray-200 shadow-lg">
 
             {/* Content */}
-            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
-              <h2 className="max-w-4xl text-5xl font-bold leading-tight text-white mb-8">
-                Leading the Future of Financial Advisory for Businesses
-              </h2>
-
-              <Link href="/contact" className="rounded-full text-white flex gap-1 items-center">Get Started <IconChevronRight size={18}/></Link>
+            <div className="z-10 flex flex-col gap-6 p-6 h-full">
+              <div>
+                <h2 className="text-4xl font-bold text-[#084E75] leading-12">Strategic financial guidance for business growth and clarity</h2>
+              </div>
+              <div>
+                <Image src={AboutUsThree} alt="About Section" className="object-cover h-120"/>
+              </div>
             </div>
           </div>
-          <div className="relative h-160 rounded-4xl overflow-hidden">
+          <div className="relative h-150 rounded-4xl overflow-hidden shadow-lg">
             {/* Background Image */}
             <Image
               src={AboutUsTwo}

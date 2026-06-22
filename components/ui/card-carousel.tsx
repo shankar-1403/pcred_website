@@ -92,7 +92,7 @@ const Card = ({ card }: CardProps) => {
           {card.description}
         </p>
         <div className="flex justify-center">
-          <Image src={card.image} alt={card.label} className="h-40 w-full"/>
+          <Image src={card.image} alt={card.label} className="object-contain"/>
         </div>
       </div>
     </div>

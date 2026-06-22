@@ -146,7 +146,7 @@ const services: Service[] = [
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative bg-linear-to-b from-[#084E75] via-[#084E75]/50 to-white backdrop-blur-2xl h-150 py-30 flex items-end">
+      <section className="relative bg-linear-to-b from-[#084E75]/60 via-[#084E75]/30 to-white backdrop-blur-2xl h-150 py-30 flex items-end">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
@@ -163,12 +163,12 @@ export default function ServicesPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <h1 className="text-4xl font-bold leading-[1.15] text-white md:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-bold leading-[1.15] text-white md:text-5xl lg:text-6xl text-shadow-lg">
               Expert Solutions For
               <br />
               <span className="text-[#084E75]">Every Stage Of Growth</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#084E75]">
+            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-[#084E75]">
               Comprehensive financial advisory designed to strengthen performance,
               support expansion, and build long-term stability for MSMEs and enterprises.
             </p>
@@ -176,7 +176,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-white py-24">
+      <section className="relative overflow-hidden bg-linear-to-b from-white via-gray-50 to-gray-100 py-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl">
@@ -188,7 +188,7 @@ export default function ServicesPage() {
             className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end"
           >
             <div>
-              <h2 className="text-3xl font-bold text-[#084E75] md:text-4xl">
+              <h2 className="text-3xl font-semibold text-[#084E75] md:text-4xl">
                 How We Help Your Business Grow
               </h2>
             </div>
@@ -202,27 +202,18 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
-                className="group relative flex flex-col overflow-hidden rounded-4xl bg-linear-to-br from-[#084E75] from-50% via-[#084E75]/80 via-80% to-[#084E75]/60 to-100% p-6 shadow-[5px_5px] shadow-[#084E75]/40"
+                className="group h-80 relative flex flex-col overflow-hidden rounded-4xl bg-white p-6 shadow-lg border border-gray-100"
               >
-                <div className="absolute inset-x-0 top-0 h-1 bg-[#084E75]/0 transition-colors duration-300 group-hover:bg-[#084E75]" />
-                <span className="absolute right-5 top-5 font-mono text-sm font-semibold text-[#084E75]/20">
-                  {String(service.id).padStart(2, "0")}
-                </span>
-
-                <div className="mb-5 flex size-12 items-center justify-center rounded-4xl bg-white text-[#084E75] shadow-md shadow-[#084E75]/20 transition-transform duration-300 group-hover:scale-105">
-                  <service.icon className="size-6" stroke={1.5} />
-                </div>
-
-                <h3 className="mb-3 pr-8 text-lg font-bold leading-snug text-white">
+                <h3 className="mb-3 text-2xl font-semibold text-[#084E75]">
                   {service.label}
                 </h3>
-                <p className="mb-6 flex-1 text-sm leading-relaxed text-white">
+                <p className="flex-1 text-sm mb-10 leading-relaxed text-[#084E75]">
                   {service.description}
                 </p>
 
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#084E75]/60 transition-colors group-hover:text-[#084E75]"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#084E75]"
                 >
                   Enquire now
                   <IconArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />

@@ -1,12 +1,7 @@
 'use client';
 import { useState } from "react";
-import {Navbar,NavBody,NavItems,
-  MobileNav,
-  NavbarLogo,
-  NavbarButton,
-  MobileNavHeader,
-  MobileNavToggle,
-  MobileNavMenu,} from "../components/ui/resizable-navbar"
+import {Navbar,NavBody,NavItems,MobileNav,NavbarLogo,NavbarButton,MobileNavHeader,MobileNavToggle,MobileNavMenu,} from "../components/ui/resizable-navbar"
+import Link from "next/link";
 
 export default function Header() {
   const navItems = [
@@ -24,7 +19,7 @@ export default function Header() {
     },
     {
       name: "Blogs",
-      link: "#contact",
+      link: "/blogs",
     },
   ];
 
@@ -36,9 +31,7 @@ export default function Header() {
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
-          <div className="flex items-center gap-4">
-            <button className="px-6 py-3 rounded-4xl bg-[#084E75] text-white text-xs cursor-pointer text-center">Contact Us</button>
-          </div>
+          <Link href="/contact" className="px-6 py-3 rounded-4xl bg-[#084E75] text-white text-xs cursor-pointer text-center z-99">Contact Us</Link>
         </NavBody>
  
         {/* Mobile Navigation */}

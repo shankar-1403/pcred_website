@@ -442,7 +442,7 @@ export default function Home() {
       <section className="bg-white py-30">
         <div className="max-w-7xl mx-auto grid grid-cols-2 gap-6">
           <div>
-            <h2 className="text-5xl leading-14 capitalize font-bold"><span className="text-[#084E75]">Delivering Strategic Financial Solutions That</span><span className="text-[#8E8E90]"> Empower Businesses to Grow with Confidence </span></h2>
+            <h2 className="text-5xl leading-14 capitalize font-semibold"><span className="text-[#084E75]">Delivering Strategic Financial Solutions That</span><span className="text-[#8E8E90]"> Empower Businesses to Grow with Confidence </span></h2>
             <div className="mt-4">
               <ul className="list-disc ml-4">
                 <li className="text-lg text-black mb-2">Funding and financial solutions designed for sustainable business growth</li>
@@ -488,7 +488,7 @@ export default function Home() {
 
       <section className="bg-white relative pt-20 pb-0">
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-5xl font-bold text-[#084E75] leading-14">Expert Solutions For Every <br /><span className="text-[#8E8E90]">Stage Of Growth</span></h3>
+          <h3 className="text-5xl font-semibold text-[#084E75] leading-14">Expert Solutions For Every <br /><span className="text-[#8E8E90]">Stage Of Growth</span></h3>
           <div className="mt-8">
             <HorizontalScrollCarousel cards={services}/>
           </div>
@@ -496,7 +496,9 @@ export default function Home() {
       </section>
 
       <section className="bg-[#8E8E90]/5 relative py-20">
-        <div className="max-w-7xl mx-auto h-120 bg-white shadow-lg backdrop-blur-lg rounded-4xl grid grid-cols-2 px-10 border border-gray-200">
+        <div className="max-w-7xl mx-auto h-120 bg-white shadow-lg backdrop-blur-lg rounded-4xl grid grid-cols-2 px-10 border border-gray-200 relative overflow-hidden">
+          <div className="bg-linear-to-br from-[#084E75]/5 from-40% to-[#8D1821]/5 rounded-full w-80 h-80 -top-30 -right-30 absolute"/>
+          <div className="bg-linear-to-br from-[#084E75]/5 from-40% to-[#8D1821]/5 rounded-full w-100 h-100 -bottom-30 -left-30 absolute"/>
           <div className="flex flex-col justify-center">
             <h4 className="text-5xl text-[#084E75] font-semibold mb-4 leading-16">Proactive Financial Expertise</h4>
             <p className="text-lg">Tailored financial solutions designed to help MSMEs and businesses improve stability, optimize performance, and achieve sustainable growth</p>
@@ -510,7 +512,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[#084E75] py-14">
         <div className="max-w-7xl mx-auto flex justify-between">
           <div className="max-w-xl">
-            <h5 className="text-5xl leading-16 font-bold text-white">Ready to strengthen your business finances?</h5>
+            <h5 className="text-5xl leading-16 font-semibold text-white">Ready to strengthen your business finances?</h5>
             <p className="mt-3 text-white/70 text-lg">Connect with our advisory team and discover solutions tailored to your growth goals.</p>
           </div>
           <div className="flex items-center">
@@ -537,7 +539,7 @@ export default function Home() {
             className="mb-14 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end"
           >
             <div className="max-w-2xl">
-              <h5 className="text-4xl font-bold leading-tight text-[#084E75] md:text-5xl">
+              <h5 className="text-4xl font-semibold leading-tight text-[#084E75] md:text-5xl">
                 Trusted by Businesses
                 <br />
                 <span className="text-[#8E8E90]">Across India</span>
@@ -657,7 +659,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="mb-14 text-center"
           >
-            <h5 className="text-4xl font-bold text-[#084E75] md:text-5xl">
+            <h5 className="text-4xl font-semibold text-[#084E75] md:text-5xl">
               Let&apos;s Start a Conversation
             </h5>
             <p className="mx-auto mt-4 max-w-xl text-lg text-[#8E8E90]">
@@ -674,7 +676,7 @@ export default function Home() {
               className="flex flex-col gap-6"
             >
               <div className="rounded-4xl bg-[#084E75] p-8 text-white shadow-md shadow-[#084E75]/8">
-                <h5 className="mb-2 text-2xl font-bold">Ready to Move Your Business Forward?</h5>
+                <h5 className="mb-2 text-2xl font-semibold">Ready to Move Your Business Forward?</h5>
               </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
                 {contactInfo.map((item, i) => (
