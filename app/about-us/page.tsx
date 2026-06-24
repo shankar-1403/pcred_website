@@ -74,10 +74,10 @@ export default function AboutUsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl font-bold leading-[1.15] text-[#084E75] md:text-5xl lg:text-6xl text-shadow-lg">
+            <h1 className="text-4xl font-bold leading-[1.15] text-[#084E75] md:text-5xl lg:text-6xl">
               Building Businesses
               <br />
-              <span className="text-[#8E8E90]">Through Smart Finance</span>
+              <span className="text-[#DDB162]">Through Smart Finance</span>
             </h1>
             <p className="mt-6 max-w-xl text-xl leading-relaxed text-[#084E75]">
               We partner with MSMEs and growing enterprises to deliver strategic
@@ -87,7 +87,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#8E8E90]/10 py-24">
+      <section className="relative overflow-hidden bg-[#8E8E90]/5 py-24">
         <div className="max-w-7xl mx-auto grid grid-cols-2 gap-6 relative">
           <div className="relative h-150 rounded-4xl overflow-hidden  bg-white border border-gray-200 shadow-lg">
 
@@ -112,15 +112,15 @@ export default function AboutUsPage() {
             />
 
             {/* Optional Dark Overlay */}
-            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="absolute inset-0 bg-black/60"></div>
 
             {/* Content */}
             <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
-              <h2 className="max-w-4xl text-5xl font-bold leading-tight text-white mb-8">
+              <h3 className="max-w-4xl text-5xl font-bold leading-tight text-white mb-8">
                 Leading the Future of Financial Advisory for Businesses
-              </h2>
+              </h3>
 
-              <Link href="/contact" className="rounded-full text-white flex gap-1 items-center">Get Started <IconChevronRight size={18}/></Link>
+              <Link href="/contact" className="rounded-full text-[#DDB162] font-bold flex gap-1 items-center">Get Started <IconChevronRight size={18}/></Link>
             </div>
           </div>
         </div>
@@ -137,9 +137,9 @@ export default function AboutUsPage() {
             transition={{ duration: 0.5 }}
             className="mb-20 text-center"
           >
-            <h3 className="text-4xl font-semibold text-[#084E75]">
+            <h4 className="text-4xl font-semibold text-[#084E75]">
               Mission, Vision & Aim
-            </h3>
+            </h4>
           </motion.div>
 
           <div className="mb-20 grid gap-6 md:grid-cols-3">
@@ -150,16 +150,16 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative overflow-hidden rounded-4xl bg-linear-to-br from-[#084E75]/10 from-50% to-[#8D1821]/10 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#084E75]/25 hover:shadow-xl hover:shadow-[#084E75]/10"
+                className="group relative overflow-hidden rounded-4xl bg-[#DDB162]/5 p-8 transition-all shadow-lg duration-300 hover:-translate-y-1 hover:border-[#084E75]/25 hover:shadow-xl hover:shadow-[#084E75]/10"
               >
                 <span className="absolute right-6 top-6 font-mono text-4xl font-bold text-[#084E75]/10">
                   {pillar.number}
                 </span>
-                <div className="relative mb-6 flex size-14 items-center justify-center rounded-2xl bg-[#084E75] text-white shadow-lg shadow-[#084E75]/20 transition-transform duration-300 group-hover:scale-105">
+                <div className="relative mb-6 flex size-14 items-center justify-center rounded-2xl bg-[#DDB162] text-white transition-transform duration-300 group-hover:scale-105">
                   <pillar.icon className="size-7" stroke={1.5} />
                 </div>
-                <h4 className="relative mb-3 text-3xl font-bold text-[#084E75]">{pillar.title}</h4>
-                <p className="relative text-lg text-black">{pillar.text}</p>
+                <h5 className="relative mb-3 text-2xl font-bold text-[#084E75]">{pillar.title}</h5>
+                <p className="relative text-lg text-[#084E75]">{pillar.text}</p>
               </motion.div>
             ))}
           </div>
@@ -181,14 +181,14 @@ export default function AboutUsPage() {
 
             <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
               <div className="max-w-xl">
-                <h2 className="text-2xl font-bold text-white md:text-3xl">
+                <h5 className="text-2xl font-bold text-white md:text-3xl">
                   Ready to strengthen your business finances?
-                </h2>
+                </h5>
                 <p className="mt-3 text-white/70">
                   Connect with our advisory team and discover solutions tailored to your growth goals.
                 </p>
               </div>
-              <Link href="/#contact" className="group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-white px-8 py-4 text-base font-semibold text-[#084E75] transition-all shadow-[5px_5px] shadow-white/50">
+              <Link href="/#contact" className="group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-[#DDB162] px-8 py-4 text-base font-semibold text-white transition-all shadow-[5px_5px] shadow-[#DDB162]/50">
                 Get In Touch
                 <IconArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
               </Link>

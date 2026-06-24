@@ -132,7 +132,7 @@ export default function Home() {
       id: 2,
       label: 'FISCAL OPTIMIZATION',
       description:'Creating efficient financial structures that support profitability, compliance, and long-term business growth.',
-      color:"bg-linear-to-br from-[#084E75]/20 from-40% to-[#8D1821]/20 backdrop-blur-lg text-[#084E75]",
+      color:"bg-linear-to-br from-[#084E75]/20 from-40% to-[#DDB162]/20 backdrop-blur-lg text-[#084E75]",
       image:serviceTwo
     },
     {
@@ -160,7 +160,7 @@ export default function Home() {
       id: 6,
       label: 'RISK MANAGEMENT ADVISORY',
       description:'Identifying potential risks and developing practical strategies to protect business stability and performance.',
-      color:"bg-linear-to-br from-[#084E75]/20 from-40% to-[#8D1821]/20 backdrop-blur-lg text-[#084E75]",
+      color:"bg-linear-to-br from-[#084E75]/20 from-40% to-[#DDB162]/20 backdrop-blur-lg text-[#084E75]",
       image:serviceTwo
     },
     {
@@ -188,7 +188,7 @@ export default function Home() {
       id: 10,
       label: 'ESG & SUSTAINABILITY ADVISORY',
       description:'Helping businesses integrate responsible practices that create lasting value for stakeholders and society.',
-      color:"bg-linear-to-br from-[#084E75]/20 from-40% to-[#8D1821]/20 backdrop-blur-lg text-[#084E75]",
+      color:"bg-linear-to-br from-[#084E75]/20 from-40% to-[#DDB162]/20 backdrop-blur-lg text-[#084E75]",
       image:serviceTwo
     },
     {
@@ -216,7 +216,7 @@ export default function Home() {
       id: 14,
       label: 'DEBT ADVISORY',
       description:'Structuring debt solutions that strengthen financial stability and support future business objectives.',
-      color:"bg-linear-to-br from-[#084E75]/20 from-40% to-[#8D1821]/20 backdrop-blur-lg text-[#084E75]",
+      color:"bg-linear-to-br from-[#084E75]/20 from-40% to-[#DDB162]/20 backdrop-blur-lg text-[#084E75]",
       image:serviceTwo
     },
     {
@@ -267,7 +267,7 @@ export default function Home() {
       centerX: am5.percent(50),
       textAlign: "center",
       paddingTop: 10,
-      fill: am5.color(0xffffff),
+      fill: am5.color(0x084E75),
     });
     const xAxis = chart.xAxes.push(
       am5xy.CategoryAxis.new(root, {
@@ -311,8 +311,8 @@ export default function Home() {
     // Line Style
     series.strokes.template.setAll({
       strokeWidth: 4,
-      strokeOpacity: 1,
-      stroke: am5.color(0x084E75),
+      strokeOpacity: 0,
+      stroke: am5.color(0xDDB162),
     });
 
     // Area Fill
@@ -321,11 +321,11 @@ export default function Home() {
       fillGradient: am5.LinearGradient.new(root, {
         stops: [
           {
-            color: am5.color(0x084E75),
+            color: am5.color(0xDDB162),
             opacity: 0.9,
           },
           {
-            color: am5.color(0x5BBCEB),
+            color: am5.color(0xDDB162),
             opacity: 0.1,
           },
         ],
@@ -337,7 +337,7 @@ export default function Home() {
       return am5.Bullet.new(root, {
         sprite: am5.Circle.new(root, {
           radius: 6,
-          fill: am5.color(0x084E75),
+          fill: am5.color(0xDDB162),
           stroke: am5.color(0xffffff),
           strokeWidth: 2,
         }),
@@ -433,7 +433,7 @@ export default function Home() {
               <button className="px-6 py-3 rounded-4xl border-2 border-[#084E75] bg-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40">Our Services</button>
             </div>
             <div>
-              <button className="px-6 py-3 rounded-4xl border-2 border-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40">Our Services</button>
+              <button className="px-6 py-3 rounded-4xl border-2 border-[#DDB162] bg-[#DDB162] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#DDB162]/40">Our Blogs</button>
             </div>
           </div>
         </div>
@@ -442,42 +442,42 @@ export default function Home() {
       <section className="bg-white py-30">
         <div className="max-w-7xl mx-auto grid grid-cols-2 gap-6">
           <div>
-            <h2 className="text-5xl leading-14 capitalize font-semibold"><span className="text-[#084E75]">Delivering Strategic Financial Solutions That</span><span className="text-[#8E8E90]"> Empower Businesses to Grow with Confidence </span></h2>
+              <h2 className="text-5xl leading-14 capitalize font-semibold"><span className="text-[#084E75]">Delivering Strategic Financial Solutions That</span><span className="text-[#DDB162]"> Empower Businesses to Grow with Confidence </span></h2>
             <div className="mt-4">
               <ul className="list-disc ml-4">
-                <li className="text-lg text-black mb-2">Funding and financial solutions designed for sustainable business growth</li>
-                <li className="text-lg text-black mb-2">Advisory support focused on performance, stability, and expansion</li>
-                <li className="text-lg text-black mb-2">Strategic guidance for businesses across multiple growth stages</li>
-                <li className="text-lg text-black mb-2">Ethical, transparent, and client-focused advisory approach</li>
-                <li className="text-lg text-black mb-2">Helping MSMEs and enterprises scale with financial confidence</li>
+                <li className="text-lg text-[#084E75] mb-2">Funding and financial solutions designed for sustainable business growth</li>
+                <li className="text-lg text-[#084E75] mb-2">Advisory support focused on performance, stability, and expansion</li>
+                <li className="text-lg text-[#084E75] mb-2">Strategic guidance for businesses across multiple growth stages</li>
+                <li className="text-lg text-[#084E75] mb-2">Ethical, transparent, and client-focused advisory approach</li>
+                <li className="text-lg text-[#084E75] mb-2">Helping MSMEs and enterprises scale with financial confidence</li>
               </ul>
               <div className="flex gap-4 mt-6">
                 <Link href="/about-us" className="px-6 py-3 rounded-4xl bg-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40">Learn More About Us</Link>
               </div>
             </div>
           </div>
-          <div className="flex justify-end items-center relative">
-            <div className="bg-linear-to-br from-[#084E75]/10 from-50% to-[#8D1821]/10 backdrop-blur-lg rounded-4xl w-130 p-6 relative">
-              <div className=" bg-[#084E75] rounded-4xl p-4">
-                <div className="absolute top-20 left-20 flex flex-col gap-3">
-                  <p className="text-xs text-white">Disbursements Facilitated</p>
-                  <p className="text-3xl font-bold text-white">₹340Cr+</p>
-                  <p className="text-sm text-white">Fueling business growth <br/>accross India</p>
+          <div className="flex justify-end items-start relative">
+            <div className="rounded-4xl w-130 relative">
+              <div className=" bg-white border border-[#084E75]/10 shadow-lg rounded-4xl p-4">
+                <div className="absolute top-20 left-15 flex flex-col gap-2">
+                  <p className="text-sm text-[#084E75]">Disbursements Facilitated</p>
+                  <p className="text-3xl font-bold text-[#DDB162]">₹340Cr+</p>
+                  <p className="text-base font-semibold text-[#084E75]">Fueling business growth <br/>accross India</p>
                 </div>
                 <div
                   id="chartdiv"
                   className="relative"
                   style={{
                     width: "100%",
-                    height: "350px",
+                    height: "400px",
                   }}
                 />
               </div>
               <div className="grid grid-cols-3 gap-3 mt-6">
                 {achievements.map((data)=>
-                  <div key={data.id} className="bg-[#084E75] flex flex-col items-center justify-center gap-0 p-4 rounded-4xl">
-                    <p className="text-lg text-white text-center font-bold">{data.heading}</p>
-                    <p className="text-sm text-white text-center">{data.label}</p>
+                  <div key={data.id} className="bg-white border border-[#084E75]/10 flex flex-col items-start justify-center gap-0 p-4 rounded-4xl shadow-lg h-30">
+                    <p className="text-lg text-[#DDB162] text-left font-bold">{data.heading}</p>
+                    <p className="text-sm text-[#084E75] text-left font-bold">{data.label}</p>
                   </div>
                 )}
               </div>
@@ -488,7 +488,7 @@ export default function Home() {
 
       <section className="bg-white relative pt-20 pb-0">
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-5xl font-semibold text-[#084E75] leading-14">Expert Solutions For Every <br /><span className="text-[#8E8E90]">Stage Of Growth</span></h3>
+          <h3 className="text-5xl font-semibold text-[#084E75] leading-14">Expert Solutions For Every <br /><span className="text-[#DDB162]">Stage Of Growth</span></h3>
           <div className="mt-8">
             <HorizontalScrollCarousel cards={services}/>
           </div>
@@ -497,8 +497,8 @@ export default function Home() {
 
       <section className="bg-[#8E8E90]/5 relative py-20">
         <div className="max-w-7xl mx-auto h-120 bg-white shadow-lg backdrop-blur-lg rounded-4xl grid grid-cols-2 px-10 border border-gray-200 relative overflow-hidden">
-          <div className="bg-linear-to-br from-[#084E75]/5 from-40% to-[#8D1821]/5 rounded-full w-80 h-80 -top-30 -right-30 absolute"/>
-          <div className="bg-linear-to-br from-[#084E75]/5 from-40% to-[#8D1821]/5 rounded-full w-100 h-100 -bottom-30 -left-30 absolute"/>
+          <div className="bg-linear-to-br from-[#DDB162]/10 from-40% to-[#8D1821]/5 rounded-full w-80 h-80 -top-30 -right-30 absolute"/>
+          <div className="bg-linear-to-br from-[#DDB162]/10 from-40% to-[#8D1821]/5 rounded-full w-100 h-100 -bottom-30 -left-30 absolute"/>
           <div className="flex flex-col justify-center">
             <h4 className="text-5xl text-[#084E75] font-semibold mb-4 leading-16">Proactive Financial Expertise</h4>
             <p className="text-lg">Tailored financial solutions designed to help MSMEs and businesses improve stability, optimize performance, and achieve sustainable growth</p>
@@ -516,7 +516,7 @@ export default function Home() {
             <p className="mt-3 text-white/70 text-lg">Connect with our advisory team and discover solutions tailored to your growth goals.</p>
           </div>
           <div className="flex items-center">
-            <Link href="/contact" className="group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-white px-8 py-4 text-base font-semibold text-[#084E75] transition-all shadow-[5px_5px] shadow-white/50">
+            <Link href="/contact" className="group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-[#DDB162] px-8 py-4 text-base font-semibold text-white transition-all shadow-[5px_5px] shadow-[#DDB162]/50">
               Get In Touch
               <IconArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
             </Link>
@@ -542,7 +542,7 @@ export default function Home() {
               <h5 className="text-4xl font-semibold leading-tight text-[#084E75] md:text-5xl">
                 Trusted by Businesses
                 <br />
-                <span className="text-[#8E8E90]">Across India</span>
+                <span className="text-[#DDB162]">Across India</span>
               </h5>
             </div>
 
@@ -551,7 +551,7 @@ export default function Home() {
                 <p className="text-3xl font-bold text-[#084E75]">4.9</p>
                 <div className="mt-1 flex justify-center gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <IconStarFilled key={i} className="size-4 text-amber-400" />
+                    <IconStarFilled key={i} className="size-4 text-[#DDB162]" />
                   ))}
                 </div>
               </div>

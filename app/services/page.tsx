@@ -2,22 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import {
-  IconArrowRight,
-  IconBriefcase,
-  IconChartLine,
-  IconRocket,
-  IconShield,
-  IconTrendingUp,
-  IconWallet,
-  IconBuildingBank,
-  IconReportAnalytics,
-  IconLeaf,
-  IconBuilding,
-  IconCoins,
-  IconCreditCard,
-  IconUsers,
-  IconCalculator,
+import {IconArrowRight,IconBriefcase,IconChartLine,IconRocket,IconShield,IconTrendingUp,IconWallet,IconBuildingBank,IconReportAnalytics,IconLeaf,IconBuilding,IconCoins,IconCreditCard,IconUsers,IconCalculator,
   type TablerIcon,
 } from "@tabler/icons-react";
 
@@ -146,7 +131,7 @@ const services: Service[] = [
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative bg-linear-to-b from-[#084E75]/60 via-[#084E75]/30 to-white backdrop-blur-2xl h-150 py-30 flex items-end">
+      <section className="relative bg-linear-to-br from-[#084E75]/20 from-30% to-[#DDB162]/20 backdrop-blur-2xl h-150 py-30 flex items-end">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
@@ -163,10 +148,10 @@ export default function ServicesPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <h1 className="text-4xl font-bold leading-[1.15] text-white md:text-5xl lg:text-6xl text-shadow-lg">
+            <h1 className="text-4xl font-bold leading-[1.15] text-[#084E75] md:text-5xl lg:text-6xl">
               Expert Solutions For
               <br />
-              <span className="text-[#084E75]">Every Stage Of Growth</span>
+              <span className="text-[#DDB162]">Every Stage Of Growth</span>
             </h1>
             <p className="mt-6 max-w-2xl text-xl leading-relaxed text-[#084E75]">
               Comprehensive financial advisory designed to strengthen performance,
@@ -245,7 +230,7 @@ export default function ServicesPage() {
                   Speak with our advisory team — we&apos;ll recommend the right approach for your business goals.
                 </p>
               </div>
-              <Link href="/#contact" className="group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-white px-8 py-4 text-base font-semibold text-[#084E75] transition-all shadow-[5px_5px] shadow-white/50"
+              <Link href="/#contact" className="group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-[#DDB162] px-8 py-4 text-base font-semibold text-white transition-all shadow-[5px_5px] shadow-[#DDB162]/50"
               >
                 Get In Touch
                 <IconArrowRight className="size-5 transition-transform group-hover:translate-x-1" />

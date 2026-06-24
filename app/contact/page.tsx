@@ -49,7 +49,7 @@ function page() {
   
   return (
     <>
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/20 from-40% to-[#8D1821]/20 backdrop-blur-2xl h-150 py-30 flex items-end">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/20 from-30% to-[#DDB162]/20 backdrop-blur-2xl h-150 py-30 flex items-end">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{

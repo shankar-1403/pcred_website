@@ -31,7 +31,7 @@ export default function Header() {
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
-          <Link href="/contact" className="px-6 py-3 rounded-4xl bg-[#084E75] text-white text-xs cursor-pointer text-center z-99">Contact Us</Link>
+          <Link href="/contact" className="px-6 py-3 rounded-4xl bg-[#DDB162] text-white text-xs cursor-pointer text-center z-99">Contact Us</Link>
         </NavBody>
  
         {/* Mobile Navigation */}
