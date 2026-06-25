@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import InternalHeader from "../components/InternalHeader";
 import Footer from "@/components/Footer";
 import { usePathname } from "next/navigation";
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function LayoutContent({
   children,
@@ -13,7 +14,7 @@ export default function LayoutContent({
   const pathname = usePathname();
 
   const hideLayout = ["/login"].includes(pathname);
-  const internalLayout = ["/cms"].includes(pathname);
+  const internalLayout = ["/dashboard"].includes(pathname);
 
   if(hideLayout){
     return( 
@@ -26,8 +27,10 @@ export default function LayoutContent({
   if(internalLayout){
     return( 
       <>
-        <InternalHeader/>
-        <main>{children}</main>
+        <ProtectedRoute>
+          <InternalHeader/>
+          <main>{children}</main>
+        </ProtectedRoute>
       </>
     )
   }

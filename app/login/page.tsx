@@ -10,7 +10,7 @@ export default function page() {
   const { user, login } = useAuth()
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirect = searchParams.get("redirect") || "/cms";
+  const redirect = searchParams.get("redirect") || "/dashboard";
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -88,7 +88,7 @@ export default function page() {
               <button
                 type="button"
                 onClick={() => setShowPassword((v) => !v)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-slate-700 p-1 cursor-pointer text-xs text-[#DDB162] hover:bg-slate-800"
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-[#DDB162] p-1 cursor-pointer text-xs text-[#DDB162] hover:bg-slate-800"
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? <IconEyeOff size={20}/> : <IconEye size={20}/>}

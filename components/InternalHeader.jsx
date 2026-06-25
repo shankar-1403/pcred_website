@@ -8,8 +8,12 @@ import { useRouter } from "next/navigation";
 export default function InternalHeader() {
     const navItems = [
         {
-        name: "Home",
-        link: "/",
+            name: "Scheme",
+            link: "/dashboard",
+        },
+        {
+            name: "Blogs",
+            link: "/internal-blogs",
         },
     ];
     const {logout}  = useAuth();
