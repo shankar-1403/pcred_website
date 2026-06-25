@@ -442,7 +442,7 @@ export default function Home() {
       <section className="bg-white py-30">
         <div className="max-w-7xl mx-auto grid grid-cols-2 gap-6">
           <div>
-              <h2 className="text-5xl leading-14 capitalize font-semibold"><span className="text-[#084E75]">Delivering Strategic Financial Solutions That</span><span className="text-[#DDB162]"> Empower Businesses to Grow with Confidence </span></h2>
+              <h2 className="text-5xl leading-16 capitalize font-semibold"><span className="text-[#084E75]">Delivering Strategic Financial Solutions That</span><span className="text-[#DDB162]"> Empower Businesses to Grow with Confidence </span></h2>
             <div className="mt-4">
               <ul className="list-disc ml-4">
                 <li className="text-lg text-[#084E75] mb-2">Funding and financial solutions designed for sustainable business growth</li>
@@ -488,7 +488,7 @@ export default function Home() {
 
       <section className="bg-white relative pt-20 pb-0">
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-5xl font-semibold text-[#084E75] leading-14">Expert Solutions For Every <br /><span className="text-[#DDB162]">Stage Of Growth</span></h3>
+          <h3 className="text-5xl font-semibold text-[#084E75] leading-16">Expert Solutions For Every <br /><span className="text-[#DDB162]">Stage Of Growth</span></h3>
           <div className="mt-8">
             <HorizontalScrollCarousel cards={services}/>
           </div>
@@ -501,7 +501,7 @@ export default function Home() {
           <div className="bg-linear-to-br from-[#DDB162]/10 from-40% to-[#8D1821]/5 rounded-full w-100 h-100 -bottom-30 -left-30 absolute"/>
           <div className="flex flex-col justify-center">
             <h4 className="text-5xl text-[#084E75] font-semibold mb-4 leading-16">Proactive Financial Expertise</h4>
-            <p className="text-lg">Tailored financial solutions designed to help MSMEs and businesses improve stability, optimize performance, and achieve sustainable growth</p>
+            <p className="text-lg text-[#084E75]">Tailored financial solutions designed to help MSMEs and businesses improve stability, optimize performance, and achieve sustainable growth</p>
           </div>
           <div className="flex flex-col justify-center">
             <Image src={intro} alt="Intro Image" className="h-100 w-full"/>

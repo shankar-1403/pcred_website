@@ -3,36 +3,32 @@
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
-import Link from "next/link";
 import {IconArrowRight,IconCheck,IconChevronDown,IconChartBar,IconCertificate,IconClock,IconCoinRupee,IconShieldCheck,IconX,IconSend,IconShield,IconPercentage,IconFileDescription,IconBuildingBank,IconPlayerPlay,IconTrendingUp,IconHeartHandshake,IconUsers,IconBuilding,IconMap,
 } from "@tabler/icons-react";
 import cgtmseBannerBg from "../../../public/cgtmsepage_img.webp";
 import cgtmseFaq from "@/public/products/cgtmse-faq.webp";
 import cgtmselogo from "../../../public/cgtmse_logo.webp"
+import eligible from "../../../public/eligible.webp"
 
 const heroFeatures = [
   {
     icon: IconShield,
-    title: "Loan Amount",
-    description: "Up to ₹10 Crore",
+    title: "Loan Amount Up to ₹10 Crore",
     accent: "green" as const,
   },
   {
     icon: IconShieldCheck,
-    title: "No Collateral",
-    description: "Security Required*",
+    title: "No Collateral Security Required*",
     accent: "orange" as const,
   },
   {
     icon: IconPercentage,
-    title: "ROI",
-    description: "Starting from 8.90% p.a.*",
+    title: "ROI Starting from 8.90% p.a.*",
     accent: "green" as const,
   },
   {
     icon: IconFileDescription,
-    title: "Advisory",
-    description: "End-to-End Advisory & Documentation Assistance",
+    title: "End-to-End Advisory",
     accent: "orange" as const,
   },
 ];
@@ -42,35 +38,38 @@ const eligibilityCriteria = [
   {
     icon: IconClock,
     label: "Business Vintage",
-    value: "Minimum 3 years of operational history",
+    description:"Minimum operational history",
+    value: "3 +",
+    desc_value: "Years",
   },
   {
     icon: IconChartBar,
     label: "Annual Turnover",
-    value: "Up to ₹100 Crore per annum",
+    description:"Maximum annual turnover",
+    value: "₹100 Cr",
+    desc_value: "Per Annum",
   },
   {
     icon: IconCertificate,
     label: "CIBIL Score",
-    value: "700 or above (generally preferred)",
+    description:"Credit score requirement",
+    value: "700 +",
+    desc_value: "Generally Preferred",
   },
   {
     icon: IconShieldCheck,
     label: "CMR Rating",
-    value: "Between 1 and 5 (generally preferred)",
+    description:"Credit Monitoring Arrangement",
+    value: "1 - 5",
+    desc_value: "Generally Preferred",
   },
   {
     icon: IconCoinRupee,
     label: "Loan Amount",
-    value:
-      "Up to ₹10 Crore",
+    description:"Maximum funding eligible",
+    value:"₹10 Crore",
+    desc_value: "Per Borrower",
   },
-];
-
-const eligibilitySummary = [
-  { stat: "3+", label: "Years in business" },
-  { stat: "₹100 Cr", label: "Max turnover" },
-  { stat: "₹10 Cr", label: "Max funding" },
 ];
 
 const inputClass =
@@ -254,7 +253,7 @@ function ApplyModal({
                         <option value="Manufacturer">Manufacturer</option>
                         <option value="Trader">Trader</option>
                         <option value="Service Provider">Service Provider</option>
-                        <option value="Other MSME">Other MSME</option>
+                        <option value="Other SME">Other SME</option>
                       </select>
                     </div>
                     <div>
@@ -332,7 +331,7 @@ const faqs = [
   {
     question: "What is CGTMSE?",
     answer:
-      "CGTMSE is a Government-backed credit guarantee scheme that helps eligible MSMEs access business funding without traditional collateral security.",
+      "CGTMSE is a Government-backed credit guarantee scheme that helps eligible SMEs access business funding without traditional collateral security.",
   },
   {
     question: "What is the maximum loan amount available?",
@@ -385,22 +384,20 @@ function FaqItem({
   onToggle: () => void;
 }) {
   return (
-    <div className="overflow-hidden rounded-4xl bg-[#084E75] shadow-sm">
+    <div className="overflow-hidden rounded-4xl shadow-sm border border-[#084E75]">
       <button
         type="button"
         onClick={onToggle}
-        className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left"
+        className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left bg-[#084E75]"
       >
-        <span className="font-semibold text-white text-xl">{question}</span>
+        <span className="font-semibold text-white text-lg">{question}</span>
         <IconChevronDown
           className={`size-5 shrink-0 text-[#DDB162] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
-      <div
-        className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
-      >
+      <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 bg-white"}`}>
         <div className="overflow-hidden">
-          <p className="px-6 pb-5 leading-relaxed text-white text-lg">{answer}</p>
+          <p className=" px-6 py-4 leading-relaxed text-[#084E75] text-lg">{answer}</p>
         </div>
       </div>
     </div>
@@ -440,14 +437,11 @@ export default function CgtmsePage() {
               <br />
               <span className="text-[#DDB162]">Without Collateral</span>
             </h1>
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-[#084E75] md:text-lg">
-              Empower your business growth with government-backed funding solutions designed
-              for India&apos;s MSMEs.
-            </p>
+            <p className="text-base text-[#084E75] mt-4">Access collateral-free business funding through the Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE) Scheme. Whether you are a manufacturer, trader, service provider, or growing SME, PCRED helps you secure the right funding solution through expert advisory, documentation support, and lender coordination.</p>
 
-            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+            <div className="mt-8 grid gap-2 sm:grid-cols-2">
               {heroFeatures.map((item) => (
-                <div key={item.title} className="flex gap-3 w-60">
+                <div key={item.title} className="flex items-center gap-3">
                   <div
                     className={`flex size-10 shrink-0 items-center justify-center rounded-4xl ${
                       item.accent === "green"
@@ -455,13 +449,10 @@ export default function CgtmsePage() {
                         : "bg-[#DDB162]/10 text-[#DDB162]"
                     }`}
                   >
-                    <item.icon className="size-5" stroke={1.75} />
+                    <item.icon className="size-6" stroke={1.75} />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-[#084E75]">{item.title}</p>
-                    <p className="mt-0.5 text-sm leading-snug text-[#8E8E90]">
-                      {item.description}
-                    </p>
+                    <p className="text-sm text-center font-semibold text-[#084E75]">{item.title}</p>
                   </div>
                 </div>
               ))}
@@ -489,12 +480,13 @@ export default function CgtmsePage() {
       </section>
 
       <section id="what-is-cgtmse" className="bg-white py-24">
-        <div className="mx-auto max-w-7xl grid grid-cols-3">
+        <div className="mx-auto max-w-7xl grid grid-cols-3 gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="border-r border-[#DDB162] flex items-center"
           >
             <h2 className="text-4xl font-semibold text-[#084E75]">What is <span className="text-[#DDB162]">CGTMSE</span>?</h2>
           </motion.div>
@@ -504,50 +496,34 @@ export default function CgtmsePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-base leading-relaxed text-[#8E8E90] md:text-lg col-span-2"
+            className="text-base leading-relaxed md:text-lg col-span-2"
           >
-            <p className="text-[#084E75] text-lg mb-4">
-              The Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE) is a
-              Government-backed initiative that enables eligible MSMEs to access business funding
-              without the need for traditional collateral security.
-            </p>
-            <p className="text-[#084E75] text-lg">
-              The scheme helps businesses secure funding for working capital requirements, business
-              expansion, machinery purchase, technology upgradation, and other growth-related
-              initiatives.
-            </p>
+            <p className="text-[#084E75] text-lg mb-4">The Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE) is a Government-backed initiative that enables eligible SMEs to access business funding without the need for traditional collateral security.</p>
+            <p className="text-[#084E75] text-lg">The scheme helps businesses secure funding for working capital requirements, business expansion, machinery purchase, technology upgradation, and other growth-related initiatives.</p>
           </motion.div>
         </div>
       </section>
 
       <section className="bg-linear-to-b from-gray-50 to-white py-24">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
+          <div className="grid gap-12 lg:grid-cols-7 lg:gap-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="lg:col-span-2"
+              className="lg:col-span-3"
             >
               <h3 className="text-3xl font-semibold text-[#084E75] md:text-4xl">
                 Eligibility Criteria
               </h3>
               <p className="mt-4 text-base leading-relaxed text-[#084E75] md:text-lg">
-                MSMEs must meet key business and credit benchmarks to qualify under the CGTMSE
+                SMEs must meet key business and credit benchmarks to qualify under the CGTMSE
                 Scheme. Review the requirements below.
               </p>
 
-              <div className="mt-8 grid grid-cols-3 gap-3">
-                {eligibilitySummary.map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-4xl border border-[#084E75]/10 bg-white px-3 py-4 text-center shadow-lg"
-                  >
-                    <p className="text-lg font-bold text-[#DDB162] md:text-2xl">{item.stat}</p>
-                    <p className="mt-1 text-xs text-[#084E75]">{item.label}</p>
-                  </div>
-                ))}
+              <div className="mt-15">
+                <Image src={eligible} alt="Eligible" className="h-80 w-full"/>
               </div>
             </motion.div>
 
@@ -556,19 +532,19 @@ export default function CgtmsePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="lg:col-span-3"
+              className="lg:col-span-4"
             >
-              <div className="overflow-hidden rounded-4xl border border-gray-100 bg-[#084E75] shadow-lg">
-                <div className="hidden border-b border-gray-100 bg-[#DDB162]/5 px-6 py-4 sm:grid sm:grid-cols-[1fr_1.2fr] sm:gap-4">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-white">
+              <div className="overflow-hidden rounded-4xl border-l border-r border-gray-100 bg-white shadow-lg">
+                <div className="border-b border-gray-100 bg-[#084E75] px-4 py-4 flex justify-between">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-white w-[80%] pl-17.5">
                     Particulars
                   </span>
-                  <span className="text-xs font-semibold uppercase tracking-wide text-white">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-white w-[20%]">
                     Criteria
                   </span>
                 </div>
 
-                <ul className="divide-y divide-[#DDB162]/20">
+                <ul className="divide-y divide-[#084E75]/20 px-4">
                   {eligibilityCriteria.map((item, i) => (
                     <motion.li
                       key={item.label}
@@ -576,20 +552,28 @@ export default function CgtmsePage() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.35, delay: i * 0.06 }}
-                      className="grid gap-3 px-6 py-5 sm:grid-cols-[1fr_1.2fr] sm:items-center bg-white sm:gap-4"
+                      className="flex py-4 items-center justify-between bg-white"
                     >
-                      <div className="flex items-center gap-3">
-                        <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/10 text-[#084E75]">
-                          <item.icon className="size-5" stroke={1.5} />
+                      <div className="flex items-center gap-3 w-[80%]">
+                        <div className="flex size-14 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/20 border border-[#DDB162] text-[#DDB162]">
+                          <item.icon className="size-7" stroke={1.5} />
                         </div>
-                        <span className="font-semibold text-[#084E75] text-lg">{item.label}</span>
+                        <div className="flex flex-col">
+                          <span className="font-bold text-[#084E75] text-lg">{item.label}</span>
+                          <span className="text-[#084E75] text-xs">{item.description}</span>
+                        </div>
                       </div>
-                      <p className="pl-12 text-lg leading-relaxed text-[#084E75] sm:pl-0">
-                        {item.value}
-                      </p>
+                      <div className="w-[20%] flex flex-col">
+                        <p className="text-xl font-semibold leading-relaxed text-[#084E75]">{item.value}</p>
+                        <span className="text-xs text-[#084E75]">{item.desc_value}</span>
+                      </div>
                     </motion.li>
                   ))}
                 </ul>
+                <div className="border-t border-gray-100 bg-[#084E75]/10 px-6 py-4">
+                  <p className="text-base font-bold tracking-wide text-[#084E75]">Collateral-freee loans. Government-backed security.</p>
+                  <p className="text-xs font-semibold tracking-wide text-[#084E75]">Fuel your growth with confidence.</p>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -612,21 +596,21 @@ export default function CgtmsePage() {
                 <h4 className="text-2xl font-semibold text-white md:text-4xl">
                   Not Sure If You Qualify?
                 </h4>
-                <p className="mt-3 text-white/80">
+                <p className="mt-3 text-white/80 text-lg">
                   Our funding specialists can evaluate your business profile and help you assess
                   your eligibility under the CGTMSE Scheme.
                 </p>
-                <p className="mt-3 font-semibold text-[#DDB162]">
+                <p className="mt-3 font-semibold text-[#DDB162] text-lg">
                   Get a Free Eligibility Assessment Today.
                 </p>
               </div>
-              <Link
-                href="/contact"
-                className="group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-[#DDB162] px-8 py-4 text-base font-semibold text-white transition-all shadow-[5px_5px] shadow-[#DDB162]/50"
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="cursor-pointer group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-[#DDB162] px-8 py-4 text-base font-semibold text-white transition-all shadow-[5px_5px] shadow-[#DDB162]/50"
               >
                 Check Eligibility
                 <IconArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </button>
             </div>
           </motion.div>
         </div>
@@ -644,7 +628,7 @@ export default function CgtmsePage() {
             <h5 className="text-3xl font-semibold text-[#084E75] md:text-4xl">
               Frequently Asked Questions
             </h5>
-            <p className="mt-3 max-w-2xl text-base text-[#084E75]">
+            <p className="mt-3 max-w-2xl text-lg text-[#084E75]">
               Find answers to common questions about CGTMSE funding, eligibility, and the
               application process.
             </p>
@@ -678,9 +662,9 @@ export default function CgtmsePage() {
         </div>
       </section>
 
-      <section className="border-t border-[#084E75]/10 bg-[#DDB162]/10 py-5">
+      <section className="pb-5">
         <div className="mx-auto max-w-4xl px-6">
-          <p className="text-center text-sm leading-relaxed text-[#084E75]">
+          <p className="text-center text-xs leading-relaxed text-[#084E75]">
             <span className="font-semibold text-[#084E75]">Disclaimer:</span> Loan approval,
             interest rates, loan amount, collateral requirements, and eligibility are subject to
             lender policies, credit assessment, business profile, and applicable CGTMSE guidelines.

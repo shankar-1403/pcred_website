@@ -82,7 +82,7 @@ const Card = ({ card }: CardProps) => {
   
   return (
     <div className="group relative w-100 shrink-0">
-      <div className={`relative flex h-140 flex-col overflow-hidden rounded-4xl px-7 py-8 shadow-lg ${card.color}`}>
+      <div className={`relative flex h-130 flex-col overflow-hidden rounded-4xl px-7 py-8 shadow-lg ${card.color}`}>
 
         <p className="mb-3 line-clamp-3 text-3xl font-medium leading-snug">
           {formatServiceLabel(card.label)}

@@ -1,0 +1,117 @@
+"use client"
+
+import { useState, useEffect } from 'react';
+import Logo from "../../public/logo.webp"
+import { useRouter, useSearchParams } from 'next/navigation'
+import { useAuth } from '../../src/context/AuthContext'
+import { IconEye, IconEyeOff } from '@tabler/icons-react'
+
+export default function page() {
+  const { user, login } = useAuth()
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get("redirect") || "/cms";
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+  const [error, setError] = useState('')
+  const [submitting, setSubmitting] = useState(false)
+
+  useEffect(() => {
+    if (user) {
+      router.replace(redirect);
+    }
+  }, [user,redirect, router]);
+
+  async function handleSubmit(e:React.FormEvent) {
+    e.preventDefault()
+    setError('')
+    setSubmitting(true)
+    try {
+      await login(email.trim(), password);
+      router.replace(redirect);
+    } catch (err:any) {
+      setError(err.message ?? 'Sign in failed')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+  return (
+    <div className="relative flex min-h-screen items-center justify-center bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 px-4">
+      {/* <div className="absolute top-4 right-4">
+        <ThemeToggle />
+      </div> */}
+      <div className="w-full max-w-md rounded-2xl border border-slate-800 bg-slate-900/90 p-8 shadow-2xl shadow-black/40">
+        <div className="mb-4 flex justify-center">
+          <img src={Logo.src} alt="Pcred logo" className={`h-14 object-contain`}/>
+        </div>
+        <h1 className="text-center text-2xl font-semibold text-white">
+          Sign in
+        </h1>
+
+        <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+          <div>
+            <label
+              htmlFor="email-or-pan"
+              className="block text-sm font-medium text-slate-300"
+            >
+              Email or PAN
+            </label>
+            <input
+              id="email-or-pan"
+              type="text"
+              autoComplete="username"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/0 transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
+              placeholder="you@company.com or ABCDE1234F"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-slate-300"
+            >
+              Password
+            </label>
+            <div className="relative mt-1">
+              <input
+                id="password"
+                type={showPassword ? 'text' : 'password'}
+                autoComplete="current-password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 pr-20 text-white outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-slate-700 p-1 cursor-pointer text-xs text-[#DDB162] hover:bg-slate-800"
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? <IconEyeOff size={20}/> : <IconEye size={20}/>}
+              </button>
+            </div>
+          </div>
+
+          {error && (
+            <p className="rounded-lg bg-red-950/50 px-3 py-2 text-sm text-red-300">
+              {error}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={submitting}
+            className="w-full cursor-pointer rounded-lg bg-[#DDB162] py-2.5 text-sm font-semibold text-neutral-100 transition hover:bg-blue-500 disabled:opacity-50"
+          >
+            {submitting ? 'Signing in…' : 'Sign in'}
+          </button>
+        </form>
+
+      </div>
+    </div>
+  )
+}
