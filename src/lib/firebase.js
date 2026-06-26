@@ -3,6 +3,8 @@ import { getAuth } from 'firebase/auth'
 import { getDatabase } from 'firebase/database'
 import { getFunctions } from 'firebase/functions'
 
+import { getStorage } from 'firebase/storage'
+
 export const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -29,4 +31,5 @@ if (process.env.DEV) {
 const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 export const db = getDatabase(app)
+export const storage = getStorage(app)
 export const functions = getFunctions(app, 'us-central1')

@@ -2,15 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Logo from "../../public/logo.webp"
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useAuth } from '../../src/context/AuthContext'
 import { IconEye, IconEyeOff } from '@tabler/icons-react'
 
 export default function page() {
   const { user, login } = useAuth()
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const redirect = searchParams.get("redirect") || "/dashboard";
+  const redirect = "/dashboard";
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)

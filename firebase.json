@@ -11,5 +11,8 @@
         "functions"
       ]
     }
-  ]
+  ],
+  "storage": {
+    "rules": "storage.rules"
+  }
 }

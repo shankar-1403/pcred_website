@@ -1,0 +1,15 @@
+[
+  {
+    "origin": ["http://localhost:3000", "https://cms.pcred.org", "https://pcred.org", "https://www.pcred.org"],
+    "method": ["GET", "HEAD", "PUT", "POST", "DELETE", "OPTIONS"],
+    "responseHeader": [
+      "Content-Type",
+      "Authorization",
+      "Content-Length",
+      "User-Agent",
+      "x-goog-resumable",
+      "x-goog-meta-*"
+    ],
+    "maxAgeSeconds": 3600
+  }
+]

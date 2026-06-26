@@ -2,13 +2,13 @@
 
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import Image from "next/image";
 import {IconArrowRight,IconCheck,IconChevronDown,IconChartBar,IconCertificate,IconClock,IconCoinRupee,IconShieldCheck,IconX,IconSend,IconShield,IconPercentage,IconFileDescription,IconBuildingBank,IconPlayerPlay,IconTrendingUp,IconHeartHandshake,IconUsers,IconBuilding,IconMap,
 } from "@tabler/icons-react";
-import cgtmseBannerBg from "../../../public/cgtmsepage_img.webp";
-import cgtmseFaq from "@/public/products/cgtmse-faq.webp";
-import cgtmselogo from "../../../public/cgtmse_logo.webp"
-import eligible from "../../../public/eligible.webp"
+import * as TablerIcons from "@tabler/icons-react";
+import type { IconProps } from "@tabler/icons-react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useScheme } from "@/src/hooks/useScheme";
 
 const heroFeatures = [
   {
@@ -32,7 +32,6 @@ const heroFeatures = [
     accent: "orange" as const,
   },
 ];
-
 
 const eligibilityCriteria = [
   {
@@ -115,6 +114,7 @@ function ApplyModal({
       setForm(initialForm);
     }, 300);
   };
+
 
   return (
     <AnimatePresence>
@@ -327,51 +327,6 @@ function ApplyModal({
   );
 }
 
-const faqs = [
-  {
-    question: "What is CGTMSE?",
-    answer:
-      "CGTMSE is a Government-backed credit guarantee scheme that helps eligible SMEs access business funding without traditional collateral security.",
-  },
-  {
-    question: "What is the maximum loan amount available?",
-    answer:
-      "Eligible businesses may avail funding of up to ₹10 Crore, subject to lender assessment and applicable guidelines.",
-  },
-  {
-    question: "Is collateral required?",
-    answer:
-      "CGTMSE is designed to facilitate collateral-free business funding. However, the final loan structure and approval are subject to lender discretion, credit assessment, and applicable scheme guidelines.",
-  },
-  {
-    question: "What is the minimum CIBIL score required?",
-    answer: "A CIBIL score of 700 or above is generally preferred by lenders.",
-  },
-  {
-    question: "What should be the business vintage?",
-    answer: "The business should have a minimum operational history of 3 years.",
-  },
-  {
-    question: "What is the turnover eligibility?",
-    answer:
-      "Businesses with an annual turnover of up to ₹100 Crore may be eligible to apply.",
-  },
-  {
-    question: "What is the required CMR rating?",
-    answer: "A CMR rating between 1 and 5 is generally preferred.",
-  },
-  {
-    question: "What is the starting ROI?",
-    answer:
-      "Interest rates may start from 8.90% p.a., subject to lender policies, borrower profile, and credit assessment.",
-  },
-  {
-    question: "How do I check my eligibility?",
-    answer:
-      "Simply submit your details, and our funding experts will review your profile and guide you through the next steps.",
-  },
-];
-
 function FaqItem({
   question,
   answer,
@@ -404,20 +359,65 @@ function FaqItem({
   );
 }
 
-export default function CgtmsePage() {
+export default function Scheme() {
+  const params = useParams();
+  const schemeId = typeof params.id === "string" ? params.id : params.id?.[0];
+  const { scheme, loading } = useScheme(schemeId);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  console.log(scheme)
+  if (loading) {
+    return (
+      <div className="flex min-h-[60vh] items-center justify-center text-[#084E75]">
+        Loading scheme…
+      </div>
+    );
+  }
+
+  if (!scheme) {
+    return (
+      <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 px-6 text-center">
+        <h1 className="text-2xl font-semibold text-[#084E75]">Scheme not found</h1>
+        <p className="text-[#8E8E90]">This scheme may have been removed or the link is incorrect.</p>
+        <Link
+          href="/schemes"
+          className="rounded-4xl bg-[#084E75] px-6 py-3 text-sm font-semibold text-white"
+        >
+          Back to Schemes
+        </Link>
+      </div>
+    );
+  }
+
+  const heroPoints =
+    scheme.section_1_points?.filter((item) => item.icon.trim() || item.point.trim()) ??
+    [];
+  const eligibilityRows =
+    scheme.eligibility_table?.filter(
+      (item) =>
+        item.label.trim() ||
+        item.description.trim() ||
+        item.criteria.trim() ||
+        item.criteria_description.trim()
+    ) ?? [];
+  const faqItems =
+    scheme.faqs?.filter((item) => item.question.trim() || item.answer.trim()) ?? [];
 
   return (
     <>
       <ApplyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <section className="relative overflow-hidden h-screen">
         <div className="pointer-events-none absolute inset-0">
-          <Image
-            src={cgtmseBannerBg}
-            alt="CGTMSE Banner"
-            className="object-cover w-full h-full relative"
-          />
+          {scheme.section_1_banner ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={scheme.section_1_banner}
+              alt={scheme.section_1_header ?? "Scheme banner"}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <div className="h-full w-full bg-linear-to-br from-[#084E75]/20 to-[#DDB162]/20" />
+          )}
           <div className="absolute top-0 left-0 w-full h-full bg-linear-to-r from-white from-30% via-white/90 via-60% to-transparent to-80%" />
         </div>
 
@@ -429,34 +429,46 @@ export default function CgtmsePage() {
             className="max-w-xl lg:max-w-3xl h-full flex flex-col justify-center pl-30 relative"
           > 
             <div className="mb-6">
-              <img src={cgtmselogo.src} alt="CGTMSE Logo" className="h-18"/>
+              {scheme.section_1_logo ? (
+                <img src={scheme.section_1_logo} alt={scheme.section_1_header ?? "Scheme logo"} className="h-20"/>
+                ) : (
+                <div className="h-full w-full bg-linear-to-br from-[#084E75]/20 to-[#DDB162]/20" />
+              )}
             </div>
-
             <h1 className="text-3xl font-bold leading-tight text-[#084E75] md:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
-              CGTMSE Loan Up to ₹10 Crore
-              <br />
-              <span className="text-[#DDB162]">Without Collateral</span>
+              {scheme.section_1_header} <span className="text-[#DDB162]">{scheme.section_1_subheader}</span>
             </h1>
-            <p className="text-base text-[#084E75] mt-4">Access collateral-free business funding through the Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE) Scheme. Whether you are a manufacturer, trader, service provider, or growing SME, PCRED helps you secure the right funding solution through expert advisory, documentation support, and lender coordination.</p>
+            {scheme.section_1_description ? (
+              <p className="text-base text-[#084E75] mt-4">{scheme.section_1_description}</p>
+            ) : null}
 
-            <div className="mt-8 grid gap-2 sm:grid-cols-2">
-              {heroFeatures.map((item) => (
-                <div key={item.title} className="flex items-center gap-3">
-                  <div
-                    className={`flex size-10 shrink-0 items-center justify-center rounded-4xl ${
-                      item.accent === "green"
-                        ? "bg-[#DDB162]/10 text-[#DDB162]"
-                        : "bg-[#DDB162]/10 text-[#DDB162]"
-                    }`}
-                  >
-                    <item.icon className="size-6" stroke={1.75} />
+            {heroPoints.length > 0 ? (
+              <div className="mt-8 grid gap-2 sm:grid-cols-2">
+                {heroPoints.map((item, index) => {
+                  const Icon = 
+                     TablerIcons[item.icon as keyof typeof TablerIcons] as React.ComponentType<IconProps>
+                  return (
+                    <div key={`${item.point}-${index}`} className="flex items-center gap-3">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/10 text-[#DDB162] text-xs font-semibold">
+                        {Icon ? <Icon size={22} stroke={2} /> : null}
+                      </div>
+                      <p className="text-sm font-semibold text-[#084E75]">{item.point}</p>
+                    </div>
+                  )
+                })}
+              </div>
+            ) : (
+              <div className="mt-8 grid gap-2 sm:grid-cols-2">
+                {heroFeatures.map((item) => (
+                  <div key={item.title} className="flex items-center gap-3">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/10 text-[#DDB162]">
+                      <item.icon className="size-6" stroke={1.75} />
+                    </div>
+                    <p className="text-sm font-semibold text-[#084E75]">{item.title}</p>
                   </div>
-                  <div>
-                    <p className="text-sm text-center font-semibold text-[#084E75]">{item.title}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
 
             <div className="mt-8 flex flex-wrap items-center gap-4 pb-10 md:pb-14">
               <button
@@ -464,22 +476,28 @@ export default function CgtmsePage() {
                 onClick={() => setIsModalOpen(true)}
                 className="px-6 py-3 rounded-4xl border-2 border-[#084E75] bg-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40 flex items-center gap-2"
               >
-                Apply for CGTMSE Funding
+                Apply Now
                 <IconArrowRight className="size-4" />
               </button>
-              <a href="#what-is-cgtmse" target="_blank" className="px-6 py-3 rounded-4xl border-2 border-[#DDB162] bg-white text-[#DDB162] text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#DDB162]/40 flex items-center gap-2"
-              >
-                <span className="flex size-6 items-center justify-center rounded-full border border-[#DDB162]/20 bg-white/80 backdrop-blur-sm">
-                  <IconPlayerPlay className="size-3 fill-[#DDB162] text-[#DDB162]" />
-                </span>
-                How CGTMSE Works
-              </a>
+              {scheme.video_link ?? (
+                <a
+                  href={scheme.video_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 rounded-4xl border-2 border-[#DDB162] bg-white text-[#DDB162] text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#DDB162]/40 flex items-center gap-2"
+                >
+                  <span className="flex size-6 items-center justify-center rounded-full border border-[#DDB162]/20 bg-white/80 backdrop-blur-sm">
+                    <IconPlayerPlay className="size-3 fill-[#DDB162] text-[#DDB162]" />
+                  </span>
+                  How It Works
+                </a>
+              )}
             </div>
           </motion.div>
         </div>
       </section>
 
-      <section id="what-is-cgtmse" className="bg-white py-24">
+      <section id="what-is-scheme" className="bg-white py-24">
         <div className="mx-auto max-w-7xl grid grid-cols-3 gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -488,7 +506,9 @@ export default function CgtmsePage() {
             transition={{ duration: 0.5 }}
             className="border-r border-[#DDB162] flex items-center"
           >
-            <h2 className="text-4xl font-semibold text-[#084E75]">What is <span className="text-[#DDB162]">CGTMSE</span>?</h2>
+            <h2 className="text-4xl font-semibold text-[#084E75]">
+              {scheme.section_2_header ?? "About This Scheme"}
+            </h2>
           </motion.div>
 
           <motion.div
@@ -498,8 +518,11 @@ export default function CgtmsePage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-base leading-relaxed md:text-lg col-span-2"
           >
-            <p className="text-[#084E75] text-lg mb-4">The Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE) is a Government-backed initiative that enables eligible SMEs to access business funding without the need for traditional collateral security.</p>
-            <p className="text-[#084E75] text-lg">The scheme helps businesses secure funding for working capital requirements, business expansion, machinery purchase, technology upgradation, and other growth-related initiatives.</p>
+            <div className="text-[#084E75] text-lg leading-8"
+              dangerouslySetInnerHTML={{
+                __html: scheme.section_2_description,
+              }}
+            />
           </motion.div>
         </div>
       </section>
@@ -518,12 +541,23 @@ export default function CgtmsePage() {
                 Eligibility Criteria
               </h3>
               <p className="mt-4 text-base leading-relaxed text-[#084E75] md:text-lg">
-                SMEs must meet key business and credit benchmarks to qualify under the CGTMSE
-                Scheme. Review the requirements below.
+                {scheme.section_3_description ??
+                  "Review the eligibility requirements for this scheme below."}
               </p>
 
               <div className="mt-15">
-                <Image src={eligible} alt="Eligible" className="h-80 w-full"/>
+                {scheme.section_3_img ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={scheme.section_3_img}
+                    alt="Eligibility"
+                    className="h-80 w-full rounded-4xl object-cover"
+                  />
+                ) : (
+                  <div className="flex h-80 w-full items-center justify-center rounded-4xl bg-[#084E75]/10 text-sm text-[#084E75]">
+                    Eligibility overview
+                  </div>
+                )}
               </div>
             </motion.div>
 
@@ -545,30 +579,65 @@ export default function CgtmsePage() {
                 </div>
 
                 <ul className="divide-y divide-[#084E75]/20 px-4">
-                  {eligibilityCriteria.map((item, i) => (
-                    <motion.li
-                      key={item.label}
-                      initial={{ opacity: 0, x: 12 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.35, delay: i * 0.06 }}
-                      className="flex py-4 items-center justify-between bg-white"
-                    >
-                      <div className="flex items-center gap-3 w-[80%]">
-                        <div className="flex size-14 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/20 border border-[#DDB162] text-[#DDB162]">
-                          <item.icon className="size-7" stroke={1.5} />
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="font-bold text-[#084E75] text-lg">{item.label}</span>
-                          <span className="text-[#084E75] text-xs">{item.description}</span>
-                        </div>
-                      </div>
-                      <div className="w-[20%] flex flex-col">
-                        <p className="text-xl font-semibold leading-relaxed text-[#084E75]">{item.value}</p>
-                        <span className="text-xs text-[#084E75]">{item.desc_value}</span>
-                      </div>
-                    </motion.li>
-                  ))}
+                  {eligibilityRows.length > 0
+                    ? eligibilityRows.map((item, i) => {
+                        const Icon = 
+                          TablerIcons[item.icon as keyof typeof TablerIcons] as React.ComponentType<IconProps>
+                          return(
+                            <motion.li
+                              key={`${item.label}-${i}`}
+                              initial={{ opacity: 0, x: 12 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.35, delay: i * 0.06 }}
+                              className="flex py-4 items-center justify-between bg-white"
+                            >
+                              <div className="flex items-center gap-3 w-[80%]">
+                                <div className="flex size-14 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/20 border border-[#DDB162] text-[#DDB162] text-sm font-semibold">
+                                  {Icon ? <Icon size={22} stroke={2} /> : null}
+                                </div>
+                                <div className="flex flex-col">
+                                  <span className="font-bold text-[#084E75] text-lg">{item.label}</span>
+                                  <span className="text-[#084E75] text-xs">{item.description}</span>
+                                </div>
+                              </div>
+                              <div className="w-[20%] flex flex-col">
+                                <p className="text-xl font-semibold leading-relaxed text-[#084E75]">
+                                  {item.criteria}
+                                </p>
+                                <span className="text-xs text-[#084E75]">
+                                  {item.criteria_description}
+                                </span>
+                              </div>
+                            </motion.li>
+                          )
+                      })
+                    : eligibilityCriteria.map((item, i) => (
+                        <motion.li
+                          key={item.label}
+                          initial={{ opacity: 0, x: 12 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.35, delay: i * 0.06 }}
+                          className="flex py-4 items-center justify-between bg-white"
+                        >
+                          <div className="flex items-center gap-3 w-[80%]">
+                            <div className="flex size-14 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/20 border border-[#DDB162] text-[#DDB162]">
+                              <item.icon className="size-7" stroke={1.5} />
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="font-bold text-[#084E75] text-lg">{item.label}</span>
+                              <span className="text-[#084E75] text-xs">{item.description}</span>
+                            </div>
+                          </div>
+                          <div className="w-[20%] flex flex-col">
+                            <p className="text-xl font-semibold leading-relaxed text-[#084E75]">
+                              {item.value}
+                            </p>
+                            <span className="text-xs text-[#084E75]">{item.desc_value}</span>
+                          </div>
+                        </motion.li>
+                      ))}
                 </ul>
                 <div className="border-t border-gray-100 bg-[#084E75]/10 px-6 py-4">
                   <p className="text-base font-bold tracking-wide text-[#084E75]">Collateral-freee loans. Government-backed security.</p>
@@ -629,8 +698,8 @@ export default function CgtmsePage() {
               Frequently Asked Questions
             </h5>
             <p className="mt-3 max-w-2xl text-lg text-[#084E75]">
-              Find answers to common questions about CGTMSE funding, eligibility, and the
-              application process.
+              {scheme.faq_description ??
+                "Find answers to common questions about this scheme and the application process."}
             </p>
           </motion.div>
 
@@ -643,20 +712,38 @@ export default function CgtmsePage() {
               className="relative mx-auto w-full max-w-md lg:max-w-none lg:sticky lg:top-30"
             >
               <div className="relative aspect-5/5 overflow-hidden rounded-4xl shadow-lg">
-                <Image src={cgtmseFaq} alt="Business advisory consultation for CGTMSE funding questions" fill className="object-cover"/>
+                {scheme.faq_image ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={scheme.faq_image}
+                    alt="FAQ"
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="flex h-full min-h-80 w-full items-center justify-center bg-[#084E75]/10 text-sm text-[#084E75]">
+                    FAQ illustration
+                  </div>
+                )}
               </div>
             </motion.div>
 
             <div className="space-y-3">
-              {faqs.map((faq, i) => (
-                <FaqItem
-                  key={faq.question}
-                  question={faq.question}
-                  answer={faq.answer}
-                  isOpen={openFaq === i}
-                  onToggle={() => setOpenFaq(openFaq === i ? null : i)}
-                />
-              ))}
+              {
+                faqItems.length > 0 ? (
+                  faqItems.map((faq, i) => (
+                    <FaqItem
+                      key={faq.question}
+                      question={faq.question}
+                      answer={faq.answer}
+                      isOpen={openFaq === i}
+                      onToggle={() => setOpenFaq(openFaq === i ? null : i)}
+                    />
+                  ))
+                ) : 
+                <div>
+                  <p>No FAQs</p>
+                </div>
+              }
             </div>
           </div>
         </div>

@@ -1,3 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+
+
+.font-new{
+    font-family:"Geist Mono", "Geist Mono Fallback"
+}

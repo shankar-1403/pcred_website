@@ -31,7 +31,7 @@ export default function InternalHeader() {
             <NavBody>
             <NavbarLogo />
             <NavItems items={navItems} />
-            <button onClick={handleLogout} className="px-6 py-3 rounded-4xl bg-[#DDB162] text-white text-xs cursor-pointer text-center z-99">Logout</button>
+            <button onClick={handleLogout} className="px-6 py-2 rounded-xl bg-[#DDB162] text-white text-xs cursor-pointer text-center z-99">Logout</button>
             </NavBody>
     
             {/* Mobile Navigation */}

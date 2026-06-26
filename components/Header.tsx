@@ -18,6 +18,10 @@ export default function Header() {
       link: "/services",
     },
     {
+      name: "Schemes",
+      link: "/schemes",
+    },
+    {
       name: "Blogs",
       link: "/blogs",
     },
