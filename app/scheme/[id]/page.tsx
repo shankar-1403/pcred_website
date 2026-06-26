@@ -431,9 +431,7 @@ export default function Scheme() {
             <div className="mb-6">
               {scheme.section_1_logo ? (
                 <img src={scheme.section_1_logo} alt={scheme.section_1_header ?? "Scheme logo"} className="h-20"/>
-                ) : (
-                <div className="h-full w-full bg-linear-to-br from-[#084E75]/20 to-[#DDB162]/20" />
-              )}
+                ) : null}
             </div>
             <h1 className="text-3xl font-bold leading-tight text-[#084E75] md:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
               {scheme.section_1_header} <span className="text-[#DDB162]">{scheme.section_1_subheader}</span>
@@ -479,7 +477,7 @@ export default function Scheme() {
                 Apply Now
                 <IconArrowRight className="size-4" />
               </button>
-              {scheme.video_link ?? (
+              {scheme.video_link ? (
                 <a
                   href={scheme.video_link}
                   target="_blank"
@@ -491,7 +489,7 @@ export default function Scheme() {
                   </span>
                   How It Works
                 </a>
-              )}
+              ): null}
             </div>
           </motion.div>
         </div>
@@ -520,7 +518,7 @@ export default function Scheme() {
           >
             <div className="text-[#084E75] text-lg leading-8"
               dangerouslySetInnerHTML={{
-                __html: scheme.section_2_description,
+                __html: scheme.section_2_description ?? "",
               }}
             />
           </motion.div>
