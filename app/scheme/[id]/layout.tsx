@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     "Access CGTMSE collateral-free business funding up to ₹10 Crore with Pcred. Expert advisory, documentation support, and lender coordination for MSMEs.",
 };
 
-export default function CgtmseLayout({
+export default function SchemeLayout({
   children,
 }: {
   children: React.ReactNode;

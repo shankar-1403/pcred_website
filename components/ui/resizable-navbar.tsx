@@ -19,11 +19,14 @@ interface NavBodyProps {
   visible?: boolean;
 }
 
+interface NavItem {
+  name: string;
+  link?: string;
+  children?: NavItem[];
+}
+
 interface NavItemsProps {
-  items: {
-    name: string;
-    link: string;
-  }[];
+  items: NavItem[];
   className?: string;
   onItemClick?: () => void;
 }
@@ -76,26 +79,86 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center text-sm font-medium transition duration-200 lg:flex",
-        className,
+        "absolute inset-0 hidden flex-1 items-center justify-center gap-2 text-sm font-medium lg:flex",
+        className
       )}
     >
       {items.map((item, idx) => (
-        <Link
-          onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
-          className={"relative px-4 py-2 rounded-full text-[#084E75] text-sm font-semibold"}
+        <div
           key={`link-${idx}`}
-          href={item.link}
+          className="relative group"
+          onMouseEnter={() => setHovered(idx)}
         >
-          {hovered === idx && (
-            <motion.div
-              layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-[#DDB162]/20"
-            />
+          {item.link ? (
+            <Link
+              href={item.link}
+              onClick={onItemClick}
+              className="relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold text-[#084E75]"
+            >
+              {hovered === idx && (
+                <motion.div
+                  layoutId="hovered"
+                  className="absolute inset-0 rounded-full bg-[#DDB162]/20"
+                />
+              )}
+
+              <span className="relative z-20">{item.name}</span>
+
+              {item.children && (
+                <svg
+                  className="relative z-20 h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              )}
+            </Link>
+          ) : (
+            <button
+              type="button"
+              className="relative flex cursor-pointer items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold text-[#084E75]"
+            >
+              {hovered === idx && (
+                <motion.div
+                  layoutId="hovered"
+                  className="absolute inset-0 rounded-full bg-[#DDB162]/20"
+                />
+              )}
+
+              <span className="relative z-20">{item.name}</span>
+
+              <svg
+                className="relative z-20 h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
           )}
-          <span className="relative z-20">{item.name}</span>
-        </Link>
+
+          {item.children && (
+            <div className="absolute left-0 top-full z-50 hidden min-w-56 pt-2 group-hover:block">
+              <div className="overflow-hidden rounded-xl border border-[#084E75]/10 bg-white shadow-xl">
+                {item.children.map((child) => (
+                  <Link
+                    key={child.link}
+                    href={child.link!}
+                    onClick={onItemClick}
+                    className="block px-5 py-3 text-sm text-[#084E75] transition-colors hover:bg-[#DDB162]/10 capitalize"
+                  >
+                    {child.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       ))}
     </motion.div>
   );

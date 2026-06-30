@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@amcharts/amcharts5": "^5.17.2",
+    "@ckeditor/ckeditor5-react": "^11.2.0",
     "@hugeicons/core-free-icons": "^4.1.4",
     "@hugeicons/react": "^1.1.6",
     "@tabler/icons-react": "^3.44.0",
+    "ckeditor5": "^48.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "firebase": "^12.15.0",

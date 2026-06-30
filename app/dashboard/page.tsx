@@ -9,9 +9,13 @@ import { AnimatePresence, motion } from 'motion/react';
 import { IconX, IconPlus, IconMinus } from '@tabler/icons-react';
 import TablePagination from '@/components/TablePagination';
 import { usePagination } from '@/src/hooks/usePagination';
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import { ClassicEditor, Essentials, Paragraph, Bold, Italic, Underline} from "ckeditor5";
+
+import "ckeditor5/ckeditor5.css";
 
 const initialFormData = {
-  route:"",
+  dropdown_label:"",
   section_1_subheader:"",
   section_1_header: "",
   section_1_description: "",
@@ -19,7 +23,12 @@ const initialFormData = {
   section_2_header: "",
   section_2_description: "",
   section_3_description: "",
+  table_footer:"",
+  section_4_header: "",
+  section_4_description: "",
+  section_4_tagline: "",
   faq_description: "",
+  disclaimer:"",
 };
 
 const initialPoint = { icon: "", point: "" };
@@ -225,7 +234,7 @@ function page() {
   const handleEdit = (scheme: Scheme) => {
     setEditingSchemeId(scheme.id);
     setFormData({
-      route:scheme.route ?? "",
+      dropdown_label:scheme.dropdown_label ?? "",
       section_1_subheader:scheme.section_1_subheader ?? "",
       section_1_header: scheme.section_1_header ?? "",
       section_1_description: scheme.section_1_description ?? "",
@@ -233,7 +242,12 @@ function page() {
       section_2_header: scheme.section_2_header ?? "",
       section_2_description: scheme.section_2_description ?? "",
       section_3_description: scheme.section_3_description ?? "",
+      table_footer:scheme.table_footer ?? "",
+      section_4_header: scheme.section_4_header ?? "",
+      section_4_description: scheme.section_4_description ?? "",
+      section_4_tagline: scheme.section_4_tagline ?? "",
       faq_description: scheme.faq_description ?? "",
+      disclaimer: scheme.disclaimer ?? "",
     });
     setItems(
       scheme.section_1_points?.length
@@ -370,7 +384,7 @@ function page() {
       );
 
       await set(ref(db, `schemes/${schemeId}`), {
-        route:formData.route.trim(),
+        dropdown_label:formData.dropdown_label.trim(),
         section_1_logo,
         section_1_header: formData.section_1_header.trim(),
         section_1_subheader: formData.section_1_subheader.trim(),
@@ -381,11 +395,16 @@ function page() {
         section_2_header: formData.section_2_header.trim(),
         section_2_description: formData.section_2_description.trim(),
         section_3_description: formData.section_3_description.trim(),
+        table_footer:formData.table_footer.trim(),
         section_3_img,
+        section_4_header: formData.section_4_header.trim(),
+        section_4_description: formData.section_4_description.trim(),
+        section_4_tagline: formData.section_4_tagline.trim(),
         eligibility_table,
         faq_description: formData.faq_description.trim(),
         faq_image,
         faqs,
+        disclaimer:formData.disclaimer,
         createdAt: existingScheme?.createdAt ?? Date.now(),
         createdBy: existingScheme?.createdBy ?? user.uid ?? null,
         updatedAt: Date.now(),
@@ -460,8 +479,8 @@ function page() {
                         <p className="rounded-4xl bg-green-50 px-4 py-3 text-sm text-green-700">{success}</p>
                       ) : null}
                       <div>
-                        <label htmlFor="route" className="mb-2 block text-sm font-medium text-[#084E75]">Route</label>
-                        <input id="route" name="route" value={formData.route} onChange={handleChange} type="text" className='border border-[#084E75] rounded-4xl w-full py-2 px-3'/>
+                        <label htmlFor="dropdown_label" className="mb-2 block text-sm font-medium text-[#084E75]">Dropdown Label</label>
+                        <input id="dropdown_label" name="dropdown_label" value={formData.dropdown_label} onChange={handleChange} type="text" className='border border-[#084E75] rounded-4xl w-full py-2 px-3'/>
                       </div>
                       <h3 className="text-lg font-semibold text-[#084E75] underline">Section 1</h3>
                       <div className="grid gap-4 grid-cols-3">
@@ -477,9 +496,23 @@ function page() {
                           <label htmlFor="section_1_subheader" className="mb-2 block text-sm font-medium text-[#084E75]">Sub Header</label>
                           <input id="section_1_subheader" name="section_1_subheader" value={formData.section_1_subheader} onChange={handleChange} type="text" className='border border-[#084E75] rounded-4xl w-full py-2 px-3'/>
                         </div>
-                        <div>
+                        <div className='col-span-3'>
                           <label htmlFor="section_1_description" className="mb-2 block text-sm font-medium text-[#084E75]">Description</label>
-                          <input id="section_1_description" name="section_1_description" value={formData.section_1_description} onChange={handleChange} type="text" className='border border-[#084E75] rounded-4xl w-full py-2 px-3'/>
+                          <CKEditor
+                            editor={ClassicEditor}
+                            config={{
+                              licenseKey: "GPL",
+                              plugins: [Essentials, Paragraph, Bold, Italic, Underline],
+                              toolbar: ["undo", "redo", "|", "bold", "italic", "underline"],
+                            }}
+                            data={formData.section_1_description}
+                            onChange={(_, editor) => {
+                              setFormData((prev) => ({
+                                ...prev,
+                                section_1_description: editor.getData(),
+                              }));
+                            }}
+                          />
                         </div>
                       </div>
                       <div className='bg-[#DDB162]/10 p-4 rounded-4xl'>
@@ -544,16 +577,24 @@ function page() {
                         </div>
                         <div>
                           <label htmlFor="section_2_description" className="mb-2 block text-sm font-medium text-[#084E75]">Description</label>
-                          <textarea
-                            id="section_2_description"
-                            name="section_2_description"
-                            value={formData.section_2_description}
-                            onChange={handleChange}
-                            rows={5}
-                            className="border border-[#084E75] rounded-4xl w-full py-2 px-3 resize-none"
+                          <CKEditor
+                            editor={ClassicEditor}
+                            config={{
+                              licenseKey: "GPL",
+                              plugins: [Essentials, Paragraph, Bold, Italic, Underline],
+                              toolbar: ["undo", "redo", "|", "bold", "italic", "underline"],
+                            }}
+                            data={formData.section_2_description}
+                            onChange={(_, editor) => {
+                              setFormData((prev) => ({
+                                ...prev,
+                                section_2_description: editor.getData(),
+                              }));
+                            }}
                           />
                         </div>
                       </div>
+                      
                       <hr className=' text-[#084E75]'/>
                       <h3 className="text-lg font-semibold text-[#084E75] underline">Section 3</h3>
                       <div className="grid gap-4 grid-cols-2">
@@ -569,6 +610,7 @@ function page() {
                           ) : null}
                         </div>
                       </div>
+                      
                       <div className='bg-[#DDB162]/10 p-4 rounded-4xl'>
                         <p className="text-lg font-semibold text-[#084E75] underline mb-4">Table Section</p>
                         {table.map((item, index) => (
@@ -621,6 +663,40 @@ function page() {
                             </div>
                           </div>
                         ))}
+                      </div>
+                      <div>
+                        <label htmlFor="table_footer" className="mb-2 block text-sm font-medium text-[#084E75]">Table Footer</label>
+                        <CKEditor
+                          editor={ClassicEditor}
+                          config={{
+                            licenseKey: "GPL",
+                            plugins: [Essentials, Paragraph, Bold, Italic, Underline],
+                            toolbar: ["undo", "redo", "|", "bold", "italic", "underline"],
+                          }}
+                          data={formData.table_footer}
+                          onChange={(_, editor) => {
+                            setFormData((prev) => ({
+                              ...prev,
+                              table_footer: editor.getData(),
+                            }));
+                          }}
+                        />
+                      </div>
+                      <hr className=' text-[#084E75]'/>
+                      <h4 className="text-lg font-semibold text-[#084E75] underline">Section 4</h4>
+                      <div className="grid gap-4 grid-cols-2">
+                        <div>
+                          <label htmlFor="section_4_header" className="mb-2 block text-sm font-medium text-[#084E75]">Header</label>
+                          <input id="section_4_header" name="section_4_header" value={formData.section_4_header} onChange={handleChange} type="text" className='border border-[#084E75] rounded-4xl w-full py-2 px-3'/>
+                        </div>
+                        <div>
+                          <label htmlFor="section_4_description" className="mb-2 block text-sm font-medium text-[#084E75]">Description</label>
+                          <input id="section_4_description" name="section_4_description" value={formData.section_4_description} onChange={handleChange} type="text" className='border border-[#084E75] rounded-4xl w-full py-2 px-3' />
+                        </div>
+                        <div>
+                          <label htmlFor="section_4_tagline" className="mb-2 block text-sm font-medium text-[#084E75]">Tagline</label>
+                          <input id="section_4_tagline" name="section_4_tagline" value={formData.section_4_tagline} onChange={handleChange} type="text" className='border border-[#084E75] rounded-4xl w-full py-2 px-3' />
+                        </div>
                       </div>
                       <hr className=' text-[#084E75]'/>
                       <h4 className="text-lg font-semibold text-[#084E75] underline">FAQ Section</h4>
@@ -676,7 +752,27 @@ function page() {
                         </div>
                       </div>
                       <div>
-                        <button type="submit" disabled={loading} className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#084E75]/20 transition-colors hover:bg-[#0a5d8a] disabled:cursor-not-allowed disabled:opacity-60">{loading ? "Saving…" : editingSchemeId ? "Update" : "Submit"}</button>
+                        <label htmlFor="disclaimer" className="mb-2 block text-sm font-medium text-[#084E75]">Disclaimer</label>
+                        <CKEditor
+                          editor={ClassicEditor}
+                          config={{
+                            licenseKey: "GPL",
+                            plugins: [Essentials, Paragraph, Bold, Italic, Underline],
+                            toolbar: ["undo", "redo", "|", "bold", "italic", "underline"],
+                          }}
+                          data={formData.disclaimer}
+                          onChange={(_, editor) => {
+                            setFormData((prev) => ({
+                              ...prev,
+                              disclaimer: editor.getData(),
+                            }));
+                          }}
+                        />
+                      </div>
+                      <div className='flex justify-center'>
+                        <div>
+                          <button type="submit" disabled={loading} className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#084E75]/20 transition-colors hover:bg-[#0a5d8a] disabled:cursor-not-allowed disabled:opacity-60">{loading ? "Saving…" : editingSchemeId ? "Update" : "Submit"}</button>
+                        </div>
                       </div>
                     </form>
                   </div>

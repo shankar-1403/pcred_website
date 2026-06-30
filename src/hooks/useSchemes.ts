@@ -22,7 +22,7 @@ export interface SchemeFaq {
 
 export interface Scheme {
   id: string;
-  route?:string;
+  dropdown_label?:string;
   section_1_header?: string;
   section_1_subheader?:string;
   section_1_description?: string;
@@ -33,11 +33,16 @@ export interface Scheme {
   section_2_header?: string;
   section_2_description?: string;
   section_3_description?: string;
+  table_footer?: string;
   section_3_img?: string;
+  section_4_header?: string;
+  section_4_description?: string;
+  section_4_tagline?: string;
   eligibility_table?: SchemeTableRow[];
   faq_description?: string;
   faq_image?: string;
   faqs?: SchemeFaq[];
+  disclaimer?:string;
   createdAt?: number;
   createdBy?: string | null;
   [key: string]: unknown;

@@ -437,7 +437,9 @@ export default function Scheme() {
               {scheme.section_1_header} <span className="text-[#DDB162]">{scheme.section_1_subheader}</span>
             </h1>
             {scheme.section_1_description ? (
-              <p className="text-base text-[#084E75] mt-4">{scheme.section_1_description}</p>
+              <div className="text-base text-[#084E75] mt-4" dangerouslySetInnerHTML={{
+                __html: scheme.section_1_description ?? "",
+              }}/>
             ) : null}
 
             {heroPoints.length > 0 ? (
@@ -468,7 +470,7 @@ export default function Scheme() {
               </div>
             )}
 
-            <div className="mt-8 flex flex-wrap items-center gap-4 pb-10 md:pb-14">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}
@@ -638,8 +640,7 @@ export default function Scheme() {
                       ))}
                 </ul>
                 <div className="border-t border-gray-100 bg-[#084E75]/10 px-6 py-4">
-                  <p className="text-base font-bold tracking-wide text-[#084E75]">Collateral-freee loans. Government-backed security.</p>
-                  <p className="text-xs font-semibold tracking-wide text-[#084E75]">Fuel your growth with confidence.</p>
+                  <div className="text-base tracking-wide text-[#084E75]" dangerouslySetInnerHTML={{__html: scheme.table_footer ?? ""}}/>
                 </div>
               </div>
             </motion.div>
@@ -661,15 +662,10 @@ export default function Scheme() {
             <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
               <div className="max-w-2xl">
                 <h4 className="text-2xl font-semibold text-white md:text-4xl">
-                  Not Sure If You Qualify?
+                  {scheme?.section_4_header}
                 </h4>
-                <p className="mt-3 text-white/80 text-lg">
-                  Our funding specialists can evaluate your business profile and help you assess
-                  your eligibility under the CGTMSE Scheme.
-                </p>
-                <p className="mt-3 font-semibold text-[#DDB162] text-lg">
-                  Get a Free Eligibility Assessment Today.
-                </p>
+                <p className="mt-3 text-white/80 text-lg">{scheme?.section_4_description}</p>
+                <p className="mt-3 font-semibold text-[#DDB162] text-lg">{scheme?.section_4_tagline}</p>
               </div>
               <button
                 onClick={() => setIsModalOpen(true)}
@@ -749,11 +745,7 @@ export default function Scheme() {
 
       <section className="pb-5">
         <div className="mx-auto max-w-4xl px-6">
-          <p className="text-center text-xs leading-relaxed text-[#084E75]">
-            <span className="font-semibold text-[#084E75]">Disclaimer:</span> Loan approval,
-            interest rates, loan amount, collateral requirements, and eligibility are subject to
-            lender policies, credit assessment, business profile, and applicable CGTMSE guidelines.
-          </p>
+          <div className="text-center text-xs leading-relaxed text-[#084E75]" dangerouslySetInnerHTML={{__html: scheme.disclaimer ?? ""}}/>
         </div>
       </section>
     </>

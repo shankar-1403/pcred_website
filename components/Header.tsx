@@ -1,9 +1,12 @@
 'use client';
-import { useState } from "react";
+import { Children, useState } from "react";
 import {Navbar,NavBody,NavItems,MobileNav,NavbarLogo,NavbarButton,MobileNavHeader,MobileNavToggle,MobileNavMenu,} from "../components/ui/resizable-navbar"
 import Link from "next/link";
+import { useSchemes } from "@/src/hooks/useSchemes";
 
 export default function Header() {
+  const {schemes} = useSchemes();
+  
   const navItems = [
     {
       name: "Home",
@@ -19,7 +22,10 @@ export default function Header() {
     },
     {
       name: "Schemes",
-      link: "/schemes",
+      children: schemes.map((scheme) => ({
+        name: scheme.dropdown_label ?? "",
+        link: `/scheme/${scheme.id}`, 
+      })),
     },
     {
       name: "Blogs",
