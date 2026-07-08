@@ -18,14 +18,6 @@ const quickLinks = [
   { label: "Contact", href: "/#contact" },
 ];
 
-const services = [
-  "Capital Market Advisory",
-  "Debt Advisory",
-  "Virtual CFO Services",
-  "IPO Advisory",
-  "Investment Strategy",
-];
-
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#084E75] text-white">
@@ -35,92 +27,16 @@ export default function Footer() {
 
       <div className="relative mx-auto max-w-7xl pt-16 pb-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:col-span-1">
+          <div>
             <Link href="/" className="inline-block">
-              <Image
-                src={logo}
-                alt="Pcred"
-                width={140}
-                height={60}
-                className="h-14 w-auto brightness-0 invert"
-              />
+              <Image src={logo} alt="Pcred" width={140} height={60} className="h-14 w-auto brightness-0 invert"/>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
               Strategic financial advisory solutions designed to strengthen and
               scale businesses across India.
             </p>
-            <div className="mt-6 flex gap-3">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition-colors hover:border-white/40 hover:bg-white/10 hover:text-white"
-              >
-                <IconBrandLinkedin className="size-5" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition-colors hover:border-white/40 hover:bg-white/10 hover:text-white"
-              >
-                <IconBrandInstagram className="size-5" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="flex size-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition-colors hover:border-white/40 hover:bg-white/10 hover:text-white"
-              >
-                <IconBrandFacebook className="size-5" />
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-white">
-              Quick Links
-            </h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/70 transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-white">
-              Our Services
-            </h3>
-            <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service}>
-                  <Link
-                    href="/services"
-                    className="text-sm text-white/70 transition-colors hover:text-white"
-                  >
-                    {service}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-white">
-              Contact Us
-            </h3>
-            <ul className="space-y-4">
+            
+            <ul className="space-y-4 mt-4">
               <li className="flex items-start gap-3">
                 <IconMapPin className="mt-0.5 size-5 shrink-0 text-white" />
                 <span className="text-sm text-white/70">
@@ -146,6 +62,27 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+          </div>          
+          <div>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-white">Quick Links</h3>
+            <ul className="space-y-3">
+              {quickLinks.map((quicklink,index) => (
+                <li key={index+1}>
+                  <Link
+                    href={quicklink.href}
+                    className="text-sm text-white/70 transition-colors hover:text-white"
+                  >
+                    {quicklink.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="col-span-2 p-4 border rounded-4xl">
+            <label htmlFor="" className="absolute -mt-8 ml-4 px-2 bg-[#084E75] text-lg">Our Location</label>
+            <div className="overflow-hidden rounded-4xl">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7539.342371665663!2d72.86381847497857!3d19.122075682091978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c96714ce57ed%3A0x1b179a27f41db6f0!2sPCRED!5e0!3m2!1sen!2sin!4v1783146736429!5m2!1sen!2sin" width="600" height="250" loading="lazy" referrerPolicy="strict-origin-when-cross-origin"/>
+            </div>
           </div>
         </div>
 

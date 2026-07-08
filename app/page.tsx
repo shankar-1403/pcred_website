@@ -13,6 +13,7 @@ import HorizontalScrollCarousel from "@/components/ui/card-carousel";
 import serviceOne from "../public/services/service_2.png"
 import serviceTwo from "../public/services/service_2.png"
 import intro from "../public/intro_img.png"
+import AboutUsTwo from "../public/aboutpage2.png"
 
 const reviews = [
   {
@@ -442,45 +443,44 @@ export default function Home() {
       <section className="bg-white py-30">
         <div className="max-w-7xl mx-auto grid grid-cols-2 gap-6">
           <div>
-              <h2 className="text-5xl leading-16 capitalize font-semibold"><span className="text-[#084E75]">Delivering Strategic Financial Solutions That</span><span className="text-[#DDB162]"> Empower Businesses to Grow with Confidence </span></h2>
+              <h2 className="text-5xl leading-16 capitalize font-semibold"><span className="text-[#084E75]">Building Stronger Businesses.</span><br/><span className="text-[#DDB162]">Creating Lasting Value.</span></h2>
+          </div>
+          <div className="flex justify-end items-start relative">
             <div className="mt-4">
-              <ul className="list-disc ml-4">
-                <li className="text-lg text-[#084E75] mb-2">Funding and financial solutions designed for sustainable business growth</li>
-                <li className="text-lg text-[#084E75] mb-2">Advisory support focused on performance, stability, and expansion</li>
-                <li className="text-lg text-[#084E75] mb-2">Strategic guidance for businesses across multiple growth stages</li>
-                <li className="text-lg text-[#084E75] mb-2">Ethical, transparent, and client-focused advisory approach</li>
-                <li className="text-lg text-[#084E75] mb-2">Helping MSMEs and enterprises scale with financial confidence</li>
-              </ul>
-              <div className="flex gap-4 mt-6">
-                <Link href="/about-us" className="px-6 py-3 rounded-4xl bg-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40">Learn More About Us</Link>
+              <p className="text-lg text-[#084E75] mb-2">PCRED is a leading Corporate Advisory firm helping businesses across India make smarter financial decisions, unlock growth opportunities, and build sustainable enterprises. We partner with founders, promoters, CFOs, and leadership teams to navigate every stage of business growth from startup to scale, expansion to IPO.</p>
+              <div className="flex gap-4 mt-10">
+                <div>
+                  <Link href="/about-us" className="px-6 py-3 rounded-4xl bg-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40">Talk to an Advisor</Link>
+                </div>
+                <div>
+                  <Link href="/about-us" className="px-6 py-3 rounded-4xl border-2 border-[#DDB162] bg-[#DDB162] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#DDB162]/40">Explore Our Expertise</Link>
+                </div>
               </div>
             </div>
           </div>
-          <div className="flex justify-end items-start relative">
-            <div className="rounded-4xl w-130 relative">
-              <div className=" bg-white border border-[#084E75]/10 shadow-lg rounded-4xl p-4">
-                <div className="absolute top-20 left-15 flex flex-col gap-2">
-                  <p className="text-sm text-[#084E75]">Disbursements Facilitated</p>
-                  <p className="text-3xl font-bold text-[#DDB162]">₹340Cr+</p>
-                  <p className="text-base font-semibold text-[#084E75]">Fueling business growth <br/>accross India</p>
-                </div>
-                <div
-                  id="chartdiv"
-                  className="relative"
-                  style={{
-                    width: "100%",
-                    height: "400px",
-                  }}
-                />
-              </div>
-              <div className="grid grid-cols-3 gap-3 mt-6">
-                {achievements.map((data)=>
-                  <div key={data.id} className="bg-white border border-[#084E75]/10 flex flex-col items-start justify-center gap-0 p-4 rounded-4xl shadow-lg h-30">
-                    <p className="text-lg text-[#DDB162] text-left font-bold">{data.heading}</p>
-                    <p className="text-sm text-[#084E75] text-left font-bold">{data.label}</p>
-                  </div>
-                )}
-              </div>
+        </div>
+      </section>
+      
+      <section className="bg-white py-30">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 gap-6">
+          <div className="flex justify-start items-start relative">
+            <div className="h-140 w-full relative">
+              <Image
+                src={AboutUsTwo}
+                alt="About Section"
+                fill
+                className="object-cover rounded-4xl"
+                priority
+              />
+            </div>
+          </div>
+          <div>
+            <h3 className="text-5xl leading-16 font-semibold text-[#084E75]">Who We Are</h3>
+            <p className="text-3xl capitalize font-semibold text-[#DDB162] leading-10 mt-2">Strategic Advisors for Businesses That Think Long-Term</p>
+            <div className="mt-4">
+              <p className="text-lg text-[#084E75] mb-4">Every successful business reaches moments where the right financial decision changes everything.</p>
+              <p className="text-lg text-[#084E75] mb-4">At PCRED, we combine strategic thinking, financial expertise, and execution-driven advisory to help businesses overcome challenges, accelerate growth, and create long-term enterprise value.</p>
+              <p className="text-lg text-[#084E75] mb-4">Whether you're raising capital, strengthening financial operations, expanding into new markets, or preparing for your next milestone, we become an extension of your leadership team.</p>
             </div>
           </div>
         </div>
@@ -488,7 +488,7 @@ export default function Home() {
 
       <section className="bg-white relative pt-20 pb-0">
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-5xl font-semibold text-[#084E75] leading-16">Expert Solutions For Every <br /><span className="text-[#DDB162]">Stage Of Growth</span></h3>
+          <h4 className="text-5xl font-semibold text-[#084E75] leading-16">Expert Solutions For Every <br /><span className="text-[#DDB162]">Stage Of Growth</span></h4>
           <div className="mt-8">
             <HorizontalScrollCarousel cards={services}/>
           </div>

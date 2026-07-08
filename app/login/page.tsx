@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react';
-import Logo from "../../public/logo.webp"
+import Logo from "../../public/pcred_cms_logo.webp"
 import { useRouter } from 'next/navigation'
 import { useAuth } from '../../src/context/AuthContext'
 import { IconEye, IconEyeOff } from '@tabler/icons-react'

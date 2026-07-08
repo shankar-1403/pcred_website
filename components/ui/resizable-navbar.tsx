@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { IconMenu2, IconX, IconChevronRight } from "@tabler/icons-react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent} from "framer-motion";
 import Link from "next/link";
 import logo from "../../public/logo.webp"
@@ -143,16 +143,16 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           )}
 
           {item.children && (
-            <div className="absolute left-0 top-full z-50 hidden min-w-56 pt-2 group-hover:block">
-              <div className="overflow-hidden rounded-xl border border-[#084E75]/10 bg-white shadow-xl">
+            <div className="absolute left-0 top-7 z-50 hidden min-w-56 pt-2 group-hover:block">
+              <div className="overflow-hidden rounded-4xl border border-[#084E75]/10 bg-white shadow-xl">
                 {item.children.map((child) => (
                   <Link
                     key={child.link}
                     href={child.link!}
                     onClick={onItemClick}
-                    className="block px-5 py-3 text-sm text-[#084E75] transition-colors hover:bg-[#DDB162]/10 capitalize"
+                    className="px-5 py-3 flex items-center text-sm text-[#084E75] transition-colors hover:bg-[#DDB162]/10 capitalize"
                   >
-                    {child.name}
+                    <IconChevronRight size={16}/> {child.name}
                   </Link>
                 ))}
               </div>
