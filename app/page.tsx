@@ -141,17 +141,20 @@ const stages = [
 const pillars = [
   {
     title: "Strategic Thinking",
-    description: "Every successful business reaches moments where the right financial decision changes everything.",
+    description:
+      "Every successful business reaches moments where the right financial decision changes everything.",
     icon: IconTargetArrow,
   },
   {
     title: "Financial Expertise",
-    description: "At PCRED, we combine strategic thinking, financial expertise, and execution-driven advisory to help businesses overcome challenges, accelerate growth, and create long-term enterprise value.",
+    description:
+      "Deep capital markets, governance, and growth knowledge that turns complexity into clear decisions.",
     icon: IconChartBarPopular,
   },
   {
     title: "Execution Driven",
-    description: "Whether you're raising capital, strengthening financial operations, expanding into new markets, or preparing for your next milestone, we become an extension of your leadership team.",
+    description:
+      "From capital raise to IPO readiness, we stay embedded with your leadership until results land.",
     icon: IconCircleDashedCheck,
   },
 ];
@@ -324,10 +327,7 @@ export default function Home() {
               </h1>
             </div>
 
-            <p className="max-w-2xl text-lg leading-relaxed text-white/85 md:text-2xl">
-              Strategic Financial Advisory Solutions Designed to Strengthen and
-              Scale Businesses
-            </p>
+            <p className="max-w-2xl text-lg leading-relaxed text-white/85 md:text-2xl">Strategic Financial Advisory Solutions Designed to Strengthen and Scale Businesses</p>
           </motion.div>
 
           <motion.div
@@ -437,16 +437,8 @@ export default function Home() {
                 <div className="absolute inset-0 bg-[#084E75]/40" />
               </div>
 
-              <div className="rounded-3xl border border-white/60 bg-white/80 p-8 shadow-2xl shadow-[#084E75]/10 backdrop-blur-xl md:p-10">
-                <p className="text-base leading-relaxed text-[#084E75]/85 md:text-lg">
-                  PCRED is a leading Corporate Advisory firm helping businesses
-                  across India make smarter financial decisions, unlock growth
-                  opportunities, and build sustainable enterprises.
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-[#084E75]/70">
-                  We partner with founders, promoters, CFOs, and leadership teams
-                  to navigate every stage of business growth.
-                </p>
+              <div className="rounded-3xl border border-white/60 bg-white/60 p-8 shadow-2xl shadow-[#084E75]/10 backdrop-blur-3xl md:p-10">
+                <p className="text-base leading-relaxed text-[#084E75]/85 md:text-lg">PCRED is a leading Corporate Advisory firm helping businesses across India make smarter financial decisions, unlock growth opportunities, and build sustainable enterprises. We partner with founders, promoters, CFOs, and leadership teams to navigate every stage of business growth - from startup to scale, expansion to IPO.</p>
 
                 <div className="mt-8 flex items-center gap-6 border-t border-[#084E75]/10 pt-8">
                   {achievements.map((stat, i) => (
@@ -507,6 +499,7 @@ export default function Home() {
           </motion.div>
 
           <div className="mt-16 grid gap-4 lg:grid-cols-12 lg:grid-rows-[auto_auto]">
+            {/* Featured dark card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -515,27 +508,40 @@ export default function Home() {
               className="group relative lg:col-span-5 lg:row-span-2"
             >
               <div className="absolute -inset-px rounded-3xl bg-linear-to-br from-[#DDB162]/60 to-[#5BBCEB]/30 opacity-60 blur-sm transition-opacity group-hover:opacity-100" />
-              <div className="relative flex h-full min-h-80 flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-[#084E75] via-[#0a5d8a] to-[#063a57] p-7 md:p-8">
+              <div className="relative flex h-full min-h-80 flex-col overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-[#084E75] via-[#0a5d8a] to-[#063a57] p-7 md:p-8">
                 <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full border border-white/10" />
+                <div className="pointer-events-none absolute right-8 top-10 size-28 rounded-full border border-white/5" />
                 <div className="pointer-events-none absolute -bottom-20 -left-10 size-56 rounded-full bg-[#DDB162]/10 blur-2xl" />
 
-                <div className="relative">
-                  <div className="mt-4 inline-flex rounded-2xl bg-[#DDB162] p-4 text-[#084E75] shadow-lg shadow-[#DDB162]/30">
-                    <FeaturedIcon size={32} stroke={1.5} />
+                <div className="relative flex items-start justify-between">
+                  <div className="inline-flex rounded-2xl bg-[#DDB162] p-3.5 text-[#084E75] shadow-lg shadow-[#DDB162]/30 transition-transform duration-300 group-hover:scale-105">
+                    <FeaturedIcon size={28} stroke={1.5} />
                   </div>
+                  <span className="text-xs font-bold tabular-nums tracking-widest text-[#DDB162]/70">
+                    01
+                  </span>
                 </div>
 
-                <div className="relative mt-6">
+                <div className="relative mt-auto pt-10">
+                  <div className="mb-4 h-0.5 w-12 rounded-full bg-[#DDB162]" />
                   <h3 className="text-2xl font-semibold text-white md:text-3xl">
                     {pillars[0].title}
                   </h3>
                   <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70 md:text-base">
                     {pillars[0].description}
                   </p>
+                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#DDB162]">
+                    Core strength
+                    <IconArrowUpRight
+                      size={16}
+                      className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>
 
+            {/* Image card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -548,17 +554,24 @@ export default function Home() {
                 alt="PCRED advisory team"
                 className="h-full min-h-70 w-full object-cover transition-transform duration-700 group-hover:scale-105 lg:min-h-full"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/90 via-[#084E75]/30 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/95 via-[#084E75]/35 to-transparent" />
 
-              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-7">
-                <div className="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur-md">
-                  <p className="text-sm font-medium leading-relaxed text-white/90">
-                    &ldquo;We become an extension of your leadership team - from capital raise to IPO readiness.&rdquo;
+              <div className="absolute left-5 top-5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-md">
+                Partnership
+              </div>
+
+              <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+                <div className="rounded-2xl border border-white/15 bg-[#084E75]/55 p-5 backdrop-blur-md">
+                  <IconQuote className="mb-2 size-6 text-[#DDB162]/80" />
+                  <p className="text-sm font-medium leading-relaxed text-white/95">
+                    We become an extension of your leadership team - from capital
+                    raise to IPO readiness.
                   </p>
                 </div>
               </div>
             </motion.div>
 
+            {/* Stacked side cards */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -568,48 +581,37 @@ export default function Home() {
             >
               {pillars.slice(1).map((pillar, index) => {
                 const Icon = pillar.icon;
-                const isGold = index === 2;
+                const num = String(index + 2).padStart(2, "0");
 
                 return (
                   <motion.div
                     key={pillar.title}
-                    whileHover={{ y: -3, scale: 1.01 }}
+                    whileHover={{ y: -3 }}
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                     className="group relative flex-1"
                   >
-                    <div
-                      className={`relative flex h-full flex-col overflow-hidden rounded-3xl border p-5 shadow-lg transition-all duration-300 group-hover:shadow-xl sm:p-5 ${
-                        isGold
-                          ? "border-[#DDB162]/30 bg-linear-to-br from-[#DDB162]/15 to-white hover:border-[#DDB162]/50"
-                          : "border-white/20 bg-white/95 hover:border-white/40"
-                      }`}
-                    >
-                      <div className="flex items-start justify-between">
-                        <div
-                          className={`inline-flex rounded-xl p-2.5 transition-all duration-300 group-hover:scale-110 ${
-                            isGold
-                              ? "bg-[#DDB162] text-[#084E75]"
-                              : "bg-[#084E75]/10 text-[#084E75] group-hover:bg-[#084E75] group-hover:text-white"
-                          }`}
-                        >
+                    <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-white/20 bg-white p-6 shadow-lg transition-all duration-300 group-hover:border-[#DDB162]/40 group-hover:shadow-xl">
+                      <div className="pointer-events-none absolute -right-8 -top-8 size-24 rounded-full bg-[#084E75]/5 transition-transform duration-500 group-hover:scale-125" />
+
+                      <div className="relative flex items-center justify-between">
+                        <div className="inline-flex rounded-xl bg-[#084E75]/10 p-2.5 text-[#084E75] transition-all duration-300 group-hover:bg-[#084E75] group-hover:text-white">
                           <Icon size={20} stroke={1.5} />
                         </div>
+                        <span className="text-[11px] font-bold tabular-nums tracking-widest text-[#084E75]/25 group-hover:text-[#DDB162]">
+                          {num}
+                        </span>
                       </div>
 
-                      <h3 className="mt-3 text-sm font-semibold text-[#084E75] sm:text-base">
-                        {pillar.title}
-                      </h3>
-                      <p className="mt-1 text-xs leading-relaxed text-[#084E75]/60 sm:text-sm">
-                        {pillar.description}
-                      </p>
+                      <div className="relative mt-5">
+                        <h3 className="text-base font-semibold text-[#084E75]">
+                          {pillar.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-[#084E75]/60">
+                          {pillar.description}
+                        </p>
+                      </div>
 
-                      <div
-                        className={`mt-3 h-0.5 w-6 rounded-full transition-all duration-300 group-hover:w-12 ${
-                          isGold
-                            ? "bg-[#DDB162]"
-                            : "bg-[#084E75]/20 group-hover:bg-[#084E75]"
-                        }`}
-                      />
+                      <div className="relative mt-5 h-0.5 w-8 rounded-full bg-[#DDB162]/50 transition-all duration-300 group-hover:w-14 group-hover:bg-[#DDB162]" />
                     </div>
                   </motion.div>
                 );
@@ -782,12 +784,13 @@ export default function Home() {
 
             <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-0">
               <div className="p-8 md:p-12 lg:p-14">
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162]">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162]">
+                  <span className="h-px w-8 bg-[#DDB162]" />
                   Our Approach
                 </span>
-                <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#084E75] md:text-4xl">
+                <h5 className="mt-4 text-3xl font-semibold leading-tight text-[#084E75] md:text-4xl">
                   Proactive Financial Expertise
-                </h2>
+                </h5>
                 <p className="mt-5 text-base leading-relaxed text-[#084E75]/80 md:text-lg">
                   Tailored financial solutions designed to help MSMEs and
                   businesses improve stability, optimize performance, and achieve
@@ -808,7 +811,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="relative h-64 lg:h-full lg:min-h-[420px]">
+              <div className="relative h-64 lg:h-full lg:min-h-105">
                 <Image
                   src={intro}
                   alt="Financial expertise"
@@ -833,9 +836,9 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="max-w-xl"
           >
-            <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
+            <h5 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
               Ready to strengthen your business finances?
-            </h2>
+            </h5>
             <p className="mt-3 text-lg text-white/70">
               Connect with our advisory team and discover solutions tailored to
               your growth goals.
@@ -850,7 +853,7 @@ export default function Home() {
           >
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full border-2 border-[#DDB162] bg-[#DDB162] px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-xl"
+              className="group inline-flex items-center gap-2 rounded-full border-2 border-[#DDB162] bg-[#DDB162] px-8 py-4 text-sm font-semibold text-white transition-all hover:-translate-y-0.5"
             >
               Get In Touch
               <IconArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
@@ -873,14 +876,15 @@ export default function Home() {
             className="mb-14 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end"
           >
             <div className="max-w-2xl">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162]">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162]">
+                <span className="h-px w-8 bg-[#DDB162]" />
                 Client Stories
               </span>
-              <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#084E75] md:text-4xl">
+              <h5 className="mt-4 text-3xl font-semibold leading-tight text-[#084E75] md:text-4xl">
                 Trusted by Businesses
                 <br />
                 <span className="text-[#DDB162]">Across India</span>
-              </h2>
+              </h5>
             </div>
 
             <div className="flex items-center gap-6 rounded-3xl border border-[#084E75]/10 bg-[#084E75]/5 px-6 py-4 backdrop-blur-sm">
@@ -1007,9 +1011,9 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto text-center mx-auto mb-14"
           >
-            <h2 className="mt-4 text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl text-[#084E75]">
-              {"Let&apos;s Start a Conversation"}
-            </h2>
+            <h5 className="mt-4 text-3xl font-semibold leading-tight md:text-4xl lg:text-4xl text-[#084E75]">
+              {"Let's Start a Conversation"}
+            </h5>
             <p className="mt-5 text-base leading-relaxed md:text-lg text-[#084E75]/80">
               Tell us about your business goals. Our advisory team will respond within one business day.
             </p>
@@ -1024,13 +1028,8 @@ export default function Home() {
               className="flex flex-col gap-6"
             >
               <div className="overflow-hidden rounded-3xl bg-linear-to-br from-[#084E75] to-[#0a5d8a] p-8 text-white shadow-xl">
-                <h3 className="text-2xl font-semibold">
-                  Ready to Move Your Business Forward?
-                </h3>
-                <p className="mt-3 text-white/70">
-                  Our advisors are here to help you navigate your next financial
-                  milestone.
-                </p>
+                <h5 className="text-2xl font-semibold">Ready to Move Your Business Forward?</h5>
+                <p className="mt-3 text-white/70">Our advisors are here to help you navigate your next financial milestone.</p>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
@@ -1084,9 +1083,9 @@ export default function Home() {
                   <div className="mb-6 flex size-16 items-center justify-center rounded-full bg-[#084E75]/10 text-[#084E75]">
                     <IconCheck className="size-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#084E75]">
+                  <h5 className="text-2xl font-bold text-[#084E75]">
                     Message Sent!
-                  </h3>
+                  </h5>
                   <p className="mt-3 max-w-sm text-[#084E75]/80">
                     Thank you for reaching out. Our team will get back to you
                     shortly.
