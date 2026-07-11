@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@custom-variant dark (&:is(.dark *));
 
 .font-new{
     font-family:"Geist Mono", "Geist Mono Fallback"
@@ -33,18 +34,23 @@
   animation: lifecycle-roadmap-beam-y 4s linear infinite;
 }
 
-@keyframes roadmapGlow {
+@theme inline {
+    --animate-marquee:marquee var(--duration) infinite linear;
+    --animate-marquee-vertical:marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
   from {
-    offset-distance: 0%;
-  }
+    transform:translateX(0);
+        }
   to {
-    offset-distance: 100%;
-  }
-}
-
-.roadmap-dot {
-  offset-path: path(
-    "M70 130 C150 35 250 35 330 130 S510 225 590 130 S770 35 850 130 S1030 225 1130 130"
-  );
-  animation: roadmapGlow 8s linear infinite;
+    transform:translateX(calc(-100% - var(--gap)));
+        }
+    }
+  @keyframes marquee-vertical {
+  from {
+    transform:translateY(0);
+        }
+  to {
+    transform:translateY(calc(-100% - var(--gap)));
+        }
+    }
 }

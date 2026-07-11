@@ -2,265 +2,296 @@
 
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import {IconArrowRight,IconArrowUpRight,IconBuilding,IconBuildingBank,IconChartBar,IconChartBarPopular,IconChartHistogram,IconCheck,IconChevronLeft,IconChevronRight,IconCircleDashedCheck,IconClock,IconHeartHandshake,IconMail,IconMap2,IconMapPin,IconPhone,IconQuote,IconRefresh,IconRocket,IconSend,IconSparkles,IconStarFilled,IconTargetArrow,IconUsersGroup,} from "@tabler/icons-react";
+import {IconArrowRight,IconBuilding,IconBuildingBank,IconChartBar,IconChartBarPopular,IconChartHistogram,IconCheck,IconChevronLeft,IconChevronRight,IconCircleDashedCheck,IconClock,IconHeartHandshake,IconMail,IconMap2,IconMapPin,IconPhone,IconQuote,IconRefresh,IconRocket,IconSend,IconStarFilled,IconTargetArrow,IconUsersGroup,} from "@tabler/icons-react";
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import logo from "@/public/logo.png";
 import aboutImage from "@/public/who_we_are.webp";
 import about from "@/public/img2.webp";
-import intro from "@/public/intro_img.png";
 import { SpinningText } from "@/components/ui/spinning-text";
+import { LifecycleRoadmap } from "@/components/LifecycleRoadmap";
+import HorizontalAccordion from "@/components/ui/horizontalAccordion";
+import { Marquee } from "@/components/ui/marquee";
+import bank_1 from "@/public/banking_partners/banking_partners-01.webp";
+import bank_2 from "@/public/banking_partners/banking_partners-02.webp";
+import bank_3 from "@/public/banking_partners/banking_partners-03.webp";
+import bank_4 from "@/public/banking_partners/banking_partners-04.webp";
+import bank_5 from "@/public/banking_partners/banking_partners-05.webp";
+import bank_6 from "@/public/banking_partners/banking_partners-06.webp";
+import bank_7 from "@/public/banking_partners/banking_partners-07.webp";
+import bank_8 from "@/public/banking_partners/banking_partners-08.webp";
+import bank_9 from "@/public/banking_partners/banking_partners-09.webp";
+import bank_10 from "@/public/banking_partners/banking_partners-10.webp";
+import bank_11 from "@/public/banking_partners/banking_partners-11.webp";
+import bank_12 from "@/public/banking_partners/banking_partners-12.webp";
+import bank_13 from "@/public/banking_partners/banking_partners-13.webp";
+import bank_14 from "@/public/banking_partners/banking_partners-14.webp";
+import bank_15 from "@/public/banking_partners/banking_partners-15.webp";
+import bank_16 from "@/public/banking_partners/banking_partners-16.webp";
+import bank_17 from "@/public/banking_partners/banking_partners-17.webp";
+import bank_18 from "@/public/banking_partners/banking_partners-18.webp";
+import bank_19 from "@/public/banking_partners/banking_partners-19.webp";
+import bank_20 from "@/public/banking_partners/banking_partners-20.webp";
+import bank_21 from "@/public/banking_partners/banking_partners-21.webp";
+import bank_22 from "@/public/banking_partners/banking_partners-22.webp";
+import bank_23 from "@/public/banking_partners/banking_partners-23.webp";
+import bank_24 from "@/public/banking_partners/banking_partners-24.webp";
+import bank_25 from "@/public/banking_partners/banking_partners-25.webp";
+import bank_26 from "@/public/banking_partners/banking_partners-26.webp";
+import bank_27 from "@/public/banking_partners/banking_partners-27.webp";
+import bank_28 from "@/public/banking_partners/banking_partners-28.webp";
+import bank_29 from "@/public/banking_partners/banking_partners-29.webp";
+import bank_30 from "@/public/banking_partners/banking_partners-30.webp";
+import bank_31 from "@/public/banking_partners/banking_partners-31.webp";
+import bank_32 from "@/public/banking_partners/banking_partners-32.webp";
+import bank_33 from "@/public/banking_partners/banking_partners-33.webp";
+import bank_34 from "@/public/banking_partners/banking_partners-34.webp";
+import bank_35 from "@/public/banking_partners/banking_partners-35.webp";
+import bank_36 from "@/public/banking_partners/banking_partners-36.webp";
+import bank_37 from "@/public/banking_partners/banking_partners-37.webp";
+import bank_38 from "@/public/banking_partners/banking_partners-38.webp";
+import bank_39 from "@/public/banking_partners/banking_partners-39.webp";
+import bank_40 from "@/public/banking_partners/banking_partners-40.webp";
+import bank_41 from "@/public/banking_partners/banking_partners-41.webp";
 
-const reviews = [
-  {
-    id: 1,
-    quote:
-      "PCRED helped us streamline our finances and plan growth more confidently.",
-    name: "Arvind Mehra",
-    role: "Founder",
-    rating: 5,
-  },
-  {
-    id: 2,
-    quote:
-      "Their financial guidance was practical, transparent, and truly business-focused.",
-    name: "Neha Agarwal",
-    role: "Director",
-    rating: 5,
-  },
-  {
-    id: 3,
-    quote:
-      "PCRED understands MSME challenges and delivers solutions that actually work.",
-    name: "Amit Kulkarni",
-    role: "Managing Partner",
-    rating: 5,
-  },
-  {
-    id: 4,
-    quote:
-      "Professional support and smooth execution throughout the entire advisory process.",
-    name: "Priya Nair",
-    role: "Founder",
-    rating: 5,
-  },
-  {
-    id: 5,
-    quote:
-      "Their strategic insights helped us improve financial stability and planning.",
-    name: "Sandeep Mehta",
-    role: "CEO",
-    rating: 5,
-  },
-  {
-    id: 6,
-    quote: "Reliable financial advisory backed by strong business understanding.",
-    name: "Rohan Shah",
-    role: "Co-Founder",
-    rating: 5,
-  },
-  {
-    id: 7,
-    quote: "PCRED made our funding and expansion process much more structured.",
-    name: "Kunal Arora",
-    role: "Director",
-    rating: 5,
-  },
-  {
-    id: 8,
-    quote:
-      "The team provided personalized guidance aligned with our business goals.",
-    name: "Aditi Deshmukh",
-    role: "Founder",
-    rating: 5,
-  },
-  {
-    id: 9,
-    quote:
-      "Their structured financial approach helped us plan growth more effectively.",
-    name: "Vivek Jain",
-    role: "Managing Director",
-    rating: 5,
-  },
-  {
-    id: 10,
-    quote: "Transparent communication and dependable support at every stage.",
-    name: "Pooja Malhotra",
-    role: "Operations Head",
-    rating: 5,
-  },
-  {
-    id: 11,
-    quote:
-      "PCRED simplified complex financial decisions and made the process seamless.",
-    name: "Harsh Vardhan",
-    role: "Founder",
-    rating: 5,
-  },
-];
+interface CompaniesCardProps {
+  data: StaticImageData;
+}
 
-const stages = [
-  {
-    title: "Start",
-    description: "Lay the right foundation",
-    icon: IconRocket,
-  },
-  {
-    title: "Build",
-    description: "Strengthen your business model",
-    icon: IconBuilding,
-  },
-  {
-    title: "Grow",
-    description: "Accelerate revenue growth",
-    icon: IconChartBar,
-  },
-  {
-    title: "Scale",
-    description: "Expand operations and capabilities",
-    icon: IconChartHistogram,
-  },
-  {
-    title: "Transform",
-    description: "Drive innovation and efficiency",
-    icon: IconRefresh,
-  },
-  {
-    title: "IPO",
-    description: "Prepare for public markets",
-    icon: IconBuildingBank,
-  },
-];
+const CompaniesCard = ({ data }: CompaniesCardProps ) => {
+  return (
+    <figure
+      className={"relative w-50 h-20 md:w-60 md:h-30 overflow-hidden rounded-4xl border p-2 border-blue-950 hover:shadow-lg hover:scale-105 transition-transform duration-300"}
+    >
+      <div className="p-4 flex justify-center items-center h-full">
+        <img src={data.src} alt={'Banks Logo'} className="h-12 md:h-24"/>
+      </div>
+    </figure>
+  )
+}
 
-const approachAreas = [
-  {
-    title: "Funding Strategy",
-    description: "Structure capital for sustainable growth",
-    icon: IconChartBar,
-  },
-  {
-    title: "Risk Management",
-    description: "Identify and mitigate financial exposure",
-    icon: IconCircleDashedCheck,
-  },
-  {
-    title: "Growth Planning",
-    description: "Scale operations with strategic clarity",
-    icon: IconTargetArrow,
-  },
-  {
-    title: "IPO Readiness",
-    description: "Prepare confidently for public markets",
-    icon: IconBuildingBank,
-  },
-];
+  const reviews = [
+    {
+      id: 1,
+      quote:
+        "PCRED helped us streamline our finances and plan growth more confidently.",
+      name: "Arvind Mehra",
+      role: "Founder",
+      rating: 5,
+    },
+    {
+      id: 2,
+      quote:
+        "Their financial guidance was practical, transparent, and truly business-focused.",
+      name: "Neha Agarwal",
+      role: "Director",
+      rating: 5,
+    },
+    {
+      id: 3,
+      quote:
+        "PCRED understands MSME challenges and delivers solutions that actually work.",
+      name: "Amit Kulkarni",
+      role: "Managing Partner",
+      rating: 5,
+    },
+    {
+      id: 4,
+      quote:
+        "Professional support and smooth execution throughout the entire advisory process.",
+      name: "Priya Nair",
+      role: "Founder",
+      rating: 5,
+    },
+    {
+      id: 5,
+      quote:
+        "Their strategic insights helped us improve financial stability and planning.",
+      name: "Sandeep Mehta",
+      role: "CEO",
+      rating: 5,
+    },
+    {
+      id: 6,
+      quote: "Reliable financial advisory backed by strong business understanding.",
+      name: "Rohan Shah",
+      role: "Co-Founder",
+      rating: 5,
+    },
+    {
+      id: 7,
+      quote: "PCRED made our funding and expansion process much more structured.",
+      name: "Kunal Arora",
+      role: "Director",
+      rating: 5,
+    },
+    {
+      id: 8,
+      quote:
+        "The team provided personalized guidance aligned with our business goals.",
+      name: "Aditi Deshmukh",
+      role: "Founder",
+      rating: 5,
+    },
+    {
+      id: 9,
+      quote:
+        "Their structured financial approach helped us plan growth more effectively.",
+      name: "Vivek Jain",
+      role: "Managing Director",
+      rating: 5,
+    },
+    {
+      id: 10,
+      quote: "Transparent communication and dependable support at every stage.",
+      name: "Pooja Malhotra",
+      role: "Operations Head",
+      rating: 5,
+    },
+    {
+      id: 11,
+      quote:
+        "PCRED simplified complex financial decisions and made the process seamless.",
+      name: "Harsh Vardhan",
+      role: "Founder",
+      rating: 5,
+    },
+  ];
 
-const advisoryFeatures = [
-  {
-    title: "Funding",
-    description: "Strategic capital solutions to fuel your growth.",
-    icon: IconChartBar,
-  },
-  {
-    title: "Governance",
-    description: "Strong governance today, sustainable tomorrow.",
-    icon: IconCircleDashedCheck,
-  },
-  {
-    title: "IPO Readiness",
-    description: "Prepare today for a successful tomorrow.",
-    icon: IconBuildingBank,
-  },
-];
+  const stages = [
+    {
+      title: "Start",
+      description: "Lay the right foundation",
+      icon: IconRocket,
+    },
+    {
+      title: "Build",
+      description: "Strengthen your business model",
+      icon: IconBuilding,
+    },
+    {
+      title: "Grow",
+      description: "Accelerate revenue growth",
+      icon: IconChartBar,
+    },
+    {
+      title: "Scale",
+      description: "Expand operations and capabilities",
+      icon: IconChartHistogram,
+    },
+    {
+      title: "Transform",
+      description: "Drive innovation and efficiency",
+      icon: IconRefresh,
+    },
+    {
+      title: "IPO",
+      description: "Prepare for public markets",
+      icon: IconBuildingBank,
+    },
+  ];
 
-const pillars = [
-  {
-    title: "Strategic Thinking",
-    description:
-      "Every successful business reaches moments where the right financial decision changes everything.",
-    icon: IconTargetArrow,
-  },
-  {
-    title: "Financial Expertise",
-    description:
-      "Deep capital markets, governance, and growth knowledge that turns complexity into clear decisions.",
-    icon: IconChartBarPopular,
-  },
-  {
-    title: "Execution Driven",
-    description:
-      "From capital raise to IPO readiness, we stay embedded with your leadership until results land.",
-    icon: IconCircleDashedCheck,
-  },
-];
+  const advisoryFeatures = [
+    {
+      title: "Funding",
+      description: "Strategic capital solutions to fuel your growth.",
+      icon: IconChartBar,
+    },
+    {
+      title: "Governance",
+      description: "Strong governance today, sustainable tomorrow.",
+      icon: IconCircleDashedCheck,
+    },
+    {
+      title: "IPO Readiness",
+      description: "Prepare today for a successful tomorrow.",
+      icon: IconBuildingBank,
+    },
+  ];
 
-const features = [
-  {
-    title: "Strategic Perspective",
-    description:
-      "Financial advice aligned with long-term business objectives.",
-    icon: IconTargetArrow,
-  },
-  {
-    title: "Execution Excellence",
-    description: "Turning strategies into measurable business outcomes.",
-    icon: IconChartBar,
-  },
-  {
-    title: "Pan-India Reach",
-    description: "Supporting businesses across industries throughout India.",
-    icon: IconMap2,
-  },
-  {
-    title: "Industry Expertise",
-    description:
-      "Deep understanding of finance, governance, capital, and business growth.",
-    icon: IconUsersGroup,
-  },
-  {
-    title: "Relationship-Driven",
-    description:
-      "Long-term partnerships built on trust, transparency, and performance.",
-    icon: IconHeartHandshake,
-  },
-];
+  const features = [
+    {
+      title: "Strategic Perspective",
+      subtitle: "Long-term Vision",
+      description:
+        "Financial advice aligned with long-term business objectives.",
+      icon: IconTargetArrow,
+      image: "/aboutpage1.png",
+    },
+    {
+      title: "Execution Excellence",
+      subtitle: "Results That Matter",
+      description: "Turning strategies into measurable business outcomes.",
+      icon: IconChartBar,
+      image: "/aboutpage2.png",
+    },
+    {
+      title: "Pan-India Reach",
+      subtitle: "Nationwide Support",
+      description: "Supporting businesses across industries throughout India.",
+      icon: IconMap2,
+      image: "/aboutpage3.png",
+    },
+    {
+      title: "Industry Expertise",
+      subtitle: "Deep Sector Knowledge",
+      description:
+        "Deep understanding of finance, governance, capital, and business growth.",
+      icon: IconUsersGroup,
+      image: "/who_we_are.webp",
+    },
+    {
+      title: "Relationship-Driven",
+      subtitle: "Built on Trust",
+      description:
+        "Long-term partnerships built on trust, transparency, and performance.",
+      icon: IconHeartHandshake,
+      image: "/img2.webp",
+    },
+  ];
 
-const contactServices = [
-  "Capital Market Advisory",
-  "Debt Advisory",
-  "Virtual CFO Services",
-  "IPO Advisory",
-  "Investment Strategy Consulting",
-  "Other",
-];
+  const contactServices = [
+    "Capital Market Advisory",
+    "Debt Advisory",
+    "Virtual CFO Services",
+    "IPO Advisory",
+    "Investment Strategy Consulting",
+    "Other",
+  ];
 
-const contactInfo = [
-  {
-    icon: IconPhone,
-    label: "Phone",
-    value: "+91 98765 43210",
-    href: "tel:+919876543210",
-  },
-  {
-    icon: IconMail,
-    label: "Email",
-    value: "contact@pcred.org",
-    href: "mailto:contact@pcred.org",
-  },
-  {
-    icon: IconMapPin,
-    label: "Office",
-    value: "Mumbai, Maharashtra, India",
-    href: undefined as string | undefined,
-  },
-  {
-    icon: IconClock,
-    label: "Hours",
-    value: "Mon – Sat, 9:00 AM – 6:00 PM",
-    href: undefined as string | undefined,
-  },
-];
+  const contactInfo = [
+    {
+      icon: IconPhone,
+      label: "Phone",
+      value: "+91 98765 43210",
+      href: "tel:+919876543210",
+    },
+    {
+      icon: IconMail,
+      label: "Email",
+      value: "contact@pcred.org",
+      href: "mailto:contact@pcred.org",
+    },
+    {
+      icon: IconMapPin,
+      label: "Office",
+      value: "Mumbai, Maharashtra, India",
+      href: undefined as string | undefined,
+    },
+    {
+      icon: IconClock,
+      label: "Hours",
+      value: "Mon – Sat, 9:00 AM – 6:00 PM",
+      href: undefined as string | undefined,
+    },
+  ];
+
+  const companies_one = [{image:bank_1},{image:bank_2},{image:bank_3},{image:bank_4},{image:bank_5},{image:bank_6},{image:bank_7},{image:bank_8},{image:bank_9},{image:bank_10},{image:bank_11},{image:bank_12},{image:bank_13},{image:bank_14},{image:bank_15},{image:bank_16},{image:bank_17},{image:bank_18},{image:bank_19},{image:bank_20}];
+
+  const companies_two = [{image:bank_21},{image:bank_22},{image:bank_23},{image:bank_24},{image:bank_25},{image:bank_26},{image:bank_27},{image:bank_28},{image:bank_29},{image:bank_30},{image:bank_31},{image:bank_32},{image:bank_33},{image:bank_34},{image:bank_35},{image:bank_36},{image:bank_37},{image:bank_38},{image:bank_39},{image:bank_40},{image:bank_41}];
+
 
 const inputClass =
   "w-full rounded-2xl border border-[#084E75]/15 bg-white px-4 py-3.5 text-[#084E75] placeholder:text-[#084E75]/50 outline-none transition-all duration-200 focus:border-[#084E75] focus:ring-2 focus:ring-[#084E75]/15";
@@ -387,7 +418,7 @@ export default function Home() {
       </section>
 
       {/* Intro Section — Corporate Advisory */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-16 md:py-18">
         <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -482,7 +513,7 @@ export default function Home() {
 
       {/* Who We Are Section */}
       <section className="relative h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/bg_webpattern.webp')" }}>
-        <div className="relative mx-auto max-w-7xl py-24">
+        <div className="relative mx-auto max-w-7xl py-18">
           <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
             <motion.div
               initial={{ opacity: 0, x: -28 }}
@@ -540,24 +571,24 @@ export default function Home() {
       </section>
 
       {/* Business Lifecycle */}
-      <section className="bg-white py-24 md:py-32">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col items-center justify-center max-w-2xl mx-auto text-center">
+      <section className="bg-white py-20 md:py-18">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <span className="mb-4 inline-flex justify-center items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
                 <span className="size-2 rounded-full bg-[#DDB162]" />
                 Business Lifecycle
               </span>
-              <h5 className="text-4xl font-semibold leading-14 text-[#084E75]">
+              <h2 className="text-3xl font-bold text-[#084E75] leading-12 md:text-4xl">
                 One Advisory Partner.
                 <br />
                 <span className="text-[#DDB162]">Every stage of growth.</span>
-              </h5>
+              </h2>
             </motion.div>
 
             <motion.p
@@ -565,139 +596,23 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-base leading-relaxed text-[#084E75]/70 md:text-lg mt-6"
-            >From ambitious startups to established enterprises, we support businesses throughout their journey with strategic financial guidance and corporate advisory.</motion.p>
-          </div>
-          
-          {/* Desktop Curved Roadmap */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative mt-24 hidden lg:block"
-          >
-            {/* Curved SVG */}
-            <svg
-              className="absolute left-0 top-0 h-[260px] w-full"
-              viewBox="0 0 1200 260"
-              preserveAspectRatio="none"
+              className="mt-5 text-base leading-relaxed text-[#084E75]/70 md:text-lg"
             >
-              <defs>
-                <linearGradient id="roadmapGradient" x1="0%" y1="0%" x2="100%">
-                  <stop offset="0%" stopColor="#DDB162" />
-                  <stop offset="100%" stopColor="#084E75" />
-                </linearGradient>
-              </defs>
+              From ambitious startups to established enterprises, we support businesses
+              throughout their journey with strategic financial guidance and corporate
+              advisory.
+            </motion.p>
+          </div>
 
-              <path
-                d="
-                  M70 130
-                  C150 35 250 35 330 130
-                  S510 225 590 130
-                  S770 35 850 130
-                  S1030 225 1130 130
-                "
-                fill="none"
-                stroke="url(#roadmapGradient)"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeDasharray="8 8"
-              />
-            </svg>
+          <LifecycleRoadmap stages={stages} />
 
-            {/* Cards */}
-            <div className="relative flex justify-between">
-              {stages.map((stage, index) => {
-                const Icon = stage.icon;
-
-                return (
-                  <motion.div
-                    key={stage.title}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      delay: index * 0.08,
-                      duration: 0.45,
-                    }}
-                    className={`flex w-48 flex-col items-center ${
-                      index % 2 === 0 ? "translate-y-16" : "-translate-y-16"
-                    }`}
-                  >
-                    {/* Icon */}
-                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-[#084E75] text-white shadow-xl ring-4 ring-white">
-                      <Icon size={24} stroke={1.6} />
-                    </div>
-
-                    {/* Step */}
-                    <span className="mt-3 text-[11px] font-bold uppercase tracking-[0.25em] text-[#DDB162]">
-                      Step {index + 1}
-                    </span>
-
-                    {/* Title */}
-                    <h5 className="mt-2 text-center text-lg font-semibold text-[#084E75]">
-                      {stage.title}
-                    </h5>
-
-                    {/* Description */}
-                    <p className="mt-2 text-center text-sm leading-relaxed text-[#084E75]/65">
-                      {stage.description}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-          {/* Desktop roadmap */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="relative mt-16 hidden lg:block"
-          >
-            <div className="absolute left-[8.333%] right-[8.333%] top-6 h-0.5 overflow-hidden rounded-full bg-[#084E75]/12">
-              <div className="lifecycle-roadmap-beam-x absolute top-0 h-full w-[12.5%] min-w-16 rounded-full bg-linear-to-r from-transparent via-[#DDB162] to-transparent shadow-[0_0_16px_rgba(221,177,98,0.85)]" />
-            </div>
-
-            <div className="relative flex">
-              {stages.map((stage, index) => {
-                const Icon = stage.icon;
-
-                return (
-                  <div
-                    key={stage.title}
-                    className="flex flex-1 flex-col items-center px-3"
-                  >
-                    <div
-                      className={`relative z-10 flex size-12 items-center justify-center rounded-full shadow-md ring-4 ring-white bg-[#084E75] text-white`}
-                    >
-                      <Icon size={22} stroke={1.5} />
-                    </div>
-
-                    <span className="mt-3 text-[11px] font-bold uppercase tracking-wider text-[#DDB162]">
-                      Step {index + 1}
-                    </span>
-                    <h5 className="mt-2 text-center text-base font-semibold text-[#084E75]">
-                      {stage.title}
-                    </h5>
-                    <p className="mt-1.5 max-w-36 text-center text-sm leading-relaxed text-[#084E75]/60">
-                      {stage.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </motion.div> */}
-
-          {/* Tablet — 2×3 grid */}
-          {/* <motion.div
+          {/* Tablet */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="mt-12 hidden gap-5 sm:grid-cols-2 md:grid lg:hidden"
+            className="mt-12 hidden gap-4 sm:grid-cols-2 md:grid lg:hidden"
           >
             {stages.map((stage, index) => {
               const Icon = stage.icon;
@@ -706,78 +621,76 @@ export default function Home() {
               return (
                 <div
                   key={stage.title}
-                  className={`flex gap-4 rounded-2xl border p-5 ${
+                  className={`flex gap-4 rounded-2xl border p-4 ${
                     isLast
                       ? "border-[#DDB162]/30 bg-[#DDB162]/5 sm:col-span-2"
                       : "border-[#084E75]/10 bg-[#f8fafb]"
                   }`}
                 >
                   <div
-                    className={`flex size-11 shrink-0 items-center justify-center rounded-xl ${
+                    className={`flex size-10 shrink-0 items-center justify-center rounded-full ${
                       isLast ? "bg-[#DDB162] text-[#084E75]" : "bg-[#084E75] text-white"
                     }`}
                   >
-                    <Icon size={22} stroke={1.5} />
+                    <Icon size={20} stroke={1.5} />
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#DDB162]">
                       Step {index + 1}
                     </span>
-                    <h5 className="mt-0.5 font-semibold text-[#084E75]">{stage.title}</h5>
-                    <p className="mt-1 text-sm text-[#084E75]/65">{stage.description}</p>
+                    <h3 className="mt-0.5 font-semibold text-[#084E75]">{stage.title}</h3>
+                    <p className="mt-0.5 text-sm text-[#084E75]/65">{stage.description}</p>
                   </div>
                 </div>
               );
             })}
-          </motion.div> */}
+          </motion.div>
 
           {/* Mobile — vertical timeline */}
-          {/* <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="relative mt-12 md:hidden"
+            className="relative mt-10 md:hidden"
           >
             <div className="absolute bottom-4 left-6 top-4 w-0.5 overflow-hidden rounded-full bg-[#084E75]/15">
-              <div className="lifecycle-roadmap-beam-y absolute left-0 h-[12.5%] min-h-16 w-full rounded-full bg-linear-to-b from-transparent via-[#DDB162] to-transparent shadow-[0_0_16px_rgba(221,177,98,0.85)]" />
+              <div className="lifecycle-roadmap-beam-y absolute left-0 top-0 h-[12.5%] min-h-12 w-full rounded-full bg-linear-to-b from-transparent via-[#DDB162] to-transparent shadow-[0_0_12px_rgba(221,177,98,0.8)]" />
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {stages.map((stage, index) => {
                 const Icon = stage.icon;
                 const isLast = index === stages.length - 1;
 
                 return (
-                  <div key={stage.title} className="relative flex gap-5 pl-1">
+                  <div key={stage.title} className="relative flex gap-4 pl-1">
                     <div
-                      className={`relative z-10 flex size-12 shrink-0 items-center justify-center rounded-full ring-4 ring-white ${
+                      className={`relative z-10 flex size-11 shrink-0 items-center justify-center rounded-full ring-4 ring-white ${
                         isLast
-                          ? "bg-[#DDB162] text-[#084E75] shadow-md shadow-[#DDB162]/30"
+                          ? "bg-[#DDB162] text-[#084E75] shadow-md"
                           : "bg-[#084E75] text-white shadow-md"
                       }`}
                     >
-                      <Icon size={22} stroke={1.5} />
+                      <Icon size={20} stroke={1.5} />
                     </div>
-                    <div className="pt-1">
+                    <div className="pt-0.5">
                       <span className="text-[10px] font-bold uppercase tracking-wider text-[#DDB162]">
                         Step {index + 1}
                       </span>
-                      <h5 className="mt-1 font-semibold text-[#084E75]">{stage.title}</h5>
-                      <p className="mt-1 text-sm leading-relaxed text-[#084E75]/65">
-                        {stage.description}
-                      </p>
+                      <h3 className="mt-0.5 font-semibold text-[#084E75]">{stage.title}</h3>
+                      <p className="mt-0.5 text-sm text-[#084E75]/65">{stage.description}</p>
                     </div>
                   </div>
                 );
               })}
             </div>
-          </motion.div> */}
+          </motion.div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="relative overflow-hidden bg-[#084E75] py-24 md:py-32">
+      <section className="relative overflow-hidden bg-[#084E75] py-18">
         <div className="pointer-events-none absolute inset-0 opacity-10">
           <div className="absolute -right-52 -top-52 size-150 rounded-full border border-[#DDB162]" />
           <div className="absolute -bottom-52 -left-52 size-125 rounded-full border border-[#DDB162]" />
@@ -790,111 +703,66 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="max-w-3xl mb-14"
+            className="flex flex-col justify-center"
           >
 
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162] mb-4">
+            <span className="inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162] mb-4">
               <span className="size-2 rounded-full bg-[#DDB162]" />
               Strategic Advantage
             </span>
 
-            <h5 className="text-4xl font-semibold leading-14 text-white">
+            <h5 className="text-4xl font-semibold leading-12 text-white text-center">
               Trusted by Businesses.
               <br />
               <span className="text-[#DDB162]">Driven by Results.</span>
             </h5>
-            <p className="mt-5 text-base leading-relaxed md:text-lg text-white/70">
-              We combine strategic financial insight with deep industry expertise to help businesses achieve sustainable growth, stronger governance, and measurable outcomes.
-            </p>
           </motion.div>
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((item, index) => {
-              const Icon = item.icon;
-              const isFeatured = index === 0;
-
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                  whileHover={{ y: -4 }}
-                  className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:border-[#DDB162]/50 hover:bg-white/10 ${
-                    isFeatured ? "md:col-span-2 lg:col-span-1" : ""
-                  }`}
-                >
-                  <div className="absolute inset-0 bg-linear-to-br from-[#DDB162]/0 to-[#DDB162]/5 opacity-0 transition-opacity group-hover:opacity-100" />
-                  <div className="relative">
-                    <div className="mb-6 inline-flex rounded-2xl bg-[#DDB162] p-3.5 text-[#084E75]">
-                      <Icon size={28} stroke={1.8} />
-                    </div>
-                    <h5 className="text-xl font-semibold text-white md:text-xl">
-                      {item.title}
-                    </h5>
-                    <p className="mt-3 text-base leading-relaxed text-white/70">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
+          <div className="w-full">
+            <HorizontalAccordion accordionItems={features} />
           </div>
         </div>
       </section>
 
       {/* Expertise Section */}
-      <section className="relative bg-[#084E75]/5 py-20 md:py-24">
+      <section className="relative py-20 md:py-20">
         <div className="mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col justify-center"
+          >
+
+            <span className="inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162] mb-4">
+              <span className="size-2 rounded-full bg-[#DDB162]" />
+              Our Partners
+            </span>
+
+            <h5 className="text-4xl font-semibold leading-14 text-[#084E75] text-center">
+              Trusted <span className="text-[#DDB162]">Banking Partners</span>
+            </h5>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="relative overflow-hidden rounded-3xl border border-[#084E75]/10 bg-white shadow-xl shadow-[#084E75]/8"
+            className="relative overflow-hidden mt-4"
           >
-            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#DDB162]/10 blur-2xl" />
-
-            <div className="grid items-center lg:grid-cols-2">
-              <div className="p-8 md:p-10 lg:p-12">
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162]">
-                  <span className="size-1.5 rounded-full bg-[#DDB162]" />
-                  Our Approach
-                </span>
-
-                <h5 className="mt-4 text-3xl font-bold text-[#084E75] md:text-4xl">
-                  Proactive Financial{" "}
-                  <span className="text-[#DDB162]">Expertise</span>
-                </h5>
-
-                <p className="mt-5 text-base leading-relaxed text-[#084E75]/70">
-                  Tailored financial solutions designed to help MSMEs and businesses
-                  improve stability, optimize performance, and achieve sustainable
-                  growth.
-                </p>
-
-                <div className="mt-6 grid grid-cols-2 gap-3">
-                  {approachAreas.map((area) => (
-                    <div
-                      key={area.title}
-                      className="rounded-xl border border-[#084E75]/10 bg-[#084E75]/5 px-3.5 py-2.5 text-sm font-medium text-[#084E75] transition-colors hover:border-[#DDB162]/35 hover:bg-[#DDB162]/10"
-                    >
-                      {area.title}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative h-56 sm:h-64 lg:h-full lg:min-h-105">
-                <Image
-                  src={intro}
-                  alt="Financial expertise"
-                  className="h-full w-full object-cover lg:absolute lg:inset-0"
-                />
-                <div className="absolute inset-0 bg-linear-to-r from-white via-white/40 to-transparent lg:from-white lg:via-white/20" />
-              </div>
-            </div>
+            <Marquee pauseOnHover className="[--duration:100s]">
+              {companies_one.map((logo,index) => (
+                <CompaniesCard key={index} data={logo.image} />
+              ))}
+            </Marquee>
+            <Marquee reverse pauseOnHover className="[--duration:100s]">
+              {companies_two.map((logo,index) => (
+                <CompaniesCard key={index} data={logo.image} />
+              ))}
+            </Marquee>
+            <div className="from-white pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r"></div>
+            <div className="from-white pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l"></div>
           </motion.div>
         </div>
       </section>
@@ -904,7 +772,7 @@ export default function Home() {
         className="relative bg-cover bg-fixed bg-center bg-no-repeat py-14 md:py-14"
         style={{ backgroundImage: "url('/cta-background.png')" }}
       >
-        <div className="absolute inset-0 bg-[#084E75]/88" />
+        <div className="absolute inset-0 bg-[#084E75]/60" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(221,177,98,0.15),transparent_60%)]" />
 
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
@@ -930,12 +798,10 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full border-2 border-[#DDB162] bg-[#DDB162] px-8 py-4 text-sm font-semibold text-white transition-all hover:-translate-y-0.5"
-            >
-              Get In Touch
-              <IconArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
+            <Link href="/contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-50 text-sm">Discover Our Story
+              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                <IconArrowRight className="size-4" color="#DDB162" />
+              </span>
             </Link>
           </motion.div>
         </div>
