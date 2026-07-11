@@ -7,15 +7,10 @@ import { AnimatePresence, motion } from "motion/react";
 import {IconArrowRight,IconArrowUpRight,IconBuilding,IconBuildingBank,IconChartBar,IconChartBarPopular,IconChartHistogram,IconCheck,IconChevronLeft,IconChevronRight,IconCircleDashedCheck,IconClock,IconHeartHandshake,IconMail,IconMap2,IconMapPin,IconPhone,IconQuote,IconRefresh,IconRocket,IconSend,IconSparkles,IconStarFilled,IconTargetArrow,IconUsersGroup,} from "@tabler/icons-react";
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import logo from "@/public/logo.png";
-import aboutImage from "@/public/aboutpage2.png";
-import aboutImageThree from "@/public/aboutpage3.png";
+import aboutImage from "@/public/who_we_are.webp";
+import about from "@/public/img2.webp";
 import intro from "@/public/intro_img.png";
-
-const achievements = [
-  { id: 1, value: "322cr", label: "Total Disbursement" },
-  { id: 2, value: "16+", label: "Years of Experience" },
-  { id: 3, value: "1600+", label: "Satisfied Customers" },
-];
+import { SpinningText } from "@/components/ui/spinning-text";
 
 const reviews = [
   {
@@ -134,6 +129,47 @@ const stages = [
   {
     title: "IPO",
     description: "Prepare for public markets",
+    icon: IconBuildingBank,
+  },
+];
+
+const approachAreas = [
+  {
+    title: "Funding Strategy",
+    description: "Structure capital for sustainable growth",
+    icon: IconChartBar,
+  },
+  {
+    title: "Risk Management",
+    description: "Identify and mitigate financial exposure",
+    icon: IconCircleDashedCheck,
+  },
+  {
+    title: "Growth Planning",
+    description: "Scale operations with strategic clarity",
+    icon: IconTargetArrow,
+  },
+  {
+    title: "IPO Readiness",
+    description: "Prepare confidently for public markets",
+    icon: IconBuildingBank,
+  },
+];
+
+const advisoryFeatures = [
+  {
+    title: "Funding",
+    description: "Strategic capital solutions to fuel your growth.",
+    icon: IconChartBar,
+  },
+  {
+    title: "Governance",
+    description: "Strong governance today, sustainable tomorrow.",
+    icon: IconCircleDashedCheck,
+  },
+  {
+    title: "IPO Readiness",
+    description: "Prepare today for a successful tomorrow.",
     icon: IconBuildingBank,
   },
 ];
@@ -287,8 +323,6 @@ export default function Home() {
     setSubmitted(true);
   };
 
-  const FeaturedIcon = pillars[0].icon;
-
   return (
     <>
       {/* Hero Section */}
@@ -301,9 +335,6 @@ export default function Home() {
           playsInline
           className="absolute inset-0 h-full w-full object-cover"
         />
-
-        <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#084E75]/90" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(221,177,98,0.15),transparent_50%)]" />
 
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 pb-24 pt-32 md:gap-8 md:pb-32">
           <motion.div
@@ -355,351 +386,393 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="relative overflow-hidden">
-        {/* Right half — full-bleed image */}
-        <div className="absolute inset-y-0 right-0 hidden w-[48%] lg:block">
-          <div className="relative h-full w-full">
-          <Image
-            src={aboutImageThree}
-            alt="PCRED advisory"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-linear-to-l from-[#084E75]/80 via-[#084E75]/40 to-transparent" />
-          </div>
-        </div>
-
-        <div className="relative mx-auto max-w-7xl py-20 md:py-28">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left — headline */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative z-10"
-            >
-              <div className="mb-6 flex items-center gap-3">
-                <span className="h-px w-12 bg-[#DDB162]" />
-                <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#084E75]/60">
-                  Corporate Advisory
-                </span>
-              </div>
-
-              <h2 className="text-4xl font-bold leading-14 text-[#084E75]">
-                Building Stronger Businesses. <br/>
-                <span className="mt-3 text-4xl font-semibold text-[#DDB162] md:text-4xl">
-                  Creating Lasting Value.
-                </span>
-              </h2>
-              
-
-              <p className="mt-8 max-w-md text-base leading-relaxed text-[#084E75]/70 md:text-lg">
-                Strategic financial guidance for founders, promoters, and leadership
-                teams — from startup to scale, expansion to IPO.
-              </p>
-
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link
-                  href="/about-us"
-                  className="group inline-flex items-center gap-2 rounded-full bg-[#084E75] px-7 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#0a5d8a] hover:shadow-lg hover:shadow-[#084E75]/25"
-                >
-                  Talk to an Advisor
-                  <IconArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-                <Link
-                  href="/about-us"
-                  className="group inline-flex items-center gap-2 rounded-full border-2 border-[#084E75]/20 bg-transparent px-7 py-3.5 text-sm font-semibold text-[#084E75] transition-all hover:border-[#084E75] hover:bg-[#084E75]/5"
-                >
-                  Explore Our Expertise
-                  <IconArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Right — floating glass card (over image on desktop) */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="relative z-10 lg:-ml-8"
-            >
-              {/* Mobile image */}
-              <div className="relative mb-6 h-52 overflow-hidden rounded-2xl lg:hidden">
-                <Image
-                  src={aboutImageThree}
-                  alt="PCRED advisory"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-[#084E75]/40" />
-              </div>
-
-              <div className="rounded-3xl border border-white/60 bg-white/60 p-8 shadow-2xl shadow-[#084E75]/10 backdrop-blur-3xl md:p-10">
-                <p className="text-base leading-relaxed text-[#084E75]/85 md:text-lg">PCRED is a leading Corporate Advisory firm helping businesses across India make smarter financial decisions, unlock growth opportunities, and build sustainable enterprises. We partner with founders, promoters, CFOs, and leadership teams to navigate every stage of business growth - from startup to scale, expansion to IPO.</p>
-
-                <div className="mt-8 flex items-center gap-6 border-t border-[#084E75]/10 pt-8">
-                  {achievements.map((stat, i) => (
-                    <div
-                      key={stat.id}
-                      className={`flex-1 text-center ${
-                        i < achievements.length - 1
-                          ? "border-r border-[#084E75]/10"
-                          : ""
-                      }`}
-                    >
-                      <p className="text-2xl font-bold text-[#084E75]">
-                        {stat.value}
-                      </p>
-                      <p className="mt-1 text-[10px] font-medium uppercase tracking-wider text-[#084E75]/50">
-                        {stat.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Who We Are Section */}
-      <section className="relative overflow-hidden bg-[#084E75] py-24 md:py-32">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(221,177,98,0.18),transparent)]" />
-        <div className="pointer-events-none absolute -left-24 top-1/3 size-72 rounded-full bg-[#5BBCEB]/10 blur-3xl" />
-        <div className="pointer-events-none absolute -right-24 bottom-0 size-96 rounded-full bg-[#DDB162]/10 blur-3xl" />
-
-        <div className="relative mx-auto max-w-7xl">
+      {/* Intro Section — Corporate Advisory */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-            className="mx-auto max-w-3xl text-center"
+            transition={{ duration: 0.5 }}
+            className="overflow-hidden rounded-3xl bg-white"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5 }}
-              className="max-w-3xl mx-auto text-center mx-auto"
-            >
-              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162]">
-                <span className="h-px w-8 bg-[#DDB162]" />
-                Who We Are
-                <span className="h-px w-8 bg-[#DDB162]" />
-              </span>
-              <h2 className="mt-4 font-semibold leading-14 text-4xl text-white">
-                Strategic Advisors for Businesses That Think
-                <span className="text-[#DDB162]"> Long-Term</span>
-              </h2>
-            </motion.div>
-          </motion.div>
+            <div className="grid lg:grid-cols-2">
+              <div className="relative flex min-h-72 items-center justify-center overflow-hidden lg:min-h-full lg:p-10">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 opacity-30"
+                />
+                <Image
+                  src={about}
+                  alt="PCRED corporate advisory"
+                  className="relative z-10 w-full object-contain"
+                  priority
+                />
 
-          <div className="mt-16 grid gap-4 lg:grid-cols-12 lg:grid-rows-[auto_auto]">
-            {/* Featured dark card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="group relative lg:col-span-5 lg:row-span-2"
-            >
-              <div className="absolute -inset-px rounded-3xl bg-linear-to-br from-[#DDB162]/60 to-[#5BBCEB]/30 opacity-60 blur-sm transition-opacity group-hover:opacity-100" />
-              <div className="relative flex h-full min-h-80 flex-col overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-[#084E75] via-[#0a5d8a] to-[#063a57] p-7 md:p-8">
-                <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full border border-white/10" />
-                <div className="pointer-events-none absolute right-8 top-10 size-28 rounded-full border border-white/5" />
-                <div className="pointer-events-none absolute -bottom-20 -left-10 size-56 rounded-full bg-[#DDB162]/10 blur-2xl" />
+                <motion.div initial={{ x: -15 }}
+                  animate={{ x: [0, 15, 0] }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    ease: "easeInOut",
+                  }} className="absolute bottom-20 left-100 z-20 flex max-w-56 items-start gap-3 rounded-2xl border border-white/15 bg-white/70 p-3 backdrop-blur-lg">
+                  <IconUsersGroup className="mt-0.5 size-5 shrink-0 text-[#084E75]" stroke={1.5} />
+                  <p className="text-xs leading-relaxed text-[#084E75]">
+                    Partnering with founders and leadership teams across India.
+                  </p>
+                </motion.div>
+              </div>
 
-                <div className="relative flex items-start justify-between">
-                  <div className="inline-flex rounded-2xl bg-[#DDB162] p-3.5 text-[#084E75] shadow-lg shadow-[#DDB162]/30 transition-transform duration-300 group-hover:scale-105">
-                    <FeaturedIcon size={28} stroke={1.5} />
-                  </div>
-                  <span className="text-xs font-bold tabular-nums tracking-widest text-[#DDB162]/70">
-                    01
+              <div className="flex flex-col justify-center p-8 md:p-10 lg:p-12">
+                <h2 className="mt-5 text-3xl font-bold leading-12 text-[#084E75] md:text-4xl">
+                  Building Stronger Businesses.
+                  <span className="mt-1 block bg-linear-to-r from-[#DDB162] to-[#b8892e] bg-clip-text font-bold text-transparent">
+                    Creating Lasting Value.
                   </span>
-                </div>
+                </h2>
 
-                <div className="relative mt-auto pt-10">
-                  <div className="mb-4 h-0.5 w-12 rounded-full bg-[#DDB162]" />
-                  <h3 className="text-2xl font-semibold text-white md:text-3xl">
-                    {pillars[0].title}
-                  </h3>
-                  <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70 md:text-base">
-                    {pillars[0].description}
-                  </p>
-                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#DDB162]">
-                    Core strength
-                    <IconArrowUpRight
-                      size={16}
-                      className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+                <p className="mt-5 text-sm leading-relaxed text-[#084E75] md:text-base">
+                  PCRED is a leading Corporate Advisory firm helping businesses across India
+                  make smarter financial decisions, unlock growth opportunities, and build
+                  sustainable enterprises.
+                </p>
 
-            {/* Image card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="group relative overflow-hidden rounded-3xl lg:col-span-4 lg:row-span-2"
-            >
-              <Image
-                src={aboutImage}
-                alt="PCRED advisory team"
-                className="h-full min-h-70 w-full object-cover transition-transform duration-700 group-hover:scale-105 lg:min-h-full"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/95 via-[#084E75]/35 to-transparent" />
+                <div className="mt-7 grid gap-3 sm:grid-cols-3">
+                  {advisoryFeatures.map((feature) => {
+                    const Icon = feature.icon;
 
-              <div className="absolute left-5 top-5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-md">
-                Partnership
-              </div>
-
-              <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
-                <div className="rounded-2xl border border-white/15 bg-[#084E75]/55 p-5 backdrop-blur-md">
-                  <IconQuote className="mb-2 size-6 text-[#DDB162]/80" />
-                  <p className="text-sm font-medium leading-relaxed text-white/95">
-                    We become an extension of your leadership team - from capital
-                    raise to IPO readiness.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Stacked side cards */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-col gap-4 lg:col-span-3 lg:row-span-2"
-            >
-              {pillars.slice(1).map((pillar, index) => {
-                const Icon = pillar.icon;
-                const num = String(index + 2).padStart(2, "0");
-
-                return (
-                  <motion.div
-                    key={pillar.title}
-                    whileHover={{ y: -3 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                    className="group relative flex-1"
-                  >
-                    <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-white/20 bg-white p-6 shadow-lg transition-all duration-300 group-hover:border-[#DDB162]/40 group-hover:shadow-xl">
-                      <div className="pointer-events-none absolute -right-8 -top-8 size-24 rounded-full bg-[#084E75]/5 transition-transform duration-500 group-hover:scale-125" />
-
-                      <div className="relative flex items-center justify-between">
-                        <div className="inline-flex rounded-xl bg-[#084E75]/10 p-2.5 text-[#084E75] transition-all duration-300 group-hover:bg-[#084E75] group-hover:text-white">
-                          <Icon size={20} stroke={1.5} />
+                    return (
+                      <div
+                        key={feature.title}
+                        className="flex flex-col gap-3 p-4"
+                      >
+                        <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[#084E75] text-[#084E75]">
+                          <Icon size={18} stroke={1.5} />
                         </div>
-                        <span className="text-[11px] font-bold tabular-nums tracking-widest text-[#084E75]/25 group-hover:text-[#DDB162]">
-                          {num}
-                        </span>
+                        <div className="min-w-0">
+                          <p className="text-sm font-semibold text-[#084E75]">{feature.title}</p>
+                          <p className="mt-0.5 text-xs leading-relaxed text-[#084E75]/55">
+                            {feature.description}
+                          </p>
+                        </div>
                       </div>
+                    );
+                  })}
+                </div>
 
-                      <div className="relative mt-5">
-                        <h3 className="text-base font-semibold text-[#084E75]">
-                          {pillar.title}
-                        </h3>
-                        <p className="mt-2 text-sm leading-relaxed text-[#084E75]/60">
-                          {pillar.description}
-                        </p>
-                      </div>
+                <div className="mt-8 flex gap-3">
+                  <Link href="/contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-50 text-sm">Talk to an Advisor
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                      <IconArrowRight className="size-4" color="#DDB162" />
+                    </span>
+                  </Link>
 
-                      <div className="relative mt-5 h-0.5 w-8 rounded-full bg-[#DDB162]/50 transition-all duration-300 group-hover:w-14 group-hover:bg-[#DDB162]" />
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-          </div>
+                  <Link href="/contact" className="group flex items-center justify-between rounded-4xl border border-[#084E75]/15 bg-white pl-4 pr-2 py-2 text-[#084E75] shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-50 text-sm">Our Services
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                      <IconArrowRight className="size-4" color="#DDB162" />
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Lifecycle Section */}
+      {/* Who We Are Section */}
+      <section className="relative h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/bg_webpattern.webp')" }}>
+        <div className="relative mx-auto max-w-7xl py-24">
+          <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+            <motion.div
+              initial={{ opacity: 0, x: -28 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162] mb-4">
+                <span className="size-2 rounded-full bg-[#DDB162]" />
+                Who We Are
+              </span>
+
+              <h3 className="text-4xl font-semibold leading-12 text-white md:text-4xl lg:text-4xl">
+                Strategic Advisors for Businesses
+                <br />
+                <span className="text-[#DDB162]">That Think Long-Term</span>
+              </h3>
+
+              <p className="mt-6 max-w-lg text-base leading-relaxed text-white/75 md:text-lg">Every successful business reaches moments where the right financial decision changes everything.</p>
+
+              <Link href="/contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-50 text-sm mt-14">Discover Our Story
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                  <IconArrowRight className="size-4" color="#DDB162" />
+                </span>
+              </Link>
+              <div className="absolute right-8">
+                <SpinningText>Years of Experience • Years of Experience •</SpinningText>
+                <div className="absolute -top-11 -right-11 bg-[#DDB162] w-22 h-22 flex justify-center items-center rounded-full">
+                  <span className="text-white text-4xl font-bold">16+</span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 28 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative"
+            >
+              <div className="absolute -inset-4 rounded-4xl border border-[#DDB162]/30" />
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-black/30">
+                <Image
+                  src={aboutImage}
+                  alt="PCRED advisory team"
+                  className="aspect-7/5 w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-[#084E75] via-transparent to-transparent" />
+              </div>
+            </motion.div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Business Lifecycle */}
       <section className="bg-white py-24 md:py-32">
         <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col items-center justify-center max-w-2xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="mb-4 inline-flex justify-center items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
+                <span className="size-2 rounded-full bg-[#DDB162]" />
+                Business Lifecycle
+              </span>
+              <h5 className="text-4xl font-semibold leading-14 text-[#084E75]">
+                One Advisory Partner.
+                <br />
+                <span className="text-[#DDB162]">Every stage of growth.</span>
+              </h5>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-base leading-relaxed text-[#084E75]/70 md:text-lg mt-6"
+            >From ambitious startups to established enterprises, we support businesses throughout their journey with strategic financial guidance and corporate advisory.</motion.p>
+          </div>
+          
+          {/* Desktop Curved Roadmap */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl text-center mx-auto"
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative mt-24 hidden lg:block"
           >
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162]">
-              <span className="h-px w-8 bg-[#DDB162]" />
-              Business Lifecycle
-              <span className="h-px w-8 bg-[#DDB162]" />
-            </span>
-            <h2 className="mt-4 text-4xl font-semibold leading-14 text-[#084E75]">
-              One Advisory Partner.
-              <br />
-              <span className="text-[#DDB162]">Every Stage of Growth.</span>
-            </h2>
-            <p className="mt-5 text-base leading-relaxed md:text-lg text-[#084E75]/80">
-              From ambitious startups to established enterprises, we support businesses throughout their journey with strategic financial guidance and corporate advisory.
-            </p>
-          </motion.div>
+            {/* Curved SVG */}
+            <svg
+              className="absolute left-0 top-0 h-[260px] w-full"
+              viewBox="0 0 1200 260"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <linearGradient id="roadmapGradient" x1="0%" y1="0%" x2="100%">
+                  <stop offset="0%" stopColor="#DDB162" />
+                  <stop offset="100%" stopColor="#084E75" />
+                </linearGradient>
+              </defs>
 
-          <div className="relative mt-16 md:mt-20">
-            <div className="absolute left-0 right-0 top-10 hidden h-px bg-linear-to-r from-transparent via-[#DDB162] to-transparent lg:block" />
+              <path
+                d="
+                  M70 130
+                  C150 35 250 35 330 130
+                  S510 225 590 130
+                  S770 35 850 130
+                  S1030 225 1130 130
+                "
+                fill="none"
+                stroke="url(#roadmapGradient)"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeDasharray="8 8"
+              />
+            </svg>
 
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6 lg:gap-6">
+            {/* Cards */}
+            <div className="relative flex justify-between">
               {stages.map((stage, index) => {
                 const Icon = stage.icon;
+
                 return (
                   <motion.div
                     key={stage.title}
-                    initial={{ opacity: 0, y: 24 }}
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.08 }}
-                    className="group flex flex-col items-center text-center"
+                    transition={{
+                      delay: index * 0.08,
+                      duration: 0.45,
+                    }}
+                    className={`flex w-48 flex-col items-center ${
+                      index % 2 === 0 ? "translate-y-16" : "-translate-y-16"
+                    }`}
                   >
-                    <div className="relative z-10 flex size-20 items-center justify-center rounded-2xl border-2 border-[#DDB162]/30 bg-white shadow-lg transition-all duration-300 group-hover:-translate-y-2 group-hover:border-[#DDB162] group-hover:shadow-xl group-hover:shadow-[#DDB162]/20">
-                      <Icon size={32} className="text-[#084E75]" />
-                      <span className="absolute -right-1 -top-1 flex size-6 items-center justify-center rounded-full bg-[#DDB162] text-[10px] font-bold text-white">
-                        {index + 1}
-                      </span>
+                    {/* Icon */}
+                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-[#084E75] text-white shadow-xl ring-4 ring-white">
+                      <Icon size={24} stroke={1.6} />
                     </div>
-                    <h3 className="mt-5 text-lg font-semibold text-[#084E75]">
+
+                    {/* Step */}
+                    <span className="mt-3 text-[11px] font-bold uppercase tracking-[0.25em] text-[#DDB162]">
+                      Step {index + 1}
+                    </span>
+
+                    {/* Title */}
+                    <h5 className="mt-2 text-center text-lg font-semibold text-[#084E75]">
                       {stage.title}
-                    </h3>
-                    <p className="mt-2 max-w-37.5 text-sm text-[#084E75]/60">
+                    </h5>
+
+                    {/* Description */}
+                    <p className="mt-2 text-center text-sm leading-relaxed text-[#084E75]/65">
                       {stage.description}
                     </p>
                   </motion.div>
                 );
               })}
             </div>
-          </div>
+          </motion.div>
+          {/* Desktop roadmap */}
+          {/* <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="relative mt-16 hidden lg:block"
+          >
+            <div className="absolute left-[8.333%] right-[8.333%] top-6 h-0.5 overflow-hidden rounded-full bg-[#084E75]/12">
+              <div className="lifecycle-roadmap-beam-x absolute top-0 h-full w-[12.5%] min-w-16 rounded-full bg-linear-to-r from-transparent via-[#DDB162] to-transparent shadow-[0_0_16px_rgba(221,177,98,0.85)]" />
+            </div>
 
-          <motion.div
+            <div className="relative flex">
+              {stages.map((stage, index) => {
+                const Icon = stage.icon;
+
+                return (
+                  <div
+                    key={stage.title}
+                    className="flex flex-1 flex-col items-center px-3"
+                  >
+                    <div
+                      className={`relative z-10 flex size-12 items-center justify-center rounded-full shadow-md ring-4 ring-white bg-[#084E75] text-white`}
+                    >
+                      <Icon size={22} stroke={1.5} />
+                    </div>
+
+                    <span className="mt-3 text-[11px] font-bold uppercase tracking-wider text-[#DDB162]">
+                      Step {index + 1}
+                    </span>
+                    <h5 className="mt-2 text-center text-base font-semibold text-[#084E75]">
+                      {stage.title}
+                    </h5>
+                    <p className="mt-1.5 max-w-36 text-center text-sm leading-relaxed text-[#084E75]/60">
+                      {stage.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div> */}
+
+          {/* Tablet — 2×3 grid */}
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mt-16 overflow-hidden rounded-3xl border border-[#084E75]/10 bg-linear-to-r from-[#F8FAFD] to-white p-8 shadow-lg md:flex md:items-center md:gap-8 md:p-10"
+            transition={{ duration: 0.45 }}
+            className="mt-12 hidden gap-5 sm:grid-cols-2 md:grid lg:hidden"
           >
-            <div className="mb-6 flex size-16 shrink-0 items-center justify-center rounded-2xl bg-[#084E75] md:mb-0">
-              <IconTargetArrow className="text-white" size={30} />
+            {stages.map((stage, index) => {
+              const Icon = stage.icon;
+              const isLast = index === stages.length - 1;
+
+              return (
+                <div
+                  key={stage.title}
+                  className={`flex gap-4 rounded-2xl border p-5 ${
+                    isLast
+                      ? "border-[#DDB162]/30 bg-[#DDB162]/5 sm:col-span-2"
+                      : "border-[#084E75]/10 bg-[#f8fafb]"
+                  }`}
+                >
+                  <div
+                    className={`flex size-11 shrink-0 items-center justify-center rounded-xl ${
+                      isLast ? "bg-[#DDB162] text-[#084E75]" : "bg-[#084E75] text-white"
+                    }`}
+                  >
+                    <Icon size={22} stroke={1.5} />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#DDB162]">
+                      Step {index + 1}
+                    </span>
+                    <h5 className="mt-0.5 font-semibold text-[#084E75]">{stage.title}</h5>
+                    <p className="mt-1 text-sm text-[#084E75]/65">{stage.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </motion.div> */}
+
+          {/* Mobile — vertical timeline */}
+          {/* <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="relative mt-12 md:hidden"
+          >
+            <div className="absolute bottom-4 left-6 top-4 w-0.5 overflow-hidden rounded-full bg-[#084E75]/15">
+              <div className="lifecycle-roadmap-beam-y absolute left-0 h-[12.5%] min-h-16 w-full rounded-full bg-linear-to-b from-transparent via-[#DDB162] to-transparent shadow-[0_0_16px_rgba(221,177,98,0.85)]" />
             </div>
-            <div>
-              <h3 className="text-2xl font-bold text-[#084E75]">
-                Strategic Financial Guidance
-              </h3>
-              <p className="mt-3 leading-relaxed text-[#084E75]/80">
-                Because every stage of growth deserves the right financial
-                strategy. We help businesses navigate challenges, unlock
-                opportunities, and prepare confidently for the next milestone.
-              </p>
+
+            <div className="space-y-8">
+              {stages.map((stage, index) => {
+                const Icon = stage.icon;
+                const isLast = index === stages.length - 1;
+
+                return (
+                  <div key={stage.title} className="relative flex gap-5 pl-1">
+                    <div
+                      className={`relative z-10 flex size-12 shrink-0 items-center justify-center rounded-full ring-4 ring-white ${
+                        isLast
+                          ? "bg-[#DDB162] text-[#084E75] shadow-md shadow-[#DDB162]/30"
+                          : "bg-[#084E75] text-white shadow-md"
+                      }`}
+                    >
+                      <Icon size={22} stroke={1.5} />
+                    </div>
+                    <div className="pt-1">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#DDB162]">
+                        Step {index + 1}
+                      </span>
+                      <h5 className="mt-1 font-semibold text-[#084E75]">{stage.title}</h5>
+                      <p className="mt-1 text-sm leading-relaxed text-[#084E75]/65">
+                        {stage.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 
@@ -719,15 +792,17 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mb-14"
           >
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162]">
-              <span className="h-px w-8 bg-[#DDB162]" />
+
+            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162] mb-4">
+              <span className="size-2 rounded-full bg-[#DDB162]" />
               Strategic Advantage
             </span>
-            <h2 className="mt-4 text-4xl font-semibold leading-14 text-white">
+
+            <h5 className="text-4xl font-semibold leading-14 text-white">
               Trusted by Businesses.
               <br />
               <span className="text-[#DDB162]">Driven by Results.</span>
-            </h2>
+            </h5>
             <p className="mt-5 text-base leading-relaxed md:text-lg text-white/70">
               We combine strategic financial insight with deep industry expertise to help businesses achieve sustainable growth, stronger governance, and measurable outcomes.
             </p>
@@ -755,10 +830,10 @@ export default function Home() {
                     <div className="mb-6 inline-flex rounded-2xl bg-[#DDB162] p-3.5 text-[#084E75]">
                       <Icon size={28} stroke={1.8} />
                     </div>
-                    <h3 className="text-xl font-semibold text-white md:text-2xl">
+                    <h5 className="text-xl font-semibold text-white md:text-xl">
                       {item.title}
-                    </h3>
-                    <p className="mt-3 leading-relaxed text-white/70">
+                    </h5>
+                    <p className="mt-3 text-base leading-relaxed text-white/70">
                       {item.description}
                     </p>
                   </div>
@@ -770,54 +845,54 @@ export default function Home() {
       </section>
 
       {/* Expertise Section */}
-      <section className="relative bg-[#084E75]/5 py-24 md:py-32">
+      <section className="relative bg-[#084E75]/5 py-20 md:py-24">
         <div className="mx-auto max-w-7xl">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-3xl border border-[#084E75]/10 bg-white shadow-xl"
+            transition={{ duration: 0.45 }}
+            className="relative overflow-hidden rounded-3xl border border-[#084E75]/10 bg-white shadow-xl shadow-[#084E75]/8"
           >
-            <div className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-[#DDB162]/10 blur-2xl" />
-            <div className="pointer-events-none absolute -bottom-20 -left-20 size-72 rounded-full bg-[#084E75]/5 blur-2xl" />
+            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#DDB162]/10 blur-2xl" />
 
-            <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-0">
-              <div className="p-8 md:p-12 lg:p-14">
+            <div className="grid items-center lg:grid-cols-2">
+              <div className="p-8 md:p-10 lg:p-12">
                 <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162]">
-                  <span className="h-px w-8 bg-[#DDB162]" />
+                  <span className="size-1.5 rounded-full bg-[#DDB162]" />
                   Our Approach
                 </span>
-                <h5 className="mt-4 text-3xl font-semibold leading-tight text-[#084E75] md:text-4xl">
-                  Proactive Financial Expertise
+
+                <h5 className="mt-4 text-3xl font-bold text-[#084E75] md:text-4xl">
+                  Proactive Financial{" "}
+                  <span className="text-[#DDB162]">Expertise</span>
                 </h5>
-                <p className="mt-5 text-base leading-relaxed text-[#084E75]/80 md:text-lg">
-                  Tailored financial solutions designed to help MSMEs and
-                  businesses improve stability, optimize performance, and achieve
-                  sustainable growth.
+
+                <p className="mt-5 text-base leading-relaxed text-[#084E75]/70">
+                  Tailored financial solutions designed to help MSMEs and businesses
+                  improve stability, optimize performance, and achieve sustainable
+                  growth.
                 </p>
 
-                <div className="mt-8 grid grid-cols-2 gap-4">
-                  {["Funding Strategy", "Risk Management", "Growth Planning", "IPO Readiness"].map(
-                    (tag) => (
-                      <div
-                        key={tag}
-                        className="rounded-2xl border border-[#084E75]/10 bg-[#084E75]/5 px-4 py-3 text-sm font-medium text-[#084E75]"
-                      >
-                        {tag}
-                      </div>
-                    )
-                  )}
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  {approachAreas.map((area) => (
+                    <div
+                      key={area.title}
+                      className="rounded-xl border border-[#084E75]/10 bg-[#084E75]/5 px-3.5 py-2.5 text-sm font-medium text-[#084E75] transition-colors hover:border-[#DDB162]/35 hover:bg-[#DDB162]/10"
+                    >
+                      {area.title}
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <div className="relative h-64 lg:h-full lg:min-h-105">
+              <div className="relative h-56 sm:h-64 lg:h-full lg:min-h-105">
                 <Image
                   src={intro}
                   alt="Financial expertise"
                   className="h-full w-full object-cover lg:absolute lg:inset-0"
                 />
-                <div className="absolute inset-0 bg-linear-to-r from-white via-transparent to-transparent lg:block" />
+                <div className="absolute inset-0 bg-linear-to-r from-white via-white/40 to-transparent lg:from-white lg:via-white/20" />
               </div>
             </div>
           </motion.div>
@@ -825,10 +900,14 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative overflow-hidden bg-[#084E75] py-16 md:py-20">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(221,177,98,0.12),transparent_60%)]" />
+      <section
+        className="relative bg-cover bg-fixed bg-center bg-no-repeat py-14 md:py-14"
+        style={{ backgroundImage: "url('/cta-background.png')" }}
+      >
+        <div className="absolute inset-0 bg-[#084E75]/88" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(221,177,98,0.15),transparent_60%)]" />
 
-        <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+        <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -836,7 +915,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="max-w-xl"
           >
-            <h5 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
+            <h5 className="text-3xl font-semibold leading-14 text-white md:text-4xl">
               Ready to strengthen your business finances?
             </h5>
             <p className="mt-3 text-lg text-white/70">
@@ -876,11 +955,12 @@ export default function Home() {
             className="mb-14 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end"
           >
             <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162]">
-                <span className="h-px w-8 bg-[#DDB162]" />
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162] mb-4">
+                <span className="size-1.5 rounded-full bg-[#DDB162]" />
                 Client Stories
               </span>
-              <h5 className="mt-4 text-3xl font-semibold leading-tight text-[#084E75] md:text-4xl">
+
+              <h5 className="text-3xl font-semibold leading-14 text-[#084E75] md:text-4xl">
                 Trusted by Businesses
                 <br />
                 <span className="text-[#DDB162]">Across India</span>

@@ -6,3 +6,45 @@
 .font-new{
     font-family:"Geist Mono", "Geist Mono Fallback"
 }
+
+@keyframes lifecycle-roadmap-beam-x {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(800%);
+  }
+}
+
+@keyframes lifecycle-roadmap-beam-y {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(800%);
+  }
+}
+
+.lifecycle-roadmap-beam-x {
+  animation: lifecycle-roadmap-beam-x 4s linear infinite;
+}
+
+.lifecycle-roadmap-beam-y {
+  animation: lifecycle-roadmap-beam-y 4s linear infinite;
+}
+
+@keyframes roadmapGlow {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+.roadmap-dot {
+  offset-path: path(
+    "M70 130 C150 35 250 35 330 130 S510 225 590 130 S770 35 850 130 S1030 225 1130 130"
+  );
+  animation: roadmapGlow 8s linear infinite;
+}
