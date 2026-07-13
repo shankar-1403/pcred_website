@@ -471,26 +471,23 @@ export default function Scheme() {
             )}
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <button
-                type="button"
-                onClick={() => setIsModalOpen(true)}
-                className="px-6 py-3 rounded-4xl border-2 border-[#084E75] bg-[#084E75] text-white text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#084E75]/40 flex items-center gap-2"
-              >
-                Apply Now
-                <IconArrowRight className="size-4" />
+              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between rounded-4xl bg-[#084E75] border-2 border-[#084E75] pl-4 pr-2 py-2 text-white shadow-md shadow-[#084E75]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm">Apply Now
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                  <IconArrowRight className="size-4" color="#084E75" />
+                </span>
               </button>
               {scheme.video_link ? (
-                <a
+                <Link
                   href={scheme.video_link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-4xl border-2 border-[#DDB162] bg-white text-[#DDB162] text-base font-semibold cursor-pointer text-center shadow-[5px_5px] shadow-[#DDB162]/40 flex items-center gap-2"
+                  className="px-6 py-2 rounded-4xl border-2 border-[#DDB162] bg-white text-[#DDB162] text-base font-semibold cursor-pointer text-center flex items-center gap-2"
                 >
-                  <span className="flex size-6 items-center justify-center rounded-full border border-[#DDB162]/20 bg-white/80 backdrop-blur-sm">
-                    <IconPlayerPlay className="size-3 fill-[#DDB162] text-[#DDB162]" />
+                  <span className="flex size-8 items-center justify-center rounded-full border border-[#DDB162]/20 bg-white/80 backdrop-blur-sm">
+                    <IconPlayerPlay className="size-4 fill-[#DDB162] text-[#DDB162]" />
                   </span>
                   How It Works
-                </a>
+                </Link>
               ): null}
             </div>
           </motion.div>
@@ -667,12 +664,10 @@ export default function Scheme() {
                 <p className="mt-3 text-white/80 text-lg">{scheme?.section_4_description}</p>
                 <p className="mt-3 font-semibold text-[#DDB162] text-lg">{scheme?.section_4_tagline}</p>
               </div>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="cursor-pointer group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-[#DDB162] px-8 py-4 text-base font-semibold text-white transition-all shadow-[5px_5px] shadow-[#DDB162]/50"
-              >
-                Check Eligibility
-                <IconArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
+              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-48 text-sm">Check Eligibility
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                  <IconArrowRight className="size-4" color="#DDB162" />
+                </span>
               </button>
             </div>
           </motion.div>

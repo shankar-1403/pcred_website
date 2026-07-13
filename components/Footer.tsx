@@ -38,13 +38,13 @@ export default function Footer() {
             
             <ul className="space-y-4 mt-4">
               <li className="flex items-start gap-3">
-                <IconMapPin className="mt-0.5 size-5 shrink-0 text-white" />
+                <IconMapPin className="mt-0.5 size-5" color="#DDB162" />
                 <span className="text-sm text-white/70">
                   Mumbai, Maharashtra, India
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <IconPhone className="size-5 shrink-0 text-white" />
+                <IconPhone className="size-5" color="#DDB162" />
                 <a
                   href="tel:+919876543210"
                   className="text-sm text-white/70 transition-colors hover:text-white"
@@ -53,7 +53,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <IconMail className="size-5 shrink-0 text-white" />
+                <IconMail className="size-5" color="#DDB162" />
                 <a
                   href="mailto:contact@pcred.org"
                   className="text-sm text-white/70 transition-colors hover:text-white"
@@ -88,7 +88,7 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
           <p className="text-sm text-white/50">
-            &copy; {new Date().getFullYear()} Pcred Corporate Advisory Services.
+            &copy; {new Date().getFullYear()} Pcred Venture Private Limited.
             All rights reserved.
           </p>
           <div className="flex gap-6">

@@ -66,7 +66,9 @@ const CompaniesCard = ({ data }: CompaniesCardProps ) => {
       className={"relative w-50 h-20 md:w-60 md:h-30 overflow-hidden rounded-4xl border p-2 border-blue-950 hover:shadow-lg hover:scale-105 transition-transform duration-300"}
     >
       <div className="p-4 flex justify-center items-center h-full">
-        <img src={data.src} alt={'Banks Logo'} className="h-12 md:h-24"/>
+        <div className="h-full">
+          <img src={data.src} alt={'Banks Logo'} className="h-12 md:h-16"/>
+        </div>
       </div>
     </figure>
   )
@@ -398,19 +400,15 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex flex-wrap gap-4"
           >
-            <Link
-              href="/services"
-              className="group inline-flex items-center gap-2 rounded-full bg-[#084E75] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#084E75]/40 transition-all hover:-translate-y-0.5 hover:bg-[#0a5d8a] hover:shadow-xl"
-            >
-              Our Services
-              <IconArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            <Link href="/services" className="group flex items-center justify-between rounded-4xl bg-[#084E75] pl-4 pr-2 py-2 text-white shadow-md shadow-[#084E75]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm">Our Services
+              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                <IconArrowRight className="size-4" color="#084E75" />
+              </span>
             </Link>
-            <Link
-              href="/blogs"
-              className="group inline-flex items-center gap-2 rounded-full border-2 border-[#DDB162] bg-[#DDB162]/90 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-[#DDB162] hover:shadow-lg hover:shadow-[#DDB162]/30"
-            >
-              Our Blogs
-              <IconArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            <Link href="/contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm">Our Blogs
+              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                <IconArrowRight className="size-4" color="#DDB162" />
+              </span>
             </Link>
           </motion.div>
 
@@ -955,7 +953,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="max-w-3xl mx-auto text-center mx-auto mb-14"
+            className="max-w-3xl mx-auto text-center mb-14"
           >
             <h5 className="mt-4 text-3xl font-semibold leading-tight md:text-4xl lg:text-4xl text-[#084E75]">
               {"Let's Start a Conversation"}
@@ -1024,7 +1022,7 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="flex min-h-[420px] flex-col items-center justify-center text-center"
+                  className="flex min-h-105 flex-col items-center justify-center text-center"
                 >
                   <div className="mb-6 flex size-16 items-center justify-center rounded-full bg-[#084E75]/10 text-[#084E75]">
                     <IconCheck className="size-8" />

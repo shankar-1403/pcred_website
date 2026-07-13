@@ -58,7 +58,7 @@ const coreBeliefs = [
 export default function AboutUsPage() {
   return (
     <>
-      <section className="relative bg-white backdrop-blur-2xl h-150 py-30 flex items-end">
+      <section className="relative bg-linear-to-br from-[#084E75]/20 from-30% to-[#DDB162]/20 backdrop-blur-2xl h-150 py-30 flex items-end">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
@@ -87,9 +87,9 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#8E8E90]/5 py-24">
+      <section className="relative overflow-hidden bg-[#8E8E90]/5 py-20">
         <div className="max-w-7xl mx-auto grid grid-cols-2 gap-6 relative">
-          <div className="relative h-150 rounded-4xl overflow-hidden  bg-white border border-gray-200 shadow-lg">
+          <div className="relative h-120 rounded-4xl overflow-hidden  bg-white border border-gray-200 shadow-lg">
 
             {/* Content */}
             <div className="z-10 flex flex-col gap-6 p-6 h-full">
@@ -97,11 +97,11 @@ export default function AboutUsPage() {
                 <h2 className="text-4xl font-bold text-[#084E75] leading-12">Strategic financial guidance for business growth and clarity</h2>
               </div>
               <div>
-                <Image src={AboutUsThree} alt="About Section" className="object-cover h-120"/>
+                <Image src={AboutUsThree} alt="About Section" className="object-cover h-80"/>
               </div>
             </div>
           </div>
-          <div className="relative h-150 rounded-4xl overflow-hidden shadow-lg">
+          <div className="relative h-120 rounded-4xl overflow-hidden shadow-lg">
             {/* Background Image */}
             <Image
               src={AboutUsTwo}
@@ -116,7 +116,7 @@ export default function AboutUsPage() {
 
             {/* Content */}
             <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
-              <h3 className="max-w-4xl text-5xl font-bold leading-tight text-white mb-8">
+              <h3 className="max-w-4xl text-4xl font-bold leading-12 text-white mb-8">
                 Leading the Future of Financial Advisory for Businesses
               </h3>
 
@@ -142,7 +142,7 @@ export default function AboutUsPage() {
             </h4>
           </motion.div>
 
-          <div className="mb-20 grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3">
             {aboutPillars.map((pillar, i) => (
               <motion.div
                 key={pillar.title}
@@ -150,7 +150,7 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative overflow-hidden rounded-4xl bg-[#DDB162]/5 p-8 transition-all shadow-lg duration-300 hover:-translate-y-1 hover:border-[#084E75]/25 hover:shadow-xl hover:shadow-[#084E75]/10"
+                className="group relative overflow-hidden rounded-4xl bg-white p-8 transition-all shadow-lg duration-300 hover:-translate-y-1 hover:border-[#084E75]/25 hover:shadow-xl hover:shadow-[#084E75]/10"
               >
                 <span className="absolute right-6 top-6 font-mono text-4xl font-bold text-[#084E75]/10">
                   {pillar.number}
@@ -188,9 +188,11 @@ export default function AboutUsPage() {
                   Connect with our advisory team and discover solutions tailored to your growth goals.
                 </p>
               </div>
-              <Link href="/#contact" className="group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-[#DDB162] px-8 py-4 text-base font-semibold text-white transition-all shadow-[5px_5px] shadow-[#DDB162]/50">
-                Get In Touch
-                <IconArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
+              
+              <Link href="/contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm">Get In Touch
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                  <IconArrowRight className="size-4" color="#DDB162" />
+                </span>
               </Link>
             </div>
           </motion.div>

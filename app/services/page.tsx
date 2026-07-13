@@ -187,21 +187,19 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
-                className="group h-80 relative flex flex-col overflow-hidden rounded-4xl bg-white p-6 shadow-lg border border-gray-100"
+                className="group h-65 relative flex flex-col overflow-hidden rounded-4xl bg-white p-6 shadow-lg border border-gray-100"
               >
                 <h3 className="mb-3 text-2xl font-semibold text-[#084E75]">
                   {service.label}
                 </h3>
-                <p className="flex-1 text-sm mb-10 leading-relaxed text-[#084E75]">
+                <p className="flex-1 text-sm leading-relaxed text-[#084E75]">
                   {service.description}
                 </p>
 
-                <Link
-                  href="/#contact"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#084E75]"
-                >
-                  Enquire now
-                  <IconArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+                <Link href="/contact" className="group flex items-center justify-between rounded-4xl bg-[#084E75] pl-4 pr-2 py-2 text-white shadow-md shadow-[#084E75]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-32 text-xs">Enquire Now
+                  <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                    <IconArrowRight className="size-3" color="#084E75" />
+                  </span>
                 </Link>
               </motion.div>
             ))}
