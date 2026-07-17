@@ -54,7 +54,7 @@ export default function page() {
               htmlFor="email-or-pan"
               className="block text-sm font-medium text-slate-300"
             >
-              Email or PAN
+              Email
             </label>
             <input
               id="email-or-pan"
@@ -64,7 +64,7 @@ export default function page() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/0 transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
-              placeholder="you@company.com or ABCDE1234F"
+              placeholder="you@company.com"
             />
           </div>
           <div>
