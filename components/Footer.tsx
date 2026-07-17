@@ -1,10 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/logo.webp";
+import logo from "@/public/pcred_cms_logo.webp";
 import {
-  IconBrandLinkedin,
-  IconBrandInstagram,
-  IconBrandFacebook,
   IconMail,
   IconMapPin,
   IconPhone,
@@ -20,7 +17,7 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#084E75] text-white">
+    <footer className="relative overflow-hidden bg-[#003958] text-white">
       <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/60 to-transparent" />
       <div className="pointer-events-none absolute -right-32 top-0 size-64 rounded-full bg-[#5BBCEB]/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -left-32 size-80 rounded-full bg-cyan-400/10 blur-3xl" />
@@ -29,7 +26,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link href="/" className="inline-block">
-              <Image src={logo} alt="Pcred" width={140} height={60} className="h-14 w-auto brightness-0 invert"/>
+              <Image src={logo} alt="Pcred" width={140} height={60} className="h-14 w-auto"/>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
               Strategic financial advisory solutions designed to strengthen and
@@ -79,8 +76,8 @@ export default function Footer() {
             </ul>
           </div>
           <div className="col-span-2 p-4 border rounded-4xl">
-            <label htmlFor="" className="absolute -mt-8 ml-4 px-2 bg-[#084E75] text-lg">Our Location</label>
-            <div className="overflow-hidden rounded-4xl">
+            <label htmlFor="" className="absolute -mt-8 ml-4 px-2 bg-[#003958] text-lg">Our Location</label>
+            <div className="overflow-hidden rounded-3xl">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7539.342371665663!2d72.86381847497857!3d19.122075682091978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c96714ce57ed%3A0x1b179a27f41db6f0!2sPCRED!5e0!3m2!1sen!2sin!4v1783146736429!5m2!1sen!2sin" width="600" height="250" loading="lazy" referrerPolicy="strict-origin-when-cross-origin"/>
             </div>
           </div>
