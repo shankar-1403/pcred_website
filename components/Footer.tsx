@@ -61,7 +61,7 @@ export default function Footer() {
             </ul>
           </div>          
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-white">Quick Links</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#DDB162]">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((quicklink,index) => (
                 <li key={index+1}>
@@ -75,10 +75,22 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-          <div className="col-span-2 p-4 border rounded-4xl">
-            <label htmlFor="" className="absolute -mt-8 ml-4 px-2 bg-[#003958] text-lg">Our Location</label>
-            <div className="overflow-hidden rounded-3xl">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7539.342371665663!2d72.86381847497857!3d19.122075682091978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c96714ce57ed%3A0x1b179a27f41db6f0!2sPCRED!5e0!3m2!1sen!2sin!4v1783146736429!5m2!1sen!2sin" width="600" height="250" loading="lazy" referrerPolicy="strict-origin-when-cross-origin"/>
+          <div className="col-span-2 flex flex-col gap-3">
+            <div className="flex items-center gap-3">
+              <IconMapPin className="size-4 text-[#DDB162]" />
+              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">Our Location</span>
+            </div>
+            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-lg shadow-black/20">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7539.342371665663!2d72.86381847497857!3d19.122075682091978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c96714ce57ed%3A0x1b179a27f41db6f0!2sPCRED!5e0!3m2!1sen!2sin!4v1783146736429!5m2!1sen!2sin"
+                width="100%"
+                height="240"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                className="block w-full"
+              />
+              {/* Top fade overlay blending into footer bg */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-6 bg-linear-to-b from-[#003958]/30 to-transparent" />
             </div>
           </div>
         </div>
