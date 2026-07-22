@@ -143,67 +143,66 @@ function BlogCard({
 export default function BlogsPage() {
   return (
     <>
-      <section className="relative flex h-150 items-end bg-linear-to-br from-[#084E75]/20 from-30% to-[#DDB162]/20 py-30 backdrop-blur-2xl">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
+      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-24">
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
 
-        <div className="relative mx-auto w-full max-w-7xl">
+        <div className="relative mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl"
+            className="text-center"
           >
-            <h1 className="text-4xl font-bold leading-[1.15] text-[#084E75] md:text-5xl lg:text-6xl">
+            <span className="mb-3 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
+              <span className="size-2 rounded-full bg-[#DDB162]" />
+              Blog & Resources
+            </span>
+            <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl">
               Financial Advisory
               <br />
               <span className="text-[#DDB162]">Blog & Resources</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-[#084E75]">
+            <p className="mt-4 text-base leading-relaxed text-[#4a5568] max-w-2xl mx-auto">
               Expert perspectives on funding, growth strategy, and financial planning for MSMEs and enterprises.
             </p>
+            <div className="mt-10 flex items-center justify-center">
+              <div className="h-px w-40 bg-[#DDB162]/30" />
+              <span className="mx-3 size-2.5 rotate-45 bg-[#DDB162]/60 shrink-0 block" />
+              <div className="h-px w-40 bg-[#DDB162]/30" />
+            </div>
           </motion.div>
-        </div>
-      </section>
 
-      <section className="relative overflow-hidden bg-linear-to-b from-white via-gray-50 to-gray-100 py-24">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
-
-        <div className="relative mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-10"
+            className="mt-24 mb-10"
           >
             <h2 className="text-2xl font-semibold text-[#084E75] md:text-3xl">Featured Article</h2>
           </motion.div>
 
-          <motion.article
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="group mb-16 grid overflow-hidden rounded-4xl border border-gray-100 bg-white shadow-lg md:grid-cols-2"
+            className="group relative mb-16 grid overflow-hidden rounded-[2.5rem] border border-gray-100 bg-white shadow-xl md:grid-cols-5"
           >
-            <div className="relative min-h-64 md:min-h-full">
+            <div className="relative min-h-64 overflow-hidden md:col-span-2 md:min-h-full">
               <Image
                 src={featuredBlog.image}
                 alt={featuredBlog.title}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-[#084E75]/20" />
+              <div className="absolute inset-0 bg-[#084E75]/15" />
             </div>
-            <div className="flex flex-col justify-center p-8 md:p-10">
-              <span className="mb-4 w-fit rounded-full bg-[#084E75]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#084E75]">
+            <div className="relative flex flex-col justify-center p-8 md:col-span-3 md:p-12">
+              {/* Vertical accent line */}
+              <div className="pointer-events-none absolute left-0 top-10 bottom-10 hidden w-px bg-[#DDB162]/40 md:block" />
+
+              <span className="mb-4 w-fit rounded-full border border-[#084E75]/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#084E75]">
                 {featuredBlog.category}
               </span>
               <div className="mb-4 flex flex-wrap gap-4 text-xs text-[#8E8E90]">
@@ -224,13 +223,13 @@ export default function BlogsPage() {
               </p>
               <Link
                 href="#"
-                className="inline-flex w-fit items-center gap-2 rounded-xl bg-[#084E75] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0a5d8a]"
+                className="group/btn inline-flex w-fit items-center gap-2 border-b-2 border-[#084E75] pb-1 text-sm font-semibold uppercase tracking-wider text-[#084E75] transition-colors hover:border-[#DDB162] hover:text-[#0a5d8a]"
               >
                 Read article
-                <IconArrowRight className="size-4" />
+                <IconArrowRight className="size-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
               </Link>
             </div>
-          </motion.article>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}

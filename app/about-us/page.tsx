@@ -328,12 +328,12 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (i % 2) * 0.08 }}
-                className="group relative overflow-hidden rounded-3xl border border-[#084E75]/15 bg-linear-to-br from-[#DDB162]/12 via-[#EEF6FB] to-[#084E75]/25 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#084E75]/15 hover:border-[#084E75]/25"
+                className="group relative overflow-hidden rounded-3xl border border-[#084E75]/10 bg-linear-to-br from-[#DDB162]/6 via-[#FAFCFD] to-[#084E75]/8 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#084E75]/10 hover:border-[#084E75]/20"
               >
                 {/* Blue glow bottom-right — dominant */}
-                <div className="pointer-events-none absolute -bottom-6 -right-6 size-40 rounded-full bg-[#084E75]/18 blur-2xl" />
+                <div className="pointer-events-none absolute -bottom-6 -right-6 size-40 rounded-full bg-[#084E75]/8 blur-2xl" />
                 {/* Faint gold glow top-left */}
-                <div className="pointer-events-none absolute -top-6 -left-6 size-24 rounded-full bg-[#DDB162]/15 blur-2xl" />
+                <div className="pointer-events-none absolute -top-6 -left-6 size-24 rounded-full bg-[#DDB162]/6 blur-2xl" />
 
                 <div className="relative flex flex-col gap-3">
                   <div className="flex flex-row items-center gap-3">

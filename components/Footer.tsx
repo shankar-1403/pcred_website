@@ -5,14 +5,29 @@ import {
   IconMail,
   IconMapPin,
   IconPhone,
+  IconId,
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconBrandX,
 } from "@tabler/icons-react";
+
+const socialLinks = [
+  { label: "Facebook", href: "#", icon: IconBrandFacebook },
+  { label: "Instagram", href: "#", icon: IconBrandInstagram },
+  { label: "LinkedIn", href: "#", icon: IconBrandLinkedin },
+  { label: "X", href: "#", icon: IconBrandX },
+];
 
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
   { label: "Services", href: "/services" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Blogs", href: "/blogs" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/contact" },
+  { label: "Terms of Service", href: "/terms-of-service" },
 ];
 
 export default function Footer() {
@@ -23,7 +38,7 @@ export default function Footer() {
       <div className="pointer-events-none absolute -bottom-32 -left-32 size-80 rounded-full bg-cyan-400/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl pt-16 pb-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <Link href="/" className="inline-block">
               <Image src={logo} alt="Pcred" width={140} height={60} className="h-14 w-auto"/>
@@ -33,87 +48,85 @@ export default function Footer() {
               scale businesses across India.
             </p>
             
-            <ul className="space-y-4 mt-4">
-              <li className="flex items-start gap-3">
-                <IconMapPin className="mt-0.5 size-5" color="#DDB162" />
-                <span className="text-sm text-white/70">
-                  Mumbai, Maharashtra, India
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <IconPhone className="size-5" color="#DDB162" />
+            <div className="flex items-center gap-3 mt-5">
+              {socialLinks.map((social) => (
                 <a
-                  href="tel:+919876543210"
-                  className="text-sm text-white/70 transition-colors hover:text-white"
+                  key={social.label}
+                  href={social.href}
+                  aria-label={social.label}
+                  className="flex size-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-[#DDB162] hover:text-[#DDB162]"
                 >
-                  +91 98765 43210
+                  <social.icon className="size-4" />
                 </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <IconMail className="size-5" color="#DDB162" />
-                <a
-                  href="mailto:contact@pcred.org"
-                  className="text-sm text-white/70 transition-colors hover:text-white"
-                >
-                  contact@pcred.org
-                </a>
-              </li>
-            </ul>
-          </div>          
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#DDB162]">Quick Links</h3>
-            <ul className="space-y-3">
-              {quickLinks.map((quicklink,index) => (
-                <li key={index+1}>
-                  <Link
-                    href={quicklink.href}
-                    className="text-sm text-white/70 transition-colors hover:text-white"
-                  >
-                    {quicklink.label}
-                  </Link>
-                </li>
               ))}
-            </ul>
-          </div>
-          <div className="col-span-2 flex flex-col gap-3">
-            <div className="flex items-center gap-3">
-              <IconMapPin className="size-4 text-[#DDB162]" />
-              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">Our Location</span>
             </div>
-            <div className="relative overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-lg shadow-black/20">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7539.342371665663!2d72.86381847497857!3d19.122075682091978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c96714ce57ed%3A0x1b179a27f41db6f0!2sPCRED!5e0!3m2!1sen!2sin!4v1783146736429!5m2!1sen!2sin"
-                width="100%"
-                height="240"
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-                className="block w-full"
-              />
-              {/* Top fade overlay blending into footer bg */}
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-6 bg-linear-to-b from-[#003958]/30 to-transparent" />
+          </div>
+          <div>
+            <h3 className="mb-4 text-sm text-center font-semibold uppercase tracking-widest text-[#DDB162]">Quick Links</h3>
+            <div className="flex justify-evenly">
+              <ul className="space-y-3">
+                {quickLinks.filter((_, index) => index % 2 === 0).map((quicklink) => (
+                  <li key={quicklink.label}>
+                    <Link
+                      href={quicklink.href}
+                      className="text-sm text-white/70 transition-colors hover:text-white"
+                    >
+                      {quicklink.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <ul className="space-y-3">
+                {quickLinks.filter((_, index) => index % 2 === 1).map((quicklink) => (
+                  <li key={quicklink.label}>
+                    <Link
+                      href={quicklink.href}
+                      className="text-sm text-white/70 transition-colors hover:text-white"
+                    >
+                      {quicklink.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="flex flex-col gap-5 lg:pl-8">
+            <div className="flex items-start gap-3 text-sm text-white/70">
+              <IconId className="size-5 shrink-0" color="#DDB162" />
+              <p className="max-w-sm leading-relaxed">
+                CIN: [Add CIN number]
+              </p>
+            </div>
+            <div className="flex items-start gap-3 text-sm text-white/70">
+              <IconMapPin className="size-5 shrink-0" color="#DDB162" />
+              <p className="max-w-sm leading-relaxed">
+                PCRED Venture Private Limited, Andheri East, Mumbai, Maharashtra 400069, India
+              </p>
+            </div>
+            <div className="mt-2 flex flex-col gap-4">
+              <a
+                href="tel:+919876543210"
+                className="flex items-center gap-3 text-sm text-white/70 transition-colors hover:text-white"
+              >
+                <IconPhone className="size-5" color="#DDB162" />
+                +91 98765 43210
+              </a>
+              <a
+                href="mailto:contact@pcred.org"
+                className="flex items-center gap-3 text-sm text-white/70 transition-colors hover:text-white"
+              >
+                <IconMail className="size-5" color="#DDB162" />
+                contact@pcred.org
+              </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
+        <div className="mt-14 flex flex-col items-center justify-center gap-4 border-t border-white/10 pt-8">
           <p className="text-sm text-white/50">
             &copy; {new Date().getFullYear()} Pcred Venture Private Limited.
             All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <Link
-              href="#"
-              className="text-sm text-white/50 transition-colors hover:text-white"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="#"
-              className="text-sm text-white/50 transition-colors hover:text-white"
-            >
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

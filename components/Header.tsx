@@ -31,6 +31,10 @@ export default function Header() {
       name: "Blogs",
       link: "/blogs",
     },
+    {
+      name: "Careers",
+      link: "/careers",
+    },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
