@@ -252,7 +252,7 @@ export const MobileNavToggle = ({
 export const NavbarLogo = () => {
   return (
     <a href="/" className="relative z-20 flex items-center text-black">
-      <Image src={logo} alt="logo" className="h-10 w-full"/>
+      <Image src={logo} alt="logo" className="h-10 w-auto"/>
     </a>
   );
 };
