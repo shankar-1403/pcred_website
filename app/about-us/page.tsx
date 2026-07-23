@@ -63,7 +63,7 @@ export default function AboutUsPage() {
       <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl">
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -91,7 +91,7 @@ export default function AboutUsPage() {
           </motion.div>
         </div>
 
-        <div className="relative mx-auto max-w-7xl mt-24">
+        <div className="relative mx-auto max-w-7xl px-6 mt-24">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-2 lg:h-[560px]">
 
             {/* Stat 1 — blue (col 1, row 1) */}
@@ -114,7 +114,7 @@ export default function AboutUsPage() {
 
                 <div className="relative z-10 flex items-center justify-between">
                   <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/40">Years of advisory</span>
-                  <span className="rounded-full border border-[#DDB162]/40 bg-[#DDB162]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-[#DDB162]">Est. 2014</span>
+                  <span className="rounded-full border border-[#DDB162]/40 bg-[#DDB162]/10 px-3 py-1 text-[length:var(--text-10)] font-semibold uppercase tracking-widest text-[#DDB162]">Est. 2014</span>
                 </div>
                 <div className="relative z-10 flex flex-1 flex-col items-start justify-center">
                   <span className="block text-8xl font-black leading-none text-white">10+</span>
@@ -215,7 +215,7 @@ export default function AboutUsPage() {
 
                 <div className="relative z-10 flex items-center justify-between">
                   <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/70">MSMEs served</span>
-                  <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/80">Pan India</span>
+                  <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[length:var(--text-10)] font-semibold uppercase tracking-widest text-white/80">Pan India</span>
                 </div>
                 <div className="relative z-10 flex flex-1 flex-col items-start justify-center">
                   <span className="block text-8xl font-black leading-none text-white">500+</span>
@@ -234,7 +234,7 @@ export default function AboutUsPage() {
       {/* ── MISSION VISION AIM ── */}
 
       <section className="relative overflow-hidden bg-white py-24">
-        <div className="relative mx-auto max-w-7xl">
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -303,7 +303,7 @@ export default function AboutUsPage() {
       <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 py-24">
         <div className="pointer-events-none absolute -left-32 top-20 size-96 rounded-full bg-[#DDB162]/8 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl">
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -353,7 +353,7 @@ export default function AboutUsPage() {
 
       {/* ── CTA ── */}
       <section className="py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

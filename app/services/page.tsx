@@ -134,7 +134,7 @@ export default function ServicesPage() {
       <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl">
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -211,7 +211,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="py-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -231,10 +231,14 @@ export default function ServicesPage() {
                   Speak with our advisory team — we&apos;ll recommend the right approach for your business goals.
                 </p>
               </div>
-              <Link href="/#contact" className="group inline-flex shrink-0 items-center gap-2 rounded-4xl bg-[#DDB162] px-8 py-4 text-base font-semibold text-white transition-all shadow-[5px_5px] shadow-[#DDB162]/50"
+              <Link
+                href="/contact"
+                className="group flex items-center justify-between rounded-full bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-5 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
               >
                 Get In Touch
-                <IconArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                  <IconArrowRight className="size-4" color="#DDB162" />
+                </span>
               </Link>
             </div>
           </motion.div>
