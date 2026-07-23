@@ -131,37 +131,7 @@ const services: Service[] = [
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative bg-linear-to-br from-[#084E75]/20 from-30% to-[#DDB162]/20 backdrop-blur-2xl h-150 py-30 flex items-end">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-
-        <div className="relative mx-auto max-w-7xl w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
-          >
-            <h1 className="text-4xl font-bold leading-[1.15] text-[#084E75] md:text-5xl lg:text-6xl">
-              Expert Solutions For
-              <br />
-              <span className="text-[#DDB162]">Every Stage Of Growth</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-[#084E75]">
-              Comprehensive financial advisory designed to strengthen performance,
-              support expansion, and build long-term stability for MSMEs and enterprises.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-linear-to-b from-white via-gray-50 to-gray-100 py-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl">
@@ -170,16 +140,34 @@ export default function ServicesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-14 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end"
+            className="mb-14"
           >
-            <div>
-              <h2 className="text-3xl font-semibold text-[#084E75] md:text-4xl">
+            <div className="text-center">
+              <span className="mb-3 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
+                <span className="size-2 rounded-full bg-[#DDB162]" />
+                Our Services
+              </span>
+              <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl">
+                Expert Solutions For
+                <br />
+                <span className="text-[#DDB162]">Every Stage Of Growth</span>
+              </h1>
+              <p className="mt-4 text-base leading-relaxed text-[#4a5568] max-w-2xl mx-auto">
+                Comprehensive financial advisory designed to strengthen performance,
+                support expansion, and build long-term stability for MSMEs and enterprises.
+              </p>
+              <div className="mt-10 flex items-center justify-center gap-0">
+                <div className="h-px w-40 bg-[#DDB162]/30" />
+                <span className="mx-3 size-2.5 rotate-45 bg-[#DDB162]/60 shrink-0 block" />
+                <div className="h-px w-40 bg-[#DDB162]/30" />
+              </div>
+              <h2 className="mt-24 text-3xl font-semibold text-[#084E75] md:text-4xl">
                 How We Help Your Business Grow
               </h2>
             </div>
           </motion.div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => (
               <motion.div
                 key={service.id}
@@ -187,20 +175,35 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
-                className="group h-65 relative flex flex-col overflow-hidden rounded-4xl bg-white p-6 shadow-lg border border-gray-100"
+                className="group relative flex flex-col bg-linear-to-br from-[#084E75]/8 via-white to-[#DDB162]/12 p-4 rounded-2xl border border-[#084E75]/12 transition-all duration-300 hover:shadow-xl hover:from-[#084E75]/15 hover:via-white hover:to-[#DDB162]/20 hover:border-[#DDB162]/40"
               >
-                <h3 className="mb-3 text-2xl font-semibold text-[#084E75]">
+                {/* Top row: icon left, number right */}
+                <div className="mb-4 flex items-start justify-between">
+                  <div className="flex size-9 items-center justify-center rounded-xl bg-linear-to-br from-[#084E75] to-[#0a6494]">
+                    <service.icon className="size-4 text-white" stroke={1.5} />
+                  </div>
+                  <span className="font-mono text-5xl font-black text-[#084E75]/10 leading-none select-none">
+                    {String(service.id).padStart(2, "0")}
+                  </span>
+                </div>
+
+                <h3 className="mb-1.5 text-base font-semibold leading-snug text-[#084E75]">
                   {service.label}
                 </h3>
-                <p className="flex-1 text-sm leading-relaxed text-[#084E75]">
+
+                <p className="flex-1 text-xs leading-relaxed text-[#4a5568]">
                   {service.description}
                 </p>
 
-                <Link href="/contact" className="group flex items-center justify-between rounded-4xl bg-[#084E75] pl-4 pr-2 py-2 text-white shadow-md shadow-[#084E75]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-32 text-xs">Enquire Now
-                  <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                    <IconArrowRight className="size-3" color="#084E75" />
-                  </span>
-                </Link>
+                <div className="mt-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#084E75]/70 transition-colors duration-300 group-hover:text-[#084E75]"
+                  >
+                    Enquire Now
+                    <IconArrowRight className="size-3.5 text-[#DDB162] transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </div>

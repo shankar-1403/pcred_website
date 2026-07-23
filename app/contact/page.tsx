@@ -2,8 +2,7 @@
 
 import React,{useState,type FormEvent} from 'react';
 import {motion} from "motion/react";
-import { IconMail, IconMapPin, IconPhone, IconClock, IconSend, IconCheck} from "@tabler/icons-react";
-import contact from "../../public/contact.png"
+import { IconMail, IconPhone, IconClock, IconSend, IconCheck, IconMapPin} from "@tabler/icons-react";
 import Image from 'next/image';
 
 function page() {
@@ -40,7 +39,6 @@ function page() {
   const contactInfo = [
     { icon: IconPhone, label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
     { icon: IconMail, label: "Email", value: "contact@pcred.org", href: "mailto:contact@pcred.org" },
-    { icon: IconMapPin, label: "Office", value: "Mumbai, Maharashtra, India", href: undefined as string | undefined },
     { icon: IconClock, label: "Hours", value: "Mon – Sat, 9:00 AM – 6:00 PM", href: undefined as string | undefined },
   ];
   
@@ -49,100 +47,136 @@ function page() {
   
   return (
     <>
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/20 from-30% to-[#DDB162]/20 backdrop-blur-2xl h-150 py-30 flex items-end">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
+      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-24">
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl w-full grid grid-cols-2">
+        <div className="relative mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="max-w-2xl mx-auto text-center"
           >
-            <h1 className="text-4xl font-bold leading-[1.15] text-[#084E75] md:text-5xl lg:text-6xl text-shadow-lg">
+            <span className="mb-3 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
+              <span className="size-2 rounded-full bg-[#DDB162]" />
+              Get In Touch
+            </span>
+            <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl">
               Connecting Through
               <br />
-              <span className="text-white">Smart Finance</span>
+              <span className="text-[#DDB162]">Smart Finance</span>
             </h1>
-            <p className="mt-6 max-w-xl text-xl leading-relaxed text-[#084E75]">
+            <p className="mt-4 text-base leading-relaxed text-[#4a5568]">
               We partner with MSMEs and growing enterprises to deliver strategic
               financial advisory, funding solutions, and long-term growth support.
             </p>
-          </motion.div>
-          <div className='relative'>
-            <Image src={contact} alt='Phone Image' className="object-contain absolute h-250 -top-20"/>
-          </div>
-        </div>
-      </section>
-      <section id="contact" className="relative overflow-hidden py-24">
-        <div className="relative mx-auto max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-14 text-center"
-          >
-            <h2 className="text-4xl font-semibold text-[#084E75] md:text-5xl">
-              Let&apos;s Start a Conversation
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-[#8E8E90]">
-              Tell us about your business goals. Our advisory team will respond within one business day.
-            </p>
+            <div className="mt-10 flex items-center justify-center">
+              <div className="h-px w-40 bg-[#DDB162]/30" />
+              <span className="mx-3 size-2.5 rotate-45 bg-[#DDB162]/60 shrink-0 block" />
+              <div className="h-px w-40 bg-[#DDB162]/30" />
+            </div>
           </motion.div>
 
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+          <div id="contact" className="grid gap-10 mt-24 lg:grid-cols-[1fr_1.2fr] lg:grid-rows-[auto_1fr]">
+            <div className="flex items-start justify-center -mt-16 lg:col-start-1 lg:row-start-2">
+              <div className="relative mx-auto w-[35rem] h-[48.5rem]">
+                {/* Decorative background glow behind the phone so it doesn't float on plain empty space */}
+                <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[3rem] bg-linear-to-br from-[#084E75]/12 via-white/40 to-[#DDB162]/15 blur-2xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 -z-10 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#084E75]/10 blur-3xl" />
+
+                {/* Cards displayed inside the phone screen — positioned via percentages matching the frame's screen cutout */}
+                <motion.div
+                  initial={{ opacity: 0, x: -24 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="absolute z-0 flex flex-col justify-start gap-1.5 overflow-hidden"
+                  style={{ left: "23.4%", top: "15.8%", width: "53.2%", height: "73.1%" }}
+                >
+                  <div className="relative overflow-hidden rounded-2xl bg-[#084E75] p-4 text-white">
+                    <h5 className="text-base font-semibold leading-snug">Ready to Move Your Business Forward?</h5>
+                  </div>
+                  <div className="flex flex-col gap-2.5">
+                    {contactInfo.map((item, i) => (
+                      <motion.div
+                        key={item.label}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
+                        className="group flex items-center gap-3 rounded-2xl border border-[#084E75]/10 bg-white p-3.5 shadow-sm"
+                      >
+                        <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#084E75]/10 text-[#084E75]">
+                          <item.icon className="size-5" />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-[11px] font-semibold uppercase tracking-wider text-[#8E8E90] leading-none">{item.label}</p>
+                          {item.href ? (
+                            <a href={item.href} className="mt-1 block truncate text-sm font-medium text-[#084E75] hover:underline">
+                              {item.value}
+                            </a>
+                          ) : (
+                            <p className="mt-1 truncate text-sm font-medium text-[#084E75]">{item.value}</p>
+                          )}
+                        </div>
+                      </motion.div>
+                    ))}
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.15 + contactInfo.length * 0.08 }}
+                      className="overflow-hidden rounded-2xl border border-[#084E75]/10 bg-white p-2.5 shadow-sm"
+                    >
+                      <div className="mb-2 flex items-center gap-3">
+                        <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#084E75]/10 text-[#084E75]">
+                          <IconMapPin className="size-5" />
+                        </div>
+                        <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8E8E90]">Location</span>
+                      </div>
+                      <div className="overflow-hidden rounded-lg">
+                        <iframe
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7539.342371665663!2d72.86381847497857!3d19.122075682091978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c96714ce57ed%3A0x1b179a27f41db6f0!2sPCRED!5e0!3m2!1sen!2sin!4v1783146736429!5m2!1sen!2sin"
+                          width="100%"
+                          height="150"
+                          loading="lazy"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          className="block w-full"
+                        />
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+
+                {/* Phone frame — layered on top so it visually contains the cards inside the screen */}
+                <div className="pointer-events-none absolute inset-0 z-10 bg-transparent">
+                  <Image src="/phone-frame-overlay.png" alt="Phone Frame" fill className="object-fill bg-transparent" quality={100} unoptimized />
+                </div>
+              </div>
+            </div>
+
             <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex flex-col gap-6"
+              transition={{ duration: 0.6 }}
+              className="mb-8 text-center lg:col-span-2 lg:row-start-1"
             >
-              <div className="rounded-4xl bg-[#084E75] p-8 text-white shadow-md shadow-[#084E75]/8">
-                <h5 className="mb-2 text-2xl font-semibold">Ready to Move Your Business Forward?</h5>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                {contactInfo.map((item, i) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
-                    className="group flex items-start gap-4 rounded-4xl border border-[#084E75]/10 bg-white p-5 transition-all duration-300 hover:border-[#084E75]/25 shadow-md shadow-[#084E75]/8"
-                  >
-                    <div className="flex size-11 shrink-0 items-center justify-center rounded-4xl bg-[#084E75]/10 text-[#084E75] transition-colors group-hover:bg-[#084E75] group-hover:text-white">
-                      <item.icon className="size-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-[#8E8E90]">{item.label}</p>
-                      {item.href ? (
-                        <a href={item.href} className="mt-0.5 block font-medium text-[#084E75] hover:underline">
-                          {item.value}
-                        </a>
-                      ) : (
-                        <p className="mt-0.5 font-medium text-[#084E75]">{item.value}</p>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+              <h2 className="text-4xl font-semibold text-[#084E75] md:text-5xl">
+                Let&apos;s Start a Conversation
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-lg text-[#8E8E90]">
+                Tell us about your business goals. Our advisory team will respond within one business day.
+              </p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="rounded-4xl border border-[#084E75]/10 bg-white p-8 shadow-xl shadow-[#084E75]/5 md:p-10"
-            >
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="rounded-4xl border border-[#084E75]/10 bg-white p-8 shadow-xl shadow-[#084E75]/5 md:p-10 lg:col-start-2 lg:row-start-2 lg:self-start"
+              >
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -223,7 +257,7 @@ function page() {
                   </button>
                 </form>
               )}
-            </motion.div>
+              </motion.div>
           </div>
         </div>
       </section>
