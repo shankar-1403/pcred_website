@@ -35,6 +35,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Pcred Corporate Advisory Services | Empowering Financial Excellence",
   description: "pcred.org",
+  icons: {
+    icon: "/logo.png?v=2",
+    shortcut: "/logo.png?v=2",
+    apple: "/logo.png?v=2",
+  },
 };
 
 export default function RootLayout({
