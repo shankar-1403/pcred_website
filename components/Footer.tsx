@@ -37,7 +37,7 @@ export default function Footer() {
       <div className="pointer-events-none absolute -right-32 top-0 size-64 rounded-full bg-[#5BBCEB]/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -left-32 size-80 rounded-full bg-cyan-400/10 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl pt-16 pb-8">
+      <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <Link href="/" className="inline-block">
@@ -100,23 +100,23 @@ export default function Footer() {
             <div className="flex items-start gap-3 text-sm text-white/70">
               <IconMapPin className="size-5 shrink-0" color="#DDB162" />
               <p className="max-w-sm leading-relaxed">
-                PCRED Venture Private Limited, Andheri East, Mumbai, Maharashtra 400069, India
+                Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093
               </p>
             </div>
             <div className="mt-2 flex flex-col gap-4">
               <a
-                href="tel:+919876543210"
+                href="tel:+912235120060"
                 className="flex items-center gap-3 text-sm text-white/70 transition-colors hover:text-white"
               >
                 <IconPhone className="size-5" color="#DDB162" />
-                +91 98765 43210
+                +91 22 3512 0060
               </a>
               <a
-                href="mailto:contact@pcred.org"
+                href="mailto:info@pcred.org"
                 className="flex items-center gap-3 text-sm text-white/70 transition-colors hover:text-white"
               >
                 <IconMail className="size-5" color="#DDB162" />
-                contact@pcred.org
+                info@pcred.org
               </a>
             </div>
           </div>

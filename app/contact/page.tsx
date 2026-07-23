@@ -37,8 +37,8 @@ function page() {
   ];
   
   const contactInfo = [
-    { icon: IconPhone, label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
-    { icon: IconMail, label: "Email", value: "contact@pcred.org", href: "mailto:contact@pcred.org" },
+    { icon: IconPhone, label: "Phone", value: "+91 22 3512 0060", href: "tel:+912235120060" },
+    { icon: IconMail, label: "Email", value: "info@pcred.org", href: "mailto:info@pcred.org" },
     { icon: IconClock, label: "Hours", value: "Mon – Sat, 9:00 AM – 6:00 PM", href: undefined as string | undefined },
   ];
   
@@ -50,7 +50,7 @@ function page() {
       <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl">
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,7 +79,8 @@ function page() {
 
           <div id="contact" className="grid gap-10 mt-24 lg:grid-cols-[1fr_1.2fr] lg:grid-rows-[auto_1fr]">
             <div className="flex items-start justify-center -mt-16 lg:col-start-1 lg:row-start-2">
-              <div className="relative mx-auto w-[35rem] h-[48.5rem]">
+              <div className="relative mx-auto w-[18rem] h-[24.94rem] sm:w-[24rem] sm:h-[33.26rem] lg:w-[35rem] lg:h-[48.5rem]">
+              <div className="absolute left-0 top-0 w-[35rem] h-[48.5rem] origin-top-left scale-[0.5143] sm:scale-[0.6857] lg:scale-100">
                 {/* Decorative background glow behind the phone so it doesn't float on plain empty space */}
                 <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[3rem] bg-linear-to-br from-[#084E75]/12 via-white/40 to-[#DDB162]/15 blur-2xl" />
                 <div className="pointer-events-none absolute left-1/2 top-1/3 -z-10 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#084E75]/10 blur-3xl" />
@@ -110,7 +111,7 @@ function page() {
                           <item.icon className="size-5" />
                         </div>
                         <div className="min-w-0">
-                          <p className="text-[11px] font-semibold uppercase tracking-wider text-[#8E8E90] leading-none">{item.label}</p>
+                          <p className="text-[length:var(--text-11)] font-semibold uppercase tracking-wider text-[#8E8E90] leading-none">{item.label}</p>
                           {item.href ? (
                             <a href={item.href} className="mt-1 block truncate text-sm font-medium text-[#084E75] hover:underline">
                               {item.value}
@@ -132,7 +133,7 @@ function page() {
                         <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#084E75]/10 text-[#084E75]">
                           <IconMapPin className="size-5" />
                         </div>
-                        <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8E8E90]">Location</span>
+                        <span className="text-[length:var(--text-11)] font-semibold uppercase tracking-wider text-[#8E8E90]">Location</span>
                       </div>
                       <div className="overflow-hidden rounded-lg">
                         <iframe
@@ -153,22 +154,8 @@ function page() {
                   <Image src="/phone-frame-overlay.png" alt="Phone Frame" fill className="object-fill bg-transparent" quality={100} unoptimized />
                 </div>
               </div>
+              </div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="mb-8 text-center lg:col-span-2 lg:row-start-1"
-            >
-              <h2 className="text-4xl font-semibold text-[#084E75] md:text-5xl">
-                Let&apos;s Start a Conversation
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-lg text-[#8E8E90]">
-                Tell us about your business goals. Our advisory team will respond within one business day.
-              </p>
-            </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, x: 24 }}

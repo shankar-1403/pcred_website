@@ -177,7 +177,7 @@ export default function HorizontalAccordion({
                 />
 
                 <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
+                  <span className="text-[length:var(--text-10)] font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
                     {item.subtitle}
                   </span>
                   <h3 className="mt-1 text-xl font-bold">{item.title}</h3>
@@ -204,7 +204,7 @@ export default function HorizontalAccordion({
                           {item.description}
                         </p>
                         <Link
-                          href="/contact"
+                          href="#contact"
                           className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#DDB162]"
                         >
                           Learn More

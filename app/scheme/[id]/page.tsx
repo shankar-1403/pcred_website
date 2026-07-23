@@ -380,7 +380,7 @@ export default function Scheme() {
         <h1 className="text-2xl font-semibold text-[#084E75]">Scheme not found</h1>
         <p className="text-[#8E8E90]">This scheme may have been removed or the link is incorrect.</p>
         <Link
-          href="/schemes"
+          href="/services"
           className="rounded-4xl bg-[#084E75] px-6 py-3 text-sm font-semibold text-white"
         >
           Back to Schemes
@@ -426,14 +426,14 @@ export default function Scheme() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-xl lg:max-w-3xl h-full flex flex-col justify-center pl-30 relative"
+            className="max-w-xl lg:max-w-3xl h-full flex flex-col justify-center px-6 lg:pl-30 lg:pr-6 relative"
           > 
             <div className="mb-6">
               {scheme.section_1_logo ? (
                 <img src={scheme.section_1_logo} alt={scheme.section_1_header ?? "Scheme logo"} className="h-20"/>
                 ) : null}
             </div>
-            <h1 className="text-3xl font-bold leading-tight text-[#084E75] md:text-4xl lg:text-[2.75rem] lg:leading-[1.15]">
+            <h1 className="text-3xl font-bold leading-tight text-[#084E75] md:text-4xl lg:text-[length:var(--text-44)] lg:leading-[1.15]">
               {scheme.section_1_header} <span className="text-[#DDB162]">{scheme.section_1_subheader}</span>
             </h1>
             {scheme.section_1_description ? (
@@ -495,7 +495,7 @@ export default function Scheme() {
       </section>
 
       <section id="what-is-scheme" className="bg-white py-24">
-        <div className="mx-auto max-w-7xl grid grid-cols-3 gap-6">
+        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 gap-6 md:grid-cols-3">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -525,7 +525,7 @@ export default function Scheme() {
       </section>
 
       <section className="bg-linear-to-b from-gray-50 to-white py-24">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-7 lg:gap-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -646,7 +646,7 @@ export default function Scheme() {
       </section>
 
       <section className="py-10">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -675,7 +675,7 @@ export default function Scheme() {
       </section>
 
       <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

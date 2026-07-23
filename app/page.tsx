@@ -267,19 +267,19 @@ const CompaniesCard = ({ data }: CompaniesCardProps ) => {
     {
       icon: IconPhone,
       label: "Phone",
-      value: "+91 98765 43210",
-      href: "tel:+919876543210",
+      value: "+91 22 3512 0060",
+      href: "tel:+912235120060",
     },
     {
       icon: IconMail,
       label: "Email",
-      value: "contact@pcred.org",
-      href: "mailto:contact@pcred.org",
+      value: "info@pcred.org",
+      href: "mailto:info@pcred.org",
     },
     {
       icon: IconMapPin,
       label: "Office",
-      value: "Mumbai, Maharashtra, India",
+      value: "Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093",
       href: undefined as string | undefined,
     },
     {
@@ -369,7 +369,7 @@ export default function Home() {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 pb-24 pt-32 md:gap-8 md:pb-32">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 px-6 pb-24 pt-32 md:gap-8 md:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -405,7 +405,7 @@ export default function Home() {
                 <IconArrowRight className="size-4" color="#084E75" />
               </span>
             </Link>
-            <Link href="/contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm">Our Blogs
+            <Link href="/blogs" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm">Our Blogs
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                 <IconArrowRight className="size-4" color="#DDB162" />
               </span>
@@ -417,7 +417,7 @@ export default function Home() {
 
       {/* Intro Section — Corporate Advisory */}
       <section className="bg-white py-16 md:py-18">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -490,14 +490,14 @@ export default function Home() {
                   })}
                 </div>
 
-                <div className="mt-8 flex gap-3">
-                  <Link href="/contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-50 text-sm">Talk to an Advisor
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link href="#contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-50 text-sm">Talk to an Advisor
                     <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                       <IconArrowRight className="size-4" color="#DDB162" />
                     </span>
                   </Link>
 
-                  <Link href="/contact" className="group flex items-center justify-between rounded-4xl border border-[#084E75]/15 bg-white pl-4 pr-2 py-2 text-[#084E75] shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-50 text-sm">Our Services
+                  <Link href="/services" className="group flex items-center justify-between rounded-4xl border border-[#084E75]/15 bg-white pl-4 pr-2 py-2 text-[#084E75] shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-50 text-sm">Our Services
                     <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                       <IconArrowRight className="size-4" color="#DDB162" />
                     </span>
@@ -511,7 +511,7 @@ export default function Home() {
 
       {/* Who We Are Section */}
       <section className="relative h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/bg_webpattern.webp')" }}>
-        <div className="relative mx-auto max-w-7xl py-18">
+        <div className="relative mx-auto max-w-7xl px-6 py-18">
           <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
             <motion.div
               initial={{ opacity: 0, x: -28 }}
@@ -533,12 +533,12 @@ export default function Home() {
 
               <p className="mt-6 max-w-lg text-base leading-relaxed text-white/75 md:text-lg">Every successful business reaches moments where the right financial decision changes everything.</p>
 
-              <Link href="/contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-50 text-sm mt-14">Discover Our Story
+              <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-50 text-sm mt-14">Discover Our Story
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#DDB162" />
                 </span>
               </Link>
-              <div className="absolute right-8">
+              <div className="absolute right-4 scale-[0.65] origin-top-right sm:right-8 sm:scale-100">
                 <SpinningText>Years of Experience • Years of Experience •</SpinningText>
                 <div className="absolute -top-11 -right-11 bg-[#DDB162] w-22 h-22 flex justify-center items-center rounded-full">
                   <span className="text-white text-4xl font-bold">16+</span>
@@ -633,10 +633,10 @@ export default function Home() {
                     <Icon size={20} stroke={1.5} />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#DDB162]">
+                    <span className="text-[length:var(--text-10)] font-bold uppercase tracking-wider text-[#DDB162]">
                       Step {index + 1}
                     </span>
-                    <h3 className="mt-0.5 font-semibold text-[#084E75]">{stage.title}</h3>
+                    <h3 className="mt-0.5 text-base font-semibold text-[#084E75]">{stage.title}</h3>
                     <p className="mt-0.5 text-sm text-[#084E75]/65">{stage.description}</p>
                   </div>
                 </div>
@@ -673,10 +673,10 @@ export default function Home() {
                       <Icon size={20} stroke={1.5} />
                     </div>
                     <div className="pt-0.5">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#DDB162]">
+                      <span className="text-[length:var(--text-10)] font-bold uppercase tracking-wider text-[#DDB162]">
                         Step {index + 1}
                       </span>
-                      <h3 className="mt-0.5 font-semibold text-[#084E75]">{stage.title}</h3>
+                      <h3 className="mt-0.5 text-base font-semibold text-[#084E75]">{stage.title}</h3>
                       <p className="mt-0.5 text-sm text-[#084E75]/65">{stage.description}</p>
                     </div>
                   </div>
@@ -695,7 +695,7 @@ export default function Home() {
         </div>
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(221,177,98,0.08),transparent_70%)]" />
 
-        <div className="relative mx-auto max-w-7xl">
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -724,7 +724,7 @@ export default function Home() {
 
       {/* Expertise Section */}
       <section className="relative py-20 md:py-20">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -773,7 +773,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[#084E75]/60" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(221,177,98,0.15),transparent_60%)]" />
 
-        <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+        <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -796,7 +796,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <Link href="/contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-50 text-sm">Discover Our Story
+            <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-50 text-sm">Discover Our Story
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                 <IconArrowRight className="size-4" color="#DDB162" />
               </span>
@@ -810,7 +810,7 @@ export default function Home() {
         <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 -left-32 size-96 rounded-full bg-[#5BBCEB]/10 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl">
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -874,7 +874,7 @@ export default function Home() {
                             {reviewInitials}
                           </div>
                           <div>
-                            <p className="font-semibold text-white">
+                            <p className="text-base font-semibold text-white">
                               {activeReviewData.name}
                             </p>
                             <p className="text-sm text-white/60">
@@ -947,7 +947,7 @@ export default function Home() {
       >
         <div className="pointer-events-none absolute -left-40 top-20 size-80 rounded-full bg-[#084E75]/5 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl">
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -973,7 +973,7 @@ export default function Home() {
             >
               <div className="overflow-hidden rounded-3xl bg-linear-to-br from-[#084E75] to-[#0a5d8a] p-8 text-white shadow-xl">
                 <h5 className="text-2xl font-semibold">Ready to Move Your Business Forward?</h5>
-                <p className="mt-3 text-white/70">Our advisors are here to help you navigate your next financial milestone.</p>
+                <p className="mt-3 text-sm text-white/70">Our advisors are here to help you navigate your next financial milestone.</p>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
@@ -996,12 +996,12 @@ export default function Home() {
                       {item.href ? (
                         <a
                           href={item.href}
-                          className="mt-0.5 block font-medium text-[#084E75] hover:underline"
+                          className="mt-0.5 block text-sm font-medium text-[#084E75] hover:underline"
                         >
                           {item.value}
                         </a>
                       ) : (
-                        <p className="mt-0.5 font-medium text-[#084E75]">
+                        <p className="mt-0.5 text-sm font-medium text-[#084E75]">
                           {item.value}
                         </p>
                       )}
