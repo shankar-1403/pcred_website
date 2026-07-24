@@ -63,11 +63,11 @@ interface CompaniesCardProps {
 const CompaniesCard = ({ data }: CompaniesCardProps ) => {
   return (
     <figure
-      className={"relative w-50 h-20 md:w-60 md:h-30 overflow-hidden rounded-4xl border p-2 border-blue-950 hover:shadow-lg hover:scale-105 transition-transform duration-300"}
+      className={"relative w-28 h-16 md:w-60 md:h-30 overflow-hidden rounded-4xl border p-2 border-blue-950 hover:shadow-lg hover:scale-105 transition-transform duration-300"}
     >
-      <div className="p-4 flex justify-center items-center h-full">
+      <div className="p-2 md:p-4 flex justify-center items-center h-full">
         <div className="h-full">
-          <img src={data.src} alt={'Banks Logo'} className="h-12 md:h-16"/>
+          <img src={data.src} alt={'Banks Logo'} className="h-8 md:h-16"/>
         </div>
       </div>
     </figure>
@@ -445,7 +445,7 @@ export default function Home() {
                     repeat: Infinity,
                     repeatType: "loop",
                     ease: "easeInOut",
-                  }} className="absolute bottom-20 left-100 z-20 flex max-w-56 items-start gap-3 rounded-2xl border border-white/15 bg-white/70 p-3 backdrop-blur-lg">
+                  }} className="absolute bottom-20 left-4 sm:left-100 z-20 flex max-w-56 items-start gap-3 rounded-2xl border border-white/15 bg-white/70 p-3 backdrop-blur-lg">
                   <IconUsersGroup className="mt-0.5 size-5 shrink-0 text-[#084E75]" stroke={1.5} />
                   <p className="text-xs leading-relaxed text-[#084E75]">
                     Partnering with founders and leadership teams across India.
@@ -512,10 +512,10 @@ export default function Home() {
       {/* Who We Are Section */}
       <section className="relative h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/bg_webpattern.webp')" }}>
         <div className="relative mx-auto max-w-7xl px-6 py-18">
-          <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+          <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
             <motion.div
-              initial={{ opacity: 0, x: -28 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="relative"
@@ -538,7 +538,7 @@ export default function Home() {
                   <IconArrowRight className="size-4" color="#DDB162" />
                 </span>
               </Link>
-              <div className="absolute right-4 scale-[0.65] origin-top-right sm:right-8 sm:scale-100">
+              <div className="absolute right-2 scale-[0.5] origin-top-right sm:right-8 sm:scale-100">
                 <SpinningText>Years of Experience • Years of Experience •</SpinningText>
                 <div className="absolute -top-11 -right-11 bg-[#DDB162] w-22 h-22 flex justify-center items-center rounded-full">
                   <span className="text-white text-4xl font-bold">16+</span>
@@ -547,8 +547,8 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 28 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="relative"
@@ -775,8 +775,8 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-center">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="max-w-xl"
@@ -791,8 +791,8 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
@@ -963,10 +963,10 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.2fr]">
             <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="flex flex-col gap-6"
@@ -1012,8 +1012,8 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="rounded-3xl border border-[#084E75]/10 bg-white p-8 shadow-xl md:p-10"

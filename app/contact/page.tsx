@@ -15,6 +15,9 @@ function page() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -22,9 +25,26 @@ function page() {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFormSubmit = (e: FormEvent) => {
+  const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "Something went wrong. Please try again.");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const contactServices = [
@@ -77,18 +97,18 @@ function page() {
             </div>
           </motion.div>
 
-          <div id="contact" className="grid gap-10 mt-24 lg:grid-cols-[1fr_1.2fr] lg:grid-rows-[auto_1fr]">
-            <div className="flex items-start justify-center -mt-16 lg:col-start-1 lg:row-start-2">
-              <div className="relative mx-auto w-[18rem] h-[24.94rem] sm:w-[24rem] sm:h-[33.26rem] lg:w-[35rem] lg:h-[48.5rem]">
-              <div className="absolute left-0 top-0 w-[35rem] h-[48.5rem] origin-top-left scale-[0.5143] sm:scale-[0.6857] lg:scale-100">
+          <div id="contact" className="grid grid-cols-1 gap-10 mt-24 lg:grid-cols-[1fr_1.2fr] lg:grid-rows-[auto_1fr]">
+            <div className="order-3 lg:order-none flex items-start justify-center mt-12 lg:mt-0 lg:col-start-1 lg:row-start-2 min-w-0 w-full">
+              <div className="relative mx-auto w-[min(85vw,27.5rem)] aspect-[35/48.5] sm:w-[24rem] sm:h-[33.26rem] sm:aspect-auto lg:w-[32.74rem] lg:h-[45.36rem]">
+              <div className="absolute left-0 top-0 w-[35rem] h-[48.5rem] origin-top-left scale-[calc(min(85vw,27.5rem)/35rem)] sm:scale-[0.6857] lg:scale-[0.9354]">
                 {/* Decorative background glow behind the phone so it doesn't float on plain empty space */}
                 <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[3rem] bg-linear-to-br from-[#084E75]/12 via-white/40 to-[#DDB162]/15 blur-2xl" />
                 <div className="pointer-events-none absolute left-1/2 top-1/3 -z-10 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#084E75]/10 blur-3xl" />
 
                 {/* Cards displayed inside the phone screen — positioned via percentages matching the frame's screen cutout */}
                 <motion.div
-                  initial={{ opacity: 0, x: -24 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="absolute z-0 flex flex-col justify-start gap-1.5 overflow-hidden"
@@ -158,8 +178,8 @@ function page() {
             </div>
 
               <motion.div
-                initial={{ opacity: 0, x: 24 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="rounded-4xl border border-[#084E75]/10 bg-white p-8 shadow-xl shadow-[#084E75]/5 md:p-10 lg:col-start-2 lg:row-start-2 lg:self-start"
@@ -181,6 +201,7 @@ function page() {
                     type="button"
                     onClick={() => {
                       setSubmitted(false);
+                      setError(null);
                       setForm({ name: "", email: "", phone: "", company: "", service: "", message: "" });
                     }}
                     className="mt-8 cursor-pointer rounded-xl border-2 border-[#084E75] px-6 py-3 text-sm font-semibold text-[#084E75] transition-colors hover:bg-[#084E75] hover:text-white"
@@ -235,12 +256,16 @@ function page() {
                     </label>
                     <textarea id="message" name="message" required rows={5} value={form.message} onChange={handleFormChange} placeholder="Tell us about your business needs and goals..." className={`${inputClass} resize-none`} />
                   </div>
+                  {error && (
+                    <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>
+                  )}
                   <button
                     type="submit"
-                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl hover:shadow-[#084E75]/30"
+                    disabled={loading}
+                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl hover:shadow-[#084E75]/30 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Send Message
-                    <IconSend className="size-5 transition-transform group-hover:translate-x-1" />
+                    {loading ? "Sending…" : "Send Message"}
+                    {!loading && <IconSend className="size-5 transition-transform group-hover:translate-x-1" />}
                   </button>
                 </form>
               )}

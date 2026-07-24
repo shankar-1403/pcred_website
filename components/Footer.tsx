@@ -62,8 +62,8 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h3 className="mb-4 text-sm text-center font-semibold uppercase tracking-widest text-[#DDB162]">Quick Links</h3>
-            <div className="flex justify-evenly">
+            <h3 className="mb-4 text-sm text-left md:text-center font-semibold uppercase tracking-widest text-[#DDB162]">Quick Links</h3>
+            <div className="flex justify-start gap-x-10 md:justify-evenly md:gap-x-0">
               <ul className="space-y-3">
                 {quickLinks.filter((_, index) => index % 2 === 0).map((quicklink) => (
                   <li key={quicklink.label}>
