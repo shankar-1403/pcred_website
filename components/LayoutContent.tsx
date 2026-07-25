@@ -14,7 +14,7 @@ export default function LayoutContent({
   const pathname = usePathname();
 
   const hideLayout = ["/login"].includes(pathname);
-  const internalLayout = ["/dashboard"].includes(pathname);
+  const internalLayout = ["/dashboard","/internal-blogs"].includes(pathname);
 
   if(hideLayout){
     return( 

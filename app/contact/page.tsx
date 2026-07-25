@@ -97,10 +97,10 @@ function page() {
             </div>
           </motion.div>
 
-          <div id="contact" className="grid grid-cols-1 gap-10 mt-24 lg:grid-cols-[1fr_1.2fr] lg:grid-rows-[auto_1fr]">
-            <div className="order-3 lg:order-none flex items-start justify-center mt-12 lg:mt-0 lg:col-start-1 lg:row-start-2 min-w-0 w-full">
-              <div className="relative mx-auto w-[min(85vw,27.5rem)] aspect-[35/48.5] sm:w-[24rem] sm:h-[33.26rem] sm:aspect-auto lg:w-[32.74rem] lg:h-[45.36rem]">
-              <div className="absolute left-0 top-0 w-[35rem] h-[48.5rem] origin-top-left scale-[calc(min(85vw,27.5rem)/35rem)] sm:scale-[0.6857] lg:scale-[0.9354]">
+          <div id="contact" className="grid grid-cols-1 gap-10 mt-24 xl:grid-cols-[1fr_1.2fr] xl:grid-rows-[auto_1fr]">
+            <div className="order-3 xl:order-none flex items-start justify-center mt-12 xl:-mt-16 xl:self-start xl:col-start-1 xl:row-start-2 min-w-0 w-full max-sm:-mx-6">
+              <div className="relative mx-auto w-screen sm:w-[36rem] sm:h-[49.8rem] sm:aspect-auto xl:w-[35rem] xl:h-[48.5rem] aspect-[35/48.5] sm:aspect-auto">
+              <div className="absolute left-0 top-0 w-[35rem] h-[48.5rem] origin-top-left scale-[calc(100vw/35rem)] sm:scale-[1.028] xl:scale-[1.0]">
                 {/* Decorative background glow behind the phone so it doesn't float on plain empty space */}
                 <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[3rem] bg-linear-to-br from-[#084E75]/12 via-white/40 to-[#DDB162]/15 blur-2xl" />
                 <div className="pointer-events-none absolute left-1/2 top-1/3 -z-10 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#084E75]/10 blur-3xl" />
@@ -182,7 +182,7 @@ function page() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="rounded-4xl border border-[#084E75]/10 bg-white p-8 shadow-xl shadow-[#084E75]/5 md:p-10 lg:col-start-2 lg:row-start-2 lg:self-start"
+                className="rounded-4xl border border-[#084E75]/10 bg-white p-8 shadow-xl shadow-[#084E75]/5 md:p-10 xl:col-start-2 xl:row-start-2 xl:self-start"
               >
               {submitted ? (
                 <motion.div
