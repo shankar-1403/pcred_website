@@ -161,7 +161,7 @@ export default function ServicesPage() {
                 <span className="mx-3 size-2.5 rotate-45 bg-[#DDB162]/60 shrink-0 block" />
                 <div className="h-px w-40 bg-[#DDB162]/30" />
               </div>
-              <h2 className="mt-24 text-3xl font-semibold text-[#084E75] md:text-4xl">
+              <h2 className="mt-24 text-3xl font-semibold text-[#084E75] md:text-4xl leading-tight">
                 How We Help Your Business Grow
               </h2>
             </div>
@@ -224,7 +224,7 @@ export default function ServicesPage() {
 
             <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
               <div className="max-w-xl">
-                <h4 className="text-2xl font-bold text-white md:text-3xl">
+                <h4 className="text-3xl font-semibold text-white md:text-4xl">
                   Not sure which service fits your needs?
                 </h4>
                 <p className="mt-3 text-white/70">

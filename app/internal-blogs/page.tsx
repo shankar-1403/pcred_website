@@ -175,7 +175,7 @@ function BlogsCMSPage() {
         updatedBy: user.uid,
       });
 
-      setSuccess(isEditing ? "Blog updated successfully." : "Blog saved successfully.");
+      setSuccess(isEditing ? "Blog updated successfully." : "Blog saved succe ssfully.");
       setModalOpen(false);
       resetForm();
     } catch (err: unknown) {
@@ -240,7 +240,7 @@ function BlogsCMSPage() {
                       {error ? (
                         <p className="rounded-4xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>
                       ) : null}
-                      {success ? (
+                      {success ? (    
                         <p className="rounded-4xl bg-green-50 px-4 py-3 text-sm text-green-700">{success}</p>
                       ) : null}
 

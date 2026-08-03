@@ -312,7 +312,7 @@ function ApplyModal({
 
                   <button
                     type="submit"
-                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#084E75]/20 transition-colors hover:bg-[#0a5d8a]"
+                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-[#DDB162] shadow-lg shadow-[#084E75]/20 transition-colors hover:bg-[#0a5d8a]"
                   >
                     Submit Application
                     <IconSend className="size-5 transition-transform group-hover:translate-x-0.5" />
@@ -345,14 +345,14 @@ function FaqItem({
         onClick={onToggle}
         className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left bg-[#084E75]"
       >
-        <span className="font-semibold text-white text-lg">{question}</span>
+        <span className="font-semibold text-white text-sm md:text-lg">{question}</span>
         <IconChevronDown
           className={`size-5 shrink-0 text-[#DDB162] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
       <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 bg-white"}`}>
         <div className="overflow-hidden">
-          <p className=" px-6 py-4 leading-relaxed text-[#084E75] text-lg">{answer}</p>
+          <p className="px-6 py-4 leading-relaxed text-[#084E75] text-sm md:text-base lg:text-lg">{answer}</p>
         </div>
       </div>
     </div>
@@ -406,7 +406,7 @@ export default function Scheme() {
   return (
     <>
       <ApplyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      <section className="relative overflow-hidden h-screen">
+      <section className="relative overflow-hidden min-h-screen lg:h-screen">
         <div className="pointer-events-none absolute inset-0">
           {scheme.section_1_banner ? (
             // eslint-disable-next-line @next/next/no-img-element
@@ -418,7 +418,7 @@ export default function Scheme() {
           ) : (
             <div className="h-full w-full bg-linear-to-br from-[#084E75]/20 to-[#DDB162]/20" />
           )}
-          <div className="absolute top-0 left-0 w-full h-full bg-linear-to-r from-white from-30% via-white/90 via-60% to-transparent to-80%" />
+          <div className="absolute top-0 left-0 w-full h-full bg-white/80 lg:bg-linear-to-r lg:from-white lg:from-30% lg:via-white/90 lg:via-60% lg:to-transparent lg:to-80%" />
         </div>
 
         <div className="relative z-10 pb-0 h-full">
@@ -426,51 +426,52 @@ export default function Scheme() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-xl lg:max-w-3xl h-full flex flex-col justify-center px-6 lg:pl-30 lg:pr-6 relative"
+            className="w-full max-w-xl lg:max-w-3xl flex flex-col justify-center px-6 py-24 md:px-10 md:py-28 lg:pl-30 lg:pr-6 lg:py-0 lg:h-full relative"
           > 
             <div className="mb-6">
               {scheme.section_1_logo ? (
                 <img src={scheme.section_1_logo} alt={scheme.section_1_header ?? "Scheme logo"} className="h-20"/>
                 ) : null}
             </div>
-            <h1 className="text-3xl font-bold leading-tight text-[#084E75] md:text-4xl lg:text-[length:var(--text-44)] lg:leading-[1.15]">
+            <h1 className="text-2xl font-bold leading-snug text-[#084E75] md:text-3xl lg:text-[length:var(--text-44)] lg:leading-[1.15]">
               {scheme.section_1_header} <span className="text-[#DDB162]">{scheme.section_1_subheader}</span>
             </h1>
             {scheme.section_1_description ? (
-              <div className="text-base text-[#084E75] mt-4" dangerouslySetInnerHTML={{
+              <div className="text-sm text-[#084E75] mt-3 md:text-base md:mt-4" dangerouslySetInnerHTML={{
                 __html: scheme.section_1_description ?? "",
               }}/>
             ) : null}
 
             {heroPoints.length > 0 ? (
-              <div className="mt-8 grid gap-2 sm:grid-cols-2">
+              <div className="mt-4 grid gap-2 sm:grid-cols-2 md:mt-8">
                 {heroPoints.map((item, index) => {
-                  const Icon = 
+                  const Icon =
                      TablerIcons[item.icon as keyof typeof TablerIcons] as React.ComponentType<IconProps>
                   return (
-                    <div key={`${item.point}-${index}`} className="flex items-center gap-3">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/10 text-[#DDB162] text-xs font-semibold">
-                        {Icon ? <Icon size={22} stroke={2} /> : null}
+                    <div key={`${item.point}-${index}`} className="flex items-center gap-2 md:gap-3">
+                      <div className="flex size-8 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/10 text-[#DDB162] text-xs font-semibold md:size-10">
+                        {Icon ? <Icon size={18} stroke={2} className="md:hidden" /> : null}
+                        {Icon ? <Icon size={22} stroke={2} className="hidden md:block" /> : null}
                       </div>
-                      <p className="text-sm font-semibold text-[#084E75]">{item.point}</p>
+                      <p className="text-xs font-semibold text-[#084E75] md:text-sm">{item.point}</p>
                     </div>
                   )
                 })}
               </div>
             ) : (
-              <div className="mt-8 grid gap-2 sm:grid-cols-2">
+              <div className="mt-4 grid gap-2 sm:grid-cols-2 md:mt-8">
                 {heroFeatures.map((item) => (
-                  <div key={item.title} className="flex items-center gap-3">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/10 text-[#DDB162]">
-                      <item.icon className="size-6" stroke={1.75} />
+                  <div key={item.title} className="flex items-center gap-2 md:gap-3">
+                    <div className="flex size-8 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/10 text-[#DDB162] md:size-10">
+                      <item.icon className="size-5 md:size-6" stroke={1.75} />
                     </div>
-                    <p className="text-sm font-semibold text-[#084E75]">{item.title}</p>
+                    <p className="text-xs font-semibold text-[#084E75] md:text-sm">{item.title}</p>
                   </div>
                 ))}
               </div>
             )}
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-5 flex flex-wrap items-center gap-3 md:mt-8 md:gap-4">
               <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between rounded-4xl bg-[#084E75] border-2 border-[#084E75] pl-4 pr-2 py-2 text-white shadow-md shadow-[#084E75]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm">Apply Now
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#084E75" />
@@ -494,16 +495,16 @@ export default function Scheme() {
         </div>
       </section>
 
-      <section id="what-is-scheme" className="bg-white py-24">
+      <section id="what-is-scheme" className="bg-white py-10 md:py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 gap-6 md:grid-cols-3">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="border-r border-[#DDB162] flex items-center"
+            className="border-b border-[#DDB162] pb-4 md:border-b-0 md:border-r md:pb-0 flex items-center"
           >
-            <h2 className="text-4xl font-semibold text-[#084E75]">
+            <h2 className="text-2xl font-semibold text-[#084E75] md:text-3xl lg:text-4xl">
               {scheme.section_2_header ?? "About This Scheme"}
             </h2>
           </motion.div>
@@ -515,7 +516,7 @@ export default function Scheme() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-base leading-relaxed md:text-lg col-span-2"
           >
-            <div className="text-[#084E75] text-lg leading-8"
+            <div className="text-[#084E75] text-sm leading-7 md:text-base md:leading-8 lg:text-lg"
               dangerouslySetInnerHTML={{
                 __html: scheme.section_2_description ?? "",
               }}
@@ -524,7 +525,7 @@ export default function Scheme() {
         </div>
       </section>
 
-      <section className="bg-linear-to-b from-gray-50 to-white py-24">
+      <section className="bg-linear-to-b from-gray-50 to-white py-10 md:py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-7 lg:gap-16">
             <motion.div
@@ -534,7 +535,7 @@ export default function Scheme() {
               transition={{ duration: 0.5 }}
               className="lg:col-span-3"
             >
-              <h3 className="text-3xl font-semibold text-[#084E75] md:text-4xl">
+              <h3 className="text-2xl font-semibold text-[#084E75] md:text-3xl lg:text-4xl">
                 Eligibility Criteria
               </h3>
               <p className="mt-4 text-base leading-relaxed text-[#084E75] md:text-lg">
@@ -542,7 +543,7 @@ export default function Scheme() {
                   "Review the eligibility requirements for this scheme below."}
               </p>
 
-              <div className="mt-15">
+              <div className="mt-6 md:mt-15">
                 {scheme.section_3_img ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -567,10 +568,10 @@ export default function Scheme() {
             >
               <div className="overflow-hidden rounded-4xl border-l border-r border-gray-100 bg-white shadow-lg">
                 <div className="border-b border-gray-100 bg-[#084E75] px-4 py-4 flex justify-between">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-white w-[80%] pl-17.5">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-white w-[70%] pl-11 md:w-[80%] md:pl-17.5">
                     Particulars
                   </span>
-                  <span className="text-xs font-semibold uppercase tracking-wide text-white w-[20%]">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-white w-[30%] md:w-[20%]">
                     Criteria
                   </span>
                 </div>
@@ -589,17 +590,18 @@ export default function Scheme() {
                               transition={{ duration: 0.35, delay: i * 0.06 }}
                               className="flex py-4 items-center justify-between bg-white"
                             >
-                              <div className="flex items-center gap-3 w-[80%]">
-                                <div className="flex size-14 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/20 border border-[#DDB162] text-[#DDB162] text-sm font-semibold">
-                                  {Icon ? <Icon size={22} stroke={2} /> : null}
+                              <div className="flex items-center gap-2 w-[70%] md:gap-3 md:w-[80%]">
+                                <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/20 border border-[#DDB162] text-[#DDB162] text-sm font-semibold md:size-14">
+                                  {Icon ? <Icon size={18} stroke={2} className="md:hidden" /> : null}
+                                  {Icon ? <Icon size={22} stroke={2} className="hidden md:block" /> : null}
                                 </div>
                                 <div className="flex flex-col">
-                                  <span className="font-bold text-[#084E75] text-lg">{item.label}</span>
+                                  <span className="font-bold text-[#084E75] text-sm md:text-lg">{item.label}</span>
                                   <span className="text-[#084E75] text-xs">{item.description}</span>
                                 </div>
                               </div>
-                              <div className="w-[20%] flex flex-col">
-                                <p className="text-xl font-semibold leading-relaxed text-[#084E75]">
+                              <div className="w-[30%] flex flex-col md:w-[20%]">
+                                <p className="text-sm font-semibold leading-relaxed text-[#084E75] md:text-xl">
                                   {item.criteria}
                                 </p>
                                 <span className="text-xs text-[#084E75]">
@@ -618,17 +620,17 @@ export default function Scheme() {
                           transition={{ duration: 0.35, delay: i * 0.06 }}
                           className="flex py-4 items-center justify-between bg-white"
                         >
-                          <div className="flex items-center gap-3 w-[80%]">
-                            <div className="flex size-14 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/20 border border-[#DDB162] text-[#DDB162]">
-                              <item.icon className="size-7" stroke={1.5} />
+                          <div className="flex items-center gap-2 w-[70%] md:gap-3 md:w-[80%]">
+                            <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/20 border border-[#DDB162] text-[#DDB162] md:size-14">
+                              <item.icon className="size-5 md:size-7" stroke={1.5} />
                             </div>
                             <div className="flex flex-col">
-                              <span className="font-bold text-[#084E75] text-lg">{item.label}</span>
+                              <span className="font-bold text-[#084E75] text-sm md:text-lg">{item.label}</span>
                               <span className="text-[#084E75] text-xs">{item.description}</span>
                             </div>
                           </div>
-                          <div className="w-[20%] flex flex-col">
-                            <p className="text-xl font-semibold leading-relaxed text-[#084E75]">
+                          <div className="w-[30%] flex flex-col md:w-[20%]">
+                            <p className="text-sm font-semibold leading-relaxed text-[#084E75] md:text-xl">
                               {item.value}
                             </p>
                             <span className="text-xs text-[#084E75]">{item.desc_value}</span>
@@ -658,11 +660,11 @@ export default function Scheme() {
 
             <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
               <div className="max-w-2xl">
-                <h4 className="text-2xl font-semibold text-white md:text-4xl">
+                <h4 className="text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
                   {scheme?.section_4_header}
                 </h4>
-                <p className="mt-3 text-white/80 text-lg">{scheme?.section_4_description}</p>
-                <p className="mt-3 font-semibold text-[#DDB162] text-lg">{scheme?.section_4_tagline}</p>
+                <p className="mt-3 text-white/80 text-sm md:text-lg">{scheme?.section_4_description}</p>
+                <p className="mt-3 font-semibold text-[#DDB162] text-sm md:text-lg">{scheme?.section_4_tagline}</p>
               </div>
               <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-48 text-sm">Check Eligibility
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
@@ -674,31 +676,31 @@ export default function Scheme() {
         </div>
       </section>
 
-      <section className="bg-white py-24">
+      <section className="bg-white py-10 md:py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-12"
+            className="mb-8 md:mb-12"
           >
-            <h5 className="text-3xl font-semibold text-[#084E75] md:text-4xl">
+            <h5 className="text-2xl font-semibold text-[#084E75] md:text-3xl lg:text-4xl">
               Frequently Asked Questions
             </h5>
-            <p className="mt-3 max-w-2xl text-lg text-[#084E75]">
+            <p className="mt-3 max-w-2xl text-sm text-[#084E75] md:text-lg">
               {scheme.faq_description ??
                 "Find answers to common questions about this scheme and the application process."}
             </p>
           </motion.div>
 
-          <div className="flex gap-10 lg:flex-row lg:gap-14 lg:items-start">
+          <div className="flex flex-col gap-10 lg:flex-row lg:gap-14 lg:items-start">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="relative mx-auto w-full max-w-md lg:max-w-none lg:sticky lg:top-30"
+              className="relative mx-auto w-full max-w-sm md:max-w-md lg:max-w-none lg:sticky lg:top-30"
             >
               <div className="relative aspect-5/5 overflow-hidden rounded-4xl shadow-lg">
                 {scheme.faq_image ? (

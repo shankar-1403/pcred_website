@@ -1,15 +1,16 @@
 "use client";
 
-import { useLayoutEffect, useState } from "react";
-import { motion } from "motion/react";
+import { useLayoutEffect, useRef, useState } from "react";
+import { motion, useAnimationFrame } from "motion/react";
 import type { Icon } from "@tabler/icons-react";
 
 export const LIFECYCLE_PATH =
   "M70 130 C150 35 250 35 330 130 S510 225 590 130 S770 35 850 130 S1030 225 1130 130";
 
-const VIEWBOX = { x: 0, y: -70, w: 1200, h: 400 };
+const VIEWBOX = { x: 0, y: -100, w: 1220, h: 460 };
 const PATH_MID_Y = 130;
 const BEAM_DURATION = 11;
+const HIGHLIGHT_THRESHOLD = 50; // px along path
 
 const beamTransition = {
   duration: BEAM_DURATION,
@@ -43,6 +44,8 @@ function getPathLength(pathD: string) {
 export function LifecycleRoadmap({ stages }: { stages: Stage[] }) {
   const [points, setPoints] = useState<{ x: number; y: number }[]>([]);
   const [pathLength, setPathLength] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const startTimeRef = useRef<number | null>(null);
 
   useLayoutEffect(() => {
     setPoints(getPathPoints(LIFECYCLE_PATH, stages.length));
@@ -53,6 +56,26 @@ export function LifecycleRoadmap({ stages }: { stages: Stage[] }) {
   const beamGap = pathLength > 0 ? pathLength * 2 : 2000;
   const beamDasharray =
     pathLength > 0 ? `${beamSegment} ${beamGap}` : undefined;
+
+  // Track beam position and highlight nearest node
+  useAnimationFrame((t) => {
+    if (pathLength === 0) return;
+    if (startTimeRef.current === null) startTimeRef.current = t;
+    const elapsed = (t - startTimeRef.current) / 1000;
+    const progress = (elapsed % BEAM_DURATION) / BEAM_DURATION;
+    // beam leading edge position along path
+    const beamPos = progress * (pathLength + beamSegment);
+
+    let found: number | null = null;
+    for (let i = 0; i < stages.length; i++) {
+      const nodePos = stages.length === 1 ? 0 : (i / (stages.length - 1)) * pathLength;
+      if (Math.abs(beamPos - nodePos) < HIGHLIGHT_THRESHOLD) {
+        found = i;
+        break;
+      }
+    }
+    setActiveIndex(found);
+  });
 
   return (
     <motion.div
@@ -76,6 +99,13 @@ export function LifecycleRoadmap({ stages }: { stages: Stage[] }) {
 
           <filter id="lifecycleBeamGlow" x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="2.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="lifecycleNodeGlow" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="10" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
@@ -117,27 +147,30 @@ export function LifecycleRoadmap({ stages }: { stages: Stage[] }) {
           const StageIcon = stage.icon;
           const isLast = index === stages.length - 1;
           const labelAbove = point.y < PATH_MID_Y;
+          const isActive = activeIndex === index;
 
           return (
             <g key={stage.title} transform={`translate(${point.x}, ${point.y})`}>
               <circle
-                r="35"
-                fill={"#084E75"}
-                stroke="#ffffff"
-                strokeWidth="4"
+                r="42"
+                fill={isActive ? "#DDB162" : "#084E75"}
+                stroke="none"
+                filter={isActive ? "url(#lifecycleNodeGlow)" : undefined}
+                style={{ transition: "fill 0.3s ease" }}
               />
 
-              <foreignObject x="-12" y="-12" width="24" height="24">
-                <div className="flex h-6 w-6 items-center justify-center text-white">
-                  <StageIcon size={50} stroke={1.5} />
+              <foreignObject x="-16" y="-16" width="32" height="32">
+                <div className={`flex h-8 w-8 items-center justify-center ${isActive ? "text-[#084E75]" : "text-white"}`}
+                  style={{ transition: "color 0.3s ease" }}>
+                  <StageIcon size={62} stroke={1.5} />
                 </div>
               </foreignObject>
 
               <foreignObject
-                x="-84"
-                y={labelAbove ? -120 : 40}
-                width="168"
-                height="96"
+                x="-96"
+                y={labelAbove ? -165 : 55}
+                width="192"
+                height="130"
               >
                 <div className="flex flex-col items-center text-center">
                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#DDB162]">

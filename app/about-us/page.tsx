@@ -74,7 +74,7 @@ export default function AboutUsPage() {
               <span className="size-2 rounded-full bg-[#DDB162]" />
               About Us
             </span>
-            <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl">
+            <h1 className="mt-1 text-2xl font-bold text-[#084E75] sm:text-3xl md:text-4xl lg:text-5xl">
               Building Businesses
               <br />
               <span className="text-[#DDB162]">Through Smart Finance</span>
@@ -92,7 +92,7 @@ export default function AboutUsPage() {
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6 mt-24">
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-2 lg:h-[560px]">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 lg:h-[560px] [&>*]:min-w-0">
 
             {/* Stat 1 — blue (col 1, row 1) */}
             <motion.div
@@ -117,7 +117,7 @@ export default function AboutUsPage() {
                   <span className="rounded-full border border-[#DDB162]/40 bg-[#DDB162]/10 px-3 py-1 text-[length:var(--text-10)] font-semibold uppercase tracking-widest text-[#DDB162]">Est. 2014</span>
                 </div>
                 <div className="relative z-10 flex flex-1 flex-col items-start justify-center">
-                  <span className="block text-8xl font-black leading-none text-white">10+</span>
+                  <span className="block text-6xl font-black leading-none text-white lg:text-8xl">10+</span>
                   <div className="mt-4 h-px w-10 bg-[#DDB162]/60" />
                   <span className="mt-3 block text-sm text-white/90 leading-relaxed">Trusted financial expertise across industries</span>
                 </div>
@@ -140,20 +140,20 @@ export default function AboutUsPage() {
                 {/* Dot grid */}
                 <div className="pointer-events-none absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #084E75 1px, transparent 0)", backgroundSize: "24px 24px" }} />
 
-                <h2 className="relative text-2xl font-bold leading-snug text-[#084E75] md:text-3xl">
+                <h2 className="relative text-3xl font-semibold leading-snug text-[#084E75] md:text-2xl lg:text-4xl">
                   Strategic financial guidance for business growth and clarity
                 </h2>
-                <p className="relative mt-3 text-sm leading-relaxed text-[#4a5568] max-w-lg">
+                <p className="relative mt-3 text-sm leading-relaxed text-[#4a5568] max-w-full">
                   We work alongside businesses to build strong financial foundations — helping them navigate complexity, unlock capital, and grow with confidence.
                 </p>
-                <div className="relative mt-4 flex items-center gap-4">
+                <div className="relative mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:mt-2 lg:flex lg:gap-6">
                   <div className="rounded-2xl bg-[#084E75]/6 px-4 py-3">
                     <span className="block text-2xl font-black text-[#084E75]">98%</span>
-                    <span className="text-xs text-[#4a5568]">Client retention rate</span>
+                    <span className="text-xs text-[#4a5568] leading-tight">Client retention rate</span>
                   </div>
                   <div className="rounded-2xl bg-[#DDB162]/10 px-4 py-3">
                     <span className="block text-2xl font-black text-[#084E75]">₹500Cr+</span>
-                    <span className="text-xs text-[#4a5568]">Capital facilitated</span>
+                    <span className="text-xs text-[#4a5568] leading-tight">Capital facilitated</span>
                   </div>
                 </div>
               </div>
@@ -165,7 +165,7 @@ export default function AboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.12 }}
-              className="lg:col-span-2 lg:row-span-1"
+              className="md:col-span-2 lg:col-span-2 lg:row-span-1"
             >
               <div className="relative overflow-hidden rounded-3xl border border-[#084E75]/10 bg-linear-to-r from-[#084E75]/8 to-[#DDB162]/10 h-full flex items-center">
                 <div className="pointer-events-none absolute left-0 top-0 h-full w-1 rounded-l-3xl bg-linear-to-b from-[#084E75] to-[#DDB162]" />
@@ -218,7 +218,7 @@ export default function AboutUsPage() {
                   <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[length:var(--text-10)] font-semibold uppercase tracking-widest text-white/80">Pan India</span>
                 </div>
                 <div className="relative z-10 flex flex-1 flex-col items-start justify-center">
-                  <span className="block text-8xl font-black leading-none text-white">500+</span>
+                  <span className="block text-6xl font-black leading-none text-white lg:text-8xl">500+</span>
                   <div className="mt-4 h-px w-10 bg-white/50" />
                   <span className="mt-3 block text-sm text-white font-medium leading-relaxed">Businesses transformed through strategic advisory</span>
 
@@ -246,7 +246,7 @@ export default function AboutUsPage() {
               <span className="size-2 rounded-full bg-[#DDB162]" />
               Our Foundation
             </span>
-            <h4 className="mt-3 text-4xl font-semibold text-[#084E75]">
+            <h4 className="mt-3 text-3xl font-semibold text-[#084E75] md:text-4xl">
               Mission, Vision & Aim
             </h4>
           </motion.div>
@@ -315,7 +315,7 @@ export default function AboutUsPage() {
               <span className="size-2 rounded-full bg-[#DDB162]" />
               What Drives Us
             </span>
-            <h4 className="mt-3 text-4xl font-semibold text-[#084E75]">
+            <h4 className="mt-3 text-3xl font-semibold text-[#084E75] md:text-4xl">
               Our Core Beliefs
             </h4>
           </motion.div>
@@ -367,8 +367,10 @@ export default function AboutUsPage() {
 
             <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
               <div className="max-w-xl">
-                <h5 className="text-2xl font-bold text-white md:text-3xl">
-                  Ready to strengthen your business finances?
+                <h5 className="text-3xl font-semibold text-white md:text-4xl">
+                  Ready to strengthen your
+                  <br />
+                  <span className="text-[#DDB162]">business finances?</span>
                 </h5>
                 <p className="mt-3 text-white/70">
                   Connect with our advisory team and discover solutions tailored to your growth goals.

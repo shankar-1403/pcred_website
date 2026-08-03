@@ -199,11 +199,22 @@ export function DiaTextReveal({
 
   const isInView = useInView(spanRef, { once, amount: 0.1 })
 
-  useEffect(() => {
+  const remeasure = () => {
     const el = spanRef.current
     if (!el || !isMulti) return
     setMeasuredWidths(measureWidths(el, texts))
+  }
+
+  useEffect(() => {
+    remeasure()
   }, [Array.isArray(text) ? text.join("\0") : text])
+
+  // Re-measure when the site-wide font-size preference changes (data-font-size attribute).
+  useEffect(() => {
+    const observer = new MutationObserver(remeasure)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-font-size"] })
+    return () => observer.disconnect()
+  }, [])
 
   playRef.current = () => {
     const { duration, delay, repeat, repeatDelay, texts } = optsRef.current

@@ -59,6 +59,29 @@
   --text-9xl: 8.8rem;
 }
 
+/* Force default (medium) font sizes on mobile and tablet — custom size only applies on desktop */
+@media (max-width: 1023px) {
+  :root[data-font-size="small"],
+  :root[data-font-size="large"] {
+    --text-10: 0.625rem;
+    --text-11: 0.6875rem;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-44: 2.75rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+    --text-7xl: 4.5rem;
+    --text-8xl: 6rem;
+    --text-9xl: 8rem;
+  }
+}
+
 .font-new{
     font-family:"Geist Mono", "Geist Mono Fallback"
 }

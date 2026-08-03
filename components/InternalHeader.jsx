@@ -15,6 +15,10 @@ export default function InternalHeader() {
             name: "Blogs",
             link: "/internal-blogs",
         },
+        {
+            name: "Careers",
+            link: "/internal-careers",
+        },
     ];
     const {logout}  = useAuth();
     const router = useRouter();

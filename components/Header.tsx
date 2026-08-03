@@ -56,7 +56,7 @@ export default function Header() {
  
         {/* Mobile Navigation */}
         <MobileNav>
-          <MobileNavHeader>
+          <MobileNavHeader className="px-6">
             <NavbarLogo />
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
@@ -107,11 +107,7 @@ export default function Header() {
                 </a>
               )
             )}
-            <div className="flex w-full items-center justify-center gap-3">
-              <span className="text-sm font-medium text-neutral-600">Text size</span>
-              <FontSizeToggle />
-            </div>
-            <div className="flex w-full flex-col gap-4">
+<div className="flex w-full flex-col gap-4">
               <NavbarButton href="/contact" onClick={() => setIsMobileMenuOpen(false)} variant="primary" className="w-full">Contact Us</NavbarButton>
             </div>
           </MobileNavMenu>

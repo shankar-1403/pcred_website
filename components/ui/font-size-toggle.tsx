@@ -44,10 +44,10 @@ export function FontSizeToggle({ className = "" }: { className?: string }) {
         aria-expanded={isOpen}
         aria-label="Text size settings"
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-full border border-[#084E75]/15 bg-white/80 text-[0.8125rem] font-bold leading-none transition-colors ${
+        className={`flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-full border text-[0.8125rem] font-bold leading-none transition-colors ${
           isOpen
-            ? "bg-[#084E75] text-white"
-            : "text-[#084E75] hover:bg-[#084E75]/10"
+            ? "border-[#084E75] bg-[#084E75] text-white"
+            : "border-[#084E75]/15 bg-white/80 text-[#084E75] hover:bg-[#084E75]/10"
         }`}
       >
         Aa

@@ -22,6 +22,10 @@ function page() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
+    // Phone: only allow digits, +, spaces, hyphens — block alpha
+    if (name === "phone") {
+      if (!/^[0-9+\s\-()]*$/.test(value)) return;
+    }
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -29,6 +33,21 @@ function page() {
     e.preventDefault();
     setLoading(true);
     setError(null);
+
+    // Email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      setError("Please enter a valid email address.");
+      setLoading(false);
+      return;
+    }
+    // Phone: must be 7–15 digits
+    const digitsOnly = form.phone.replace(/\D/g, "");
+    if (digitsOnly.length < 7 || digitsOnly.length > 15) {
+      setError("Please enter a valid phone number (7–15 digits).");
+      setLoading(false);
+      return;
+    }
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -230,7 +249,7 @@ function page() {
                       <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[#084E75]">
                         Phone <span className="text-red-500">*</span>
                       </label>
-                      <input id="phone" name="phone" type="tel" required value={form.phone} onChange={handleFormChange} placeholder="+91 98765 43210" className={inputClass} />
+                      <input id="phone" name="phone" type="tel" required value={form.phone} onChange={handleFormChange} placeholder="+91 98765 43210" inputMode="tel" pattern="[0-9+\s\-()\+]{7,15}" title="Enter a valid phone number" className={inputClass} />
                     </div>
                     <div>
                       <label htmlFor="company" className="mb-2 block text-sm font-medium text-[#084E75]">
@@ -262,7 +281,7 @@ function page() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl hover:shadow-[#084E75]/30 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-[#DDB162] shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl hover:shadow-[#084E75]/30 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {loading ? "Sending…" : "Send Message"}
                     {!loading && <IconSend className="size-5 transition-transform group-hover:translate-x-1" />}
