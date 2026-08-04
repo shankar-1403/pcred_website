@@ -3,8 +3,11 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { IconArrowRight, IconCalendar, IconClock } from "@tabler/icons-react";
+import { useState, useRef } from "react";
+import { IconArrowRight, IconCalendar, IconClock, IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { useBlogs, type Blog } from "@/src/hooks/useBlogs";
+
+const BLOGS_PER_PAGE = 6;
 
 function BlogCard({ blog, index }: { blog: Blog; index: number }) {
   return (
@@ -67,9 +70,23 @@ function BlogCard({ blog, index }: { blog: Blog; index: number }) {
 
 export default function BlogsPage() {
   const { blogs, loading } = useBlogs();
+  const [currentPage, setCurrentPage] = useState(1);
+  const articlesRef = useRef<HTMLDivElement>(null);
 
   const featuredBlog = blogs.find((b) => b.featured) ?? blogs[0];
-  const gridBlogs = blogs.filter((b) => b.id !== featuredBlog?.id);
+  const gridBlogs = blogs
+    .filter((b) => b.id !== featuredBlog?.id)
+    .sort((a, b) => new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime());
+  const page1Count = 3;
+  const totalPages = gridBlogs.length <= page1Count ? 1 : 1 + Math.ceil((gridBlogs.length - page1Count) / BLOGS_PER_PAGE);
+  const pagedBlogs = currentPage === 1
+    ? gridBlogs.slice(0, page1Count)
+    : gridBlogs.slice(page1Count + (currentPage - 2) * BLOGS_PER_PAGE, page1Count + (currentPage - 1) * BLOGS_PER_PAGE);
+
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+    articlesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <>
@@ -108,7 +125,7 @@ export default function BlogsPage() {
             <div className="mt-24 py-20 text-center text-[#8E8E90]">No articles published yet.</div>
           ) : (
             <>
-              {featuredBlog && (
+              {currentPage === 1 && featuredBlog && (
                 <>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -179,23 +196,59 @@ export default function BlogsPage() {
                 </>
               )}
 
-              {gridBlogs.length > 0 && (
+              {pagedBlogs.length > 0 && (
                 <>
-                  <motion.div
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-10"
-                  >
-                    <h2 className="text-2xl font-semibold text-[#084E75] md:text-3xl">Latest Articles</h2>
-                  </motion.div>
+                  <div ref={articlesRef}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                      className="mb-10"
+                    >
+                      <h2 className="text-2xl font-semibold text-[#084E75] md:text-3xl">Latest Articles</h2>
+                    </motion.div>
+                  </div>
 
                   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {gridBlogs.map((blog, i) => (
+                    {pagedBlogs.map((blog, i) => (
                       <BlogCard key={blog.id} blog={blog} index={i} />
                     ))}
                   </div>
+
+                  {totalPages > 1 && (
+                    <div className="mt-14 flex items-center justify-center gap-2">
+                      <button
+                        onClick={() => goToPage(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className="flex size-10 items-center justify-center rounded-full border border-[#084E75]/20 text-[#084E75] transition-all hover:border-[#084E75] hover:bg-[#084E75]/5 disabled:pointer-events-none disabled:opacity-30"
+                      >
+                        <IconChevronLeft className="size-4" />
+                      </button>
+
+                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                        <button
+                          key={page}
+                          onClick={() => goToPage(page)}
+                          className={`flex size-10 items-center justify-center rounded-full text-sm font-semibold transition-all ${
+                            page === currentPage
+                              ? "bg-[#084E75] text-white shadow-md"
+                              : "border border-[#084E75]/20 text-[#084E75] hover:border-[#084E75] hover:bg-[#084E75]/5"
+                          }`}
+                        >
+                          {page}
+                        </button>
+                      ))}
+
+                      <button
+                        onClick={() => goToPage(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className="flex size-10 items-center justify-center rounded-full border border-[#084E75]/20 text-[#084E75] transition-all hover:border-[#084E75] hover:bg-[#084E75]/5 disabled:pointer-events-none disabled:opacity-30"
+                      >
+                        <IconChevronRight className="size-4" />
+                      </button>
+                    </div>
+                  )}
                 </>
               )}
             </>

@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { IconTarget, IconEye, IconFlag, IconChartLine, IconTrendingUp, IconUsers, IconShieldCheck, IconArrowRight } from "@tabler/icons-react";
+import { IconTargetArrow, IconBulb, IconFlag3, IconChartLine, IconTrendingUp, IconUsers, IconShieldCheck, IconArrowRight } from "@tabler/icons-react";
 import Image from "next/image";
 import AboutUsThree from "../../public/aboutpage3.png";
 import AboutUsTwo from "../../public/aboutpage2.png";
@@ -11,19 +11,19 @@ import WhoWeAre from "../../public/who_we_are.webp";
 const aboutPillars = [
   {
     title: "Mission",
-    icon: IconTarget,
+    icon: IconTargetArrow,
     text: "To strengthen MSMEs through expert financial guidance, business transformation, and sustainable growth strategies.",
     number: "01",
   },
   {
     title: "Vision",
-    icon: IconEye,
+    icon: IconBulb,
     text: "To be a leading force in empowering MSMEs through strategic financial expertise, innovation, and growth-driven solutions.",
     number: "02",
   },
   {
     title: "Aim",
-    icon: IconFlag,
+    icon: IconFlag3,
     text: "To drive sustainable growth and financial empowerment for MSMEs across industries.",
     number: "03",
   },
@@ -102,7 +102,7 @@ export default function AboutUsPage() {
               transition={{ duration: 0.5 }}
               className="lg:col-span-1 lg:row-span-1"
             >
-              <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-[#084E75] via-[#0a5d8a] to-[#063d5c] p-8 h-full flex flex-col justify-between pb-4">
+              <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-[#084E75] via-[#0a5d8a] to-[#063d5c] p-7 h-full flex flex-col justify-between pb-4 md:p-8">
                 {/* Diagonal light sweep */}
                 <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rotate-45 bg-linear-to-br from-white/8 to-transparent" />
                 {/* Bottom left deeper blue shadow */}
@@ -117,7 +117,7 @@ export default function AboutUsPage() {
                   <span className="rounded-full border border-[#DDB162]/40 bg-[#DDB162]/10 px-3 py-1 text-[length:var(--text-10)] font-semibold uppercase tracking-widest text-[#DDB162]">Est. 2014</span>
                 </div>
                 <div className="relative z-10 flex flex-1 flex-col items-start justify-center">
-                  <span className="block text-6xl font-black leading-none text-white lg:text-8xl">10+</span>
+                  <span className="block text-5xl font-black leading-none text-white sm:text-6xl lg:text-8xl">10+</span>
                   <div className="mt-4 h-px w-10 bg-[#DDB162]/60" />
                   <span className="mt-3 block text-sm text-white/90 leading-relaxed">Trusted financial expertise across industries</span>
                 </div>
@@ -132,7 +132,7 @@ export default function AboutUsPage() {
               transition={{ duration: 0.5, delay: 0.08 }}
               className="lg:col-span-2 lg:row-span-1"
             >
-              <div className="relative overflow-hidden rounded-3xl border border-[#084E75]/15 bg-linear-to-br from-[#DDB162]/12 via-[#EEF6FB] to-[#084E75]/25 p-7 h-full flex flex-col justify-center">
+              <div className="relative overflow-hidden rounded-3xl border border-[#084E75]/15 bg-linear-to-br from-[#DDB162]/12 via-[#EEF6FB] to-[#084E75]/25 p-7 h-full flex flex-col justify-center md:p-8">
                 {/* Blue glow bottom-right */}
                 <div className="pointer-events-none absolute -bottom-6 -right-6 size-40 rounded-full bg-[#084E75]/18 blur-2xl" />
                 {/* Gold glow top-left */}
@@ -140,7 +140,7 @@ export default function AboutUsPage() {
                 {/* Dot grid */}
                 <div className="pointer-events-none absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #084E75 1px, transparent 0)", backgroundSize: "24px 24px" }} />
 
-                <h2 className="relative text-3xl font-semibold leading-snug text-[#084E75] md:text-2xl lg:text-4xl">
+                <h2 className="relative text-2xl font-semibold leading-snug text-[#084E75] md:text-3xl lg:text-4xl">
                   Strategic financial guidance for business growth and clarity
                 </h2>
                 <p className="relative mt-3 text-sm leading-relaxed text-[#4a5568] max-w-full">
@@ -171,7 +171,7 @@ export default function AboutUsPage() {
                 <div className="pointer-events-none absolute left-0 top-0 h-full w-1 rounded-l-3xl bg-linear-to-b from-[#084E75] to-[#DDB162]" />
 
                 {/* Left text content */}
-                <div className="px-9 py-7 flex-1">
+                <div className="px-7 py-7 flex-1 md:px-9 md:py-8">
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162] mb-2">Our direction</p>
                   <h3 className="text-lg font-bold text-[#084E75] leading-snug max-w-sm">
                     Leading the Future of Financial Advisory for Businesses
@@ -203,7 +203,7 @@ export default function AboutUsPage() {
               transition={{ duration: 0.5, delay: 0.16 }}
               className="lg:col-span-1 lg:row-span-1"
             >
-              <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-[#DDB162] via-[#c99a3f] to-[#b8852e] p-8 h-full flex flex-col justify-between pb-4">
+              <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-[#DDB162] via-[#c99a3f] to-[#b8852e] p-7 h-full flex flex-col justify-between pb-4 md:p-8">
                 {/* Diagonal light sweep */}
                 <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rotate-45 bg-linear-to-br from-white/10 to-transparent" />
                 {/* Bottom left shadow */}
@@ -218,7 +218,7 @@ export default function AboutUsPage() {
                   <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[length:var(--text-10)] font-semibold uppercase tracking-widest text-white/80">Pan India</span>
                 </div>
                 <div className="relative z-10 flex flex-1 flex-col items-start justify-center">
-                  <span className="block text-6xl font-black leading-none text-white lg:text-8xl">500+</span>
+                  <span className="block text-5xl font-black leading-none text-white sm:text-6xl lg:text-8xl">500+</span>
                   <div className="mt-4 h-px w-10 bg-white/50" />
                   <span className="mt-3 block text-sm text-white font-medium leading-relaxed">Businesses transformed through strategic advisory</span>
 
@@ -232,67 +232,58 @@ export default function AboutUsPage() {
       </section>
 
       {/* ── MISSION VISION AIM ── */}
+      <section
+        className="relative overflow-hidden bg-cover bg-center bg-no-repeat py-20 md:py-24"
+        style={{ backgroundImage: "url('/bg_webpattern.webp')" }}
+      >
+        {/* Gold hairline divider at top */}
+        <div className="pointer-events-none absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-linear-to-r from-transparent via-[#DDB162]/30 to-transparent" />
 
-      <section className="relative overflow-hidden bg-white py-24">
         <div className="relative mx-auto max-w-7xl px-6">
+          {/* Section header */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-14 text-center"
+            transition={{ duration: 0.6 }}
+            className="mb-16 text-center md:mb-20"
           >
             <span className="mb-3 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
               <span className="size-2 rounded-full bg-[#DDB162]" />
               Our Foundation
             </span>
-            <h4 className="mt-3 text-3xl font-semibold text-[#084E75] md:text-4xl">
-              Mission, Vision & Aim
+            <h4 className="mt-3 text-3xl font-semibold text-white md:text-4xl">
+              Mission, Vision & <span className="text-[#DDB162]">Aim</span>
             </h4>
           </motion.div>
 
+          {/* Horizontal row, divided by thin vertical lines — icon centered on top */}
           <div className="flex flex-col items-stretch md:flex-row">
             {aboutPillars.map((pillar, i) => (
               <div key={pillar.title} className="flex flex-1 items-stretch">
                 {/* Vertical divider before item (except first) */}
                 {i > 0 && (
-                  <div className="hidden md:flex flex-col items-center justify-center py-0 shrink-0 self-stretch">
-                    <div className="flex-1 w-px bg-[#DDB162]/30" />
-                    <span className="my-3 size-2.5 rotate-45 bg-[#DDB162]/60 shrink-0 block" />
-                    <div className="flex-1 w-px bg-[#DDB162]/30" />
+                  <div className="hidden shrink-0 self-stretch py-6 md:block">
+                    <div className="h-full w-px bg-white/15" />
                   </div>
                 )}
+
                 <motion.div
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group flex flex-1 flex-col items-center px-10 py-4 text-center"
+                  transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -4 }}
+                  className="flex flex-1 flex-col items-center px-6 py-6 text-center transition-transform duration-300 md:px-8 lg:px-10"
                 >
-                  {/* Icon circle with decorative leaf */}
-                  <div className="relative mb-7 flex items-center justify-center">
-                    {/* Outer dashed ring with diamond at top, dots at left & right */}
-                    <svg className="absolute size-36 text-[#DDB162]" viewBox="-8 -8 160 160" fill="none">
-                      <circle cx="72" cy="72" r="70" stroke="currentColor" strokeWidth="1" strokeDasharray="4 6" opacity="0.45" />
-                      {/* Diamond left (9 o'clock) */}
-                      <polygon points="2,68 6,72 2,76 -2,72" fill="currentColor" opacity="0.75" />
-                      {/* Diamond right (3 o'clock) */}
-                      <polygon points="142,68 146,72 142,76 138,72" fill="currentColor" opacity="0.75" />
-                    </svg>
+                  {/* Icon — plain symbol, no container */}
+                  <pillar.icon className="mb-5 size-14 shrink-0 text-white md:size-16" stroke={1.4} />
 
-                    {/* Single gradient circle */}
-                    <div className="flex size-24 items-center justify-center rounded-full bg-linear-to-br from-[#084E75]/15 via-[#DDB162]/20 to-[#DDB162]/30 transition-transform duration-300 group-hover:scale-105">
-                      <pillar.icon className="size-9 text-[#084E75]" stroke={1.2} />
-                    </div>
-
-                  </div>
-
-                  <h5 className="mb-2 text-2xl font-semibold text-[#084E75]">{pillar.title}</h5>
-                  {/* Gold underline */}
-                  <div className="mb-4 h-px w-10 bg-[#DDB162]" />
-                  <p className="text-sm leading-relaxed text-[#4a5568]">{pillar.text}</p>
+                  {/* Content */}
+                  <h5 className="text-xl font-bold text-white">{pillar.title}</h5>
+                  <div className="my-3 h-px w-10 bg-[#DDB162]" />
+                  <p className="max-w-xs text-sm leading-[1.85] text-white/65">{pillar.text}</p>
                 </motion.div>
-
               </div>
             ))}
           </div>
@@ -300,54 +291,97 @@ export default function AboutUsPage() {
       </section>
 
       {/* ── CORE BELIEFS ── */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 py-24">
-        <div className="pointer-events-none absolute -left-32 top-20 size-96 rounded-full bg-[#DDB162]/8 blur-3xl" />
+      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 py-24 md:py-32">
+        {/* Ambient blobs + dot grids */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-24 -top-24 size-96 rounded-full bg-[#DDB162]/5 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 size-80 rounded-full bg-[#084E75]/5 blur-3xl" />
+          <svg className="absolute right-8 top-8 opacity-[0.055]" width="120" height="120" viewBox="0 0 120 120">
+            {[0,1,2,3,4,5].flatMap(row => [0,1,2,3,4,5].map(col => (
+              <circle key={`${row}-${col}`} cx={col*20+10} cy={row*20+10} r="1.5" fill="#084E75" />
+            )))}
+          </svg>
+          <svg className="absolute bottom-8 left-8 opacity-[0.04]" width="100" height="100" viewBox="0 0 100 100">
+            {[0,1,2,3,4].flatMap(row => [0,1,2,3,4].map(col => (
+              <circle key={`${row}-${col}`} cx={col*20+10} cy={row*20+10} r="1.5" fill="#DDB162" />
+            )))}
+          </svg>
+        </div>
 
         <div className="relative mx-auto max-w-7xl px-6">
+          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-14 text-center"
+            className="mb-16 text-center md:mb-20"
           >
             <span className="mb-3 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
               <span className="size-2 rounded-full bg-[#DDB162]" />
               What Drives Us
             </span>
             <h4 className="mt-3 text-3xl font-semibold text-[#084E75] md:text-4xl">
-              Our Core Beliefs
+              Our Core <span className="text-[#DDB162]">Beliefs</span>
             </h4>
           </motion.div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
+          {/* 2×2 premium grid */}
+          <motion.div
+            className="grid gap-10 sm:grid-cols-2 md:gap-14"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.14 } } }}
+          >
             {coreBeliefs.map((belief, i) => (
               <motion.div
                 key={belief.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: (i % 2) * 0.08 }}
-                className="group relative overflow-hidden rounded-3xl border border-[#084E75]/10 bg-linear-to-br from-[#DDB162]/6 via-[#FAFCFD] to-[#084E75]/8 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#084E75]/10 hover:border-[#084E75]/20"
+                variants={{
+                  hidden: { opacity: 0, y: 36 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
+                }}
+                whileHover={{ y: -6, boxShadow: "0 20px 48px -12px rgba(8,78,117,0.10)" }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="group flex flex-col items-center gap-5 rounded-2xl p-4 sm:flex-row sm:items-start sm:gap-5 md:gap-7"
               >
-                {/* Blue glow bottom-right — dominant */}
-                <div className="pointer-events-none absolute -bottom-6 -right-6 size-40 rounded-full bg-[#084E75]/8 blur-2xl" />
-                {/* Faint gold glow top-left */}
-                <div className="pointer-events-none absolute -top-6 -left-6 size-24 rounded-full bg-[#DDB162]/6 blur-2xl" />
-
-                <div className="relative flex flex-col gap-3">
-                  <div className="flex flex-row items-center gap-3">
-                    <div className="shrink-0 flex size-11 items-center justify-center rounded-2xl bg-linear-to-br from-[#084E75] to-[#0a6494] text-white shadow-md shadow-[#084E75]/20 transition-transform duration-300 group-hover:scale-105">
-                      <belief.icon className="size-5" stroke={1.5} />
-                    </div>
-                    <h6 className="text-base font-semibold text-[#084E75]">{belief.title}</h6>
+                {/* Premium circular icon with decorative SVG arcs */}
+                <div className="relative flex size-28 shrink-0 items-center justify-center">
+                  <svg className="absolute inset-0 size-full" viewBox="0 0 88 88" fill="none">
+                    {/* 270° solid arc — gap at right (2 o'clock to 5 o'clock) */}
+                    <path
+                      d="M 64 78.64 A 40 40 0 1 1 78.64 24"
+                      stroke={i === 0 || i === 3 ? "#DDB162" : "#084E75"}
+                      strokeWidth="1.5" strokeLinecap="round"
+                      opacity={i === 0 || i === 3 ? "0.9" : "0.35"}
+                    />
+                    {/* Gold accent dot at 9 o'clock */}
+                    <circle cx="4" cy="44" r="3.5" fill="#DDB162" />
+                  </svg>
+                  <div className="flex size-[5.5rem] items-center justify-center rounded-full bg-linear-to-br from-[#fdf5e0] to-white shadow-[-4px_-4px_12px_rgba(255,255,255,0.95),8px_8px_32px_rgba(8,78,117,0.45)] transition-all duration-300 group-hover:shadow-[-4px_-4px_12px_rgba(255,255,255,0.95),10px_10px_40px_rgba(8,78,117,0.60)]">
+                    <belief.icon className="size-7 text-[#084E75]" stroke={1.2} />
                   </div>
-                  <div className="h-px w-10 bg-[#DDB162]/60 transition-all duration-300 group-hover:w-16" />
-                  <p className="text-sm leading-relaxed text-[#4a5568]">{belief.description}</p>
+                </div>
+
+                {/* Thin vertical gold divider — desktop only, matches icon height */}
+                <div className="hidden sm:block h-28 w-px shrink-0 bg-linear-to-b from-[#DDB162]/70 via-[#DDB162]/30 to-transparent" />
+
+                {/* Content */}
+                <div className="flex-1 pt-1 text-center sm:text-left">
+                  <span className="text-xs font-bold tracking-[0.2em] text-[#DDB162]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h6 className="mt-1 text-lg font-bold leading-snug text-[#084E75]">
+                    {belief.title}
+                  </h6>
+                  <div className="mb-3 mt-2 mx-auto h-px w-8 bg-[#DDB162] sm:mx-0" />
+                  <p className="text-sm leading-relaxed text-[#4a5568]">
+                    {belief.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
