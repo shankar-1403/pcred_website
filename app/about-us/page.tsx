@@ -20,13 +20,7 @@ const aboutPillars = [
     icon: IconBulb,
     text: "To be a leading force in empowering MSMEs through strategic financial expertise, innovation, and growth-driven solutions.",
     number: "02",
-  },
-  {
-    title: "Aim",
-    icon: IconFlag3,
-    text: "To drive sustainable growth and financial empowerment for MSMEs across industries.",
-    number: "03",
-  },
+  }
 ];
 
 const coreBeliefs = [
@@ -152,7 +146,7 @@ export default function AboutUsPage() {
                     <span className="text-xs text-[#4a5568] leading-tight">Client retention rate</span>
                   </div>
                   <div className="rounded-2xl bg-[#DDB162]/10 px-4 py-3">
-                    <span className="block text-2xl font-black text-[#084E75]">₹500Cr+</span>
+                    <span className="block text-2xl font-black text-[#084E75]">₹1500Cr+</span>
                     <span className="text-xs text-[#4a5568] leading-tight">Capital facilitated</span>
                   </div>
                 </div>
@@ -218,7 +212,7 @@ export default function AboutUsPage() {
                   <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[length:var(--text-10)] font-semibold uppercase tracking-widest text-white/80">Pan India</span>
                 </div>
                 <div className="relative z-10 flex flex-1 flex-col items-start justify-center">
-                  <span className="block text-5xl font-black leading-none text-white sm:text-6xl lg:text-8xl">500+</span>
+                  <span className="block text-5xl font-black leading-none text-white sm:text-6xl lg:text-8xl">2500+</span>
                   <div className="mt-4 h-px w-10 bg-white/50" />
                   <span className="mt-3 block text-sm text-white font-medium leading-relaxed">Businesses transformed through strategic advisory</span>
 
@@ -239,6 +233,13 @@ export default function AboutUsPage() {
         {/* Gold hairline divider at top */}
         <div className="pointer-events-none absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-linear-to-r from-transparent via-[#DDB162]/30 to-transparent" />
 
+        {/* Ambient depth — overhead spotlight + vignette so the section reads as a lit space */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-1/2 top-0 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-[#DDB162]/8 blur-3xl" />
+          <div className="absolute left-1/2 top-1/3 h-[380px] w-[1100px] -translate-x-1/2 rounded-full bg-[#0a6ea8]/20 blur-3xl" />
+          <div className="absolute inset-0 shadow-[inset_0_0_150px_55px_rgba(0,20,35,0.55)]" />
+        </div>
+
         <div className="relative mx-auto max-w-7xl px-6">
           {/* Section header */}
           <motion.div
@@ -253,38 +254,40 @@ export default function AboutUsPage() {
               Our Foundation
             </span>
             <h4 className="mt-3 text-3xl font-semibold text-white md:text-4xl">
-              Mission, Vision & <span className="text-[#DDB162]">Aim</span>
+              Mission & <span className="text-[#DDB162]">Vision</span>
             </h4>
           </motion.div>
 
-          {/* Horizontal row, divided by thin vertical lines — icon centered on top */}
-          <div className="flex flex-col items-stretch md:flex-row">
+          {/* Raised glass panels — icon centered on top */}
+          <div className="flex flex-col items-stretch gap-5 md:flex-row md:gap-6">
             {aboutPillars.map((pillar, i) => (
-              <div key={pillar.title} className="flex flex-1 items-stretch">
-                {/* Vertical divider before item (except first) */}
-                {i > 0 && (
-                  <div className="hidden shrink-0 self-stretch py-6 md:block">
-                    <div className="h-full w-px bg-white/15" />
-                  </div>
-                )}
+              <motion.div
+                key={pillar.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ y: -8 }}
+                className="group relative flex flex-1 flex-col items-center overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] px-6 py-9 text-center shadow-[0_40px_80px_-16px_rgba(0,12,24,0.55),0_18px_40px_-10px_rgba(0,12,24,0.38),0_6px_14px_rgba(0,12,24,0.3),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-[2px] transition-all duration-300 hover:border-[#DDB162]/30 hover:bg-white/[0.075] hover:shadow-[0_55px_100px_-16px_rgba(0,12,24,0.65),0_24px_50px_-10px_rgba(0,12,24,0.45),0_8px_18px_rgba(0,12,24,0.35),inset_0_1px_0_rgba(255,255,255,0.18)] md:px-8 lg:px-10"
+              >
+                {/* Top bevel highlight — reads as light catching the panel edge */}
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/30 to-transparent" />
+                {/* Soft gold pool behind the icon */}
+                <div className="pointer-events-none absolute left-1/2 top-4 size-32 -translate-x-1/2 rounded-full bg-[#DDB162]/12 blur-2xl transition-all duration-300 group-hover:bg-[#DDB162]/20" />
 
-                <motion.div
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                  whileHover={{ y: -4 }}
-                  className="flex flex-1 flex-col items-center px-6 py-6 text-center transition-transform duration-300 md:px-8 lg:px-10"
-                >
-                  {/* Icon — plain symbol, no container */}
-                  <pillar.icon className="mb-5 size-14 shrink-0 text-white md:size-16" stroke={1.4} />
+                {/* Icon — plain symbol, no container */}
+                <pillar.icon
+                  className="relative mb-5 size-14 shrink-0 text-[#DDB162] drop-shadow-[0_4px_14px_rgba(221,177,98,0.45)] md:size-16"
+                  stroke={1.4}
+                />
 
-                  {/* Content */}
-                  <h5 className="text-xl font-bold text-white">{pillar.title}</h5>
-                  <div className="my-3 h-px w-10 bg-[#DDB162]" />
-                  <p className="max-w-xs text-sm leading-[1.85] text-white/65">{pillar.text}</p>
-                </motion.div>
-              </div>
+                {/* Content */}
+                <h5 className="relative text-xl font-bold text-white drop-shadow-[0_2px_6px_rgba(0,15,28,0.6)]">
+                  {pillar.title}
+                </h5>
+                <div className="relative my-3 h-px w-10 bg-[#DDB162] shadow-[0_0_10px_rgba(221,177,98,0.7)]" />
+                <p className="relative max-w-xs text-sm leading-[1.85] text-white/70">{pillar.text}</p>
+              </motion.div>
             ))}
           </div>
         </div>

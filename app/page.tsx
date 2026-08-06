@@ -9,7 +9,7 @@ import {IconArrowRight,IconBuilding,IconBuildingBank,IconChartBar,IconChartBarPo
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import logo from "@/public/logo.png";
 import aboutImage from "@/public/who_we_are.webp";
-import about from "@/public/img_about_sec.webp";
+import about from "@/public/img_about_sec.png";
 import { SpinningText } from "@/components/ui/spinning-text";
 import { LifecycleRoadmap } from "@/components/LifecycleRoadmap";
 import HorizontalAccordion from "@/components/ui/horizontalAccordion";
@@ -370,7 +370,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative flex min-h-screen items-end overflow-hidden">
         <video
-          src="/banner.webm"
+          src="/banner.mp4"
           autoPlay
           loop
           muted
@@ -438,8 +438,18 @@ export default function Home() {
                 <Image
                   src={about}
                   alt="PCRED corporate advisory"
-                  className="relative z-10 w-full object-contain"
+                  className="relative z-10 w-full scale-[1.15] object-contain"
                   priority
+                  style={{
+                    // Slight edge feather so the artwork's off-white background
+                    // dissolves into the page instead of showing a faint seam.
+                    WebkitMaskImage:
+                      "linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%)",
+                    WebkitMaskComposite: "source-in",
+                    maskImage:
+                      "linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%)",
+                    maskComposite: "intersect",
+                  }}
                 />
 
                 <motion.div initial={{ x: -15 }}
