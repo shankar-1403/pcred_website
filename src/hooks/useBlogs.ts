@@ -12,6 +12,7 @@ export interface Blog {
   readTime?: string;
   featured?: boolean;
   cover_image?: string;
+  inner_image?: string;
   content?: string;
   createdAt?: number;
   createdBy?: string | null;

@@ -143,18 +143,33 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           )}
 
           {item.children && (
-            <div className="absolute left-0 top-7 z-50 hidden min-w-56 pt-2 group-hover:block">
-              <div className="overflow-hidden rounded-4xl border border-[#084E75]/10 bg-white shadow-xl">
-                {item.children.map((child) => (
-                  <Link
-                    key={child.link}
-                    href={child.link!}
-                    onClick={onItemClick}
-                    className="px-5 py-3 flex items-center text-sm text-[#084E75] transition-colors hover:bg-[#DDB162]/10 capitalize"
-                  >
-                    <IconChevronRight size={16}/> {child.name}
-                  </Link>
-                ))}
+            <div className="fixed left-0 right-0 top-[60px] z-50 hidden px-6 group-hover:block">
+              <div className="mx-auto max-w-7xl">
+                <div className="rounded-2xl border border-[#084E75]/10 bg-white shadow-2xl overflow-hidden">
+                  {/* Mega-menu header */}
+                  <div className="border-b border-[#084E75]/8 bg-[#084E75]/3 px-8 py-4">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-[#084E75]/50">{item.name}</p>
+                  </div>
+                  <div className="p-8">
+                    {item.children.length === 0 ? (
+                      <p className="text-sm text-[#084E75]/40 italic">More schemes coming soon.</p>
+                    ) : (
+                      <div className="grid grid-cols-3 gap-2 lg:grid-cols-4">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.link}
+                            href={child.link!}
+                            onClick={onItemClick}
+                            className="group/item flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-medium text-[#084E75] transition-all hover:bg-[#DDB162]/10 hover:text-[#084E75]"
+                          >
+                            <span className="size-1.5 shrink-0 rounded-full bg-[#DDB162]" />
+                            {child.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           )}
@@ -208,7 +223,7 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-center justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,42,53,0.06),0_1px_1px_rgba(0,0,0,0.05),0_0_0_1px_rgba(34,42,53,0.04),0_0_4px_rgba(34,42,53,0.08),0_16px_68px_rgba(47,48,55,0.05),0_1px_0_rgba(255,255,255,0.1)_inset] dark:bg-neutral-950",
+            "fixed inset-x-0 top-16 z-50 flex w-full flex-col items-center justify-start gap-4 rounded-b-lg bg-white px-4 py-8 shadow-[0_8px_24px_rgba(34,42,53,0.12)] dark:bg-neutral-950",
             className,
           )}
         >

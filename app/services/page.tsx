@@ -228,7 +228,7 @@ export default function ServicesPage() {
                   Not sure which service fits your needs?
                 </h4>
                 <p className="mt-3 text-white/70">
-                  Speak with our advisory team — we&apos;ll recommend the right approach for your business goals.
+                  Speak with our advisory team, we&apos;ll recommend the right approach for your business goals.
                 </p>
               </div>
               <Link

@@ -1,4 +1,4 @@
-"use client";
+  "use client";
 
 import React, { useState, type ChangeEvent, type FormEvent } from "react";
 import { db } from "@/src/lib/firebase";
@@ -25,10 +25,10 @@ const initialFormData = {
   featured: false,
 };
 
-const initialFiles = { cover_image: null as File | null };
-const initialExistingImages = { cover_image: "" };
+const initialFiles = { cover_image: null as File | null, inner_image: null as File | null };
+const initialExistingImages = { cover_image: "", inner_image: "" };
 
-async function uploadBlogAsset(blogId: string, field: string, file: File, idToken: string) {
+  async function uploadBlogAsset(blogId: string, field: string, file: File, idToken: string) {
   const formData = new FormData();
   formData.append("file", file);
   formData.append("blogId", blogId);
@@ -116,7 +116,7 @@ function BlogsCMSPage() {
     });
     setContent(blog.content ?? "");
     setFiles(initialFiles);
-    setExistingImages({ cover_image: blog.cover_image ?? "" });
+    setExistingImages({ cover_image: blog.cover_image ?? "", inner_image: blog.inner_image ?? "" });
     setError("");
     setSuccess("");
     setModalOpen(true);
@@ -151,10 +151,14 @@ function BlogsCMSPage() {
       const blogId = isEditing ? editingBlogId : push(ref(db, "blogs")).key;
       if (!blogId) throw new Error("Could not create blog record.");
 
-      let cover_image = existingImages.cover_image;
-      if (files.cover_image) {
-        cover_image = await uploadBlogAsset(blogId, "cover_image", files.cover_image, idToken);
-      }
+      const [cover_image, inner_image] = await Promise.all([
+        files.cover_image
+          ? uploadBlogAsset(blogId, "cover_image", files.cover_image, idToken)
+          : Promise.resolve(existingImages.cover_image),
+        files.inner_image
+          ? uploadBlogAsset(blogId, "inner_image", files.inner_image, idToken)
+          : Promise.resolve(existingImages.inner_image),
+      ]);
 
       const now = Date.now();
       const existingBlog = isEditing ? blogs.find((b) => b.id === editingBlogId) : null;
@@ -169,13 +173,14 @@ function BlogsCMSPage() {
         featured: formData.featured,
         content,
         cover_image,
+        inner_image,
         createdAt: isEditing ? (existingBlog?.createdAt ?? now) : now,
         createdBy: isEditing ? (existingBlog?.createdBy ?? user.uid) : user.uid,
         updatedAt: now,
         updatedBy: user.uid,
       });
 
-      setSuccess(isEditing ? "Blog updated successfully." : "Blog saved succe ssfully.");
+      setSuccess(isEditing ? "Blog updated successfully." : "Blog saved successfully.");
       setModalOpen(false);
       resetForm();
     } catch (err: unknown) {
@@ -234,7 +239,7 @@ function BlogsCMSPage() {
                       <IconX className="size-5" />
                     </button>
                   </div>
-
+ 
                   <div className="p-6">
                     <form className="space-y-4" onSubmit={handleSave}>
                       {error ? (
@@ -285,6 +290,7 @@ function BlogsCMSPage() {
                         <div>
                           <label htmlFor="cover_image" className="mb-2 block text-sm font-medium text-[#084E75]">Cover Image {!editingBlogId && "*"}</label>
                           <input id="cover_image" name="cover_image" type="file" accept="image/*" onChange={handleFileChange} className="border border-[#084E75] rounded-4xl w-full py-2 px-3" />
+                          <p className="mt-1 text-xs text-[#8E8E90]">Locked to 16:9 (e.g. 1280x720px).</p>
                           {existingImages.cover_image ? (
                             <p className="mt-1 text-xs text-[#8E8E90]">Current image saved. Upload only to replace.</p>
                           ) : null}
@@ -302,6 +308,23 @@ function BlogsCMSPage() {
                         </div>
                       </div>
 
+                      {/* Blog image (internal — shown inside the article only, not on cards) */}
+                      <div>
+                        <label htmlFor="inner_image" className="mb-2 block text-sm font-medium text-[#084E75]">Blog Image (Internal)</label>
+                        <input
+                          id="inner_image"
+                          name="inner_image"
+                          type="file"
+                          accept="image/*"
+                          onChange={handleFileChange}
+                          className="border border-[#084E75] rounded-4xl w-full py-2 px-3"
+                        />
+                        <p className="mt-1 text-xs text-[#8E8E90]">Shown inside the blog only, not on cards. Any size/aspect ratio accepted.</p>
+                        {existingImages.inner_image ? (
+                          <p className="mt-1 text-xs text-[#8E8E90]">Current image saved. Upload only to replace.</p>
+                        ) : null}
+                      </div>
+
                       <hr className="text-[#084E75]" />
 
                       {/* Content */}
@@ -312,16 +335,16 @@ function BlogsCMSPage() {
                           config={{
                             licenseKey: "GPL",
                             plugins: [Essentials, Paragraph, Bold, Italic, Underline, Link, List, Heading],
-                            toolbar: ["heading", "|", "undo", "redo", "|", "bold", "italic", "underline", "link", "bulletedList", "numberedList"],
+                            toolbar: ["heading", "|", "undo", "redo", "|", "bold", "italic", "underline", "link", "bulletedList", "numberedList"],   
                           }}
                           data={content}
                           onChange={(_, editor) => setContent(editor.getData())}
                         />
-                      </div>
+                      </div>                                                      
 
                       <div className="flex justify-center">
                         <div>
-                          <button
+                          <button          
                             type="submit"
                             disabled={loading}
                             className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#084E75]/20 transition-colors hover:bg-[#0a5d8a] disabled:cursor-not-allowed disabled:opacity-60"
@@ -364,13 +387,13 @@ function BlogsCMSPage() {
                   tablePageItems.map((blog) => (
                     <tr key={blog.id} className="text-[#084E75] text-sm">
                       <td className="px-4 py-2 text-[#084E75] max-w-xs truncate">{blog.title || "Untitled"}</td>
-                      <td className="px-4 py-2 text-[#8E8E90]">{blog.category || "—"}</td>
-                      <td className="px-4 py-2 text-[#8E8E90]">{blog.author || "—"}</td>
-                      <td className="px-4 py-2 text-[#8E8E90]">{blog.date || "—"}</td>
+                      <td className="px-4 py-2 text-[#8E8E90]">{blog.category || "N/A"}</td>
+                      <td className="px-4 py-2 text-[#8E8E90]">{blog.author || "N/A"}</td>
+                      <td className="px-4 py-2 text-[#8E8E90]">{blog.date || "N/A"}</td>
                       <td className="px-4 py-2">
                         {blog.featured ? (
                           <span className="rounded-full bg-[#DDB162]/15 px-2 py-0.5 text-xs font-semibold text-[#DDB162]">Yes</span>
-                        ) : "—"}
+                        ) : "N/A"}
                       </td>
                       <td className="px-4 py-2">
                         <button

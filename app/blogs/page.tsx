@@ -18,7 +18,7 @@ function BlogCard({ blog, index }: { blog: Blog; index: number }) {
       transition={{ duration: 0.4, delay: (index % 3) * 0.08 }}
       className="group flex flex-col overflow-hidden rounded-4xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
-      <div className="relative h-52 overflow-hidden bg-[#084E75]/5">
+      <div className="relative aspect-video overflow-hidden bg-[#084E75]/5">
         {blog.cover_image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -144,7 +144,7 @@ export default function BlogsPage() {
                     transition={{ duration: 0.5 }}
                     className="group relative mb-16 grid overflow-hidden rounded-[2.5rem] border border-gray-100 bg-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl md:grid-cols-5"
                   >
-                    <div className="relative min-h-64 overflow-hidden bg-[#084E75]/5 md:col-span-2 md:min-h-full">
+                    <div className="relative aspect-video overflow-hidden bg-[#084E75]/5 md:col-span-3">
                       {featuredBlog.cover_image ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
@@ -157,7 +157,7 @@ export default function BlogsPage() {
                       )}
                       <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/60 via-transparent to-transparent md:bg-linear-to-r md:from-transparent md:via-transparent md:to-[#084E75]/60" />
                     </div>
-                    <div className="relative flex flex-col justify-center p-8 md:col-span-3 md:p-12">
+                    <div className="relative flex flex-col justify-center p-8 md:col-span-2 md:p-12">
                       <div className="pointer-events-none absolute left-0 top-10 bottom-10 hidden w-px bg-[#DDB162]/40 md:block" />
                       {featuredBlog.category && (
                         <span className="mb-4 w-fit rounded-full border border-[#084E75]/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#084E75]">
@@ -178,10 +178,10 @@ export default function BlogsPage() {
                           </span>
                         )}
                       </div>
-                      <h3 className="mb-4 text-2xl font-bold leading-snug text-[#084E75] md:text-3xl">
+                      <h3 className="mb-4 line-clamp-2 text-2xl font-bold leading-snug text-[#084E75] md:text-3xl">
                         {featuredBlog.title}
                       </h3>
-                      <p className="mb-8 text-base leading-relaxed text-[#8E8E90]">
+                      <p className="mb-8 line-clamp-2 text-base leading-relaxed text-[#8E8E90]">
                         {featuredBlog.excerpt}
                       </p>
                       <Link

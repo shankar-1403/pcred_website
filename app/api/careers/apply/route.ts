@@ -103,7 +103,7 @@ async function sendEmail(data: {
               <span style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">Experience</span>
             </td>
             <td style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">
-              ${data.experience || "—"}
+              ${data.experience || "N/A"}
             </td>
           </tr>
           ${data.message ? `
@@ -136,7 +136,7 @@ async function sendEmail(data: {
     from: `"PCRED Careers" <${user}>`,
     to: "pcred.shankar@gmail.com",
     replyTo: data.email,
-    subject: `New Application: ${data.jobTitle} — ${data.name}`,
+    subject: `New Application: ${data.jobTitle} from ${data.name}`,
     html,
   });
 }

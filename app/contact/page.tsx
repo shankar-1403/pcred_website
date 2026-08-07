@@ -18,36 +18,42 @@ function page() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    // Phone: only allow digits, +, spaces, hyphens — block alpha
+    if (name === "name" && /\d/.test(value)) return;
     if (name === "phone") {
-      if (!/^[0-9+\s\-()]*$/.test(value)) return;
+      if (/[a-zA-Z]/.test(value)) return;
+      if (value.replace(/\D/g, "").length > 12) return;
     }
     setForm((prev) => ({ ...prev, [name]: value }));
+    setFormErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    const errors: Record<string, string> = {};
+    if (!form.name.trim()) errors.name = "Full name is required.";
+    else if (form.name.trim().length < 2) errors.name = "Name must be at least 2 characters.";
+    else if (/\d/.test(form.name)) errors.name = "Name must not contain numbers.";
+    else if (!/^[a-zA-Z\s'.'-]+$/.test(form.name.trim())) errors.name = "Name contains invalid characters.";
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!form.email.trim()) errors.email = "Email is required.";
+    else if (!emailRegex.test(form.email.trim())) errors.email = "Enter a valid email address (e.g. name@domain.com).";
+    if (!form.phone.trim()) errors.phone = "Phone number is required.";
+    else {
+      const digits = form.phone.replace(/\D/g, "");
+      if (digits.length !== 10 && digits.length !== 12) errors.phone = "Enter a 10-digit mobile number or 12-digit number with country code.";
+    }
+    if (!form.message.trim()) errors.message = "Message is required.";
+    else if (form.message.trim().length < 10) errors.message = "Message must be at least 10 characters.";
+    if (Object.keys(errors).length > 0) { setFormErrors(errors); return; }
+    setFormErrors({});
     setLoading(true);
     setError(null);
-
-    // Email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email)) {
-      setError("Please enter a valid email address.");
-      setLoading(false);
-      return;
-    }
-    // Phone: must be 7–15 digits
-    const digitsOnly = form.phone.replace(/\D/g, "");
-    if (digitsOnly.length < 7 || digitsOnly.length > 15) {
-      setError("Please enter a valid phone number (7–15 digits).");
-      setLoading(false);
-      return;
-    }
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -203,45 +209,21 @@ function page() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="rounded-4xl border border-[#084E75]/10 bg-white p-8 shadow-xl shadow-[#084E75]/5 md:p-10 xl:col-start-2 xl:row-start-2 xl:self-start"
               >
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex min-h-105 flex-col items-center justify-center text-center"
-                >
-                  <div className="mb-6 flex size-16 items-center justify-center rounded-full bg-[#084E75]/10 text-[#084E75]">
-                    <IconCheck className="size-8" />
-                  </div>
-                  <h5 className="text-2xl font-bold text-[#084E75]">Message Sent!</h5>
-                  <p className="mt-3 max-w-sm text-[#8E8E90]">
-                    Thank you for reaching out. Our team will get back to you shortly.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSubmitted(false);
-                      setError(null);
-                      setForm({ name: "", email: "", phone: "", company: "", service: "", message: "" });
-                    }}
-                    className="mt-8 cursor-pointer rounded-xl border-2 border-[#084E75] px-6 py-3 text-sm font-semibold text-[#084E75] transition-colors hover:bg-[#084E75] hover:text-white"
-                  >
-                    Send Another Message
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleFormSubmit} className="space-y-5">
+              <form onSubmit={handleFormSubmit} className="space-y-5">
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
                       <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#084E75]">
                         Full Name <span className="text-red-500">*</span>
                       </label>
-                      <input id="name" name="name" type="text" required value={form.name} onChange={handleFormChange} placeholder="John Doe" className={inputClass} />
+                      <input id="name" name="name" type="text" value={form.name} onChange={handleFormChange} placeholder="John Doe" className={`${inputClass} ${formErrors.name ? "border-red-400" : ""}`} />
+                      {formErrors.name && <p className="mt-1 text-xs text-red-500">{formErrors.name}</p>}
                     </div>
                     <div>
                       <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#084E75]">
                         Email <span className="text-red-500">*</span>
                       </label>
-                      <input id="email" name="email" type="email" required value={form.email} onChange={handleFormChange} placeholder="you@company.com" className={inputClass} />
+                      <input id="email" name="email" type="text" value={form.email} onChange={handleFormChange} placeholder="you@company.com" className={`${inputClass} ${formErrors.email ? "border-red-400" : ""}`} />
+                      {formErrors.email && <p className="mt-1 text-xs text-red-500">{formErrors.email}</p>}
                     </div>
                   </div>
                   <div className="grid gap-5 sm:grid-cols-2">
@@ -249,7 +231,8 @@ function page() {
                       <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[#084E75]">
                         Phone <span className="text-red-500">*</span>
                       </label>
-                      <input id="phone" name="phone" type="tel" required value={form.phone} onChange={handleFormChange} placeholder="+91 98765 43210" inputMode="tel" pattern="[0-9+\s\-()\+]{7,15}" title="Enter a valid phone number" className={inputClass} />
+                      <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleFormChange} placeholder="+91 98765 43210" inputMode="tel" className={`${inputClass} ${formErrors.phone ? "border-red-400" : ""}`} />
+                      {formErrors.phone && <p className="mt-1 text-xs text-red-500">{formErrors.phone}</p>}
                     </div>
                     <div>
                       <label htmlFor="company" className="mb-2 block text-sm font-medium text-[#084E75]">
@@ -273,7 +256,8 @@ function page() {
                     <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#084E75]">
                       Message <span className="text-red-500">*</span>
                     </label>
-                    <textarea id="message" name="message" required rows={5} value={form.message} onChange={handleFormChange} placeholder="Tell us about your business needs and goals..." className={`${inputClass} resize-none`} />
+                    <textarea id="message" name="message" rows={5} value={form.message} onChange={handleFormChange} placeholder="Tell us about your business needs and goals..." className={`${inputClass} resize-none ${formErrors.message ? "border-red-400" : ""}`} />
+                    {formErrors.message && <p className="mt-1 text-xs text-red-500">{formErrors.message}</p>}
                   </div>
                   {error && (
                     <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>
@@ -286,8 +270,17 @@ function page() {
                     {loading ? "Sending…" : "Send Message"}
                     {!loading && <IconSend className="size-5 transition-transform group-hover:translate-x-1" />}
                   </button>
+                  {submitted && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-center gap-3 rounded-xl bg-[#084E75]/8 px-4 py-3 text-sm text-[#084E75]"
+                    >
+                      <IconCheck className="size-5 shrink-0" />
+                      <span>Message sent! Our team will get back to you shortly.</span>
+                    </motion.div>
+                  )}
                 </form>
-              )}
               </motion.div>
           </div>
         </div>

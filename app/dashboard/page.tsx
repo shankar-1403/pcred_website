@@ -13,6 +13,8 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import { ClassicEditor, Essentials, Paragraph, Bold, Italic, Underline} from "ckeditor5";
 
 import "ckeditor5/ckeditor5.css";
+import ProtectedRoute from "@/components/ProtectedRoute";
+import InternalHeader from "@/components/InternalHeader";
 
 const initialFormData = {
   dropdown_label:"",
@@ -87,7 +89,7 @@ async function uploadSchemeAsset(
   return data.url;
 }
 
-function page() {
+function SchemesCMSPage() {
   const { user } = useAuth();
   const { schemes, loading: schemesLoading } = useSchemes();
   const [loading, setLoading] = useState(false);
@@ -487,6 +489,9 @@ function page() {
                         <div>
                           <label htmlFor="section_1_logo" className="mb-2 block text-sm font-medium text-[#084E75]">Logo</label>
                           <input id="section_1_logo" name="section_1_logo" type="file" accept="image/*" onChange={handleFileChange} className='border border-[#084E75] rounded-4xl w-full py-2 px-3'/>
+                          {existingImages.section_1_logo ? (
+                            <p className="mt-1 text-xs text-[#8E8E90]">Current image saved. Upload only to replace.</p>
+                          ) : null}
                         </div>
                         <div>
                           <label htmlFor="section_1_header" className="mb-2 block text-sm font-medium text-[#084E75]">Header</label>
@@ -814,7 +819,7 @@ function page() {
                       <td className="px-4 py-2 text-[#8E8E90]">
                         {scheme.createdAt
                           ? new Date(scheme.createdAt).toLocaleDateString()
-                          : "—"}
+                          : "N/A"}
                       </td>
                       <td className="px-4 py-2 text-[#084E75]">
                         <button
@@ -847,4 +852,11 @@ function page() {
   )
 }
 
-export default page
+export default function Page() {
+  return (
+    <ProtectedRoute>
+      <InternalHeader />
+      <SchemesCMSPage />
+    </ProtectedRoute>
+  );
+}

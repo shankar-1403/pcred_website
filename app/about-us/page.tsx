@@ -108,7 +108,6 @@ export default function AboutUsPage() {
 
                 <div className="relative z-10 flex items-center justify-between">
                   <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/40">Years of advisory</span>
-                  <span className="rounded-full border border-[#DDB162]/40 bg-[#DDB162]/10 px-3 py-1 text-[length:var(--text-10)] font-semibold uppercase tracking-widest text-[#DDB162]">Est. 2014</span>
                 </div>
                 <div className="relative z-10 flex flex-1 flex-col items-start justify-center">
                   <span className="block text-5xl font-black leading-none text-white sm:text-6xl lg:text-8xl">10+</span>
@@ -138,7 +137,7 @@ export default function AboutUsPage() {
                   Strategic financial guidance for business growth and clarity
                 </h2>
                 <p className="relative mt-3 text-sm leading-relaxed text-[#4a5568] max-w-full">
-                  We work alongside businesses to build strong financial foundations — helping them navigate complexity, unlock capital, and grow with confidence.
+                  We work alongside businesses to build strong financial foundations, helping them navigate complexity, unlock capital, and grow with confidence.
                 </p>
                 <div className="relative mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:mt-2 lg:flex lg:gap-6">
                   <div className="rounded-2xl bg-[#084E75]/6 px-4 py-3">
@@ -390,7 +389,7 @@ export default function AboutUsPage() {
 
       {/* ── CTA ── */}
       <section className="py-16">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-7xl px-6">   
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -405,12 +404,12 @@ export default function AboutUsPage() {
             <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
               <div className="max-w-xl">
                 <h5 className="text-3xl font-semibold text-white md:text-4xl">
-                  Ready to strengthen your
+                  Looking for the Right
                   <br />
-                  <span className="text-[#DDB162]">business finances?</span>
+                  <span className="text-[#DDB162]">Financial Partner?</span>
                 </h5>
                 <p className="mt-3 text-white/70">
-                  Connect with our advisory team and discover solutions tailored to your growth goals.
+                  Our MSME advisory experts help businesses secure funding, optimize finances, and achieve sustainable growth.
                 </p>
               </div>
 

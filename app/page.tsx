@@ -12,6 +12,7 @@ import aboutImage from "@/public/who_we_are.webp";
 import about from "@/public/img_about_sec.png";
 import { SpinningText } from "@/components/ui/spinning-text";
 import { LifecycleRoadmap } from "@/components/LifecycleRoadmap";
+import { MobileLifecycleTimeline } from "@/components/MobileLifecycleTimeline";
 import HorizontalAccordion from "@/components/ui/horizontalAccordion";
 import { Marquee } from "@/components/ui/marquee";
 import bank_1 from "@/public/banking_partners/banking_partners-01.webp";
@@ -67,7 +68,7 @@ const CompaniesCard = ({ data }: CompaniesCardProps ) => {
     >
       <div className="p-2 md:p-4 flex justify-center items-center h-full">
         <div className="h-full">
-          <img src={data.src} alt={'Banks Logo'} className="h-8 md:h-16"/>
+          <img src={data.src} alt={'Banks Logo'} className="h-8 md:h-16 w-auto object-contain"/>
         </div>
       </div>
     </figure>
@@ -341,15 +342,7 @@ export default function Home() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
-  const [mobileActiveIdx, setMobileActiveIdx] = useState(0);
-
-  useEffect(() => {
-    const stageCount = 6;
-    const interval = setInterval(() => {
-      setMobileActiveIdx((prev) => (prev + 1) % stageCount);
-    }, 4000 / stageCount);
-    return () => clearInterval(interval);
-  }, []);
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   const handleFormChange = (
     e: React.ChangeEvent<
@@ -357,11 +350,34 @@ export default function Home() {
     >
   ) => {
     const { name, value } = e.target;
+    if (name === "name" && /\d/.test(value)) return;
+    if (name === "phone") {
+      if (/[a-zA-Z]/.test(value)) return;
+      if (value.replace(/\D/g, "").length > 12) return;
+    }
     setForm((prev) => ({ ...prev, [name]: value }));
+    setFormErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
+    const errors: Record<string, string> = {};
+    if (!form.name.trim()) errors.name = "Full name is required.";
+    else if (form.name.trim().length < 2) errors.name = "Name must be at least 2 characters.";
+    else if (/\d/.test(form.name)) errors.name = "Name must not contain numbers.";
+    else if (!/^[a-zA-Z\s'.'-]+$/.test(form.name.trim())) errors.name = "Name contains invalid characters.";
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!form.email.trim()) errors.email = "Email is required.";
+    else if (!emailRegex.test(form.email.trim())) errors.email = "Enter a valid email address (e.g. name@domain.com).";
+    if (!form.phone.trim()) errors.phone = "Phone number is required.";
+    else {
+      const digits = form.phone.replace(/\D/g, "");
+      if (digits.length !== 10 && digits.length !== 12) errors.phone = "Enter a 10-digit mobile number or 12-digit number with country code.";
+    }
+    if (!form.message.trim()) errors.message = "Message is required.";
+    else if (form.message.trim().length < 10) errors.message = "Message must be at least 10 characters.";
+    if (Object.keys(errors).length > 0) { setFormErrors(errors); return; }
+    setFormErrors({});
     setSubmitted(true);
   };
 
@@ -389,7 +405,7 @@ export default function Home() {
 
               <h1 className="flex flex-nowrap items-end gap-x-1 sm:gap-x-2 text-2xl font-bold uppercase tracking-tight text-white sm:text-4xl md:text-6xl lg:text-7xl">
                 <div className="mb-0.5 shrink-0 md:mb-1.5">
-                  <Image src={logo} alt="PCRED" className="h-7 w-7 object-contain sm:h-11 sm:w-11 md:h-16 md:w-16 lg:h-20 lg:w-20" width={80} height={80} />
+                  <Image src={logo} alt="PCRED" className="h-7 w-auto object-contain sm:h-11 md:h-16 lg:h-20" width={80} height={80} />
                 </div>
                 <DiaTextReveal
                   repeat
@@ -409,7 +425,7 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex flex-wrap gap-4"
           >
-            <Link href="/services" className="group flex items-center justify-between rounded-4xl bg-[#084E75] pl-4 pr-2 py-2 text-white shadow-md shadow-[#084E75]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm">Our Services
+            <Link href="/schemes" className="group flex items-center justify-between rounded-4xl bg-[#084E75] pl-4 pr-2 py-2 text-white shadow-md shadow-[#084E75]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm">Our Schemes
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                 <IconArrowRight className="size-4" color="#084E75" />
               </span>
@@ -430,7 +446,7 @@ export default function Home() {
             className="overflow-hidden rounded-3xl bg-white"
           >
             <div className="grid lg:grid-cols-2">
-              <div className="relative flex min-h-72 items-center justify-center overflow-hidden lg:min-h-full lg:p-10">
+              <div className="relative flex min-h-72 items-center justify-center overflow-hidden lg:min-h-full lg:p-6">
                 <div
                   aria-hidden
                   className="pointer-events-none absolute inset-0 opacity-30"
@@ -438,7 +454,7 @@ export default function Home() {
                 <Image
                   src={about}
                   alt="PCRED corporate advisory"
-                  className="relative z-10 w-full scale-[1.15] object-contain"
+                  className="relative z-10 w-full scale-[1.2] object-contain lg:scale-[1.1] lg:translate-y-4"
                   priority
                   style={{
                     // Slight edge feather so the artwork's off-white background
@@ -462,13 +478,13 @@ export default function Home() {
                   }} className="absolute bottom-6 left-4 z-20 flex max-w-56 items-start gap-3 rounded-2xl border border-white/15 bg-white/70 p-3 backdrop-blur-lg lg:bottom-20 lg:left-100">
                   <IconUsersGroup className="mt-0.5 size-5 shrink-0 text-[#084E75]" stroke={1.5} />
                   <p className="text-xs leading-relaxed text-[#084E75]">
-                    Partnering with founders and leadership teams across India.
+                    Empowering MSMEs with Strategic Financial Advisory Solutions.
                   </p>
                 </motion.div>
               </div>
 
               <div className="flex flex-col justify-center px-5 py-6 text-center sm:p-8 md:p-10 md:text-left lg:p-12">
-                <h2 className="text-2xl font-semibold leading-tight text-[#084E75] sm:text-3xl md:mt-5 md:text-4xl md:leading-12">
+                <h2 className="text-2xl font-semibold leading-tight text-[#084E75] sm:text-3xl md:mt-5 md:text-4xl md:leading-12 md:whitespace-nowrap">
                   Building Stronger Businesses.
                   <span className="mt-1 block bg-linear-to-r from-[#DDB162] to-[#b8892e] bg-clip-text font-bold text-transparent">
                     Creating Lasting Value.
@@ -618,50 +634,7 @@ export default function Home() {
 
           <LifecycleRoadmap stages={stages} />
 
-          {/* Mobile + Tablet — vertical timeline */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
-            className="relative mt-10 lg:hidden"
-          >
-            {stages.map((stage, index) => {
-              const Icon = stage.icon;
-              const isLast = index === stages.length - 1;
-              const isActive = mobileActiveIdx === index;
-
-              return (
-                <div key={stage.title} className="relative flex gap-4 pl-1">
-                  <div className="relative flex flex-col items-center">
-                    <div
-                      className={`relative z-10 flex size-11 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
-                        isActive
-                          ? "bg-[#DDB162] text-[#084E75] shadow-[0_0_18px_6px_rgba(221,177,98,0.6)]"
-                          : "bg-[#084E75] text-white"
-                      }`}
-                    >
-                      <Icon size={20} stroke={1.5} />
-                    </div>
-                    {!isLast && (
-                      <div className="relative mt-1 w-0.5 flex-1 overflow-hidden rounded-full bg-[#084E75]/15">
-                        {isActive && (
-                          <div className="absolute inset-x-0 top-0 h-full rounded-full bg-linear-to-b from-[#DDB162] to-transparent shadow-[0_0_8px_rgba(221,177,98,0.8)]" />
-                        )}
-                      </div>
-                    )}
-                  </div>
-                  <div className={`pt-0.5 ${!isLast ? "pb-6" : ""}`}>
-                    <span className="text-[length:var(--text-10)] font-bold uppercase tracking-wider text-[#DDB162]">
-                      Step {index + 1}
-                    </span>
-                    <h3 className="mt-0.5 text-base font-semibold text-[#084E75]">{stage.title}</h3>
-                    <p className="mt-0.5 text-sm text-[#084E75]/65">{stage.description}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </motion.div>
+          <MobileLifecycleTimeline stages={stages} />
         </div>
       </section>
 
@@ -760,13 +733,13 @@ export default function Home() {
             className="max-w-xl"
           >
             <h5 className="text-3xl font-semibold leading-tight md:leading-14 text-white md:text-4xl">
-              Ready to strengthen your
+              Looking for the Right
               <br />
-              <span className="text-[#DDB162]">business finances?</span>
+              <span className="text-[#DDB162]">Financial Partner?</span>
             </h5>
             <p className="mt-3 text-sm text-white/70 md:text-lg">
-              Connect with our advisory team and discover solutions tailored to
-              your growth goals.
+              Our MSME advisory experts help businesses secure funding, optimize
+              finances, and achieve sustainable growth.
             </p>
           </motion.div>
 
@@ -775,6 +748,7 @@ export default function Home() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="w-full sm:w-auto"
           >
             <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-full sm:w-50 text-sm">Discover Our Story
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
@@ -939,7 +913,7 @@ export default function Home() {
               {"Let's Start a "}
               <span className="text-[#DDB162]">Conversation</span>
             </h5>
-            <p className="mt-5 text-base leading-relaxed md:text-lg text-[#084E75]/80">
+            <p className="mt-5 text-base leading-relaxed md:text-lg text-[#084E75]/80 md:whitespace-nowrap">
               Tell us about your business goals. Our advisory team will respond within one business day.
             </p>
           </motion.div>
@@ -952,156 +926,55 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="rounded-3xl border border-[#084E75]/10 bg-white p-8 shadow-xl md:p-10"
             >
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex min-h-105 flex-col items-center justify-center text-center"
-                >
-                  <div className="mb-6 flex size-16 items-center justify-center rounded-full bg-[#084E75]/10 text-[#084E75]">
-                    <IconCheck className="size-8" />
-                  </div>
-                  <h5 className="text-2xl font-bold text-[#084E75]">
-                    Message Sent!
-                  </h5>
-                  <p className="mt-3 max-w-sm text-[#084E75]/80">
-                    Thank you for reaching out. Our team will get back to you
-                    shortly.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSubmitted(false);
-                      setForm({
-                        name: "",
-                        email: "",
-                        phone: "",
-                        company: "",
-                        service: "",
-                        message: "",
-                      });
-                    }}
-                    className="mt-8 cursor-pointer rounded-full border-2 border-[#084E75] px-6 py-3 text-sm font-semibold text-[#084E75] transition-colors hover:bg-[#084E75] hover:text-white"
-                  >
-                    Send Another Message
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleFormSubmit} className="space-y-5">
+              <form onSubmit={handleFormSubmit} className="space-y-5">
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <label
-                        htmlFor="name"
-                        className="mb-2 block text-sm font-medium text-[#084E75]"
-                      >
+                      <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#084E75]">
                         Full Name <span className="text-red-500">*</span>
                       </label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        value={form.name}
-                        onChange={handleFormChange}
-                        placeholder="John Doe"
-                        className={inputClass}
-                      />
+                      <input id="name" name="name" type="text" value={form.name} onChange={handleFormChange} placeholder="John Doe" className={`${inputClass} ${formErrors.name ? "border-red-400" : ""}`} />
+                      {formErrors.name && <p className="mt-1 text-xs text-red-500">{formErrors.name}</p>}
                     </div>
                     <div>
-                      <label
-                        htmlFor="email"
-                        className="mb-2 block text-sm font-medium text-[#084E75]"
-                      >
+                      <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#084E75]">
                         Email <span className="text-red-500">*</span>
                       </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        value={form.email}
-                        onChange={handleFormChange}
-                        placeholder="you@company.com"
-                        className={inputClass}
-                      />
+                      <input id="email" name="email" type="text" value={form.email} onChange={handleFormChange} placeholder="you@company.com" className={`${inputClass} ${formErrors.email ? "border-red-400" : ""}`} />
+                      {formErrors.email && <p className="mt-1 text-xs text-red-500">{formErrors.email}</p>}
                     </div>
                   </div>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <label
-                        htmlFor="phone"
-                        className="mb-2 block text-sm font-medium text-[#084E75]"
-                      >
+                      <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[#084E75]">
                         Phone <span className="text-red-500">*</span>
                       </label>
-                      <input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        required
-                        value={form.phone}
-                        onChange={handleFormChange}
-                        placeholder="+91 98765 43210"
-                        className={inputClass}
-                      />
+                      <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleFormChange} placeholder="+91 98765 43210" className={`${inputClass} ${formErrors.phone ? "border-red-400" : ""}`} />
+                      {formErrors.phone && <p className="mt-1 text-xs text-red-500">{formErrors.phone}</p>}
                     </div>
                     <div>
-                      <label
-                        htmlFor="company"
-                        className="mb-2 block text-sm font-medium text-[#084E75]"
-                      >
+                      <label htmlFor="company" className="mb-2 block text-sm font-medium text-[#084E75]">
                         Company
                       </label>
-                      <input
-                        id="company"
-                        name="company"
-                        type="text"
-                        value={form.company}
-                        onChange={handleFormChange}
-                        placeholder="Your company name"
-                        className={inputClass}
-                      />
+                      <input id="company" name="company" type="text" value={form.company} onChange={handleFormChange} placeholder="Your company name" className={inputClass} />
                     </div>
                   </div>
                   <div>
-                    <label
-                      htmlFor="service"
-                      className="mb-2 block text-sm font-medium text-[#084E75]"
-                    >
+                    <label htmlFor="service" className="mb-2 block text-sm font-medium text-[#084E75]">
                       Service of Interest
                     </label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={form.service}
-                      onChange={handleFormChange}
-                      className={`${inputClass} cursor-pointer appearance-none`}
-                    >
+                    <select id="service" name="service" value={form.service} onChange={handleFormChange} className={`${inputClass} cursor-pointer appearance-none`}>
                       <option value="">Select a service</option>
                       {contactServices.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
-                        </option>
+                        <option key={s} value={s}>{s}</option>
                       ))}
                     </select>
                   </div>
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="mb-2 block text-sm font-medium text-[#084E75]"
-                    >
+                    <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#084E75]">
                       Message <span className="text-red-500">*</span>
                     </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={5}
-                      value={form.message}
-                      onChange={handleFormChange}
-                      placeholder="Tell us about your business needs and goals..."
-                      className={`${inputClass} resize-none`}
-                    />
+                    <textarea id="message" name="message" rows={5} value={form.message} onChange={handleFormChange} placeholder="Tell us about your business needs and goals..." className={`${inputClass} resize-none ${formErrors.message ? "border-red-400" : ""}`} />
+                    {formErrors.message && <p className="mt-1 text-xs text-red-500">{formErrors.message}</p>}
                   </div>
                   <button
                     type="submit"
@@ -1110,8 +983,17 @@ export default function Home() {
                     Send Message
                     <IconSend className="size-5 transition-transform group-hover:translate-x-1" />
                   </button>
+                  {submitted && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-center gap-3 rounded-xl bg-[#084E75]/8 px-4 py-3 text-sm text-[#084E75]"
+                    >
+                      <IconCheck className="size-5 shrink-0" />
+                      <span>Message sent! Our team will get back to you shortly.</span>
+                    </motion.div>
+                  )}
                 </form>
-              )}
             </motion.div>
 
             <motion.div

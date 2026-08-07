@@ -306,9 +306,9 @@ function CareersCMSPage() {
                   tablePageItems.map((career) => (
                     <tr key={career.id} className="text-[#084E75] text-sm">
                       <td className="px-4 py-2 text-[#084E75] max-w-xs truncate">{career.title || "Untitled"}</td>
-                      <td className="px-4 py-2 text-[#8E8E90]">{career.department || "—"}</td>
-                      <td className="px-4 py-2 text-[#8E8E90]">{career.location || "—"}</td>
-                      <td className="px-4 py-2 text-[#8E8E90]">{career.type || "—"}</td>
+                      <td className="px-4 py-2 text-[#8E8E90]">{career.department || "N/A"}</td>
+                      <td className="px-4 py-2 text-[#8E8E90]">{career.location || "N/A"}</td>
+                      <td className="px-4 py-2 text-[#8E8E90]">{career.type || "N/A"}</td>
                       <td className="px-4 py-2">
                         {career.active ? (
                           <span className="rounded-full bg-green-50 px-2 py-0.5 text-xs font-semibold text-green-600">Active</span>

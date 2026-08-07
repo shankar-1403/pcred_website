@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/pcred_cms_logo.webp";
+import logo from "@/public/logo.webp";
 import {
   IconMail,
   IconMapPin,
   IconPhone,
   IconId,
-  IconChevronRight,
   IconBrandFacebook,
   IconBrandInstagram,
   IconBrandLinkedin,
@@ -37,9 +36,6 @@ export default function Footer() {
       <div className="pointer-events-none absolute -right-32 top-0 size-64 rounded-full bg-[#5BBCEB]/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -left-32 size-80 rounded-full bg-cyan-400/10 blur-3xl" />
 
-      {/* Corner fades — anchored to the true footer edges (not the centered
-          max-w-7xl wrapper), so they reach all the way to the edge on every
-          viewport width instead of stopping at the wrapper's inset margin. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-y-0 left-0 w-full md:w-[46%] lg:w-[35%]"
@@ -61,13 +57,13 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <Link href="/" className="relative inline-block">
-              <Image src={logo} alt="Pcred" width={140} height={60} className="relative h-14 w-auto"/>
+              <Image src={logo} alt="Pcred" width={140} height={60} className="relative h-10 w-auto"/>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
               Strategic financial advisory solutions designed to strengthen and
               scale businesses across India.
             </p>
-            
+
             <div className="flex items-center gap-3 mt-5">
               {socialLinks.map((social) => (
                 <a
@@ -102,36 +98,35 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex flex-col gap-5 lg:pl-8">
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#DDB162] text-center">Get In Touch</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#DDB162] text-left md:text-center">Get In Touch</h3>
             <div className="flex flex-col gap-5">
-            <div className="flex items-start gap-3 text-sm text-white/70">
-              <IconId className="size-5 shrink-0" color="#DDB162" />
-              <p className="max-w-sm leading-relaxed">
-                CIN: [Add CIN number]
-              </p>
-            </div>
-            <div className="flex items-start gap-3 text-sm text-white/70">
-              <IconMapPin className="size-5 shrink-0" color="#DDB162" />
-              <p className="max-w-sm leading-relaxed">
-                Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093
-              </p>
-            </div>
-            <div className="mt-2 flex flex-col gap-4">
-              <a
-                href="tel:+912235120060"
-                className="flex items-center gap-3 text-sm text-white/70 transition-colors hover:text-white"
+<a
+                href="https://maps.google.com/?q=Lodha+Supremus,520,Off+Mahakali+Caves+Rd,Chakala+Industrial+Area+MIDC,Andheri+East,Mumbai,Maharashtra+400093"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 text-sm text-white/70 transition-colors hover:text-white"
               >
-                <IconPhone className="size-5" color="#DDB162" />
-                +91 22 3512 0060
+                <IconMapPin className="size-5 shrink-0" color="#DDB162" />
+                <span className="max-w-sm leading-relaxed">
+                  Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093
+                </span>
               </a>
-              <a
-                href="mailto:info@pcred.org"
-                className="flex items-center gap-3 text-sm text-white/70 transition-colors hover:text-white"
-              >
-                <IconMail className="size-5" color="#DDB162" />
-                info@pcred.org
-              </a>
-            </div>
+              <div className="mt-2 flex flex-col gap-4">
+                <a
+                  href="tel:+912235120060"
+                  className="flex items-center gap-3 text-sm text-white/70 transition-colors hover:text-white"
+                >
+                  <IconPhone className="size-5" color="#DDB162" />
+                  +91 22 3512 0060
+                </a>
+                <a
+                  href="mailto:info@pcred.org"
+                  className="flex items-center gap-3 text-sm text-white/70 transition-colors hover:text-white"
+                >
+                  <IconMail className="size-5" color="#DDB162" />
+                  info@pcred.org
+                </a>
+              </div>
             </div>
           </div>
         </div>

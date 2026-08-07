@@ -169,13 +169,18 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
 
               <div>
                 <label className="mb-1.5 block text-sm font-medium text-[#084E75]">Years of Experience</label>
-                <input
-                  name="experience"
-                  value={form.experience}
-                  onChange={handleChange}
-                  placeholder="e.g. 3 years"
-                  className="border border-[#084E75] rounded-4xl w-full py-2 px-3 text-sm outline-none focus:ring-2 focus:ring-[#084E75]/20"
-                />
+                <div className="flex items-center overflow-hidden rounded-4xl border border-[#084E75] focus-within:ring-2 focus-within:ring-[#084E75]/20">
+                  <input
+                    name="experience"
+                    type="number"
+                    min="0"
+                    max="50"
+                    value={form.experience}
+                    onChange={handleChange}
+                    placeholder="0"
+                    className="w-full py-2 pl-4 text-sm text-[#084E75]"
+                  />
+                </div>
               </div>
 
               <div>
@@ -192,7 +197,7 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
 
               {/* Resume upload */}
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-[#084E75]">Resume *  <span className="font-normal text-[#8E8E90]">(PDF, DOC — max 5 MB)</span></label>
+                <label className="mb-1.5 block text-sm font-medium text-[#084E75]">Resume *  <span className="font-normal text-[#8E8E90]">(PDF, DOC, max 5 MB)</span></label>
                 <input
                   ref={fileRef}
                   type="file"

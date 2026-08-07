@@ -79,13 +79,13 @@ export default function BlogDetailPage() {
         </div>
       </section>
 
-      {/* Cover image */}
-      {blog.cover_image && (
+      {/* Internal blog image */}
+      {blog.inner_image && (
         <div className="mx-auto max-w-4xl px-6 py-8">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={blog.cover_image}
-            alt={blog.title ?? "Blog cover"}
+            src={blog.inner_image}
+            alt={blog.title ?? "Blog image"}
             className="w-full rounded-3xl object-cover shadow-xl"
             style={{ maxHeight: "480px" }}
           />
