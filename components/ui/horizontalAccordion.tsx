@@ -59,13 +59,11 @@ export default function HorizontalAccordion({
                 isActive ? "z-10" : "z-0"
               }`}
             >
-              <Image
+              <img
                 src={item.image}
-                fill
-                alt=""
-                sizes="(min-width: 1024px) 20vw, 100vw"
-                className={`object-cover transition-transform duration-700 ${
-                  isActive ? "scale-105" : "scale-100 group-hover:scale-105"
+                alt={item.title}
+                className={`object-cover transition-transform duration-700 h-full ${
+                  isActive ? "scale-130" : "scale-130 group-hover:scale-130"
                 }`}
               />
 

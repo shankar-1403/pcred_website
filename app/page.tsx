@@ -9,7 +9,7 @@ import {IconArrowRight,IconBuilding,IconBuildingBank,IconChartBar,IconChartBarPo
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import logo from "@/public/logo.png";
 import aboutImage from "@/public/who_we_are.webp";
-import about from "@/public/img_about_sec.png";
+import about from "@/public/img_about_sec.webp";
 import { SpinningText } from "@/components/ui/spinning-text";
 import { LifecycleRoadmap } from "@/components/LifecycleRoadmap";
 import { MobileLifecycleTimeline } from "@/components/MobileLifecycleTimeline";
@@ -221,21 +221,21 @@ const CompaniesCard = ({ data }: CompaniesCardProps ) => {
       description:
         "Financial advice aligned with long-term business objectives.",
       icon: IconTargetArrow,
-      image: "/aboutpage1.png",
+      image: "/strategic_perspective.webp",
     },
     {
       title: "Execution Excellence",
       subtitle: "Results That Matter",
       description: "Turning strategies into measurable business outcomes.",
       icon: IconChartBar,
-      image: "/aboutpage2.png",
+      image: "/execution_excellence.webp",
     },
     {
       title: "Pan-India Reach",
       subtitle: "Nationwide Support",
       description: "Supporting businesses across industries throughout India.",
       icon: IconMap2,
-      image: "/aboutpage3.png",
+      image: "/pan_india_reach.webp",
     },
     {
       title: "Industry Expertise",
@@ -243,7 +243,7 @@ const CompaniesCard = ({ data }: CompaniesCardProps ) => {
       description:
         "Deep understanding of finance, governance, capital, and business growth.",
       icon: IconUsersGroup,
-      image: "/who_we_are.webp",
+      image: "/industry_expertise.webp",
     },
     {
       title: "Relationship-Driven",
@@ -251,7 +251,7 @@ const CompaniesCard = ({ data }: CompaniesCardProps ) => {
       description:
         "Long-term partnerships built on trust, transparency, and performance.",
       icon: IconHeartHandshake,
-      image: "/img2.webp",
+      image: "/relationship_driven.webp",
     },
   ];
 
@@ -451,21 +451,10 @@ export default function Home() {
                   aria-hidden
                   className="pointer-events-none absolute inset-0 opacity-30"
                 />
-                <Image
-                  src={about}
+                <img
+                  src={'/img_about_sec.webp'}
                   alt="PCRED corporate advisory"
-                  className="relative z-10 w-full scale-[1.2] object-contain lg:scale-[1.1] lg:translate-y-4"
-                  priority
-                  style={{
-                    // Slight edge feather so the artwork's off-white background
-                    // dissolves into the page instead of showing a faint seam.
-                    WebkitMaskImage:
-                      "linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%)",
-                    WebkitMaskComposite: "source-in",
-                    maskImage:
-                      "linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%)",
-                    maskComposite: "intersect",
-                  }}
+                  className="relative z-10 w-full scale-[1.0] object-contain lg:scale-[1.0]"
                 />
 
                 <motion.div initial={{ x: -15 }}

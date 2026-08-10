@@ -418,7 +418,7 @@ export default function Scheme() {
           ) : (
             <div className="h-full w-full bg-linear-to-br from-[#084E75]/20 to-[#DDB162]/20" />
           )}
-          <div className="absolute top-0 left-0 w-full h-full bg-white/96 lg:bg-transparent lg:bg-linear-to-r lg:from-white lg:from-0% lg:via-white/40 lg:via-40% lg:to-transparent lg:to-75%" />
+          <div className="absolute top-0 left-0 w-full h-full bg-white/96 lg:bg-transparent lg:bg-linear-to-r lg:from-white/90 lg:from-40% lg:via-white/70 lg:via-60% lg:to-transparent lg:to-80%" />
         </div>
 
         <div className="relative z-10 pb-0 h-full">

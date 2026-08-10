@@ -1,14 +1,14 @@
 'use client';
 import { Children, useState } from "react";
-import {Navbar,NavBody,NavItems,MobileNav,NavbarLogo,NavbarButton,MobileNavHeader,MobileNavToggle,MobileNavMenu,} from "../components/ui/resizable-navbar"
+import { Navbar, NavBody, NavItems, MobileNav, NavbarLogo, NavbarButton, MobileNavHeader, MobileNavToggle, MobileNavMenu, } from "../components/ui/resizable-navbar"
 import Link from "next/link";
 import { IconChevronDown } from "@tabler/icons-react";
 import { useSchemes } from "@/src/hooks/useSchemes";
 import { FontSizeToggle } from "@/components/ui/font-size-toggle";
 
 export default function Header() {
-  const {schemes} = useSchemes();
-  
+  const { schemes } = useSchemes();
+
   const navItems = [
     {
       name: "Home",
@@ -26,7 +26,7 @@ export default function Header() {
       name: "Schemes",
       children: schemes.map((scheme) => ({
         name: scheme.dropdown_label ?? "",
-        link: `/scheme/${scheme.id}`, 
+        link: `/scheme/${scheme.id}`,
       })),
     },
     {
@@ -53,7 +53,7 @@ export default function Header() {
             <Link href="/contact" className="px-6 py-3 rounded-4xl bg-[#DDB162] text-white text-xs cursor-pointer text-center">Contact Us</Link>
           </div>
         </NavBody>
- 
+
         {/* Mobile Navigation */}
         <MobileNav>
           <MobileNavHeader className="px-6">
@@ -63,7 +63,7 @@ export default function Header() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             />
           </MobileNavHeader>
- 
+
           <MobileNavMenu
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
@@ -107,7 +107,7 @@ export default function Header() {
                 </a>
               )
             )}
-<div className="flex w-full flex-col gap-4">
+            <div className="flex w-full flex-col gap-4">
               <NavbarButton href="/contact" onClick={() => setIsMobileMenuOpen(false)} variant="primary" className="w-full">Contact Us</NavbarButton>
             </div>
           </MobileNavMenu>

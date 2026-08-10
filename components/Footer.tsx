@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/logo.webp";
+import logo from "@/public/pcred_cms_logo.webp";
 import {
   IconMail,
   IconMapPin,
@@ -13,10 +13,8 @@ import {
 } from "@tabler/icons-react";
 
 const socialLinks = [
-  { label: "Facebook", href: "#", icon: IconBrandFacebook },
-  { label: "Instagram", href: "#", icon: IconBrandInstagram },
-  { label: "LinkedIn", href: "#", icon: IconBrandLinkedin },
-  { label: "X", href: "#", icon: IconBrandX },
+  { label: "Instagram", href: "https://www.instagram.com/pcred_finance?igsh=aGNqeWdubzZ0c3Zo", icon: IconBrandInstagram },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/pcred-ventures-pvt-ltd/", icon: IconBrandLinkedin },
 ];
 
 const quickLinks = [
@@ -57,7 +55,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <Link href="/" className="relative inline-block">
-              <Image src={logo} alt="Pcred" width={140} height={60} className="relative h-10 w-auto"/>
+              <Image src={logo} alt="Pcred" width={140} height={60} className="relative h-14 w-auto" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
               Strategic financial advisory solutions designed to strengthen and
@@ -66,14 +64,8 @@ export default function Footer() {
 
             <div className="flex items-center gap-3 mt-5">
               {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="flex size-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-[#DDB162] hover:text-[#DDB162]"
-                >
-                  <social.icon className="size-4" />
-                </a>
+                <Link key={social.label} href={social.href} target="blank" aria-label={social.label} className="flex size-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-[#DDB162] hover:text-[#DDB162]"
+                ><social.icon className="size-4" /></Link>
               ))}
             </div>
           </div>
@@ -97,10 +89,10 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-5 lg:pl-8">
+          <div className="flex flex-col">
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#DDB162] text-left md:text-center">Get In Touch</h3>
             <div className="flex flex-col gap-5">
-<a
+              <a
                 href="https://maps.google.com/?q=Lodha+Supremus,520,Off+Mahakali+Caves+Rd,Chakala+Industrial+Area+MIDC,Andheri+East,Mumbai,Maharashtra+400093"
                 target="_blank"
                 rel="noopener noreferrer"

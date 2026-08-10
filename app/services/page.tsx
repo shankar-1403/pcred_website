@@ -5,6 +5,8 @@ import Link from "next/link";
 import {IconArrowRight,IconBriefcase,IconChartLine,IconRocket,IconShield,IconTrendingUp,IconWallet,IconBuildingBank,IconReportAnalytics,IconLeaf,IconBuilding,IconCoins,IconCreditCard,IconUsers,IconCalculator,
   type TablerIcon,
 } from "@tabler/icons-react";
+import Image from "next/image";
+import swastikLogo from "../../public/swastik_logo.png"
 
 type Service = {
   id: number;
@@ -175,16 +177,16 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
-                className="group relative flex flex-col bg-linear-to-br from-[#084E75]/8 via-white to-[#DDB162]/12 p-4 rounded-2xl border border-[#084E75]/12 transition-all duration-300 hover:shadow-xl hover:from-[#084E75]/15 hover:via-white hover:to-[#DDB162]/20 hover:border-[#DDB162]/40"
+                className="overflow-hidden group relative flex flex-col bg-linear-to-br from-[#084E75]/8 via-white to-[#DDB162]/12 p-4 rounded-2xl border border-[#084E75]/12 transition-all duration-300 hover:shadow-xl hover:from-[#084E75]/15 hover:via-white hover:to-[#DDB162]/20 hover:border-[#DDB162]/40"
               >
                 {/* Top row: icon left, number right */}
                 <div className="mb-4 flex items-start justify-between">
                   <div className="flex size-9 items-center justify-center rounded-xl bg-linear-to-br from-[#084E75] to-[#0a6494]">
                     <service.icon className="size-4 text-white" stroke={1.5} />
                   </div>
-                  <span className="font-mono text-5xl font-black text-[#084E75]/10 leading-none select-none">
-                    {String(service.id).padStart(2, "0")}
-                  </span>
+                  <div className="absolute -right-2 -top-3">
+                    <Image alt="Swastik Logo" height={90} width={90} src={swastikLogo} className="h-20 opacity-8 rotate-45"/>
+                  </div>
                 </div>
 
                 <h3 className="mb-1.5 text-base font-semibold leading-snug text-[#084E75]">

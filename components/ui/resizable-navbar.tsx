@@ -72,12 +72,31 @@ export const NavBody = ({ children, className }: NavBodyProps) => {
   );
 };
 
-export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
+export const NavItems = ({
+  items,
+  className,
+  onItemClick,
+}: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
+  const closeTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  const openMenu = (idx: number) => {
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+      closeTimeout.current = null;
+    }
+
+    setHovered(idx);
+  };
+
+  const closeMenu = () => {
+    closeTimeout.current = setTimeout(() => {
+      setHovered(null);
+    }, 150);
+  };
 
   return (
     <motion.div
-      onMouseLeave={() => setHovered(null)}
       className={cn(
         "absolute inset-0 hidden flex-1 items-center justify-center gap-2 text-sm font-medium lg:flex",
         className
@@ -86,14 +105,15 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       {items.map((item, idx) => (
         <div
           key={`link-${idx}`}
-          className="relative group"
-          onMouseEnter={() => setHovered(idx)}
+          className="relative"
+          onMouseEnter={() => openMenu(idx)}
+          onMouseLeave={closeMenu}
         >
           {item.link ? (
             <Link
               href={item.link}
               onClick={onItemClick}
-              className="relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold text-[#084E75]"
+              className="relative flex cursor-pointer items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold text-[#084E75]"
             >
               {hovered === idx && (
                 <motion.div
@@ -142,17 +162,28 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             </button>
           )}
 
-          {item.children && (
-            <div className="fixed left-0 right-0 top-[60px] z-50 hidden px-6 group-hover:block">
-              <div className="mx-auto max-w-7xl">
-                <div className="rounded-2xl border border-[#084E75]/10 bg-white shadow-2xl overflow-hidden">
+          {/* Mega Menu */}
+          {item.children && hovered === idx && (
+            <div
+              className="fixed left-0 right-0 top-14 z-50 px-6"
+              onMouseEnter={() => openMenu(idx)}
+              onMouseLeave={closeMenu}
+            >
+              <div className="mx-auto max-w-7xl pt-2">
+                <div className="overflow-hidden rounded-2xl border border-[#084E75]/10 bg-white shadow-2xl">
                   {/* Mega-menu header */}
                   <div className="border-b border-[#084E75]/8 bg-[#084E75]/3 px-8 py-4">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-[#084E75]/50">{item.name}</p>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-[#084E75]/50">
+                      {item.name}
+                    </p>
                   </div>
+
+                  {/* Mega-menu content */}
                   <div className="p-8">
                     {item.children.length === 0 ? (
-                      <p className="text-sm text-[#084E75]/40 italic">More schemes coming soon.</p>
+                      <p className="text-sm italic text-[#084E75]/40">
+                        More schemes coming soon.
+                      </p>
                     ) : (
                       <div className="grid grid-cols-3 gap-2 lg:grid-cols-4">
                         {item.children.map((child) => (
@@ -160,9 +191,10 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
                             key={child.link}
                             href={child.link!}
                             onClick={onItemClick}
-                            className="group/item flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-medium text-[#084E75] transition-all hover:bg-[#DDB162]/10 hover:text-[#084E75]"
+                            className="group/item flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-medium text-[#084E75] transition-all hover:bg-[#DDB162]/10"
                           >
                             <span className="size-1.5 shrink-0 rounded-full bg-[#DDB162]" />
+
                             {child.name}
                           </Link>
                         ))}
@@ -178,6 +210,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     </motion.div>
   );
 };
+
 
 export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
