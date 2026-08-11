@@ -5,11 +5,10 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import {IconArrowRight,IconBuilding,IconBuildingBank,IconChartBar,IconChartBarPopular,IconChartHistogram,IconCheck,IconChevronLeft,IconChevronRight,IconCircleDashedCheck,IconClock,IconHeartHandshake,IconMail,IconMap2,IconMapPin,IconPhone,IconQuote,IconRefresh,IconRocket,IconSend,IconStarFilled,IconTargetArrow,IconUsersGroup,} from "@tabler/icons-react";
+import { IconArrowRight, IconBuilding, IconBuildingBank, IconChartBar, IconStar, IconStarHalfFilled, IconChartHistogram, IconCheck, IconChevronLeft, IconChevronRight, IconCircleDashedCheck, IconClock, IconHeartHandshake, IconMail, IconMap2, IconMapPin, IconPhone, IconQuote, IconRefresh, IconRocket, IconSend, IconStarFilled, IconTargetArrow, IconUsersGroup, } from "@tabler/icons-react";
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import logo from "@/public/logo.png";
 import aboutImage from "@/public/who_we_are.webp";
-import about from "@/public/img_about_sec.webp";
 import { SpinningText } from "@/components/ui/spinning-text";
 import { LifecycleRoadmap } from "@/components/LifecycleRoadmap";
 import { MobileLifecycleTimeline } from "@/components/MobileLifecycleTimeline";
@@ -61,239 +60,239 @@ interface CompaniesCardProps {
   data: StaticImageData;
 }
 
-const CompaniesCard = ({ data }: CompaniesCardProps ) => {
+const CompaniesCard = ({ data }: CompaniesCardProps) => {
   return (
     <figure
       className={"relative w-28 h-16 md:w-60 md:h-30 overflow-hidden rounded-4xl border p-2 border-blue-950 hover:shadow-lg hover:scale-105 transition-transform duration-300"}
     >
       <div className="p-2 md:p-4 flex justify-center items-center h-full">
         <div className="h-full">
-          <img src={data.src} alt={'Banks Logo'} className="h-8 md:h-16 w-auto object-contain"/>
+          <img src={data.src} alt={'Banks Logo'} className="h-8 md:h-16 w-auto object-contain" />
         </div>
       </div>
     </figure>
   )
 }
 
-  const reviews = [
-    {
-      id: 1,
-      quote:
-        "PCRED helped us streamline our finances and plan growth more confidently.",
-      name: "Arvind Mehra",
-      role: "Founder",
-      rating: 5,
-    },
-    {
-      id: 2,
-      quote:
-        "Their financial guidance was practical, transparent, and truly business-focused.",
-      name: "Neha Agarwal",
-      role: "Director",
-      rating: 5,
-    },
-    {
-      id: 3,
-      quote:
-        "PCRED understands MSME challenges and delivers solutions that actually work.",
-      name: "Amit Kulkarni",
-      role: "Managing Partner",
-      rating: 5,
-    },
-    {
-      id: 4,
-      quote:
-        "Professional support and smooth execution throughout the entire advisory process.",
-      name: "Priya Nair",
-      role: "Founder",
-      rating: 5,
-    },
-    {
-      id: 5,
-      quote:
-        "Their strategic insights helped us improve financial stability and planning.",
-      name: "Sandeep Mehta",
-      role: "CEO",
-      rating: 5,
-    },
-    {
-      id: 6,
-      quote: "Reliable financial advisory backed by strong business understanding.",
-      name: "Rohan Shah",
-      role: "Co-Founder",
-      rating: 5,
-    },
-    {
-      id: 7,
-      quote: "PCRED made our funding and expansion process much more structured.",
-      name: "Kunal Arora",
-      role: "Director",
-      rating: 5,
-    },
-    {
-      id: 8,
-      quote:
-        "The team provided personalized guidance aligned with our business goals.",
-      name: "Aditi Deshmukh",
-      role: "Founder",
-      rating: 5,
-    },
-    {
-      id: 9,
-      quote:
-        "Their structured financial approach helped us plan growth more effectively.",
-      name: "Vivek Jain",
-      role: "Managing Director",
-      rating: 5,
-    },
-    {
-      id: 10,
-      quote: "Transparent communication and dependable support at every stage.",
-      name: "Pooja Malhotra",
-      role: "Operations Head",
-      rating: 5,
-    },
-    {
-      id: 11,
-      quote:
-        "PCRED simplified complex financial decisions and made the process seamless.",
-      name: "Harsh Vardhan",
-      role: "Founder",
-      rating: 5,
-    },
-  ];
+const reviews = [
+  {
+    id: 1,
+    quote:
+      "PCRED helped us streamline our finances and plan growth more confidently.",
+    name: "Arvind Mehra",
+    role: "Founder",
+    rating: 5,
+  },
+  {
+    id: 2,
+    quote:
+      "Their financial guidance was practical, transparent, and truly business-focused.",
+    name: "Neha Agarwal",
+    role: "Director",
+    rating: 4.5,
+  },
+  {
+    id: 3,
+    quote:
+      "PCRED understands MSME challenges and delivers solutions that actually work.",
+    name: "Amit Kulkarni",
+    role: "Managing Partner",
+    rating: 4.5,
+  },
+  {
+    id: 4,
+    quote:
+      "Professional support and smooth execution throughout the entire advisory process.",
+    name: "Priya Nair",
+    role: "Founder",
+    rating: 4.5,
+  },
+  {
+    id: 5,
+    quote:
+      "Their strategic insights helped us improve financial stability and planning.",
+    name: "Sandeep Mehta",
+    role: "CEO",
+    rating: 5,
+  },
+  {
+    id: 6,
+    quote: "Reliable financial advisory backed by strong business understanding.",
+    name: "Rohan Shah",
+    role: "Co-Founder",
+    rating: 5,
+  },
+  {
+    id: 7,
+    quote: "PCRED made our funding and expansion process much more structured.",
+    name: "Kunal Arora",
+    role: "Director",
+    rating: 4.5,
+  },
+  {
+    id: 8,
+    quote:
+      "The team provided personalized guidance aligned with our business goals.",
+    name: "Aditi Deshmukh",
+    role: "Founder",
+    rating: 5,
+  },
+  {
+    id: 9,
+    quote:
+      "Their structured financial approach helped us plan growth more effectively.",
+    name: "Vivek Jain",
+    role: "Managing Director",
+    rating: 4.5,
+  },
+  {
+    id: 10,
+    quote: "Transparent communication and dependable support at every stage.",
+    name: "Pooja Malhotra",
+    role: "Operations Head",
+    rating: 5,
+  },
+  {
+    id: 11,
+    quote:
+      "PCRED simplified complex financial decisions and made the process seamless.",
+    name: "Harsh Vardhan",
+    role: "Founder",
+    rating: 4.5,
+  },
+];
 
-  const stages = [
-    {
-      title: "Start",
-      description: "Lay the right foundation",
-      icon: IconRocket,
-    },
-    {
-      title: "Build",
-      description: "Strengthen your business model",
-      icon: IconBuilding,
-    },
-    {
-      title: "Grow",
-      description: "Accelerate revenue growth",
-      icon: IconChartBar,
-    },
-    {
-      title: "Scale",
-      description: "Expand operations and capabilities",
-      icon: IconChartHistogram,
-    },
-    {
-      title: "Transform",
-      description: "Drive innovation and efficiency",
-      icon: IconRefresh,
-    },
-    {
-      title: "IPO",
-      description: "Prepare for public markets",
-      icon: IconBuildingBank,
-    },
-  ];
+const stages = [
+  {
+    title: "Start",
+    description: "Lay the right foundation",
+    icon: IconRocket,
+  },
+  {
+    title: "Build",
+    description: "Strengthen your business model",
+    icon: IconBuilding,
+  },
+  {
+    title: "Grow",
+    description: "Accelerate revenue growth",
+    icon: IconChartBar,
+  },
+  {
+    title: "Scale",
+    description: "Expand operations and capabilities",
+    icon: IconChartHistogram,
+  },
+  {
+    title: "Transform",
+    description: "Drive innovation and efficiency",
+    icon: IconRefresh,
+  },
+  {
+    title: "IPO",
+    description: "Prepare for public markets",
+    icon: IconBuildingBank,
+  },
+];
 
-  const advisoryFeatures = [
-    {
-      title: "Funding",
-      description: "Strategic capital solutions to fuel your growth.",
-      icon: IconChartBar,
-    },
-    {
-      title: "Governance",
-      description: "Strong governance today, sustainable tomorrow.",
-      icon: IconCircleDashedCheck,
-    },
-    {
-      title: "IPO Readiness",
-      description: "Prepare today for a successful tomorrow.",
-      icon: IconBuildingBank,
-    },
-  ];
+const advisoryFeatures = [
+  {
+    title: "Funding",
+    description: "Strategic capital solutions to fuel your growth.",
+    icon: IconChartBar,
+  },
+  {
+    title: "Governance",
+    description: "Strong governance today, sustainable tomorrow.",
+    icon: IconCircleDashedCheck,
+  },
+  {
+    title: "IPO Readiness",
+    description: "Prepare today for a successful tomorrow.",
+    icon: IconBuildingBank,
+  },
+];
 
-  const features = [
-    {
-      title: "Strategic Perspective",
-      subtitle: "Long-term Vision",
-      description:
-        "Financial advice aligned with long-term business objectives.",
-      icon: IconTargetArrow,
-      image: "/strategic_perspective.webp",
-    },
-    {
-      title: "Execution Excellence",
-      subtitle: "Results That Matter",
-      description: "Turning strategies into measurable business outcomes.",
-      icon: IconChartBar,
-      image: "/execution_excellence.webp",
-    },
-    {
-      title: "Pan-India Reach",
-      subtitle: "Nationwide Support",
-      description: "Supporting businesses across industries throughout India.",
-      icon: IconMap2,
-      image: "/pan_india_reach.webp",
-    },
-    {
-      title: "Industry Expertise",
-      subtitle: "Deep Sector Knowledge",
-      description:
-        "Deep understanding of finance, governance, capital, and business growth.",
-      icon: IconUsersGroup,
-      image: "/industry_expertise.webp",
-    },
-    {
-      title: "Relationship-Driven",
-      subtitle: "Built on Trust",
-      description:
-        "Long-term partnerships built on trust, transparency, and performance.",
-      icon: IconHeartHandshake,
-      image: "/relationship_driven.webp",
-    },
-  ];
+const features = [
+  {
+    title: "Strategic Perspective",
+    subtitle: "Long-term Vision",
+    description:
+      "Financial advice aligned with long-term business objectives.",
+    icon: IconTargetArrow,
+    image: "/strategic_perspective.webp",
+  },
+  {
+    title: "Execution Excellence",
+    subtitle: "Results That Matter",
+    description: "Turning strategies into measurable business outcomes.",
+    icon: IconChartBar,
+    image: "/execution_excellence.webp",
+  },
+  {
+    title: "Pan-India Reach",
+    subtitle: "Nationwide Support",
+    description: "Supporting businesses across industries throughout India.",
+    icon: IconMap2,
+    image: "/pan_india_reach.webp",
+  },
+  {
+    title: "Industry Expertise",
+    subtitle: "Deep Sector Knowledge",
+    description:
+      "Deep understanding of finance, governance, capital, and business growth.",
+    icon: IconUsersGroup,
+    image: "/industry_expertise.webp",
+  },
+  {
+    title: "Relationship-Driven",
+    subtitle: "Built on Trust",
+    description:
+      "Long-term partnerships built on trust, transparency, and performance.",
+    icon: IconHeartHandshake,
+    image: "/relationship_driven.webp",
+  },
+];
 
-  const contactServices = [
-    "Capital Market Advisory",
-    "Debt Advisory",
-    "Virtual CFO Services",
-    "IPO Advisory",
-    "Investment Strategy Consulting",
-    "Other",
-  ];
+const contactServices = [
+  "Capital Market Advisory",
+  "Debt Advisory",
+  "Virtual CFO Services",
+  "IPO Advisory",
+  "Investment Strategy Consulting",
+  "Other",
+];
 
-  const contactInfo = [
-    {
-      icon: IconPhone,
-      label: "Phone",
-      value: "+91 22 3512 0060",
-      href: "tel:+912235120060",
-    },
-    {
-      icon: IconMail,
-      label: "Email",
-      value: "info@pcred.org",
-      href: "mailto:info@pcred.org",
-    },
-    {
-      icon: IconMapPin,
-      label: "Office",
-      value: "Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093",
-      href: undefined as string | undefined,
-    },
-    {
-      icon: IconClock,
-      label: "Hours",
-      value: "Mon – Sat, 9:00 AM – 6:00 PM",
-      href: undefined as string | undefined,
-    },
-  ];
+const contactInfo = [
+  {
+    icon: IconPhone,
+    label: "Phone",
+    value: "+91 22 3512 0060",
+    href: "tel:+912235120060",
+  },
+  {
+    icon: IconMail,
+    label: "Email",
+    value: "info@pcred.org",
+    href: "mailto:info@pcred.org",
+  },
+  {
+    icon: IconMapPin,
+    label: "Office",
+    value: "Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093",
+    href: undefined as string | undefined,
+  },
+  {
+    icon: IconClock,
+    label: "Hours",
+    value: "Mon – Sat, 9:00 AM – 6:00 PM",
+    href: undefined as string | undefined,
+  },
+];
 
-  const companies_one = [{image:bank_1},{image:bank_2},{image:bank_3},{image:bank_4},{image:bank_5},{image:bank_6},{image:bank_7},{image:bank_8},{image:bank_9},{image:bank_10},{image:bank_11},{image:bank_12},{image:bank_13},{image:bank_14},{image:bank_15},{image:bank_16},{image:bank_17},{image:bank_18},{image:bank_19},{image:bank_20}];
+const companies_one = [{ image: bank_1 }, { image: bank_2 }, { image: bank_3 }, { image: bank_4 }, { image: bank_5 }, { image: bank_6 }, { image: bank_7 }, { image: bank_8 }, { image: bank_9 }, { image: bank_10 }, { image: bank_11 }, { image: bank_12 }, { image: bank_13 }, { image: bank_14 }, { image: bank_15 }, { image: bank_16 }, { image: bank_17 }, { image: bank_18 }, { image: bank_19 }, { image: bank_20 }];
 
-  const companies_two = [{image:bank_21},{image:bank_22},{image:bank_23},{image:bank_24},{image:bank_25},{image:bank_26},{image:bank_27},{image:bank_28},{image:bank_29},{image:bank_30},{image:bank_31},{image:bank_32},{image:bank_33},{image:bank_34},{image:bank_35},{image:bank_36},{image:bank_37},{image:bank_38},{image:bank_39},{image:bank_40},{image:bank_41}];
+const companies_two = [{ image: bank_21 }, { image: bank_22 }, { image: bank_23 }, { image: bank_24 }, { image: bank_25 }, { image: bank_26 }, { image: bank_27 }, { image: bank_28 }, { image: bank_29 }, { image: bank_30 }, { image: bank_31 }, { image: bank_32 }, { image: bank_33 }, { image: bank_34 }, { image: bank_35 }, { image: bank_36 }, { image: bank_37 }, { image: bank_38 }, { image: bank_39 }, { image: bank_40 }, { image: bank_41 }];
 
 
 const inputClass =
@@ -385,6 +384,7 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative flex min-h-screen items-end overflow-hidden">
+
         <video
           src="/banner.mp4"
           autoPlay
@@ -393,6 +393,9 @@ export default function Home() {
           playsInline
           className="absolute inset-0 h-full w-full object-cover"
         />
+
+        {/* Optional dark overlay */}
+        <div className="absolute inset-0 bg-black/10" />
 
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 px-6 pb-24 pt-32 md:gap-8 md:pb-32">
           <motion.div
@@ -404,7 +407,7 @@ export default function Home() {
             <div className="flex items-end gap-3 md:gap-4">
 
               <h1 className="flex flex-nowrap items-end gap-x-1 sm:gap-x-2 text-2xl font-bold uppercase tracking-tight text-white sm:text-4xl md:text-6xl lg:text-7xl">
-                <div className="mb-0.5 shrink-0 md:mb-1.5">
+                <div className="mb-0.5 shrink-0 md:mb-2">
                   <Image src={logo} alt="PCRED" className="h-7 w-auto object-contain sm:h-11 md:h-16 lg:h-20" width={80} height={80} />
                 </div>
                 <DiaTextReveal
@@ -690,12 +693,12 @@ export default function Home() {
             className="relative overflow-hidden mt-4"
           >
             <Marquee pauseOnHover className="[--duration:100s]">
-              {companies_one.map((logo,index) => (
+              {companies_one.map((logo, index) => (
                 <CompaniesCard key={index} data={logo.image} />
               ))}
             </Marquee>
             <Marquee reverse pauseOnHover className="[--duration:100s]">
-              {companies_two.map((logo,index) => (
+              {companies_two.map((logo, index) => (
                 <CompaniesCard key={index} data={logo.image} />
               ))}
             </Marquee>
@@ -708,7 +711,7 @@ export default function Home() {
       {/* CTA Section */}
       <section
         className="relative bg-cover bg-scroll bg-center bg-no-repeat py-14 md:bg-fixed md:py-14"
-        style={{ backgroundImage: "url('/cta-background.png')" }}
+        style={{ backgroundImage: "url('/right_financial_partner.webp')" }}
       >
         <div className="absolute inset-0 bg-[#084E75]/60" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(221,177,98,0.15),transparent_60%)]" />
@@ -776,7 +779,7 @@ export default function Home() {
 
             <div className="flex items-center gap-6 rounded-3xl border border-[#084E75]/10 bg-[#084E75]/5 px-6 py-4 backdrop-blur-sm">
               <div className="text-center">
-                <p className="text-3xl font-bold text-[#084E75]">4.9</p>
+                <p className="text-3xl font-bold text-[#084E75]">4.7</p>
                 <div className="mt-1 flex justify-center gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <IconStarFilled key={i} className="size-4 text-[#DDB162]" />
@@ -827,12 +830,34 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="flex gap-0.5 md:flex-col">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <IconStarFilled
-                            key={i}
-                            className="size-5 text-[#DDB162]"
-                          />
-                        ))}
+                        {Array.from({ length: 5 }).map((_, i) => {
+                          const rating = activeReviewData.rating;
+
+                          if (i < Math.floor(rating)) {
+                            return (
+                              <IconStarFilled
+                                key={i}
+                                className="size-5 text-[#DDB162]"
+                              />
+                            );
+                          }
+
+                          if (i < rating) {
+                            return (
+                              <IconStarHalfFilled
+                                key={i}
+                                className="size-5 text-[#DDB162]"
+                              />
+                            );
+                          }
+
+                          return (
+                            <IconStar
+                              key={i}
+                              className="size-5 text-[#DDB162]"
+                            />
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -848,11 +873,10 @@ export default function Home() {
                     type="button"
                     aria-label={`Go to review ${i + 1}`}
                     onClick={() => goToReview(i)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      i === activeReview
-                        ? "w-8 bg-[#084E75]"
-                        : "w-2 bg-[#084E75]/25 hover:bg-[#084E75]/50"
-                    }`}
+                    className={`h-2 rounded-full transition-all duration-300 ${i === activeReview
+                      ? "w-8 bg-[#084E75]"
+                      : "w-2 bg-[#084E75]/25 hover:bg-[#084E75]/50"
+                      }`}
                   />
                 ))}
               </div>
@@ -916,73 +940,73 @@ export default function Home() {
               className="rounded-3xl border border-[#084E75]/10 bg-white p-8 shadow-xl md:p-10"
             >
               <form onSubmit={handleFormSubmit} className="space-y-5">
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#084E75]">
-                        Full Name <span className="text-red-500">*</span>
-                      </label>
-                      <input id="name" name="name" type="text" value={form.name} onChange={handleFormChange} placeholder="John Doe" className={`${inputClass} ${formErrors.name ? "border-red-400" : ""}`} />
-                      {formErrors.name && <p className="mt-1 text-xs text-red-500">{formErrors.name}</p>}
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#084E75]">
-                        Email <span className="text-red-500">*</span>
-                      </label>
-                      <input id="email" name="email" type="text" value={form.email} onChange={handleFormChange} placeholder="you@company.com" className={`${inputClass} ${formErrors.email ? "border-red-400" : ""}`} />
-                      {formErrors.email && <p className="mt-1 text-xs text-red-500">{formErrors.email}</p>}
-                    </div>
-                  </div>
-                  <div className="grid gap-5 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[#084E75]">
-                        Phone <span className="text-red-500">*</span>
-                      </label>
-                      <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleFormChange} placeholder="+91 98765 43210" className={`${inputClass} ${formErrors.phone ? "border-red-400" : ""}`} />
-                      {formErrors.phone && <p className="mt-1 text-xs text-red-500">{formErrors.phone}</p>}
-                    </div>
-                    <div>
-                      <label htmlFor="company" className="mb-2 block text-sm font-medium text-[#084E75]">
-                        Company
-                      </label>
-                      <input id="company" name="company" type="text" value={form.company} onChange={handleFormChange} placeholder="Your company name" className={inputClass} />
-                    </div>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      Full Name <span className="text-red-500">*</span>
+                    </label>
+                    <input id="name" name="name" type="text" value={form.name} onChange={handleFormChange} placeholder="John Doe" className={`${inputClass} ${formErrors.name ? "border-red-400" : ""}`} />
+                    {formErrors.name && <p className="mt-1 text-xs text-red-500">{formErrors.name}</p>}
                   </div>
                   <div>
-                    <label htmlFor="service" className="mb-2 block text-sm font-medium text-[#084E75]">
-                      Service of Interest
+                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      Email <span className="text-red-500">*</span>
                     </label>
-                    <select id="service" name="service" value={form.service} onChange={handleFormChange} className={`${inputClass} cursor-pointer appearance-none`}>
-                      <option value="">Select a service</option>
-                      {contactServices.map((s) => (
-                        <option key={s} value={s}>{s}</option>
-                      ))}
-                    </select>
+                    <input id="email" name="email" type="text" value={form.email} onChange={handleFormChange} placeholder="you@company.com" className={`${inputClass} ${formErrors.email ? "border-red-400" : ""}`} />
+                    {formErrors.email && <p className="mt-1 text-xs text-red-500">{formErrors.email}</p>}
+                  </div>
+                </div>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      Phone <span className="text-red-500">*</span>
+                    </label>
+                    <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleFormChange} placeholder="+91 98765 43210" className={`${inputClass} ${formErrors.phone ? "border-red-400" : ""}`} />
+                    {formErrors.phone && <p className="mt-1 text-xs text-red-500">{formErrors.phone}</p>}
                   </div>
                   <div>
-                    <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#084E75]">
-                      Message <span className="text-red-500">*</span>
+                    <label htmlFor="company" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      Company
                     </label>
-                    <textarea id="message" name="message" rows={5} value={form.message} onChange={handleFormChange} placeholder="Tell us about your business needs and goals..." className={`${inputClass} resize-none ${formErrors.message ? "border-red-400" : ""}`} />
-                    {formErrors.message && <p className="mt-1 text-xs text-red-500">{formErrors.message}</p>}
+                    <input id="company" name="company" type="text" value={form.company} onChange={handleFormChange} placeholder="Your company name" className={inputClass} />
                   </div>
-                  <button
-                    type="submit"
-                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#084E75] px-6 py-3.5 text-sm font-semibold text-[#DDB162] shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl"
+                </div>
+                <div>
+                  <label htmlFor="service" className="mb-2 block text-sm font-medium text-[#084E75]">
+                    Service of Interest
+                  </label>
+                  <select id="service" name="service" value={form.service} onChange={handleFormChange} className={`${inputClass} cursor-pointer appearance-none`}>
+                    <option value="">Select a service</option>
+                    {contactServices.map((s) => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#084E75]">
+                    Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea id="message" name="message" rows={5} value={form.message} onChange={handleFormChange} placeholder="Tell us about your business needs and goals..." className={`${inputClass} resize-none ${formErrors.message ? "border-red-400" : ""}`} />
+                  {formErrors.message && <p className="mt-1 text-xs text-red-500">{formErrors.message}</p>}
+                </div>
+                <button
+                  type="submit"
+                  className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#084E75] px-6 py-3.5 text-sm font-semibold text-[#DDB162] shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl"
+                >
+                  Send Message
+                  <IconSend className="size-5 transition-transform group-hover:translate-x-1" />
+                </button>
+                {submitted && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center gap-3 rounded-xl bg-[#084E75]/8 px-4 py-3 text-sm text-[#084E75]"
                   >
-                    Send Message
-                    <IconSend className="size-5 transition-transform group-hover:translate-x-1" />
-                  </button>
-                  {submitted && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="flex items-center gap-3 rounded-xl bg-[#084E75]/8 px-4 py-3 text-sm text-[#084E75]"
-                    >
-                      <IconCheck className="size-5 shrink-0" />
-                      <span>Message sent! Our team will get back to you shortly.</span>
-                    </motion.div>
-                  )}
-                </form>
+                    <IconCheck className="size-5 shrink-0" />
+                    <span>Message sent! Our team will get back to you shortly.</span>
+                  </motion.div>
+                )}
+              </form>
             </motion.div>
 
             <motion.div
