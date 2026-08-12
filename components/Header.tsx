@@ -9,6 +9,14 @@ import { FontSizeToggle } from "@/components/ui/font-size-toggle";
 export default function Header() {
   const { schemes } = useSchemes();
 
+  const services = [
+    {id:1,name:"Corporate Finance",link:"corporate-finance"},
+    {id:2,name:"M&A Advisory",link:"ma-advisory"},
+    {id:3,name:"Valuation & Transaction",link:"valuation-transaction"},
+    {id:4,name:"CFO Advisory",link:"cfo-advisory"},
+    {id:5,name:"Risk & Governance",link:"risk-governance"},
+  ]
+
   const navItems = [
     {
       name: "Home",
@@ -20,7 +28,10 @@ export default function Header() {
     },
     {
       name: "Services",
-      link: "/services",
+      children: services.map((service) => ({
+        name: service.name ?? "",
+        link: `/services/${service.link}`,
+      })),
     },
     {
       name: "Schemes",

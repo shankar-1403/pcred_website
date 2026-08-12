@@ -139,8 +139,8 @@ function page() {
                   className="absolute z-0 flex flex-col justify-start gap-1.5 overflow-hidden"
                   style={{ left: "23.4%", top: "15.8%", width: "53.2%", height: "73.1%" }}
                 >
-                  <div className="relative overflow-hidden rounded-2xl bg-[#084E75] p-4 text-white">
-                    <h5 className="text-base font-semibold leading-snug">Ready to Move Your Business Forward?</h5>
+                  <div className="relative overflow-hidden rounded-2xl p-4 flex justify-center">
+                    <img src="/logo.webp" alt="PCRED Logo" className='h-12'/>
                   </div>
                   <div className="flex flex-col gap-2.5">
                     {contactInfo.map((item, i) => (

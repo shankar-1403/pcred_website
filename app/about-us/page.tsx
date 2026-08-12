@@ -110,7 +110,7 @@ export default function AboutUsPage() {
                   <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/40">Years of advisory</span>
                 </div>
                 <div className="relative z-10 flex flex-1 flex-col items-start justify-center">
-                  <span className="block text-5xl font-black leading-none text-white sm:text-6xl lg:text-8xl">10+</span>
+                  <span className="block text-5xl font-black leading-none text-white sm:text-6xl lg:text-8xl">16+</span>
                   <div className="mt-4 h-px w-10 bg-[#DDB162]/60" />
                   <span className="mt-3 block text-sm text-white/90 leading-relaxed">Trusted financial expertise across industries</span>
                 </div>
