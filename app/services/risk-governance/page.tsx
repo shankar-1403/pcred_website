@@ -72,7 +72,7 @@ export default function Page() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-20 md:pb-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
         <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#DDB162]/10 blur-3xl" />
 
@@ -88,8 +88,8 @@ export default function Page() {
               Risk &amp; Governance
             </span>
             <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl leading-tight">
-              Governance frameworks for <br/>
-              <span className="text-[#DDB162]">resilient enterprises.</span>
+              Governance Frameworks for <br/>
+              <span className="text-[#DDB162]">Resilient Enterprises.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#4a5568] md:text-lg">
               As organisations become larger and more complex, governance and
@@ -119,8 +119,8 @@ export default function Page() {
                 Our Perspective
               </span>
               <h2 className="text-3xl font-bold leading-snug text-[#084E75] md:text-4xl">
-                Governance should protect value,{" "}
-                <span className="text-[#DDB162]">not simply satisfy compliance.</span>
+                Should Protect Value,{" "}
+                <span className="text-[#DDB162]">Not Satisfy Compliance.</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">
                 PCRED advises companies and management teams on:
@@ -167,14 +167,6 @@ export default function Page() {
                   sizes="(min-width: 1024px) 50vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/50 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-                    Governance first
-                  </p>
-                  <p className="mt-1 text-xl font-semibold text-white">
-                    Compliance second.
-                  </p>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -205,7 +197,7 @@ export default function Page() {
               What We Advise On
             </span>
             <h2 className="text-3xl font-bold text-white md:text-4xl">
-              Governance &amp; risk <span className="text-[#DDB162]">solutions</span>
+              Governance &amp; Risk <span className="text-[#DDB162]">Solutions</span>
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/70 md:text-lg">
               Structured advisory across enterprise risk, governance,
@@ -251,7 +243,7 @@ export default function Page() {
       </section>
 
       {/* APPROACH */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 py-20 md:py-28">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#DDB162]/12 via-[#EEF6FB] to-[#084E75]/25 py-12 md:py-16">
         <div className="pointer-events-none absolute -right-24 -top-24 size-96 rounded-full bg-[#DDB162]/5 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-24 size-80 rounded-full bg-[#084E75]/5 blur-3xl" />
 
@@ -269,30 +261,18 @@ export default function Page() {
               </span>
 
               <h2 className="mt-4 text-3xl font-bold text-[#084E75] md:text-4xl leading-tight">
-                Governance first.<br/>
-                <span className="text-[#DDB162]">Compliance second.</span>
+                Governance First.<br/>
+                <span className="text-[#DDB162]">Compliance Second.</span>
               </h2>
 
               <p className="mt-5 text-base leading-relaxed text-[#084E75]/70">
                 Effective governance is not simply a compliance requirement.
-                It provides the framework through which an organisation:
+                It provides the framework through which an organisation{" "}
+                <span className="font-semibold text-[#084E75]">
+                  makes decisions, manages risk, allocates accountability and
+                  protects stakeholder interests.
+                </span>
               </p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {[
-                  "Makes decisions",
-                  "Manages risk",
-                  "Allocates accountability",
-                  "Protects stakeholder interests",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="inline-flex items-center gap-2 rounded-xl border border-[#084E75]/10 bg-[#084E75]/5 px-4 py-2.5 text-sm font-semibold text-[#084E75]"
-                  >
-                    <span className="size-1.5 rounded-full bg-[#DDB162]" />
-                    {item}
-                  </span>
-                ))}
-              </div>
               <p className="mt-4 text-base leading-relaxed text-[#084E75]/70">
                 Our advisory approach aligns governance and risk management
                 with the organisation&apos;s operating model and strategic
@@ -334,7 +314,7 @@ export default function Page() {
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -347,8 +327,8 @@ export default function Page() {
                 Our Focus
               </span>
               <h2 className="text-3xl font-bold text-white md:text-4xl">
-                What effective advisory{" "}
-                <span className="text-[#DDB162]">delivers.</span>
+                What Effective Advisory{" "}
+                <span className="text-[#DDB162]">Delivers.</span>
               </h2>
               <p className="mt-4 text-base leading-relaxed text-white/70">
                 Institutional governance, risk visibility and internal
@@ -405,7 +385,7 @@ export default function Page() {
                 <h2 className="text-3xl font-semibold text-white md:text-4xl md:leading-tight">
                   Strengthening
                   <br />
-                  <span className="text-[#DDB162]">governance?</span>
+                  <span className="text-[#DDB162]">Governance?</span>
                 </h2>
                 <p className="mt-3 text-white/70">
                   Speak with our advisors about risk frameworks, governance

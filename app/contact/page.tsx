@@ -92,7 +92,7 @@ function page() {
   
   return (
     <>
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-20 md:pb-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
@@ -265,7 +265,7 @@ function page() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-[#DDB162] shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl hover:shadow-[#084E75]/30 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl hover:shadow-[#084E75]/30 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {loading ? "Sending…" : "Send Message"}
                     {!loading && <IconSend className="size-5 transition-transform group-hover:translate-x-1" />}

@@ -495,7 +495,7 @@ export default function Scheme() {
         </div>
       </section>
 
-      <section id="what-is-scheme" className="bg-white py-10 md:py-16 lg:py-24">
+      <section id="what-is-scheme" className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 gap-6 md:grid-cols-3">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -525,7 +525,7 @@ export default function Scheme() {
         </div>
       </section>
 
-      <section className="bg-linear-to-b from-gray-50 to-white py-10 md:py-16 lg:py-24">
+      <section className="bg-linear-to-b from-gray-50 to-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-7 lg:gap-16">
             <motion.div
@@ -676,7 +676,7 @@ export default function Scheme() {
         </div>
       </section>
 
-      <section className="bg-white py-10 md:py-16 lg:py-24">
+      <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

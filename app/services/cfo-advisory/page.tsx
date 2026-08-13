@@ -63,7 +63,7 @@ export default function Page() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-20 md:pb-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
         <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#DDB162]/10 blur-3xl" />
 
@@ -79,8 +79,8 @@ export default function Page() {
               CFO Advisory
             </span>
             <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl leading-tight">
-              Financial leadership for <br/>
-              <span className="text-[#DDB162]">businesses at critical stages of growth.</span>
+              Financial Leadership for <br/>
+              <span className="text-[#DDB162]">Businesses at Critical Stages of Growth.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#4a5568] md:text-lg">
               Sound financial management is fundamental to sustainable
@@ -110,8 +110,8 @@ export default function Page() {
                 Our Perspective
               </span>
               <h2 className="text-3xl font-bold leading-snug text-[#084E75] md:text-4xl">
-                Financial leadership should build clarity,{" "}
-                <span className="text-[#DDB162]">not simply reports.</span>
+                Should Build Clarity,{" "}
+                <span className="text-[#DDB162]">Not Simply Reports.</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">
                 PCRED provides CFO and financial advisory services to
@@ -160,14 +160,6 @@ export default function Page() {
                   sizes="(min-width: 1024px) 50vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/50 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-                    Clarity first
-                  </p>
-                  <p className="mt-1 text-xl font-semibold text-white">
-                    Decisions second.
-                  </p>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -198,7 +190,7 @@ export default function Page() {
               What We Advise On
             </span>
             <h2 className="text-3xl font-bold text-white md:text-4xl">
-              Financial leadership <span className="text-[#DDB162]">solutions</span>
+              Financial Leadership <span className="text-[#DDB162]">Solutions</span>
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/70 md:text-lg">
               Structured advisory across financial planning, reporting, cash
@@ -244,7 +236,7 @@ export default function Page() {
       </section>
 
       {/* APPROACH */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 py-20 md:py-28">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#DDB162]/12 via-[#EEF6FB] to-[#084E75]/25 py-12 md:py-16">
         <div className="pointer-events-none absolute -right-24 -top-24 size-96 rounded-full bg-[#DDB162]/5 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-24 size-80 rounded-full bg-[#084E75]/5 blur-3xl" />
 
@@ -262,30 +254,19 @@ export default function Page() {
               </span>
 
               <h2 className="mt-4 text-3xl font-bold text-[#084E75] md:text-4xl leading-tight">
-                Clarity first.<br/>
-                <span className="text-[#DDB162]">Decisions second.</span>
+                Clarity First.<br/>
+                <span className="text-[#DDB162]">Decisions Second.</span>
               </h2>
 
               <p className="mt-5 text-base leading-relaxed text-[#084E75]/70">
                 We focus on creating a financial function that provides
-                management with a clear view of:
+                management with a clear view of{" "}
+                <span className="font-semibold text-[#084E75]">
+                  where the business stands, where it is heading, what is
+                  driving performance and what financial decisions need to be
+                  made.
+                </span>
               </p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {[
-                  "Where the business stands",
-                  "Where it is heading",
-                  "What is driving performance",
-                  "What financial decisions need to be made",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="inline-flex items-center gap-2 rounded-xl border border-[#084E75]/10 bg-[#084E75]/5 px-4 py-2.5 text-sm font-semibold text-[#084E75]"
-                  >
-                    <span className="size-1.5 rounded-full bg-[#DDB162]" />
-                    {item}
-                  </span>
-                ))}
-              </div>
             </motion.div>
 
             <motion.div
@@ -313,7 +294,7 @@ export default function Page() {
 
       {/* OUTCOMES */}
       <section
-        className="relative overflow-hidden bg-cover bg-center bg-no-repeat py-20 md:py-28"
+        className="relative overflow-hidden bg-cover bg-center bg-no-repeat py-12 md:py-16"
         style={{ backgroundImage: "url('/bg_webpattern.webp')" }}
       >
         <div className="pointer-events-none absolute inset-0">
@@ -333,8 +314,8 @@ export default function Page() {
               Our Role
             </span>
             <h2 className="text-3xl font-bold text-white md:text-4xl">
-              What effective advisory{" "}
-              <span className="text-[#DDB162]">delivers.</span>
+              What Effective Advisory{" "}
+              <span className="text-[#DDB162]">Delivers.</span>
             </h2>
             <p className="mt-5 text-base leading-relaxed text-white/70 md:text-lg">
               PCRED can operate alongside existing management teams or
@@ -366,9 +347,9 @@ export default function Page() {
                   CFO Advisory
                 </span>
                 <h2 className="text-3xl font-semibold text-white md:text-4xl md:leading-tight">
-                  Need financial
+                  Need Financial
                   <br />
-                  <span className="text-[#DDB162]">leadership?</span>
+                  <span className="text-[#DDB162]">Leadership?</span>
                 </h2>
                 <p className="mt-3 text-white/70">
                   Speak with our advisors about CFO support, financial

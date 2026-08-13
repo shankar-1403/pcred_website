@@ -58,7 +58,7 @@ function BlogCard({ blog, index }: { blog: Blog; index: number }) {
 
         <Link
           href={`/blogs/${blog.id}`}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#084E75]"
+          className="inline-flex w-fit items-center gap-1.5 border-b-2 border-[#084E75] pb-1 text-xs font-semibold uppercase tracking-wider text-[#084E75] transition-colors hover:border-[#DDB162] hover:text-[#0a5d8a]"
         >
           Read article
           <IconArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -90,7 +90,7 @@ export default function BlogsPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-20 md:pb-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">

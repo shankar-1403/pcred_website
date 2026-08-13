@@ -32,7 +32,7 @@ const companies = [
   },
   {
     number: "03",
-    name: "EC Bharat",
+    name: "ECB",
     tagline: "Enterprise solutions, at scale.",
     points: [
       "Enterprise and business consulting solutions across sectors",
@@ -49,7 +49,7 @@ export default function Page() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-20 md:pb-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
         <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#DDB162]/10 blur-3xl" />
 

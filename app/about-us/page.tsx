@@ -54,7 +54,7 @@ export default function AboutUsPage() {
   return (
     <>
       {/* ── HERO + WHO WE ARE ── */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-20 md:pb-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
@@ -226,7 +226,7 @@ export default function AboutUsPage() {
 
       {/* ── MISSION VISION AIM ── */}
       <section
-        className="relative overflow-hidden bg-cover bg-center bg-no-repeat py-20 md:py-24"
+        className="relative overflow-hidden bg-cover bg-center bg-no-repeat py-20 md:py-28"
         style={{ backgroundImage: "url('/bg_webpattern.webp')" }}
       >
         {/* Gold hairline divider at top */}
@@ -293,7 +293,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* ── CORE BELIEFS ── */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 py-24 md:py-32">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 py-20 md:py-28">
         {/* Ambient blobs + dot grids */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -right-24 -top-24 size-96 rounded-full bg-[#DDB162]/5 blur-3xl" />

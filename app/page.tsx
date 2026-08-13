@@ -412,7 +412,7 @@ export default function Home() {
       </section>
 
       {/* Intro Section — Corporate Advisory */}
-      <section className="bg-white py-16 md:py-18">
+      <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -564,7 +564,7 @@ export default function Home() {
       </section>
 
       {/* Business Lifecycle */}
-      <section className="bg-white py-20 md:py-18">
+      <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
             <motion.div
@@ -604,7 +604,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="relative overflow-hidden bg-[#084E75] py-18">
+      <section className="relative overflow-hidden bg-[#084E75] py-20 md:py-28">
         <div className="pointer-events-none absolute inset-0 opacity-10">
           <div className="absolute -right-52 -top-52 size-150 rounded-full border border-[#DDB162]" />
           <div className="absolute -bottom-52 -left-52 size-125 rounded-full border border-[#DDB162]" />
@@ -639,7 +639,7 @@ export default function Home() {
       </section>
 
       {/* Expertise Section */}
-      <section className="relative py-20 md:py-20">
+      <section className="relative py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -725,7 +725,7 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <section className="relative overflow-hidden bg-white py-24 md:py-32">
+      <section className="relative overflow-hidden bg-white py-20 md:py-28">
         <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 -left-32 size-96 rounded-full bg-[#5BBCEB]/10 blur-3xl" />
 
@@ -883,7 +883,7 @@ export default function Home() {
       {/* Contact Section */}
       <section
         id="contact"
-        className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 py-24 md:py-32"
+        className="relative overflow-hidden bg-linear-to-b from-[#084E75]/20 via-white to-[#DDB162]/15 py-20 md:py-28"
       >
         <div className="pointer-events-none absolute -left-40 top-20 size-80 rounded-full bg-[#084E75]/5 blur-3xl" />
 
@@ -910,7 +910,7 @@ export default function Home() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="rounded-3xl border border-[#084E75]/10 bg-linear-to-br from-[#DDB162]/15 via-white to-[#084E75]/25 p-8 shadow-[0_1px_3px_rgba(8,78,117,0.06),0_25px_50px_-15px_rgba(8,78,117,0.3)] transition-shadow duration-300 hover:shadow-[0_1px_3px_rgba(8,78,117,0.06),0_35px_60px_-15px_rgba(8,78,117,0.4)] md:p-10"
+              className="rounded-3xl border border-[#084E75]/10 bg-white p-8 shadow-[0_1px_3px_rgba(8,78,117,0.06),0_25px_50px_-15px_rgba(8,78,117,0.3)] transition-shadow duration-300 hover:shadow-[0_1px_3px_rgba(8,78,117,0.06),0_35px_60px_-15px_rgba(8,78,117,0.4)] md:p-10"
             >
               <form onSubmit={handleFormSubmit} className="space-y-5">
                 <div className="grid gap-5 sm:grid-cols-2">
@@ -964,7 +964,7 @@ export default function Home() {
                 </div>
                 <button
                   type="submit"
-                  className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#084E75] px-6 py-3.5 text-sm font-semibold text-[#DDB162] shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl"
+                  className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#084E75] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl"
                 >
                   Send Message
                   <IconSend className="size-5 transition-transform group-hover:translate-x-1" />
