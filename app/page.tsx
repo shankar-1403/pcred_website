@@ -5,7 +5,7 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import { IconArrowRight, IconBuilding, IconBuildingBank, IconChartBar, IconStar, IconStarHalfFilled, IconChartHistogram, IconCheck, IconChevronLeft, IconChevronRight, IconCircleDashedCheck, IconClock, IconHeartHandshake, IconMail, IconMap2, IconMapPin, IconPhone, IconQuote, IconRefresh, IconRocket, IconSend, IconStarFilled, IconTargetArrow, IconUsersGroup, } from "@tabler/icons-react";
+import { IconArrowRight, IconBuilding, IconBuildingBank, IconChartBar, IconStar, IconStarHalfFilled, IconChartHistogram, IconCheck, IconChevronLeft, IconChevronRight, IconCircleDashedCheck, IconHeartHandshake, IconMap2, IconQuote, IconRefresh, IconRocket, IconSend, IconStarFilled, IconTargetArrow, IconUsersGroup, } from "@tabler/icons-react";
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import logo from "@/public/logo.png";
 import aboutImage from "@/public/who_we_are.webp";
@@ -255,39 +255,12 @@ const features = [
 ];
 
 const contactServices = [
-  "Capital Market Advisory",
-  "Debt Advisory",
-  "Virtual CFO Services",
-  "IPO Advisory",
-  "Investment Strategy Consulting",
+  "Corporate Finance",
+  "M&A Advisory",
+  "Valuation & Transaction",
+  "CFO Advisory",
+  "Risk & Governance",
   "Other",
-];
-
-const contactInfo = [
-  {
-    icon: IconPhone,
-    label: "Phone",
-    value: "+91 22 3512 0060",
-    href: "tel:+912235120060",
-  },
-  {
-    icon: IconMail,
-    label: "Email",
-    value: "info@pcred.org",
-    href: "mailto:info@pcred.org",
-  },
-  {
-    icon: IconMapPin,
-    label: "Office",
-    value: "Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093",
-    href: undefined as string | undefined,
-  },
-  {
-    icon: IconClock,
-    label: "Hours",
-    value: "Mon – Sat, 9:00 AM – 6:00 PM",
-    href: undefined as string | undefined,
-  },
 ];
 
 const companies_one = [{ image: bank_1 }, { image: bank_2 }, { image: bank_3 }, { image: bank_4 }, { image: bank_5 }, { image: bank_6 }, { image: bank_7 }, { image: bank_8 }, { image: bank_9 }, { image: bank_10 }, { image: bank_11 }, { image: bank_12 }, { image: bank_13 }, { image: bank_14 }, { image: bank_15 }, { image: bank_16 }, { image: bank_17 }, { image: bank_18 }, { image: bank_19 }, { image: bank_20 }];
@@ -937,7 +910,7 @@ export default function Home() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="rounded-3xl border border-[#084E75]/10 bg-white p-8 shadow-xl md:p-10"
+              className="rounded-3xl border border-[#084E75]/10 bg-linear-to-br from-[#DDB162]/15 via-white to-[#084E75]/25 p-8 shadow-[0_1px_3px_rgba(8,78,117,0.06),0_25px_50px_-15px_rgba(8,78,117,0.3)] transition-shadow duration-300 hover:shadow-[0_1px_3px_rgba(8,78,117,0.06),0_35px_60px_-15px_rgba(8,78,117,0.4)] md:p-10"
             >
               <form onSubmit={handleFormSubmit} className="space-y-5">
                 <div className="grid gap-5 sm:grid-cols-2">
@@ -1016,7 +989,7 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               className="hidden md:block"
             >
-              <div className="relative h-full min-h-[500px] overflow-hidden rounded-3xl shadow-xl">
+              <div className="relative h-full min-h-[500px] overflow-hidden rounded-3xl shadow-[0_1px_3px_rgba(8,78,117,0.06),0_25px_50px_-15px_rgba(8,78,117,0.3)] transition-shadow duration-300 hover:shadow-[0_1px_3px_rgba(8,78,117,0.06),0_35px_60px_-15px_rgba(8,78,117,0.4)]">
                 <img
                   src="/about_image.webp"
                   alt="Contact"

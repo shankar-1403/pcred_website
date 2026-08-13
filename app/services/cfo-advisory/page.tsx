@@ -17,54 +17,46 @@ import {
 const services = [
   {
     number: "01",
-    title: "Debt Advisory",
+    title: "CFO Advisory",
     description:
-      "Evaluation and structuring of debt solutions across acquisition finance, growth capital, refinancing and other corporate requirements.",
+      "Senior-level financial oversight and strategic guidance for businesses requiring experienced financial leadership.",
     icon: IconBuildingBank,
   },
   {
     number: "02",
-    title: "Capital Raising",
+    title: "Financial Planning & Analysis",
     description:
-      "Advisory on raising capital from appropriate financial and strategic sources based on funding requirements and transaction objectives.",
+      "Budgeting, forecasting, financial modelling and scenario analysis to support management decisions.",
     icon: IconCoins,
   },
   {
     number: "03",
-    title: "Debt Structuring",
+    title: "Management Reporting",
     description:
-      "Design and optimisation of debt structures considering tenor, pricing, security, repayment capacity and overall capital structure.",
+      "Development of structured MIS and management reporting frameworks.",
     icon: IconChartHistogram,
   },
   {
     number: "04",
-    title: "Working Capital & Structured Finance",
+    title: "Cash Flow & Liquidity Management",
     description:
-      "Advisory on liquidity requirements and financing structures supporting operating and expansion needs.",
+      "Improving visibility over cash generation, liquidity requirements and working capital.",
     icon: IconReportMoney,
   },
   {
     number: "05",
-    title: "Refinancing & Restructuring",
+    title: "Financial Strategy",
     description:
-      "Assessment of existing obligations and development of refinancing or restructuring strategies.",
+      "Capital allocation, financial planning and alignment of finance with corporate strategy.",
     icon: IconRefresh,
   },
   {
     number: "06",
-    title: "Lender Advisory & Engagement",
+    title: "Performance Advisory",
     description:
-      "Financial analysis, transaction preparation and support through lender discussions and financing processes.",
+      "Analysis of financial and operating performance with a focus on profitability, efficiency and sustainable growth.",
     icon: IconUsersGroup,
   },
-];
-
-const outcomes = [
-  "Appropriate capital structures",
-  "Improved financing flexibility",
-  "Optimised debt profiles",
-  "Structured lender engagement",
-  "Greater clarity on funding alternatives",
 ];
 
 export default function Page() {
@@ -84,16 +76,15 @@ export default function Page() {
           >
             <span className="mb-3 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
               <span className="size-2 rounded-full bg-[#DDB162]" />
-              Corporate Finance
+              CFO Advisory
             </span>
             <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl leading-tight">
-              Capital strategy for complex <br/>
-              <span className="text-[#DDB162]">financial requirements.</span>
+              Financial leadership for <br/>
+              <span className="text-[#DDB162]">businesses at critical stages of growth.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#4a5568] md:text-lg">
-              PCRED advises companies, promoters and investors on capital
-              raising, debt structuring and financial strategy across critical
-              stages of the corporate lifecycle.
+              Sound financial management is fundamental to sustainable
+              enterprise value.
             </p>
             <div className="mt-10 flex items-center justify-center">
               <div className="h-px w-40 bg-[#DDB162]/30" />
@@ -119,19 +110,23 @@ export default function Page() {
                 Our Perspective
               </span>
               <h2 className="text-3xl font-bold leading-snug text-[#084E75] md:text-4xl">
-                Financing decisions should be built around the business,{" "}
-                <span className="text-[#DDB162]">not simply the capital.</span>
+                Financial leadership should build clarity,{" "}
+                <span className="text-[#DDB162]">not simply reports.</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">
-                Our work focuses on developing financing structures aligned
-                with the client&apos;s:
+                PCRED provides CFO and financial advisory services to
+                companies requiring strategic financial leadership, stronger
+                financial controls and greater visibility into performance
+                and cash flows. Our role extends beyond financial reporting
+                to support management in financial planning, capital
+                allocation and business performance.
               </p>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {[
-                  "Capital requirements",
-                  "Cash-flow profile",
-                  "Leverage capacity",
-                  "Strategic objectives",
+                  "Strategic financial leadership",
+                  "Financial controls",
+                  "Performance visibility",
+                  "Cash flow visibility",
                 ].map((item) => (
                   <div
                     key={item}
@@ -159,7 +154,7 @@ export default function Page() {
               <div className="relative aspect-4/3 overflow-hidden rounded-3xl shadow-xl shadow-[#084E75]/10">
                 <Image
                   src="/who_we_are.webp"
-                  alt="Corporate finance advisory"
+                  alt="CFO advisory"
                   fill
                   className="object-cover"
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -167,10 +162,10 @@ export default function Page() {
                 <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/50 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-                    Structure first
+                    Clarity first
                   </p>
                   <p className="mt-1 text-xl font-semibold text-white">
-                    Capital second.
+                    Decisions second.
                   </p>
                 </div>
               </div>
@@ -203,11 +198,11 @@ export default function Page() {
               What We Advise On
             </span>
             <h2 className="text-3xl font-bold text-white md:text-4xl">
-              Financing <span className="text-[#DDB162]">solutions</span>
+              Financial leadership <span className="text-[#DDB162]">solutions</span>
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/70 md:text-lg">
-              Structured advisory across debt, capital raising, liquidity and
-              lender engagement.
+              Structured advisory across financial planning, reporting, cash
+              flow and performance management.
             </p>
           </motion.div>
 
@@ -267,20 +262,20 @@ export default function Page() {
               </span>
 
               <h2 className="mt-4 text-3xl font-bold text-[#084E75] md:text-4xl leading-tight">
-                Structure first.<br/>
-                <span className="text-[#DDB162]">Capital second.</span>
+                Clarity first.<br/>
+                <span className="text-[#DDB162]">Decisions second.</span>
               </h2>
 
               <p className="mt-5 text-base leading-relaxed text-[#084E75]/70">
-                Every financing requirement requires a considered assessment
-                of:
+                We focus on creating a financial function that provides
+                management with a clear view of:
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {[
-                  "Capital structure",
-                  "Repayment capacity",
-                  "Risk",
-                  "Long-term financial sustainability",
+                  "Where the business stands",
+                  "Where it is heading",
+                  "What is driving performance",
+                  "What financial decisions need to be made",
                 ].map((item) => (
                   <span
                     key={item}
@@ -291,11 +286,6 @@ export default function Page() {
                   </span>
                 ))}
               </div>
-              <p className="mt-4 text-base leading-relaxed text-[#084E75]/70">
-                PCRED works with management and stakeholders to evaluate
-                alternatives, establish the appropriate structure and support
-                the financing process through execution.
-              </p>
             </motion.div>
 
             <motion.div
@@ -331,52 +321,27 @@ export default function Page() {
           <div className="absolute inset-0 shadow-[inset_0_0_150px_55px_rgba(0,20,35,0.55)]" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="lg:col-span-4"
-            >
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-                <span className="size-2 rounded-full bg-[#DDB162]" />
-                Selected Outcomes
-              </span>
-              <h2 className="text-3xl font-bold text-white md:text-4xl">
-                What effective advisory{" "}
-                <span className="text-[#DDB162]">delivers.</span>
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-white/70">
-                Clear structures, stronger lender conversations, and financing
-                choices that support the business over time.
-              </p>
-            </motion.div>
-
-            <div className="lg:col-span-8">
-              <div className="space-y-3">
-                {outcomes.map((outcome, index) => (
-                  <motion.div
-                    key={outcome}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.06 }}
-                    className="group flex items-center gap-5 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-5 backdrop-blur-[2px] transition-all hover:border-[#DDB162]/30 hover:bg-white/[0.075] md:px-7"
-                  >
-                    <span className="text-xs font-bold tracking-[0.2em] text-[#DDB162]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div className="h-8 w-px bg-white/10" />
-                    <span className="text-base font-semibold text-white md:text-lg">
-                      {outcome}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="mb-4 inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
+              <span className="size-2 rounded-full bg-[#DDB162]" />
+              Our Role
+            </span>
+            <h2 className="text-3xl font-bold text-white md:text-4xl">
+              What effective advisory{" "}
+              <span className="text-[#DDB162]">delivers.</span>
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-white/70 md:text-lg">
+              PCRED can operate alongside existing management teams or
+              provide an external CFO function, depending on the
+              organisation&apos;s requirements.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -398,17 +363,16 @@ export default function Page() {
               <div className="max-w-xl">
                 <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
                   <span className="size-2 rounded-full bg-[#DDB162]" />
-                  Corporate Finance
+                  CFO Advisory
                 </span>
                 <h2 className="text-3xl font-semibold text-white md:text-4xl md:leading-tight">
-                  Have a financing
+                  Need financial
                   <br />
-                  <span className="text-[#DDB162]">requirement?</span>
+                  <span className="text-[#DDB162]">leadership?</span>
                 </h2>
                 <p className="mt-3 text-white/70">
-                  Speak with our advisors about capital raising, debt
-                  structuring, and financing strategy for your next stage of
-                  growth.
+                  Speak with our advisors about CFO support, financial
+                  planning and performance management for your business.
                 </p>
               </div>
 
@@ -416,7 +380,7 @@ export default function Page() {
                 href="/contact"
                 className="group flex items-center justify-between rounded-full bg-linear-to-r from-[#DDB162] to-[#c99a3f] py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg"
               >
-                Discuss a Financing Requirement
+                Discuss Your Financial Advisory Requirements
                 <span className="ml-3 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#DDB162" />
                 </span>

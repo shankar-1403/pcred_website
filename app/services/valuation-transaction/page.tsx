@@ -17,54 +17,54 @@ import {
 const services = [
   {
     number: "01",
-    title: "Debt Advisory",
+    title: "Business Valuation",
     description:
-      "Evaluation and structuring of debt solutions across acquisition finance, growth capital, refinancing and other corporate requirements.",
+      "Assessment of enterprise and equity value using appropriate valuation methodologies and market considerations.",
     icon: IconBuildingBank,
   },
   {
     number: "02",
-    title: "Capital Raising",
+    title: "Financial Due Diligence",
     description:
-      "Advisory on raising capital from appropriate financial and strategic sources based on funding requirements and transaction objectives.",
+      "Analysis of financial performance, earnings quality, working capital, cash flows, debt and key financial exposures.",
     icon: IconCoins,
   },
   {
     number: "03",
-    title: "Debt Structuring",
+    title: "Transaction Structuring",
     description:
-      "Design and optimisation of debt structures considering tenor, pricing, security, repayment capacity and overall capital structure.",
+      "Evaluation of transaction alternatives and development of structures aligned with commercial and financial objectives.",
     icon: IconChartHistogram,
   },
   {
     number: "04",
-    title: "Working Capital & Structured Finance",
+    title: "Investment Analysis",
     description:
-      "Advisory on liquidity requirements and financing structures supporting operating and expansion needs.",
+      "Financial and commercial assessment of investment opportunities and proposed transactions.",
     icon: IconReportMoney,
   },
   {
     number: "05",
-    title: "Refinancing & Restructuring",
+    title: "Transaction Support",
     description:
-      "Assessment of existing obligations and development of refinancing or restructuring strategies.",
+      "Analytical and financial support throughout transaction evaluation, negotiation and execution.",
     icon: IconRefresh,
   },
   {
     number: "06",
-    title: "Lender Advisory & Engagement",
+    title: "Deal Advisory",
     description:
-      "Financial analysis, transaction preparation and support through lender discussions and financing processes.",
+      "Independent financial perspective on transaction economics, valuation and key commercial considerations.",
     icon: IconUsersGroup,
   },
 ];
 
 const outcomes = [
-  "Appropriate capital structures",
-  "Improved financing flexibility",
-  "Optimised debt profiles",
-  "Structured lender engagement",
-  "Greater clarity on funding alternatives",
+  "Independent valuation perspective",
+  "Financial clarity",
+  "Transaction analysis",
+  "Commercial insight",
+  "Decision support",
 ];
 
 export default function Page() {
@@ -84,16 +84,15 @@ export default function Page() {
           >
             <span className="mb-3 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
               <span className="size-2 rounded-full bg-[#DDB162]" />
-              Corporate Finance
+              Valuation &amp; Transaction
             </span>
             <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl leading-tight">
-              Capital strategy for complex <br/>
-              <span className="text-[#DDB162]">financial requirements.</span>
+              Independent perspective on <br/>
+              <span className="text-[#DDB162]">value and transactions.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#4a5568] md:text-lg">
-              PCRED advises companies, promoters and investors on capital
-              raising, debt structuring and financial strategy across critical
-              stages of the corporate lifecycle.
+              Valuation is fundamental to capital allocation, investment
+              decisions and corporate transactions.
             </p>
             <div className="mt-10 flex items-center justify-center">
               <div className="h-px w-40 bg-[#DDB162]/30" />
@@ -119,19 +118,19 @@ export default function Page() {
                 Our Perspective
               </span>
               <h2 className="text-3xl font-bold leading-snug text-[#084E75] md:text-4xl">
-                Financing decisions should be built around the business,{" "}
-                <span className="text-[#DDB162]">not simply the capital.</span>
+                Value should be assessed with rigour,{" "}
+                <span className="text-[#DDB162]">not simply assumption.</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">
-                Our work focuses on developing financing structures aligned
-                with the client&apos;s:
+                PCRED provides valuation and transaction advisory to
+                companies, promoters, investors and stakeholders requiring a
+                rigorous assessment of:
               </p>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {[
-                  "Capital requirements",
-                  "Cash-flow profile",
-                  "Leverage capacity",
-                  "Strategic objectives",
+                  "Enterprise value",
+                  "Financial performance",
+                  "Transaction economics",
                 ].map((item) => (
                   <div
                     key={item}
@@ -159,7 +158,7 @@ export default function Page() {
               <div className="relative aspect-4/3 overflow-hidden rounded-3xl shadow-xl shadow-[#084E75]/10">
                 <Image
                   src="/who_we_are.webp"
-                  alt="Corporate finance advisory"
+                  alt="Valuation and transaction advisory"
                   fill
                   className="object-cover"
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -167,10 +166,10 @@ export default function Page() {
                 <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/50 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-                    Structure first
+                    Evidence first
                   </p>
                   <p className="mt-1 text-xl font-semibold text-white">
-                    Capital second.
+                    Judgement second.
                   </p>
                 </div>
               </div>
@@ -203,11 +202,11 @@ export default function Page() {
               What We Advise On
             </span>
             <h2 className="text-3xl font-bold text-white md:text-4xl">
-              Financing <span className="text-[#DDB162]">solutions</span>
+              Valuation &amp; transaction <span className="text-[#DDB162]">solutions</span>
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/70 md:text-lg">
-              Structured advisory across debt, capital raising, liquidity and
-              lender engagement.
+              Structured advisory across valuation, due diligence, transaction
+              structuring and deal support.
             </p>
           </motion.div>
 
@@ -267,20 +266,22 @@ export default function Page() {
               </span>
 
               <h2 className="mt-4 text-3xl font-bold text-[#084E75] md:text-4xl leading-tight">
-                Structure first.<br/>
-                <span className="text-[#DDB162]">Capital second.</span>
+                Evidence first.<br/>
+                <span className="text-[#DDB162]">Judgement second.</span>
               </h2>
 
               <p className="mt-5 text-base leading-relaxed text-[#084E75]/70">
-                Every financing requirement requires a considered assessment
-                of:
+                Our valuation work considers the factors that drive
+                sustainable enterprise value:
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {[
-                  "Capital structure",
-                  "Repayment capacity",
+                  "Financial performance",
+                  "Cash generation",
+                  "Market position",
+                  "Business fundamentals",
                   "Risk",
-                  "Long-term financial sustainability",
+                  "Future prospects",
                 ].map((item) => (
                   <span
                     key={item}
@@ -292,9 +293,8 @@ export default function Page() {
                 ))}
               </div>
               <p className="mt-4 text-base leading-relaxed text-[#084E75]/70">
-                PCRED works with management and stakeholders to evaluate
-                alternatives, establish the appropriate structure and support
-                the financing process through execution.
+                We translate these factors into a structured financial view
+                that supports informed transaction decisions.
               </p>
             </motion.div>
 
@@ -342,15 +342,14 @@ export default function Page() {
             >
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
                 <span className="size-2 rounded-full bg-[#DDB162]" />
-                Selected Outcomes
+                Our Focus
               </span>
               <h2 className="text-3xl font-bold text-white md:text-4xl">
                 What effective advisory{" "}
                 <span className="text-[#DDB162]">delivers.</span>
               </h2>
               <p className="mt-4 text-base leading-relaxed text-white/70">
-                Clear structures, stronger lender conversations, and financing
-                choices that support the business over time.
+                Providing stakeholders with:
               </p>
             </motion.div>
 
@@ -398,17 +397,17 @@ export default function Page() {
               <div className="max-w-xl">
                 <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
                   <span className="size-2 rounded-full bg-[#DDB162]" />
-                  Corporate Finance
+                  Valuation &amp; Transaction
                 </span>
                 <h2 className="text-3xl font-semibold text-white md:text-4xl md:leading-tight">
-                  Have a financing
+                  Have a valuation
                   <br />
-                  <span className="text-[#DDB162]">requirement?</span>
+                  <span className="text-[#DDB162]">or transaction?</span>
                 </h2>
                 <p className="mt-3 text-white/70">
-                  Speak with our advisors about capital raising, debt
-                  structuring, and financing strategy for your next stage of
-                  growth.
+                  Speak with our advisors about business valuation, due
+                  diligence and transaction structuring for your next stage
+                  of growth.
                 </p>
               </div>
 
@@ -416,7 +415,7 @@ export default function Page() {
                 href="/contact"
                 className="group flex items-center justify-between rounded-full bg-linear-to-r from-[#DDB162] to-[#c99a3f] py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg"
               >
-                Discuss a Financing Requirement
+                Discuss a Valuation or Transaction
                 <span className="ml-3 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#DDB162" />
                 </span>

@@ -1,5 +1,5 @@
 'use client';
-import { Children, useState } from "react";
+import { useState } from "react";
 import { Navbar, NavBody, NavItems, MobileNav, NavbarLogo, NavbarButton, MobileNavHeader, MobileNavToggle, MobileNavMenu, } from "../components/ui/resizable-navbar"
 import Link from "next/link";
 import { IconChevronDown } from "@tabler/icons-react";
@@ -47,6 +47,10 @@ export default function Header() {
     {
       name: "Careers",
       link: "/careers",
+    },
+    {
+      name: "PCRED Group",
+      link: "/pcred-group",
     },
   ];
 

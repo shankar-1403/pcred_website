@@ -73,11 +73,11 @@ function page() {
   };
 
   const contactServices = [
-    "Capital Market Advisory",
-    "Debt Advisory",
-    "Virtual CFO Services",
-    "IPO Advisory",
-    "Investment Strategy Consulting",
+    "Corporate Finance",
+    "M&A Advisory",
+    "Valuation & Transaction",
+    "CFO Advisory",
+    "Risk & Governance",
     "Other",
   ];
   

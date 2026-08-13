@@ -17,54 +17,55 @@ import {
 const services = [
   {
     number: "01",
-    title: "Debt Advisory",
+    title: "Enterprise Risk Management",
     description:
-      "Evaluation and structuring of debt solutions across acquisition finance, growth capital, refinancing and other corporate requirements.",
+      "Identification, assessment and management of strategic, financial and operational risks.",
     icon: IconBuildingBank,
   },
   {
     number: "02",
-    title: "Capital Raising",
+    title: "Corporate Governance",
     description:
-      "Advisory on raising capital from appropriate financial and strategic sources based on funding requirements and transaction objectives.",
+      "Development and strengthening of governance structures, responsibilities and decision-making frameworks.",
     icon: IconCoins,
   },
   {
     number: "03",
-    title: "Debt Structuring",
+    title: "Internal Controls",
     description:
-      "Design and optimisation of debt structures considering tenor, pricing, security, repayment capacity and overall capital structure.",
+      "Assessment and enhancement of financial and operational control environments.",
     icon: IconChartHistogram,
   },
   {
     number: "04",
-    title: "Working Capital & Structured Finance",
+    title: "Compliance Frameworks",
     description:
-      "Advisory on liquidity requirements and financing structures supporting operating and expansion needs.",
+      "Design of structured compliance processes aligned with applicable requirements and organisational policies.",
     icon: IconReportMoney,
   },
   {
     number: "05",
-    title: "Refinancing & Restructuring",
+    title: "Risk Assessment",
     description:
-      "Assessment of existing obligations and development of refinancing or restructuring strategies.",
+      "Evaluation of material risks and their potential impact on business objectives.",
     icon: IconRefresh,
   },
   {
     number: "06",
-    title: "Lender Advisory & Engagement",
+    title: "Business Continuity",
     description:
-      "Financial analysis, transaction preparation and support through lender discussions and financing processes.",
+      "Development of frameworks supporting organisational preparedness and continuity during operational disruption.",
     icon: IconUsersGroup,
   },
 ];
 
 const outcomes = [
-  "Appropriate capital structures",
-  "Improved financing flexibility",
-  "Optimised debt profiles",
-  "Structured lender engagement",
-  "Greater clarity on funding alternatives",
+  "Institutional governance",
+  "Risk visibility",
+  "Internal controls",
+  "Regulatory preparedness",
+  "Business resilience",
+  "Management accountability",
 ];
 
 export default function Page() {
@@ -84,16 +85,15 @@ export default function Page() {
           >
             <span className="mb-3 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
               <span className="size-2 rounded-full bg-[#DDB162]" />
-              Corporate Finance
+              Risk &amp; Governance
             </span>
             <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl leading-tight">
-              Capital strategy for complex <br/>
-              <span className="text-[#DDB162]">financial requirements.</span>
+              Governance frameworks for <br/>
+              <span className="text-[#DDB162]">resilient enterprises.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#4a5568] md:text-lg">
-              PCRED advises companies, promoters and investors on capital
-              raising, debt structuring and financial strategy across critical
-              stages of the corporate lifecycle.
+              As organisations become larger and more complex, governance and
+              risk management become integral to protecting enterprise value.
             </p>
             <div className="mt-10 flex items-center justify-center">
               <div className="h-px w-40 bg-[#DDB162]/30" />
@@ -119,19 +119,18 @@ export default function Page() {
                 Our Perspective
               </span>
               <h2 className="text-3xl font-bold leading-snug text-[#084E75] md:text-4xl">
-                Financing decisions should be built around the business,{" "}
-                <span className="text-[#DDB162]">not simply the capital.</span>
+                Governance should protect value,{" "}
+                <span className="text-[#DDB162]">not simply satisfy compliance.</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">
-                Our work focuses on developing financing structures aligned
-                with the client&apos;s:
+                PCRED advises companies and management teams on:
               </p>
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {[
-                  "Capital requirements",
-                  "Cash-flow profile",
-                  "Leverage capacity",
-                  "Strategic objectives",
+                  "Risk frameworks",
+                  "Governance structures",
+                  "Internal controls",
+                  "Compliance architecture",
                 ].map((item) => (
                   <div
                     key={item}
@@ -146,6 +145,9 @@ export default function Page() {
                   </div>
                 ))}
               </div>
+              <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">
+                Designed to support institutional resilience.
+              </p>
             </motion.div>
 
             <motion.div
@@ -159,7 +161,7 @@ export default function Page() {
               <div className="relative aspect-4/3 overflow-hidden rounded-3xl shadow-xl shadow-[#084E75]/10">
                 <Image
                   src="/who_we_are.webp"
-                  alt="Corporate finance advisory"
+                  alt="Risk and governance advisory"
                   fill
                   className="object-cover"
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -167,10 +169,10 @@ export default function Page() {
                 <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/50 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-                    Structure first
+                    Governance first
                   </p>
                   <p className="mt-1 text-xl font-semibold text-white">
-                    Capital second.
+                    Compliance second.
                   </p>
                 </div>
               </div>
@@ -203,11 +205,11 @@ export default function Page() {
               What We Advise On
             </span>
             <h2 className="text-3xl font-bold text-white md:text-4xl">
-              Financing <span className="text-[#DDB162]">solutions</span>
+              Governance &amp; risk <span className="text-[#DDB162]">solutions</span>
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/70 md:text-lg">
-              Structured advisory across debt, capital raising, liquidity and
-              lender engagement.
+              Structured advisory across enterprise risk, governance,
+              controls and compliance.
             </p>
           </motion.div>
 
@@ -267,20 +269,20 @@ export default function Page() {
               </span>
 
               <h2 className="mt-4 text-3xl font-bold text-[#084E75] md:text-4xl leading-tight">
-                Structure first.<br/>
-                <span className="text-[#DDB162]">Capital second.</span>
+                Governance first.<br/>
+                <span className="text-[#DDB162]">Compliance second.</span>
               </h2>
 
               <p className="mt-5 text-base leading-relaxed text-[#084E75]/70">
-                Every financing requirement requires a considered assessment
-                of:
+                Effective governance is not simply a compliance requirement.
+                It provides the framework through which an organisation:
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {[
-                  "Capital structure",
-                  "Repayment capacity",
-                  "Risk",
-                  "Long-term financial sustainability",
+                  "Makes decisions",
+                  "Manages risk",
+                  "Allocates accountability",
+                  "Protects stakeholder interests",
                 ].map((item) => (
                   <span
                     key={item}
@@ -292,9 +294,9 @@ export default function Page() {
                 ))}
               </div>
               <p className="mt-4 text-base leading-relaxed text-[#084E75]/70">
-                PCRED works with management and stakeholders to evaluate
-                alternatives, establish the appropriate structure and support
-                the financing process through execution.
+                Our advisory approach aligns governance and risk management
+                with the organisation&apos;s operating model and strategic
+                priorities.
               </p>
             </motion.div>
 
@@ -342,15 +344,15 @@ export default function Page() {
             >
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
                 <span className="size-2 rounded-full bg-[#DDB162]" />
-                Selected Outcomes
+                Our Focus
               </span>
               <h2 className="text-3xl font-bold text-white md:text-4xl">
                 What effective advisory{" "}
                 <span className="text-[#DDB162]">delivers.</span>
               </h2>
               <p className="mt-4 text-base leading-relaxed text-white/70">
-                Clear structures, stronger lender conversations, and financing
-                choices that support the business over time.
+                Institutional governance, risk visibility and internal
+                controls that support long-term organisational resilience.
               </p>
             </motion.div>
 
@@ -398,17 +400,17 @@ export default function Page() {
               <div className="max-w-xl">
                 <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
                   <span className="size-2 rounded-full bg-[#DDB162]" />
-                  Corporate Finance
+                  Risk &amp; Governance
                 </span>
                 <h2 className="text-3xl font-semibold text-white md:text-4xl md:leading-tight">
-                  Have a financing
+                  Strengthening
                   <br />
-                  <span className="text-[#DDB162]">requirement?</span>
+                  <span className="text-[#DDB162]">governance?</span>
                 </h2>
                 <p className="mt-3 text-white/70">
-                  Speak with our advisors about capital raising, debt
-                  structuring, and financing strategy for your next stage of
-                  growth.
+                  Speak with our advisors about risk frameworks, governance
+                  structures and compliance architecture for your
+                  organisation.
                 </p>
               </div>
 
@@ -416,7 +418,7 @@ export default function Page() {
                 href="/contact"
                 className="group flex items-center justify-between rounded-full bg-linear-to-r from-[#DDB162] to-[#c99a3f] py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg"
               >
-                Discuss a Financing Requirement
+                Discuss Your Governance & Risk Requirements
                 <span className="ml-3 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#DDB162" />
                 </span>

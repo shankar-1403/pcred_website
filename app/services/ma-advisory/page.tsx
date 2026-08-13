@@ -99,17 +99,6 @@ export default function Page() {
               <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#DDB162]/60" />
               <div className="h-px w-40 bg-[#DDB162]/30" />
             </div>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center justify-between rounded-full bg-linear-to-r from-[#DDB162] to-[#c99a3f] py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg"
-              >
-                Discuss a Requirement
-                <span className="ml-3 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                  <IconArrowRight className="size-4" color="#DDB162" />
-                </span>
-              </Link>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -129,20 +118,22 @@ export default function Page() {
                 Our Perspective
               </span>
               <h2 className="text-3xl font-bold leading-snug text-[#084E75] md:text-4xl">
-                Financing decisions should be built around the business,{" "}
-                <span className="text-[#DDB162]">not simply the capital.</span>
+                Transactions should be built around strategy,{" "}
+                <span className="text-[#DDB162]">not simply the deal.</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">
-                Our work focuses on developing financing structures aligned with
-                the client&apos;s capital requirements, cash-flow profile,
-                leverage capacity and strategic objectives.
+                PCRED advises promoters, shareholders and companies on
+                acquisitions, strategic investments, business restructuring
+                and corporate development initiatives, with a focus on
+                strategic rationale, transaction economics and long-term
+                value creation.
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {[
-                  "Capital requirements",
-                  "Cash-flow profile",
-                  "Leverage capacity",
-                  "Strategic objectives",
+                  "Strategic rationale",
+                  "Transaction economics",
+                  "Long-term value creation",
+                  "Corporate development",
                 ].map((item) => (
                   <div
                     key={item}
@@ -170,7 +161,7 @@ export default function Page() {
               <div className="relative aspect-4/3 overflow-hidden rounded-3xl shadow-xl shadow-[#084E75]/10">
                 <Image
                   src="/who_we_are.webp"
-                  alt="Corporate finance advisory"
+                  alt="M&A advisory"
                   fill
                   className="object-cover"
                   sizes="(min-width: 1024px) 50vw, 100vw"
@@ -178,10 +169,10 @@ export default function Page() {
                 <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/50 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-                    Structure first
+                    Strategy first
                   </p>
                   <p className="mt-1 text-xl font-semibold text-white">
-                    Capital second.
+                    Transaction second.
                   </p>
                 </div>
               </div>
@@ -214,11 +205,11 @@ export default function Page() {
               What We Advise On
             </span>
             <h2 className="text-3xl font-bold text-white md:text-4xl">
-              Financing <span className="text-[#DDB162]">solutions</span>
+              Transaction <span className="text-[#DDB162]">advisory</span>
             </h2>
             <p className="mt-4 text-base leading-relaxed text-white/70 md:text-lg">
-              Structured advisory across debt, capital raising, liquidity and
-              lender engagement.
+              Structured advisory across acquisitions, divestments, strategic
+              investments and partnerships.
             </p>
           </motion.div>
 
@@ -265,50 +256,55 @@ export default function Page() {
         <div className="pointer-events-none absolute -bottom-24 -left-24 size-80 rounded-full bg-[#084E75]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
-            className="relative overflow-hidden rounded-3xl border border-[#084E75]/10 bg-white shadow-xl shadow-[#084E75]/8"
-          >
-            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#DDB162]/10 blur-2xl" />
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45 }}
+            >
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162]">
+                <span className="size-1.5 rounded-full bg-[#DDB162]" />
+                Our Approach
+              </span>
 
-            <div className="grid items-center lg:grid-cols-2">
-              <div className="p-8 md:p-10 lg:p-12">
-                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162]">
-                  <span className="size-1.5 rounded-full bg-[#DDB162]" />
-                  Our Approach
-                </span>
+              <h2 className="mt-4 text-3xl font-bold text-[#084E75] md:text-4xl leading-tight">
+                Strategic fit. Financial value.<br/>
+                <span className="text-[#DDB162]">Execution feasibility.</span>
+              </h2>
 
-                <h2 className="mt-4 text-3xl font-bold text-[#084E75] md:text-4xl leading-tight">
-                  Structure first.<br/>
-                  <span className="text-[#DDB162]">Capital second.</span>
-                </h2>
-
-                <p className="mt-5 text-base leading-relaxed text-[#084E75]/70">
-                  Every financing requirement requires a considered assessment
-                  of capital structure, repayment capacity, risk and long-term
-                  financial sustainability.
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-[#084E75]/70">
-                  PCRED works with management and stakeholders to evaluate
-                  alternatives, establish the appropriate structure and support
-                  the financing process through execution.
-                </p>
-
-                <Link
-                  href="/contact"
-                  className="group mt-8 inline-flex items-center justify-between rounded-full bg-linear-to-r from-[#DDB162] to-[#c99a3f] py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg"
-                >
-                  Talk to an Advisor
-                  <span className="ml-3 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                    <IconArrowRight className="size-4" color="#DDB162" />
-                  </span>
-                </Link>
+              <p className="mt-5 text-base leading-relaxed text-[#084E75]/70">
+                We assess transactions through three lenses:
+              </p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                {["Strategic Fit", "Financial Value", "Execution Feasibility"].map(
+                  (item) => (
+                    <span
+                      key={item}
+                      className="inline-flex items-center gap-2 rounded-xl border border-[#084E75]/10 bg-[#084E75]/5 px-4 py-2.5 text-sm font-semibold text-[#084E75]"
+                    >
+                      <span className="size-1.5 rounded-full bg-[#DDB162]" />
+                      {item}
+                    </span>
+                  )
+                )}
               </div>
+              <p className="mt-4 text-base leading-relaxed text-[#084E75]/70">
+                This allows stakeholders to evaluate not only whether a
+                transaction can be executed, but whether it is strategically
+                and financially compelling.
+              </p>
+            </motion.div>
 
-              <div className="relative min-h-72 lg:min-h-full">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative overflow-hidden rounded-3xl"
+            >
+              <div className="absolute -inset-1 rounded-3xl border border-[#DDB162]/25" />
+              <div className="relative aspect-4/3 overflow-hidden rounded-3xl shadow-xl shadow-[#084E75]/10">
                 <Image
                   src="/right_financial_partner.webp"
                   alt="Financial advisory approach"
@@ -316,10 +312,10 @@ export default function Page() {
                   className="object-cover"
                   sizes="(min-width: 1024px) 50vw, 100vw"
                 />
-                <div className="absolute inset-y-0 left-0 w-24 bg-linear-to-r from-white from-30% via-white via-20% to-transparent to-80% max-lg:hidden" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/50 via-transparent to-transparent" />
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -344,15 +340,14 @@ export default function Page() {
             >
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
                 <span className="size-2 rounded-full bg-[#DDB162]" />
-                Selected Outcomes
+                Our Focus
               </span>
               <h2 className="text-3xl font-bold text-white md:text-4xl">
                 What effective advisory{" "}
                 <span className="text-[#DDB162]">delivers.</span>
               </h2>
               <p className="mt-4 text-base leading-relaxed text-white/70">
-                Clear structures, stronger lender conversations, and financing
-                choices that support the business over time.
+                We bring an independent perspective to decisions involving:
               </p>
             </motion.div>
 
@@ -400,26 +395,25 @@ export default function Page() {
               <div className="max-w-xl">
                 <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
                   <span className="size-2 rounded-full bg-[#DDB162]" />
-                  Corporate Finance
+                  M&A Advisory
                 </span>
                 <h2 className="text-3xl font-semibold text-white md:text-4xl md:leading-tight">
-                  Have a financing
+                  Considering a
                   <br />
-                  <span className="text-[#DDB162]">requirement?</span>
+                  <span className="text-[#DDB162]">transaction?</span>
                 </h2>
                 <p className="mt-3 text-white/70">
-                  Speak with our advisors about capital raising, debt
-                  structuring, and financing strategy for your next stage of
-                  growth.
+                  Speak with our advisors about acquisitions, divestments and
+                  strategic transactions for your next stage of growth.
                 </p>
               </div>
 
               <Link
                 href="/contact"
-                className="group flex w-52 items-center justify-between rounded-full bg-linear-to-r from-[#DDB162] to-[#c99a3f] py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                className="group flex items-center justify-between rounded-full bg-linear-to-r from-[#DDB162] to-[#c99a3f] py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg"
               >
-                Get In Touch
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                Discuss a Strategic Transaction
+                <span className="ml-3 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#DDB162" />
                 </span>
               </Link>

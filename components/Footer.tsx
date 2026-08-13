@@ -5,11 +5,8 @@ import {
   IconMail,
   IconMapPin,
   IconPhone,
-  IconId,
-  IconBrandFacebook,
   IconBrandInstagram,
   IconBrandLinkedin,
-  IconBrandX,
 } from "@tabler/icons-react";
 
 const socialLinks = [
@@ -21,9 +18,10 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
   { label: "Services", href: "/services" },
+  { label: "Contact", href: "/contact" },
   { label: "Blogs", href: "/blogs" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
+  { label: "PCRED Group", href: "/pcred-group" },
 ];
 
 export default function Footer() {
@@ -72,7 +70,7 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#DDB162] text-left md:text-center">Quick Links</h3>
             <div className="flex justify-start gap-x-10 md:justify-evenly md:gap-x-0">
-              {[quickLinks.slice(0, 3), quickLinks.slice(3)].map((group, gi) => (
+              {[quickLinks.slice(0, 4), quickLinks.slice(4)].map((group, gi) => (
                 <ul key={gi} className="space-y-1">
                   {group.map((quicklink) => (
                     <li key={quicklink.label}>

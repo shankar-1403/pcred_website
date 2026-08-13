@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import {IconArrowRight,IconCheck,IconChevronDown,IconChartBar,IconCertificate,IconClock,IconCoinRupee,IconShieldCheck,IconX,IconSend,IconShield,IconPercentage,IconFileDescription,IconBuildingBank,IconPlayerPlay,IconTrendingUp,IconHeartHandshake,IconUsers,IconBuilding,IconMap,
+import {IconArrowRight,IconCheck,IconChevronDown,IconChartBar,IconCertificate,IconClock,IconCoinRupee,IconShieldCheck,IconX,IconSend,IconShield,IconPercentage,IconFileDescription,IconPlayerPlay,
 } from "@tabler/icons-react";
 import * as TablerIcons from "@tabler/icons-react";
 import type { IconProps } from "@tabler/icons-react";

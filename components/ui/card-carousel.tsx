@@ -4,28 +4,6 @@ import { motion, useTransform, useScroll } from "motion/react";
 import { StaticImageData } from "next/image";
 import { useRef } from "react";
 import Image from "next/image";
-import {IconBriefcase,IconBuilding,IconBuildingBank,IconCalculator,IconChartLine,IconCoins,IconCreditCard,IconLeaf,IconReportAnalytics,IconRocket,IconShield,IconTrendingUp,IconUsers,IconWallet,
-  type TablerIcon,
-} from "@tabler/icons-react";
-
-const serviceIcons: Record<number, TablerIcon> = {
-  1: IconChartLine,
-  2: IconCalculator,
-  3: IconTrendingUp,
-  4: IconShield,
-  5: IconBriefcase,
-  6: IconShield,
-  7: IconWallet,
-  8: IconUsers,
-  9: IconBuilding,
-  10: IconLeaf,
-  11: IconReportAnalytics,
-  12: IconCoins,
-  13: IconBuildingBank,
-  14: IconCreditCard,
-  15: IconRocket,
-  16: IconBriefcase,
-};
 
 function formatServiceLabel(label: string) {
   return label
@@ -65,7 +43,7 @@ const HorizontalScrollCarousel = ({
           style={{ x }}
           className="flex gap-6 pl-6 md:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]"
         >
-          {cards.map((card, i) => (
+          {cards.map((card) => (
             <Card key={card.id} card={card} />
           ))}
         </motion.div>

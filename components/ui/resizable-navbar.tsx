@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { IconMenu2, IconX, IconChevronRight } from "@tabler/icons-react";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent} from "framer-motion";
+import { IconMenu2, IconX } from "@tabler/icons-react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import logo from "../../public/logo.webp"
 import Image from "next/image";
@@ -283,9 +283,9 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   return (
-    <a href="/" className="relative z-20 flex items-center text-black">
+    <Link href="/" className="relative z-20 flex items-center text-black">
       <Image src={logo} alt="logo" className="h-10 w-auto"/>
-    </a>
+    </Link>
   );
 };
 
