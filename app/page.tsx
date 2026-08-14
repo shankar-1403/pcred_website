@@ -78,86 +78,78 @@ const reviews = [
   {
     id: 1,
     quote:
-      "PCRED helped us streamline our finances and plan growth more confidently.",
-    name: "Arvind Mehra",
-    role: "Founder",
+      "PCRED brought clarity to our financial decisions and helped us access the right funding at the right time. Their advisory approach has been valuable to our business growth.",
+    role: "Managing Director, Manufacturing Company",
     rating: 5,
   },
   {
     id: 2,
     quote:
-      "Their financial guidance was practical, transparent, and truly business-focused.",
-    name: "Neha Agarwal",
-    role: "Director",
+      "We approached PCRED with a complex funding requirement, and their team understood our business before recommending a solution. Their guidance made the entire financing process smooth and structured.",
+    role: "Director, Trading Company",
     rating: 4.5,
   },
   {
     id: 3,
     quote:
-      "PCRED understands MSME challenges and delivers solutions that actually work.",
-    name: "Amit Kulkarni",
-    role: "Managing Partner",
+      "PCRED has been more than a finance partner for us. Their corporate advisory and financial expertise have helped us make better decisions and plan our growth with greater confidence.",
+    role: "Founder, MSME",
     rating: 4.5,
   },
   {
     id: 4,
     quote:
-      "Professional support and smooth execution throughout the entire advisory process.",
-    name: "Priya Nair",
-    role: "Founder",
-    rating: 4.5,
+      "What stood out about PCRED was their understanding of our business requirements. They helped us identify the right financial solution and supported us throughout the process.",
+    role: "Director, Infrastructure Company",
+    rating: 5,
   },
   {
     id: 5,
     quote:
-      "Their strategic insights helped us improve financial stability and planning.",
-    name: "Sandeep Mehta",
-    role: "CEO",
-    rating: 5,
+      "PCRED combines financial expertise with practical business advice. Their support has helped us improve our financial planning and approach our growth plans with much greater clarity.",
+    role: "Founder & CEO, Growing Enterprise",
+    rating: 4.5,
   },
   {
     id: 6,
-    quote: "Reliable financial advisory backed by strong business understanding.",
-    name: "Rohan Shah",
-    role: "Co-Founder",
+    quote:
+      "From understanding our requirement to structuring the right solution, PCRED handled the process professionally. Their advisory has given us greater confidence in our financial decisions.",
+    role: "Managing Partner, Engineering Company",
     rating: 5,
   },
   {
     id: 7,
-    quote: "PCRED made our funding and expansion process much more structured.",
-    name: "Kunal Arora",
-    role: "Director",
+    quote:
+      "PCRED's approach is professional, transparent and business-focused. They helped us navigate our funding requirements while keeping our long-term objectives in focus.",
+    role: "Director, SME Enterprise",
     rating: 4.5,
   },
   {
     id: 8,
     quote:
-      "The team provided personalized guidance aligned with our business goals.",
-    name: "Aditi Deshmukh",
-    role: "Founder",
+      "As our business volumes increased, managing working capital became a challenge. PCRED helped us secure the right working capital facility, enabling us to maintain smooth operations and support our growing orders.",
+    role: "Director, Manufacturing Company",
     rating: 5,
   },
   {
     id: 9,
     quote:
-      "Their structured financial approach helped us plan growth more effectively.",
-    name: "Vivek Jain",
-    role: "Managing Director",
+      "We were exploring collateral-free funding for our expansion when PCRED introduced us to the CGTMSE scheme. Their guidance throughout the process helped us secure the required finance and move ahead with our plans.",
+    role: "Founder, Engineering Company",
     rating: 4.5,
   },
   {
     id: 10,
-    quote: "Transparent communication and dependable support at every stage.",
-    name: "Pooja Malhotra",
-    role: "Operations Head",
+    quote:
+      "PCRED helped us evaluate multiple financing options before arriving at the right structure for our business. Their advisory-led approach made the decision-making process much clearer.",
+    role: "Managing Director, Trading Company",
     rating: 5,
   },
   {
     id: 11,
     quote:
-      "PCRED simplified complex financial decisions and made the process seamless.",
-    name: "Harsh Vardhan",
-    role: "Founder",
+      "PCRED gave us a clear way forward when we were facing challenges with our existing debt. Their structured approach to debt restructuring helped us improve cash-flow management and plan our finances more effectively.",
+    role: "Promoter, SME Enterprise",
     rating: 4.5,
   },
 ];
@@ -299,11 +291,13 @@ export default function Home() {
   }, [goNextReview]);
 
   const activeReviewData = reviews[activeReview];
-  const reviewInitials = activeReviewData.name
-    .split(" ")
-    .map((n) => n[0])
+  const reviewInitials = activeReviewData.role
+    .split(/[\s,]+/)
+    .filter((word) => /^[A-Za-z]/.test(word))
+    .map((word) => word[0])
     .join("")
-    .slice(0, 2);
+    .slice(0, 2)
+    .toUpperCase();
 
   const [form, setForm] = useState({
     name: "",
@@ -683,7 +677,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section
-        className="relative bg-cover bg-scroll bg-center bg-no-repeat py-14 md:bg-fixed md:py-14"
+        className="relative bg-cover bg-fixed bg-[65%_center] bg-no-repeat py-14 md:bg-center md:py-14"
         style={{ backgroundImage: "url('/right_financial_partner.webp')" }}
       >
         <div className="absolute inset-0 bg-[#084E75]/60" />
@@ -792,14 +786,9 @@ export default function Home() {
                           <div className="flex size-12 items-center justify-center rounded-full bg-white/15 text-sm font-semibold text-white ring-2 ring-white/20">
                             {reviewInitials}
                           </div>
-                          <div>
-                            <p className="text-base font-semibold text-white">
-                              {activeReviewData.name}
-                            </p>
-                            <p className="text-sm text-white/60">
-                              {activeReviewData.role}
-                            </p>
-                          </div>
+                          <p className="text-sm font-semibold text-white/80">
+                            {activeReviewData.role}
+                          </p>
                         </div>
                       </div>
                       <div className="flex gap-0.5 md:flex-col">

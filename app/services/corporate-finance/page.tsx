@@ -303,7 +303,7 @@ export default function Page() {
 
       {/* OUTCOMES */}
       <section
-        className="relative overflow-hidden bg-cover bg-center bg-no-repeat py-20 md:py-28"
+        className="relative overflow-hidden bg-cover bg-center bg-no-repeat py-14 md:py-20"
         style={{ backgroundImage: "url('/bg_webpattern.webp')" }}
       >
         <div className="pointer-events-none absolute inset-0">
@@ -311,51 +311,45 @@ export default function Page() {
           <div className="absolute inset-0 shadow-[inset_0_0_150px_55px_rgba(0,20,35,0.55)]" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="lg:col-span-4"
-            >
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-                <span className="size-2 rounded-full bg-[#DDB162]" />
-                Selected Outcomes
-              </span>
-              <h2 className="text-3xl font-bold text-white md:text-4xl">
-                What Effective Advisory{" "}
-                <span className="text-[#DDB162]">Delivers.</span>
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-white/70">
-                Clear structures, stronger lender conversations, and financing
-                choices that support the business over time.
-              </p>
-            </motion.div>
+        <div className="relative mx-auto max-w-5xl px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="mb-4 inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
+              <span className="size-2 rounded-full bg-[#DDB162]" />
+              Selected Outcomes
+            </span>
+            <h2 className="text-3xl font-bold text-white md:text-4xl">
+              What Effective Advisory{" "}
+              <span className="text-[#DDB162]">Delivers.</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70">
+              Clear structures, stronger lender conversations, and financing
+              choices that support the business over time.
+            </p>
+          </motion.div>
 
-            <div className="lg:col-span-8">
-              <div className="space-y-3">
-                {outcomes.map((outcome, index) => (
-                  <motion.div
-                    key={outcome}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.06 }}
-                    className="group flex items-center gap-5 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-5 backdrop-blur-[2px] transition-all hover:border-[#DDB162]/30 hover:bg-white/[0.075] md:px-7"
-                  >
-                    <span className="text-xs font-bold tracking-[0.2em] text-[#DDB162]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div className="h-8 w-px bg-white/10" />
-                    <span className="text-base font-semibold text-white md:text-lg">
-                      {outcome}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:justify-center">
+            {outcomes.map((outcome, index) => (
+              <motion.div
+                key={outcome}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.06 }}
+                className="group flex flex-col items-center justify-center gap-1 rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-4 text-center backdrop-blur-[2px] transition-all hover:border-[#DDB162]/30 hover:bg-white/[0.075] sm:flex-row sm:gap-2.5 sm:rounded-full sm:px-5 sm:py-2.5 sm:text-left"
+              >
+                <span className="text-xs font-bold tracking-[0.2em] text-[#DDB162]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="text-sm font-semibold text-white md:text-base">
+                  {outcome}
+                </span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

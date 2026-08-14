@@ -65,8 +65,8 @@ export default function Page() {
               PCRED Group
             </span>
             <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl leading-tight">
-              A group built around <br />
-              <span className="text-[#DDB162]">financial trust.</span>
+              A Group Built Around <br />
+              <span className="text-[#DDB162]">Financial Trust.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#4a5568] md:text-lg">
               The PCRED Group brings together specialised companies working
@@ -97,7 +97,7 @@ export default function Page() {
               Our Companies
             </span>
             <h2 className="text-3xl font-bold text-[#084E75] md:text-4xl">
-              Part of the <span className="text-[#DDB162]">PCRED family.</span>
+              Part of the <span className="text-[#DDB162]">PCRED Family.</span>
             </h2>
           </motion.div>
 

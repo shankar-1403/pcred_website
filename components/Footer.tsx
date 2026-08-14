@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/pcred_cms_logo.webp";
+import logo from "@/public/pcred_footer_logo.webp";
 import {
   IconMail,
   IconMapPin,
