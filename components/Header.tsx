@@ -55,7 +55,7 @@ export default function Header() {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobileSchemesOpen, setIsMobileSchemesOpen] = useState(false);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState<number | null>(null);
   return (
     <div className="relative w-full">
       <Navbar>
@@ -75,36 +75,45 @@ export default function Header() {
             <NavbarLogo />
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => {
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+                setOpenMobileDropdown(null);
+              }}
             />
           </MobileNavHeader>
 
           <MobileNavMenu
             isOpen={isMobileMenuOpen}
-            onClose={() => setIsMobileMenuOpen(false)}
+            onClose={() => {
+              setIsMobileMenuOpen(false);
+              setOpenMobileDropdown(null);
+            }}
           >
             {navItems.map((item, idx) =>
               item.children ? (
                 <div key={`mobile-link-${idx}`} className="w-full">
                   <button
                     type="button"
-                    onClick={() => setIsMobileSchemesOpen((prev) => !prev)}
-                    className="relative flex w-full items-center justify-center gap-2 text-sm text-neutral-600 dark:text-neutral-300"
+                    onClick={() =>
+                      setOpenMobileDropdown((prev) => (prev === idx ? null : idx))
+                    }
+                    className="relative flex w-full items-center justify-start gap-2 text-sm text-white"
                   >
                     <span className="block">{item.name}</span>
                     <IconChevronDown
-                      className={`size-4 transition-transform ${isMobileSchemesOpen ? "rotate-180" : ""}`}
+                      className={`size-4 transition-transform ${openMobileDropdown === idx ? "rotate-180" : ""}`}
                     />
                   </button>
-                  {isMobileSchemesOpen && (
+                  {openMobileDropdown === idx && (
                     <div className="mt-3 flex flex-col gap-3 pl-4">
                       {item.children.map((child) => (
                         <a
                           key={child.link}
                           href={child.link}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="relative text-sm text-neutral-500 dark:text-neutral-400"
+                          className="relative flex items-center gap-2 text-sm text-white/70"
                         >
+                          <span className="size-1.5 shrink-0 rounded-full bg-[#DDB162]" />
                           {child.name}
                         </a>
                       ))}
@@ -116,7 +125,7 @@ export default function Header() {
                   key={`mobile-link-${idx}`}
                   href={item.link}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="relative text-sm text-neutral-600 dark:text-neutral-300"
+                  className="relative text-sm text-white"
                 >
                   <span className="block">{item.name}</span>
                 </a>

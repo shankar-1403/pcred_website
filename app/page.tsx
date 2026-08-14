@@ -63,11 +63,11 @@ interface CompaniesCardProps {
 const CompaniesCard = ({ data }: CompaniesCardProps) => {
   return (
     <figure
-      className={"relative w-28 h-16 md:w-60 md:h-30 overflow-hidden rounded-4xl border p-2 border-blue-950 hover:shadow-lg hover:scale-105 transition-transform duration-300"}
+      className={"relative w-40 h-20 md:w-60 md:h-30 overflow-hidden rounded-4xl border p-1 md:p-2 border-blue-950 hover:shadow-lg hover:scale-105 transition-transform duration-300"}
     >
-      <div className="p-2 md:p-4 flex justify-center items-center h-full">
+      <div className="p-1 md:p-4 flex justify-center items-center h-full">
         <div className="h-full">
-          <img src={data.src} alt={'Banks Logo'} className="h-8 md:h-16 w-auto object-contain" />
+          <img src={data.src} alt={'Banks Logo'} className="h-14 md:h-16 w-auto object-contain" />
         </div>
       </div>
     </figure>
@@ -448,7 +448,7 @@ export default function Home() {
                 </motion.div>
               </div>
 
-              <div className="flex flex-col justify-center px-5 py-6 text-center sm:p-8 md:p-10 md:text-left lg:p-12">
+              <div className="flex flex-col justify-center py-6 text-left sm:p-8 md:p-10 lg:p-12">
                 <h2 className="text-2xl font-semibold leading-tight text-[#084E75] sm:text-3xl md:mt-5 md:text-4xl md:leading-12 md:whitespace-nowrap">
                   Building Stronger Businesses.
                   <span className="mt-1 block bg-linear-to-r from-[#DDB162] to-[#b8892e] bg-clip-text font-bold text-transparent">
@@ -469,7 +469,7 @@ export default function Home() {
                     return (
                       <div
                         key={feature.title}
-                        className="flex flex-col items-center gap-2 p-3 text-center sm:gap-3 sm:p-4 md:items-start md:text-left"
+                        className="flex flex-col items-start gap-2 p-3 text-left sm:gap-3 sm:p-4"
                       >
                         <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[#084E75] text-[#084E75]">
                           <Icon size={18} stroke={1.5} />
@@ -486,13 +486,13 @@ export default function Home() {
                 </div>
 
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href="#contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-full sm:w-50 text-sm">Talk to an Advisor
+                  <Link href="#contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-56 sm:w-50 text-sm">Talk to an Advisor
                     <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                       <IconArrowRight className="size-4" color="#DDB162" />
                     </span>
                   </Link>
 
-                  <Link href="/services" className="group flex items-center justify-between rounded-4xl border border-[#084E75]/15 bg-white pl-4 pr-2 py-2 text-[#084E75] shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-full sm:w-50 text-sm">Our Services
+                  <Link href="/services" className="group flex items-center justify-between rounded-4xl border border-[#084E75]/15 bg-white pl-4 pr-2 py-2 text-[#084E75] shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-56 sm:w-50 text-sm">Our Services
                     <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                       <IconArrowRight className="size-4" color="#DDB162" />
                     </span>
@@ -528,7 +528,7 @@ export default function Home() {
 
               <p className="mt-6 max-w-lg text-base leading-relaxed text-white/75 md:text-lg">Every successful business reaches moments where the right financial decision changes everything.</p>
 
-              <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-full sm:w-50 text-sm mt-8 sm:mt-14">Discover Our Story
+              <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm mt-8 sm:mt-14">Discover Our Story
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#DDB162" />
                 </span>
@@ -675,8 +675,8 @@ export default function Home() {
                 <CompaniesCard key={index} data={logo.image} />
               ))}
             </Marquee>
-            <div className="from-white pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r"></div>
-            <div className="from-white pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l"></div>
+            <div className="from-white pointer-events-none absolute inset-y-0 left-0 hidden w-1/4 bg-linear-to-r md:block"></div>
+            <div className="from-white pointer-events-none absolute inset-y-0 right-0 hidden w-1/4 bg-linear-to-l md:block"></div>
           </motion.div>
         </div>
       </section>
@@ -715,7 +715,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="w-full sm:w-auto"
           >
-            <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-full sm:w-50 text-sm">Discover Our Story
+            <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm">Discover Our Story
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                 <IconArrowRight className="size-4" color="#DDB162" />
               </span>

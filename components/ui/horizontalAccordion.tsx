@@ -148,32 +148,30 @@ export default function HorizontalAccordion({
               role="tab"
               aria-selected={isActive}
               aria-expanded={isActive}
-              className={`overflow-hidden rounded-2xl border transition-colors ${
-                isActive
-                  ? "border-[#DDB162]/40 bg-white/10"
-                  : "border-white/10 bg-white/5"
+              className={`relative overflow-hidden rounded-2xl border transition-colors ${
+                isActive ? "border-[#DDB162]/40" : "border-white/10"
               }`}
             >
+              <Image
+                src={item.image}
+                fill
+                alt=""
+                sizes="100vw"
+                className="object-cover scale-125"
+              />
+              <div
+                className={`absolute inset-0 ${
+                  isActive
+                    ? "bg-linear-to-b from-[#084E75]/70 via-[#084E75]/88 to-[#084E75]/95"
+                    : "bg-[#084E75]/60"
+                }`}
+              />
+
               <button
                 type="button"
                 onClick={() => setActive(index)}
                 className="relative block h-44 w-full text-left sm:h-52 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#DDB162]"
               >
-                <Image
-                  src={item.image}
-                  fill
-                  alt=""
-                  sizes="100vw"
-                  className="object-cover"
-                />
-                <div
-                  className={`absolute inset-0 ${
-                    isActive
-                      ? "bg-linear-to-t from-[#084E75]/95 via-[#084E75]/50 to-transparent"
-                      : "bg-[#084E75]/60"
-                  }`}
-                />
-
                 <div className="absolute inset-x-0 bottom-0 p-5 text-white">
                   <span className="text-[length:var(--text-10)] font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
                     {item.subtitle}
@@ -189,7 +187,7 @@ export default function HorizontalAccordion({
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                    className="overflow-hidden"
+                    className="relative overflow-hidden"
                   >
                     <div className="flex items-start gap-4 px-5 pb-5 pt-1 text-white">
                       {ItemIcon && (
