@@ -117,7 +117,8 @@ export default function Page() {
                 Our Perspective
               </span>
               <h2 className="text-3xl font-bold leading-snug text-[#084E75] md:text-4xl">
-                Built Around the Business,{" "}
+                Built Around the Business,
+                <br />
                 <span className="text-[#DDB162]">Not Simply the Capital.</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">

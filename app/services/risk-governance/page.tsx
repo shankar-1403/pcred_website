@@ -117,10 +117,14 @@ export default function Page() {
                 Our Perspective
               </span>
               <h2 className="text-3xl font-bold leading-snug text-[#084E75] md:text-4xl">
-                Should Protect Value,{" "}
+                Should Protect Value,
+                <br />
                 <span className="text-[#DDB162]">Not Satisfy Compliance.</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">
+                Designed to support institutional resilience.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-[#4a5568] md:text-lg">
                 PCRED advises companies and management teams on:
               </p>
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -143,9 +147,6 @@ export default function Page() {
                   </div>
                 ))}
               </div>
-              <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">
-                Designed to support institutional resilience.
-              </p>
             </motion.div>
 
             <motion.div

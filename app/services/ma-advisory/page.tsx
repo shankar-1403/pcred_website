@@ -116,7 +116,8 @@ export default function Page() {
                 Our Perspective
               </span>
               <h2 className="text-3xl font-bold leading-snug text-[#084E75] md:text-4xl">
-                Built Around Strategy,{" "}
+                Built Around Strategy,
+                <br />
                 <span className="text-[#DDB162]">Not the Deal.</span>
               </h2>
               <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">
