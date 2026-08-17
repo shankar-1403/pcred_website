@@ -21,11 +21,11 @@ const companies = [
   {
     number: "02",
     name: "CredArc",
-    tagline: "Credit solutions, made simple.",
+    tagline: "AI-driven ESG intelligence for businesses and institutions",
     points: [
-      "Credit and lending solutions tailored to individual and business needs",
-      "Structured support across loan discovery, eligibility and documentation",
-      "End-to-end assistance through disbursal and post-loan servicing",
+      "AI-driven ESG intelligence for businesses and institutions",
+      "Automated ESG data capture, reporting and compliance across BRSR, GRI & CSRD",
+      "Actionable insights that connect sustainability, risk, capital and business growth",
     ],
     href: "https://credarc.in",
     logo: "/credarc-logo.webp",
@@ -33,11 +33,11 @@ const companies = [
   {
     number: "03",
     name: "ECB",
-    tagline: "Enterprise solutions, at scale.",
+    tagline: "Empowering MSMEs with practical business guidance and growth solutions",
     points: [
-      "Enterprise and business consulting solutions across sectors",
-      "Structured support for organisations navigating growth and compliance",
-      "Dedicated advisory across the enterprise lifecycle",
+      "Empowering MSMEs with practical business guidance and growth solutions",
+      "Connecting entrepreneurs with finance, experts, technology and government opportunities",
+      "End-to-end handholding for business growth, expansion and strategic decision-making",
     ],
     href: "https://ec-bharat.com",
     logo: "/ecb-logo.webp",

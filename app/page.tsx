@@ -308,6 +308,8 @@ export default function Home() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   const handleFormChange = (
@@ -325,7 +327,7 @@ export default function Home() {
     setFormErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const handleFormSubmit = (e: FormEvent) => {
+  const handleFormSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const errors: Record<string, string> = {};
     if (!form.name.trim()) errors.name = "Full name is required.";
@@ -344,7 +346,24 @@ export default function Home() {
     else if (form.message.trim().length < 10) errors.message = "Message must be at least 10 characters.";
     if (Object.keys(errors).length > 0) { setFormErrors(errors); return; }
     setFormErrors({});
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "Something went wrong. Please try again.");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -951,12 +970,16 @@ export default function Home() {
                   <textarea id="message" name="message" rows={5} value={form.message} onChange={handleFormChange} placeholder="Tell us about your business needs and goals..." className={`${inputClass} resize-none ${formErrors.message ? "border-red-400" : ""}`} />
                   {formErrors.message && <p className="mt-1 text-xs text-red-500">{formErrors.message}</p>}
                 </div>
+                {error && (
+                  <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>
+                )}
                 <button
                   type="submit"
-                  className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#084E75] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl"
+                  disabled={loading}
+                  className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#084E75] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message
-                  <IconSend className="size-5 transition-transform group-hover:translate-x-1" />
+                  {loading ? "Sending…" : "Send Message"}
+                  {!loading && <IconSend className="size-5 transition-transform group-hover:translate-x-1" />}
                 </button>
                 {submitted && (
                   <motion.div
