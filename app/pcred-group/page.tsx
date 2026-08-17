@@ -80,11 +80,9 @@ export default function Page() {
             </div>
           </motion.div>
         </div>
-      </section>
 
-      {/* COMPANIES */}
-      <section className="relative overflow-hidden bg-white py-20 md:py-28">
-        <div className="relative mx-auto max-w-7xl px-6">
+        {/* COMPANIES */}
+        <div className="relative mx-auto mt-16 max-w-7xl px-6 md:mt-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

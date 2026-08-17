@@ -93,11 +93,9 @@ export default function Page() {
             </div>
           </motion.div>
         </div>
-      </section>
 
-      {/* PERSPECTIVE */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-6">
+        {/* PERSPECTIVE */}
+        <div className="relative mx-auto mt-16 max-w-7xl px-6 md:mt-20">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
