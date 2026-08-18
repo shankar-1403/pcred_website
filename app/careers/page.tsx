@@ -17,9 +17,10 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    // Phone: only digits, +, spaces, hyphens
+    if (name === "name" && /\d/.test(value)) return;
     if (name === "phone") {
-      if (!/^[0-9+\s\-()]*$/.test(value)) return;
+      if (/[a-zA-Z]/.test(value)) return;
+      if (value.replace(/\D/g, "").length > 12) return;
     }
     setForm((prev) => ({ ...prev, [name]: value }));
   };
@@ -37,12 +38,16 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setError("");
-    // Email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email)) { setError("Please enter a valid email address."); return; }
-    // Phone: 7–15 digits
+    if (!form.name.trim()) { setError("Full name is required."); return; }
+    if (form.name.trim().length < 2) { setError("Name must be at least 2 characters."); return; }
+    if (/\d/.test(form.name)) { setError("Name must not contain numbers."); return; }
+    if (!/^[a-zA-Z\s'.'-]+$/.test(form.name.trim())) { setError("Name contains invalid characters."); return; }
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!form.email.trim()) { setError("Email is required."); return; }
+    if (!emailRegex.test(form.email.trim())) { setError("Enter a valid email address (e.g. name@domain.com)."); return; }
+    if (!form.phone.trim()) { setError("Phone number is required."); return; }
     const digitsOnly = form.phone.replace(/\D/g, "");
-    if (digitsOnly.length < 7 || digitsOnly.length > 15) { setError("Please enter a valid phone number (7–15 digits)."); return; }
+    if (digitsOnly.length !== 10 && digitsOnly.length !== 12) { setError("Enter a 10-digit mobile number or 12-digit number with country code."); return; }
     if (!resume) { setError("Please attach your resume (PDF or DOC)."); return; }
     setLoading(true);
     try {
@@ -160,8 +165,6 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
                     onChange={handleChange}
                     placeholder="+91 98765 43210"
                     inputMode="tel"
-                    pattern="[0-9+\s\-()\+]{7,15}"
-                    title="Enter a valid phone number"
                     className="border border-[#084E75] rounded-4xl w-full py-2 px-3 text-sm outline-none focus:ring-2 focus:ring-[#084E75]/20"
                   />
                 </div>
