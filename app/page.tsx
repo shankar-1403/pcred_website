@@ -372,12 +372,20 @@ export default function Home() {
       <section className="relative flex min-h-screen items-end overflow-hidden">
 
         <video
+          src="/hero-mobile.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 block h-full w-full object-cover sm:hidden"
+        />
+        <video
           src="/banner.mp4"
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 hidden h-full w-full object-cover sm:block"
         />
 
         {/* Optional dark overlay */}

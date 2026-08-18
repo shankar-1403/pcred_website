@@ -60,7 +60,9 @@ async function sendEmail(data: {
   }
 
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtpout.secureserver.net",
+    port: 465,
+    secure: true,
     auth: { user, pass },
   });
 

@@ -115,8 +115,10 @@ export default function SchemesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-4xl bg-[#084E75] px-8 py-12 md:px-14 md:py-14"
+            className="relative overflow-hidden rounded-4xl bg-cover bg-[80%_center] bg-no-repeat px-8 py-12 md:bg-center md:px-14 md:py-14"
+            style={{ backgroundImage: "url('/right_advisor.webp')" }}
           >
+            <div className="absolute inset-0 bg-[#084E75]/75" />
             <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#084E75]/50 blur-2xl" />
             <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
 

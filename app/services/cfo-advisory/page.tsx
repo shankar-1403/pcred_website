@@ -333,8 +333,10 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative overflow-hidden rounded-3xl bg-[#084E75] px-8 py-10 md:px-14"
+            className="relative overflow-hidden rounded-3xl bg-cover bg-[80%_center] bg-no-repeat px-8 py-10 md:bg-center md:px-14"
+            style={{ backgroundImage: "url('/right_advisor.webp')" }}
           >
+            <div className="absolute inset-0 bg-[#084E75]/75" />
             <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#0a5d8a]/50 blur-2xl" />
             <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
             <div className="pointer-events-none absolute bottom-0 right-32 size-40 rounded-full bg-[#DDB162]/10 blur-2xl" />
