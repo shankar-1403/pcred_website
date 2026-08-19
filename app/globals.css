@@ -4,6 +4,21 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Word-appear: blur fade, CSS-scheduled stagger, will-change pre-promotes layers.
+   Driven by components/TextReveal.tsx — adding .wa-go to a heading/paragraph
+   triggers all its child word spans via animation-delay (--wa-d). */
+@keyframes word-appear {
+  from { opacity: 0; filter: blur(4px); }
+  to   { opacity: 1; filter: blur(0);   }
+}
+.wa-go [data-wa-i] {
+  animation: word-appear 0.65s ease-out both;
+  animation-delay: var(--wa-d, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-go [data-wa-i] { animation: none !important; opacity: 1 !important; filter: none !important; }
+}
+
 /* Extra one-off type-scale tokens used alongside Tailwind's default --text-* scale,
    so every piece of copy on the site (including small uppercase labels and the
    scheme-hero heading) participates in the site-wide font-size preference below. */
@@ -11,6 +26,68 @@
   --text-10: 0.625rem;
   --text-11: 0.6875rem;
   --text-44: 2.75rem;
+
+  /* Explicitly wired to the next/font variables set in app/layout.tsx so the
+     font-sans / font-serif utilities deterministically resolve to Plus Jakarta
+     Sans / Fraunces regardless of stylesheet cascade order. */
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+/*
+ * Brand color system. Navy is sampled directly from the PCRED logo
+ * (public/logo.webp) and is the primary color. Maroon (also logo-derived)
+ * was tried as the accent color but retired per explicit user direction —
+ * too much red made the site feel heavy. Gold is the confirmed warm accent:
+ * used generously in decorative moments and background washes, not just
+ * headline text. Stone remains available as a neutral gray where a true
+ * neutral (not a color accent) is needed.
+ */
+@theme {
+  --color-navy-50: #EAF1F5;
+  --color-navy-100: #CBDFE9;
+  --color-navy-200: #9CC0D3;
+  --color-navy-300: #649EBA;
+  --color-navy-400: #2E7998;
+  --color-navy-500: #0C5B7D;
+  --color-navy-600: #084B70; /* canonical brand navy — sampled from logo */
+  --color-navy-700: #073B58;
+  --color-navy-800: #062C42;
+  --color-navy-900: #0F2140; /* deep ink navy for large dark section fills — matches primacred's dark-panel navy */
+  --color-navy-950: #071428;
+
+  --color-maroon-50: #FBEAEA;
+  --color-maroon-100: #F3C7C8;
+  --color-maroon-200: #E39A9C;
+  --color-maroon-300: #CC6669;
+  --color-maroon-400: #AC3639;
+  --color-maroon-500: #8A191F; /* canonical brand maroon — sampled from logo */
+  --color-maroon-600: #75151A;
+  --color-maroon-700: #5E1115;
+  --color-maroon-800: #470D10;
+  --color-maroon-900: #30080A;
+
+  --color-stone-50: #FAFAF9;
+  --color-stone-100: #F1F0EF;
+  --color-stone-200: #E2E0DE;
+  --color-stone-300: #C7C4C1;
+  --color-stone-400: #A6A3A0;
+  --color-stone-500: #8D8C8F; /* canonical brand gray — sampled from logo ("CRED") */
+  --color-stone-600: #706F72;
+  --color-stone-700: #545355;
+  --color-stone-800: #38373A;
+  --color-stone-900: #1C1B1D;
+
+  --color-gold-50: #FBF5E9;
+  --color-gold-100: #F3E2BB;
+  --color-gold-200: #E8CD8C;
+  --color-gold-300: #D9B872; /* light tint — used for gold accents on dark/navy backgrounds */
+  --color-gold-400: #C7A047;
+  --color-gold-500: #B8892E; /* canonical brand gold — the confirmed accent color */
+  --color-gold-600: #96701F;
+  --color-gold-700: #6B4F15;
+  --color-gold-800: #4A370F;
+  --color-gold-900: #2E2209;
 }
 
 /*

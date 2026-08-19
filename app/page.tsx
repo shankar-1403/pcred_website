@@ -5,14 +5,20 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import { IconArrowRight, IconBuilding, IconBuildingBank, IconChartBar, IconStar, IconStarHalfFilled, IconChartHistogram, IconCheck, IconChevronLeft, IconChevronRight, IconCircleDashedCheck, IconHeartHandshake, IconMap2, IconQuote, IconRefresh, IconRocket, IconSend, IconStarFilled, IconTargetArrow, IconUsersGroup, } from "@tabler/icons-react";
+import { IconArrowRight, IconArrowsExchange, IconBuilding, IconBuildingBank, IconChartBar, IconChartLine, IconStar, IconStarHalfFilled, IconChartHistogram, IconCheck, IconChevronLeft, IconChevronRight, IconCircleDashedCheck, IconHeartHandshake, IconMap2, IconQuote, IconRefresh, IconReportMoney, IconRocket, IconScale, IconSend, IconShieldCheck, IconStarFilled, IconTargetArrow, IconTrendingUp, IconUsers, IconUsersGroup, } from "@tabler/icons-react";
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import logo from "@/public/logo.png";
 import aboutImage from "@/public/who_we_are.webp";
+import positioningImage from "@/public/site/positioning_boardroom.webp";
+import homeHeroImage from "@/public/site/home_hero_skyline.webp";
+import corpFinanceServiceImage from "@/public/site/corpfin_hero_cityscape.webp";
+import maServiceImage from "@/public/site/ma_hero_skyline.webp";
+import valuationServiceImage from "@/public/site/valuation_hero_tablet.webp";
+import cfoServiceImage from "@/public/site/cfo_hero_office.webp";
+import riskServiceImage from "@/public/site/risk_hero_site_walk.webp";
 import { SpinningText } from "@/components/ui/spinning-text";
 import { LifecycleRoadmap } from "@/components/LifecycleRoadmap";
 import { MobileLifecycleTimeline } from "@/components/MobileLifecycleTimeline";
-import HorizontalAccordion from "@/components/ui/horizontalAccordion";
 import { Marquee } from "@/components/ui/marquee";
 import bank_1 from "@/public/banking_partners/banking_partners-01.webp";
 import bank_2 from "@/public/banking_partners/banking_partners-02.webp";
@@ -205,6 +211,79 @@ const advisoryFeatures = [
   },
 ];
 
+const whyPcred = [
+  {
+    title: "Proactive Financial Expertise",
+    icon: IconChartLine,
+    description:
+      "Tailored financial solutions designed to help MSMEs and businesses improve stability, optimize performance, and achieve sustainable growth.",
+  },
+  {
+    title: "Progressive Growth Support",
+    icon: IconTrendingUp,
+    description:
+      "From funding solutions to strategic advisory, we help businesses unlock opportunities for expansion and long-term success.",
+  },
+  {
+    title: "Personalized MSME Advisory",
+    icon: IconUsers,
+    description:
+      "We understand the unique challenges faced by MSMEs and deliver customized financial guidance aligned with their business goals.",
+  },
+  {
+    title: "Principled Partnerships & Transparency",
+    icon: IconShieldCheck,
+    description:
+      "Through ethical practices, honest communication, and reliable support, we build long-term relationships founded on trust and accountability.",
+  },
+];
+
+const servicesList = [
+  {
+    number: "01",
+    title: "Corporate Finance",
+    description:
+      "PCRED advises companies, promoters and investors on capital raising, debt structuring and financial strategy across critical stages of the corporate lifecycle.",
+    icon: IconBuildingBank,
+    href: "/services/corporate-finance",
+    image: corpFinanceServiceImage,
+  },
+  {
+    number: "02",
+    title: "M&A Advisory",
+    description: "M&A decisions have implications far beyond the transaction itself.",
+    icon: IconArrowsExchange,
+    href: "/services/ma-advisory",
+    image: maServiceImage,
+  },
+  {
+    number: "03",
+    title: "Valuation & Transaction",
+    description:
+      "Valuation is fundamental to capital allocation, investment decisions and corporate transactions.",
+    icon: IconScale,
+    href: "/services/valuation-transaction",
+    image: valuationServiceImage,
+  },
+  {
+    number: "04",
+    title: "CFO Advisory",
+    description: "Sound financial management is fundamental to sustainable enterprise value.",
+    icon: IconReportMoney,
+    href: "/services/cfo-advisory",
+    image: cfoServiceImage,
+  },
+  {
+    number: "05",
+    title: "Risk & Governance",
+    description:
+      "As organisations become larger and more complex, governance and risk management become integral to protecting enterprise value.",
+    icon: IconShieldCheck,
+    href: "/services/risk-governance",
+    image: riskServiceImage,
+  },
+];
+
 const features = [
   {
     title: "Strategic Perspective",
@@ -264,6 +343,7 @@ const inputClass =
   "w-full rounded-2xl border border-[#084E75]/15 bg-white px-4 py-3.5 text-[#084E75] placeholder:text-[#084E75]/50 outline-none transition-all duration-200 focus:border-[#084E75] focus:ring-2 focus:ring-[#084E75]/15";
 
 export default function Home() {
+  const [activeFeature, setActiveFeature] = useState(0);
   const [activeReview, setActiveReview] = useState(0);
   const [reviewDirection, setReviewDirection] = useState(0);
 
@@ -371,25 +451,16 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative flex min-h-screen items-end overflow-hidden">
 
-        <video
-          src="/hero-mobile.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 block h-full w-full object-cover sm:hidden"
-        />
-        <video
-          src="/banner.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 hidden h-full w-full object-cover sm:block"
+        <Image
+          src={homeHeroImage}
+          alt="Mumbai skyline at dusk"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
         />
 
-        {/* Optional dark overlay */}
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
 
         <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 px-6 pb-24 pt-32 md:gap-8 md:pb-32">
           <motion.div
@@ -400,7 +471,7 @@ export default function Home() {
           >
             <div className="flex items-end gap-3 md:gap-4">
 
-              <h1 className="flex flex-nowrap items-end gap-x-1 sm:gap-x-2 text-2xl font-bold uppercase tracking-tight text-white sm:text-4xl md:text-6xl lg:text-7xl">
+              <h1 className="font-serif flex flex-nowrap items-end gap-x-1 sm:gap-x-2 text-2xl font-bold uppercase tracking-tight text-white sm:text-4xl md:text-6xl lg:text-7xl">
                 <div className="mb-0.5 shrink-0 md:mb-2">
                   <Image src={logo} alt="PCRED" className="h-7 w-auto object-contain sm:h-11 md:h-16 lg:h-20" width={80} height={80} />
                 </div>
@@ -427,101 +498,232 @@ export default function Home() {
                 <IconArrowRight className="size-4" color="#084E75" />
               </span>
             </Link>
+            <Link href="#contact" className="group flex items-center justify-between rounded-4xl border border-white/40 bg-white/5 pl-4 pr-2 py-2 text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/10 w-56 text-sm">Talk to an Advisor
+              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                <IconArrowRight className="size-4" color="#084E75" />
+              </span>
+            </Link>
           </motion.div>
 
         </div>
+
+        {/* Embedded hero info bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="relative z-10 hidden border-t border-white/15 bg-black/20 backdrop-blur-sm md:block"
+        >
+          <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
+            <span className="shrink-0 text-[11px] font-semibold uppercase tracking-[0.25em] text-white/60">
+              Advisory Services
+            </span>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
+              {["Corporate Finance", "M&A Advisory", "Valuation & Transaction", "CFO Advisory", "Risk & Governance"].map(
+                (label) => (
+                  <span key={label} className="text-xs font-medium text-white/70">
+                    {label}
+                  </span>
+                )
+              )}
+            </div>
+            <Link href="/services/corporate-finance" className="group flex shrink-0 items-center gap-1.5 text-xs font-semibold text-white transition-colors hover:text-[#D9B872]">
+              Our Services
+              <IconArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        </motion.div>
       </section>
 
-      {/* Intro Section — Corporate Advisory */}
-      <section className="bg-white py-20 md:py-28">
+      {/* Stats Strip */}
+      <section className="relative border-b border-[#084E75]/8 bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="overflow-hidden rounded-3xl bg-white"
-          >
-            <div className="grid lg:grid-cols-2">
-              <div className="relative flex min-h-72 items-center justify-center overflow-hidden lg:min-h-full lg:p-6">
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 opacity-30"
-                />
-                <img
-                  src={'/img_about_sec.webp'}
-                  alt="PCRED corporate advisory"
-                  className="relative z-10 w-full scale-[1.0] object-contain lg:scale-[1.0]"
-                />
+          <div className="grid grid-cols-2 gap-x-6 gap-y-8 py-10 sm:grid-cols-4 sm:gap-x-8 md:py-12">
+            {[
+              { value: "16+", label: "Years of advisory experience" },
+              { value: "2500+", label: "MSMEs and enterprises served" },
+              { value: "₹1500Cr+", label: "Capital facilitated" },
+              { value: `${companies_one.length + companies_two.length}+`, label: "Banking and institutional partners" },
+            ].map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.07 }}
+                className="relative border-l border-[#084E75]/10 pl-5 first:border-l-0 first:pl-0 sm:pl-6"
+              >
+                <span className="font-serif block text-3xl font-bold leading-none text-[#084E75] md:text-4xl">
+                  {stat.value}
+                </span>
+                <span className="mt-2 block text-xs leading-snug text-[#4a5568] md:text-sm">
+                  {stat.label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                <motion.div initial={{ x: -15 }}
-                  animate={{ x: [0, 15, 0] }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    ease: "easeInOut",
-                  }} className="absolute bottom-6 left-4 z-20 flex max-w-56 items-start gap-3 rounded-2xl border border-white/15 bg-white/70 p-3 backdrop-blur-lg lg:bottom-20 lg:left-100">
-                  <IconUsersGroup className="mt-0.5 size-5 shrink-0 text-[#084E75]" stroke={1.5} />
-                  <p className="text-xs leading-relaxed text-[#084E75]">
-                    Empowering MSMEs with Strategic Financial Advisory Solutions.
-                  </p>
-                </motion.div>
-              </div>
-
-              <div className="flex flex-col justify-center py-6 text-left sm:p-8 md:p-10 lg:p-12">
-                <h2 className="text-2xl font-semibold leading-tight text-[#084E75] sm:text-3xl md:mt-5 md:text-4xl md:leading-12 md:whitespace-nowrap">
-                  Building Stronger Businesses.
-                  <span className="mt-1 block bg-linear-to-r from-[#DDB162] to-[#b8892e] bg-clip-text font-bold text-transparent">
-                    Creating Lasting Value.
-                  </span>
-                </h2>
-
-                <p className="mt-3 text-sm leading-relaxed text-[#084E75] md:mt-5 md:text-base">
-                  PCRED is a leading Corporate Advisory firm helping businesses across India
-                  make smarter financial decisions, unlock growth opportunities, and build
-                  sustainable enterprises.
-                </p>
-
-                <div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3 sm:grid-cols-3 md:mt-7">
-                  {advisoryFeatures.map((feature) => {
-                    const Icon = feature.icon;
-
-                    return (
-                      <div
-                        key={feature.title}
-                        className="flex flex-col items-start gap-2 p-3 text-left sm:gap-3 sm:p-4"
-                      >
-                        <div className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[#084E75] text-[#084E75]">
-                          <Icon size={18} stroke={1.5} />
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-sm font-semibold text-[#084E75]">{feature.title}</p>
-                          <p className="mt-0.5 text-xs leading-relaxed text-[#084E75]/55">
-                            {feature.description}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href="#contact" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-56 sm:w-50 text-sm">Talk to an Advisor
-                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                      <IconArrowRight className="size-4" color="#DDB162" />
-                    </span>
-                  </Link>
-
-                  <Link href="/services" className="group flex items-center justify-between rounded-4xl border border-[#084E75]/15 bg-white pl-4 pr-2 py-2 text-[#084E75] shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-56 sm:w-50 text-sm">Our Services
-                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                      <IconArrowRight className="size-4" color="#DDB162" />
-                    </span>
-                  </Link>
-                </div>
-              </div>
+      {/* Services Strip */}
+      <section className="relative bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-14 flex flex-col items-start justify-between gap-6 md:mb-16 md:flex-row md:items-end">
+            <div className="max-w-xl">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
+                <span className="size-2 rounded-full bg-[#8D8C8F]" />
+                Our Advisory Services
+              </span>
+              <h2 className="font-serif text-3xl font-bold text-[#084E75] md:text-4xl">
+                Structured Support Across
+                <br />
+                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Every Stage of Growth.</span>
+              </h2>
             </div>
-          </motion.div>
+            <Link
+              href="/services/corporate-finance"
+              className="group inline-flex shrink-0 items-center gap-2 border-b-2 border-[#084E75] pb-1 text-sm font-semibold uppercase tracking-wider text-[#084E75] transition-colors hover:border-[#D9B872] hover:text-[#0a5d8a]"
+            >
+              All Services
+              <IconArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+
+          <div className="divide-y divide-[#084E75]/10 border-y border-[#084E75]/10">
+            {servicesList.map((service, i) => {
+              const Icon = service.icon;
+              return (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                >
+                  <Link
+                    href={service.href}
+                    className="group relative grid grid-cols-[auto_1fr] items-center gap-4 overflow-hidden rounded-2xl px-3 py-7 transition-[padding] duration-500 ease-out hover:py-12 sm:grid-cols-[3rem_3.5rem_1fr_auto] sm:gap-6 sm:px-4 md:py-8 md:hover:py-16"
+                  >
+                    <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <Image
+                        src={service.image}
+                        alt=""
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.94)_0%,rgba(7,20,40,0.82)_38%,rgba(15,33,64,0.65)_68%,rgba(15,33,64,0.5)_100%),linear-gradient(to_top,rgba(7,20,40,0.45)_0%,transparent_45%)]" />
+                    </div>
+
+                    <span className="font-serif relative z-10 hidden text-2xl font-bold text-[#084E75]/20 transition-colors duration-500 group-hover:text-white/30 sm:block">
+                      {service.number}
+                    </span>
+                    <div className="relative z-10 flex size-12 shrink-0 items-center justify-center rounded-full bg-[#084E75]/5 text-[#084E75] transition-colors duration-500 group-hover:bg-white/10 group-hover:text-white">
+                      <Icon size={22} stroke={1.6} />
+                    </div>
+                    <div className="relative z-10 min-w-0">
+                      <h3 className="text-lg font-semibold text-[#084E75] transition-colors duration-500 group-hover:text-white md:text-xl">
+                        {service.title}
+                      </h3>
+                      <p className="mt-1 max-w-xl text-sm leading-relaxed text-[#4a5568] line-clamp-2 transition-colors duration-500 group-hover:text-white/75 sm:line-clamp-1">
+                        {service.description}
+                      </p>
+                    </div>
+                    <span className="relative z-10 hidden shrink-0 size-10 items-center justify-center rounded-full border border-[#084E75]/15 text-[#084E75] transition-all duration-500 group-hover:border-white/40 group-hover:bg-white/10 group-hover:text-white sm:flex">
+                      <IconArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Positioning Statement */}
+      <section className="relative isolate overflow-hidden bg-linear-to-br from-[#FAFAF9] via-white to-[#FBF6EC] py-20 md:py-28">
+        <div className="pointer-events-none absolute -left-24 top-0 size-72 rounded-full bg-[#B8892E]/8 blur-[90px]" />
+        <div className="pointer-events-none absolute -right-20 bottom-0 size-80 rounded-full bg-[#084E75]/6 blur-[90px]" />
+
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="grid gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col justify-center"
+            >
+              <span className="mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
+                <span className="size-2 rounded-full bg-[#8D8C8F]" />
+                Our Purpose
+              </span>
+              <h2 className="font-serif text-3xl font-semibold leading-tight text-[#084E75] sm:text-4xl md:text-5xl md:leading-[1.15]">
+                Building Stronger Businesses.
+                <span className="mt-1 block bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text font-bold text-transparent">
+                  Creating Lasting Value.
+                </span>
+              </h2>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-[#084E75]/75 md:text-lg">
+                PCRED is a leading Corporate Advisory firm helping businesses across India
+                make smarter financial decisions, unlock growth opportunities, and build
+                sustainable enterprises.
+              </p>
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Link href="#contact" className="group flex items-center justify-between rounded-4xl bg-[#084E75] hover:bg-[#0a5d8a] pl-4 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-56 sm:w-50 text-sm">Talk to an Advisor
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                    <IconArrowRight className="size-4" color="#8D8C8F" />
+                  </span>
+                </Link>
+
+                <Link href="/services/corporate-finance" className="group flex items-center justify-between rounded-4xl border border-[#084E75]/15 bg-white pl-4 pr-2 py-2 text-[#084E75] shadow-md shadow-[#8D8C8F]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-56 sm:w-50 text-sm">Our Services
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                    <IconArrowRight className="size-4" color="#8D8C8F" />
+                  </span>
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative flex flex-col justify-center gap-4"
+            >
+              <div className="relative mb-2 flex aspect-video w-full items-center justify-center overflow-hidden rounded-3xl">
+                <Image
+                  src={positioningImage}
+                  alt="PCRED advisors in a boardroom discussion"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 40vw, 90vw"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
+              </div>
+              {advisoryFeatures.map((feature, i) => {
+                const Icon = feature.icon;
+                return (
+                  <div
+                    key={feature.title}
+                    className="relative z-10 flex items-start gap-4 rounded-2xl border border-[#084E75]/8 bg-white p-5 shadow-[0_12px_32px_-16px_rgba(8,78,117,0.18)]"
+                    style={{ marginLeft: `${i * 18}px` }}
+                  >
+                    <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#084E75]/8 text-[#084E75]">
+                      <Icon size={20} stroke={1.6} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold text-[#084E75]">{feature.title}</p>
+                      <p className="mt-0.5 text-xs leading-relaxed text-[#084E75]/60">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -536,27 +738,27 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162] mb-4">
-                <span className="size-2 rounded-full bg-[#DDB162]" />
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872] mb-4">
+                <span className="size-2 rounded-full bg-[#D9B872]" />
                 Who We Are
               </span>
 
               <h3 className="text-3xl font-semibold leading-12 text-white md:text-4xl">
                 Strategic Advisors for Businesses
                 <br />
-                <span className="text-[#DDB162]">That Think Long-Term</span>
+                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">That Think Long-Term</span>
               </h3>
 
               <p className="mt-6 max-w-lg text-base leading-relaxed text-white/75 md:text-lg">Every successful business reaches moments where the right financial decision changes everything.</p>
 
-              <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm mt-8 sm:mt-14">Discover Our Story
+              <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-[#084E75] hover:bg-[#0a5d8a] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm mt-8 sm:mt-14">Discover Our Story
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                  <IconArrowRight className="size-4" color="#DDB162" />
+                  <IconArrowRight className="size-4" color="#D9B872" />
                 </span>
               </Link>
               <div className="absolute right-2 hidden sm:block sm:right-8 md:right-16 md:-translate-y-20 lg:right-8 lg:translate-y-0">
                 <SpinningText>Years of Experience • Years of Experience •</SpinningText>
-                <div className="absolute -top-11 -right-11 bg-[#DDB162] w-22 h-22 flex justify-center items-center rounded-full">
+                <div className="absolute -top-11 -right-11 bg-[#D9B872] w-22 h-22 flex justify-center items-center rounded-full">
                   <span className="text-white text-4xl font-bold">16+</span>
                 </div>
               </div>
@@ -569,14 +771,14 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="relative"
             >
-              <div className="absolute -inset-2 rounded-4xl border border-[#DDB162]/30 sm:-inset-4" />
+              <div className="absolute -inset-2 rounded-4xl border border-[#D9B872]/30 sm:-inset-4" />
               <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-black/30">
                 <Image
                   src={aboutImage}
                   alt="PCRED advisory team"
                   className="aspect-7/5 w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-[#084E75] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
               </div>
             </motion.div>
           </div>
@@ -585,37 +787,43 @@ export default function Home() {
       </section>
 
       {/* Business Lifecycle */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-[#FAFAF9] py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+          <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-end lg:gap-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-                <span className="size-2 rounded-full bg-[#DDB162]" />
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
+                <span className="size-2 rounded-full bg-[#8D8C8F]" />
                 Business Lifecycle
               </span>
-              <h2 className="text-3xl font-semibold text-[#084E75] leading-12 md:text-4xl">
+              <h2 className="font-serif text-3xl font-semibold text-[#084E75] leading-12 md:text-4xl">
                 One Advisory Partner.
                 <br />
-                <span className="text-[#DDB162]">Every stage of growth.</span>
+                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Every stage of growth.</span>
               </h2>
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-[#084E75]/70 md:text-lg">
+                From ambitious startups to established enterprises, we support businesses
+                throughout their journey with strategic financial guidance and corporate
+                advisory.
+              </p>
             </motion.div>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="mt-5 text-base leading-relaxed text-[#084E75]/70 md:text-lg"
+              className="flex items-center gap-6 rounded-3xl border border-[#084E75]/10 bg-white p-6 shadow-[0_20px_50px_-25px_rgba(8,78,117,0.25)] lg:justify-self-end"
             >
-              From ambitious startups to established enterprises, we support businesses
-              throughout their journey with strategic financial guidance and corporate
-              advisory.
-            </motion.p>
+              <span className="font-serif text-5xl font-bold text-[#084E75]">{stages.length}</span>
+              <span className="max-w-[10rem] text-sm leading-snug text-[#084E75]/70">
+                Distinct stages, one advisory partner from start to IPO.
+              </span>
+            </motion.div>
           </div>
 
           <LifecycleRoadmap stages={stages} />
@@ -624,13 +832,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="relative overflow-hidden bg-[#084E75] py-20 md:py-28">
+      {/* Platform / Capabilities Section */}
+      <section className="relative overflow-hidden bg-[#0F2140] py-20 md:py-28">
         <div className="pointer-events-none absolute inset-0 opacity-10">
-          <div className="absolute -right-52 -top-52 size-150 rounded-full border border-[#DDB162]" />
-          <div className="absolute -bottom-52 -left-52 size-125 rounded-full border border-[#DDB162]" />
+          <div className="absolute -right-52 -top-52 size-150 rounded-full border border-[#D9B872]" />
+          <div className="absolute -bottom-52 -left-52 size-125 rounded-full border border-[#D9B872]" />
         </div>
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(221,177,98,0.08),transparent_70%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(141,140,143,0.08),transparent_70%)]" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -638,23 +846,99 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col justify-center"
+            className="mb-14 max-w-2xl"
           >
-
-            <span className="inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162] mb-4">
-              <span className="size-2 rounded-full bg-[#DDB162]" />
+            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
+              <span className="size-2 rounded-full bg-[#D9B872]" />
               Strategic Advantage
             </span>
-
-            <h5 className="text-3xl font-semibold leading-12 text-white text-center md:text-4xl">
+            <h2 className="font-serif text-3xl font-semibold leading-12 text-white md:text-4xl">
               Trusted by Businesses.
               <br />
-              <span className="text-[#DDB162]">Driven by Results.</span>
-            </h5>
+              <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Driven by Results.</span>
+            </h2>
           </motion.div>
 
-          <div className="w-full">
-            <HorizontalAccordion accordionItems={features} />
+          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col border-y border-white/10 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:border-y-0 lg:flex lg:gap-x-0"
+            >
+              {features.map((feature, i) => {
+                const isActive = i === activeFeature;
+                return (
+                  <button
+                    key={feature.title}
+                    type="button"
+                    onClick={() => setActiveFeature(i)}
+                    className={`group flex items-center gap-4 border-white/10 py-5 text-left transition-colors first:pt-0 last:pb-0 ${
+                      isActive ? "text-white" : "text-white/45 hover:text-white/75"
+                    } border-b sm:border-b-0 sm:py-4 lg:border-b`}
+                  >
+                    <span className="font-serif w-8 shrink-0 text-xl font-bold">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="min-w-0 flex-1 text-base font-semibold md:text-lg">
+                      {feature.title}
+                    </span>
+                    <span
+                      className={`h-px shrink-0 bg-[#D9B872] transition-all duration-300 ${
+                        isActive ? "w-8 opacity-100" : "w-0 opacity-0"
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeFeature}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.35 }}
+                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm md:p-9"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
+                        {features[activeFeature].subtitle}
+                      </span>
+                      <h3 className="mt-2 text-2xl font-bold text-white md:text-3xl">
+                        {features[activeFeature].title}
+                      </h3>
+                    </div>
+                    <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-[#D9B872] text-[#084E75]">
+                      {(() => {
+                        const Icon = features[activeFeature].icon;
+                        return <Icon size={22} stroke={1.8} />;
+                      })()}
+                    </div>
+                  </div>
+                  <p className="mt-4 max-w-lg text-base leading-relaxed text-white/70">
+                    {features[activeFeature].description}
+                  </p>
+                  <div className="relative mt-7 aspect-16/9 overflow-hidden rounded-2xl">
+                    <img
+                      src={features[activeFeature].image}
+                      alt={features[activeFeature].title}
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/70 via-[#084E75]/10 to-transparent" />
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -662,23 +946,39 @@ export default function Home() {
       {/* Expertise Section */}
       <section className="relative py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col justify-center"
-          >
+          <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-end lg:gap-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col justify-center"
+            >
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
+                <span className="size-2 rounded-full bg-[#8D8C8F]" />
+                Our Partners
+              </span>
 
-            <span className="inline-flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162] mb-4">
-              <span className="size-2 rounded-full bg-[#DDB162]" />
-              Our Partners
-            </span>
+              <h5 className="text-3xl font-semibold leading-14 text-[#084E75] md:text-4xl">
+                Trusted <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Banking Partners</span>
+              </h5>
+            </motion.div>
 
-            <h5 className="text-3xl font-semibold leading-14 text-[#084E75] text-center md:text-4xl">
-              Trusted <span className="text-[#DDB162]">Banking Partners</span>
-            </h5>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex items-center gap-5 rounded-3xl border border-[#084E75]/10 bg-[#FAFAF9] p-6 lg:justify-self-end"
+            >
+              <span className="font-serif text-5xl font-bold leading-none text-[#084E75]">
+                {companies_one.length + companies_two.length}+
+              </span>
+              <span className="text-sm leading-relaxed text-[#4a5568]">
+                Banking and financial institution partners backing every mandate.
+              </span>
+            </motion.div>
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -702,13 +1002,63 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Why PCRED */}
+      <section className="relative border-t border-[#084E75]/8 bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-14 max-w-2xl"
+          >
+            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
+              <span className="size-2 rounded-full bg-[#8D8C8F]" />
+              Why PCRED
+            </span>
+            <h2 className="font-serif text-3xl font-bold text-[#084E75] md:text-4xl">
+              Advisory <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">With Perspective.</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2">
+            {whyPcred.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.4, delay: i * 0.06 }}
+                  className="flex gap-5"
+                >
+                  <span className="font-serif shrink-0 text-2xl font-bold leading-none text-[#084E75]/20">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2.5">
+                      <Icon size={18} className="shrink-0 text-[#084E75]" stroke={1.7} />
+                      <h3 className="text-lg font-semibold text-[#084E75]">{item.title}</h3>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-[#4a5568]">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section
         className="relative bg-cover bg-fixed bg-[65%_center] bg-no-repeat py-14 md:bg-center md:py-14"
         style={{ backgroundImage: "url('/right_financial_partner.webp')" }}
       >
         <div className="absolute inset-0 bg-[#084E75]/60" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(221,177,98,0.15),transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(141,140,143,0.15),transparent_60%)]" />
 
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-center">
           <motion.div
@@ -721,7 +1071,7 @@ export default function Home() {
             <h5 className="text-3xl font-semibold leading-tight md:leading-14 text-white md:text-4xl">
               Looking for the Right
               <br />
-              <span className="text-[#DDB162]">Financial Partner?</span>
+              <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Financial Partner?</span>
             </h5>
             <p className="mt-3 text-sm text-white/70 md:text-lg">
               Our MSME advisory experts help businesses secure funding, optimize
@@ -736,9 +1086,9 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="w-full sm:w-auto"
           >
-            <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm">Discover Our Story
+            <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-[#084E75] hover:bg-[#0a5d8a] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm">Discover Our Story
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                <IconArrowRight className="size-4" color="#DDB162" />
+                <IconArrowRight className="size-4" color="#D9B872" />
               </span>
             </Link>
           </motion.div>
@@ -746,7 +1096,7 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <section className="relative overflow-hidden bg-white py-20 md:py-28">
+      <section className="relative overflow-hidden bg-linear-to-b from-white via-[#FBF9F3] to-white py-20 md:py-28">
         <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 -left-32 size-96 rounded-full bg-[#5BBCEB]/10 blur-3xl" />
 
@@ -759,15 +1109,15 @@ export default function Home() {
             className="mb-10 flex flex-col items-start justify-between gap-6 md:mb-14 md:flex-row md:items-end"
           >
             <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#DDB162] mb-4">
-                <span className="size-1.5 rounded-full bg-[#DDB162]" />
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8D8C8F] mb-4">
+                <span className="size-1.5 rounded-full bg-[#8D8C8F]" />
                 Client Stories
               </span>
 
               <h5 className="text-3xl font-semibold leading-tight md:leading-14 text-[#084E75] md:text-4xl">
                 Trusted by Businesses
                 <br />
-                <span className="text-[#DDB162]">Across India</span>
+                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Across India</span>
               </h5>
             </div>
 
@@ -776,7 +1126,7 @@ export default function Home() {
                 <p className="text-3xl font-bold text-[#084E75]">4.7</p>
                 <div className="mt-1 flex justify-center gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <IconStarFilled key={i} className="size-4 text-[#DDB162]" />
+                    <IconStarFilled key={i} className="size-4 text-[#b8892e]" />
                   ))}
                 </div>
               </div>
@@ -826,7 +1176,7 @@ export default function Home() {
                             return (
                               <IconStarFilled
                                 key={i}
-                                className="size-5 text-[#DDB162]"
+                                className="size-5 text-[#b8892e]"
                               />
                             );
                           }
@@ -835,7 +1185,7 @@ export default function Home() {
                             return (
                               <IconStarHalfFilled
                                 key={i}
-                                className="size-5 text-[#DDB162]"
+                                className="size-5 text-[#b8892e]"
                               />
                             );
                           }
@@ -843,7 +1193,7 @@ export default function Home() {
                           return (
                             <IconStar
                               key={i}
-                              className="size-5 text-[#DDB162]"
+                              className="size-5 text-[#b8892e]"
                             />
                           );
                         })}
@@ -899,7 +1249,7 @@ export default function Home() {
       {/* Contact Section */}
       <section
         id="contact"
-        className="relative overflow-hidden bg-linear-to-b from-[#084E75]/20 via-white to-[#DDB162]/15 py-20 md:py-28"
+        className="relative overflow-hidden bg-linear-to-b from-[#084E75]/20 via-white to-[#8D8C8F]/15 py-20 md:py-28"
       >
         <div className="pointer-events-none absolute -left-40 top-20 size-80 rounded-full bg-[#084E75]/5 blur-3xl" />
 
@@ -909,13 +1259,17 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="max-w-3xl mx-auto text-center mb-14"
+            className="max-w-2xl mb-14"
           >
-            <h5 className="mt-4 text-3xl font-semibold leading-tight md:text-4xl lg:text-4xl text-[#084E75]">
+            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
+              <span className="size-2 rounded-full bg-[#8D8C8F]" />
+              Get In Touch
+            </span>
+            <h5 className="text-3xl font-semibold leading-tight md:text-4xl lg:text-4xl text-[#084E75]">
               {"Let's Start a "}
-              <span className="text-[#DDB162]">Conversation</span>
+              <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Conversation</span>
             </h5>
-            <p className="mt-5 text-base leading-relaxed md:text-lg text-[#084E75]/80 md:whitespace-nowrap">
+            <p className="mt-5 text-base leading-relaxed md:text-lg text-[#084E75]/80">
               Tell us about your business goals. Our advisory team will respond within one business day.
             </p>
           </motion.div>
@@ -1015,7 +1369,7 @@ export default function Home() {
                   alt="Contact"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-[#084E75]/40" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
               </div>
             </motion.div>
           </div>

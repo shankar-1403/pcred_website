@@ -157,7 +157,7 @@ export function MobileLifecycleTimeline({ stages }: { stages: Stage[] }) {
           <motion.path
             d={`M ${CX},0 L ${CX},${svgH}`}
             fill="none"
-            stroke="#DDB162"
+            stroke="#B8892E"
             strokeWidth="3"
             strokeLinecap="round"
             strokeDasharray={beamDasharray}
@@ -178,7 +178,7 @@ export function MobileLifecycleTimeline({ stages }: { stages: Stage[] }) {
               <g key={index} transform={`translate(${CX}, ${y - topY})`}>
                 <motion.path
                   d={`M 0,${-M_R} A ${M_R},${M_R} 0 0,0 0,${M_R}`}
-                  fill="none" stroke="#DDB162" strokeWidth="2.5" strokeLinecap="round"
+                  fill="none" stroke="#B8892E" strokeWidth="2.5" strokeLinecap="round"
                   strokeDasharray={`${M_SEMI} ${M_SEMI * 10}`}
                   animate={{ strokeDashoffset: dashOffset, opacity: arcOpacity }}
                   initial={{ strokeDashoffset: M_SEMI, opacity: 0 }}
@@ -190,7 +190,7 @@ export function MobileLifecycleTimeline({ stages }: { stages: Stage[] }) {
                 />
                 <motion.path
                   d={`M 0,${-M_R} A ${M_R},${M_R} 0 0,1 0,${M_R}`}
-                  fill="none" stroke="#DDB162" strokeWidth="2.5" strokeLinecap="round"
+                  fill="none" stroke="#B8892E" strokeWidth="2.5" strokeLinecap="round"
                   strokeDasharray={`${M_SEMI} ${M_SEMI * 10}`}
                   animate={{ strokeDashoffset: dashOffset, opacity: arcOpacity }}
                   initial={{ strokeDashoffset: M_SEMI, opacity: 0 }}
@@ -219,7 +219,7 @@ export function MobileLifecycleTimeline({ stages }: { stages: Stage[] }) {
               <StageIcon size={20} stroke={1.5} className="text-white" />
             </div>
             <div className="pt-1">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#DDB162]">Step {index + 1}</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#B8892E]">Step {index + 1}</span>
               <h3 className="mt-0.5 text-base font-semibold text-[#084E75]">{stage.title}</h3>
               <p className="mt-0.5 text-sm leading-relaxed text-[#084E75]/65">{stage.description}</p>
             </div>

@@ -4,6 +4,7 @@ import React,{useState,type FormEvent} from 'react';
 import {motion} from "motion/react";
 import { IconMail, IconPhone, IconClock, IconSend, IconCheck, IconMapPin} from "@tabler/icons-react";
 import Image from 'next/image';
+import heroImage from '@/public/site/contact_hero_bridge.webp';
 
 function page() {
   const [form, setForm] = useState({
@@ -92,42 +93,53 @@ function page() {
   
   return (
     <>
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-20 md:pb-24">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
+      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24">
+        <Image
+          src={heroImage}
+          alt="Infrastructure connecting businesses and opportunities"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#084E75]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-2xl mx-auto text-center"
+            className="max-w-3xl"
           >
-            <span className="mb-3 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-              <span className="size-2 rounded-full bg-[#DDB162]" />
+            <span className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
+              <span className="size-2 rounded-full bg-[#D9B872]" />
               Get In Touch
             </span>
-            <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl">
+            <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
               Connecting Through
               <br />
-              <span className="text-[#DDB162]">Smart Finance</span>
+              <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Smart Finance</span>
             </h1>
-            <p className="mt-4 text-base leading-relaxed text-[#4a5568]">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
               We partner with MSMEs and growing enterprises to deliver strategic
               financial advisory, funding solutions, and long-term growth support.
             </p>
-            <div className="mt-10 flex items-center justify-center">
-              <div className="h-px w-40 bg-[#DDB162]/30" />
-              <span className="mx-3 size-2.5 rotate-45 bg-[#DDB162]/60 shrink-0 block" />
-              <div className="h-px w-40 bg-[#DDB162]/30" />
-            </div>
           </motion.div>
+        </div>
+      </section>
 
-          <div id="contact" className="grid grid-cols-1 gap-10 mt-24 xl:grid-cols-[1fr_1.2fr] xl:grid-rows-[auto_1fr]">
+      <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_bottom_right,rgba(141,140,143,0.15),transparent_60%)] bg-white py-20 md:py-24">
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div id="contact" className="grid grid-cols-1 gap-10 xl:grid-cols-[1fr_1.2fr] xl:grid-rows-[auto_1fr]">
             <div className="order-3 xl:order-none flex items-start justify-center mt-12 xl:-mt-16 xl:self-start xl:col-start-1 xl:row-start-2 min-w-0 w-full max-sm:-mx-6">
               <div className="relative mx-auto w-screen sm:w-[36rem] sm:h-[49.8rem] sm:aspect-auto xl:w-[35rem] xl:h-[48.5rem] aspect-[35/48.5] sm:aspect-auto">
               <div className="absolute left-0 top-0 w-[35rem] h-[48.5rem] origin-top-left scale-[calc(100vw/35rem)] sm:scale-[1.028] xl:scale-[1.0]">
                 {/* Decorative background glow behind the phone so it doesn't float on plain empty space */}
-                <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[3rem] bg-linear-to-br from-[#084E75]/12 via-white/40 to-[#DDB162]/15 blur-2xl" />
+                <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[3rem] bg-linear-to-br from-[#084E75]/12 via-white/40 to-[#8D8C8F]/15 blur-2xl" />
                 <div className="pointer-events-none absolute left-1/2 top-1/3 -z-10 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#084E75]/10 blur-3xl" />
 
                 {/* Cards displayed inside the phone screen — positioned via percentages matching the frame's screen cutout */}

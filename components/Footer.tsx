@@ -25,8 +25,8 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#003958] text-white" style={{ backgroundImage: "url('/who_we_are.webp')", backgroundSize: "cover", backgroundPosition: "center 35%" }}>
-      <div className="absolute inset-0 bg-[#003958]/96" />
+    <footer className="relative overflow-hidden bg-[#0F2140] text-white" style={{ backgroundImage: "url('/who_we_are.webp')", backgroundSize: "cover", backgroundPosition: "center 35%" }}>
+      <div className="absolute inset-0 bg-[#0F2140]/96" />
       <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/60 to-transparent" />
       <div className="pointer-events-none absolute -right-32 top-0 size-64 rounded-full bg-[#5BBCEB]/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -left-32 size-80 rounded-full bg-cyan-400/10 blur-3xl" />
@@ -61,13 +61,13 @@ export default function Footer() {
 
             <div className="flex items-center gap-3 mt-5">
               {socialLinks.map((social) => (
-                <Link key={social.label} href={social.href} target="blank" aria-label={social.label} className="flex size-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-[#DDB162] hover:text-[#DDB162]"
+                <Link key={social.label} href={social.href} target="blank" aria-label={social.label} className="flex size-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-gold-500 hover:text-gold-300"
                 ><social.icon className="size-4" /></Link>
               ))}
             </div>
           </div>
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#DDB162] text-left md:text-center">Quick Links</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gold-500 text-left md:text-center">Quick Links</h3>
             <div className="flex justify-start gap-x-10 md:justify-evenly md:gap-x-0">
               {[quickLinks.slice(0, 3), quickLinks.slice(3)].map((group, gi) => (
                 <ul key={gi} className="space-y-1">
@@ -75,9 +75,9 @@ export default function Footer() {
                     <li key={quicklink.label}>
                       <Link
                         href={quicklink.href}
-                        className="group flex items-center gap-2.5 py-1.5 text-sm text-white/60 transition-all duration-200 hover:text-[#DDB162]"
+                        className="group flex items-center gap-2.5 py-1.5 text-sm text-white/60 transition-all duration-200 hover:text-gold-300"
                       >
-                        <span className="size-1.5 shrink-0 rounded-full bg-[#DDB162] transition-colors duration-200" />
+                        <span className="size-1.5 shrink-0 rounded-full bg-gold-500 transition-colors duration-200" />
                         {quicklink.label}
                       </Link>
                     </li>
@@ -87,7 +87,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex flex-col">
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#DDB162] text-left md:text-center">Get In Touch</h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gold-500 text-left md:text-center">Get In Touch</h3>
             <div className="flex flex-col gap-5">
               <a
                 href="https://maps.google.com/?q=Lodha+Supremus,520,Off+Mahakali+Caves+Rd,Chakala+Industrial+Area+MIDC,Andheri+East,Mumbai,Maharashtra+400093"
@@ -95,7 +95,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 text-sm text-white/70 transition-colors hover:text-white"
               >
-                <IconMapPin className="size-5 shrink-0" color="#DDB162" />
+                <IconMapPin className="size-5 shrink-0" color="#A6A3A0" />
                 <span className="max-w-sm leading-relaxed">
                   Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093
                 </span>
@@ -105,14 +105,14 @@ export default function Footer() {
                   href="tel:+912235120060"
                   className="flex items-center gap-3 text-sm text-white/70 transition-colors hover:text-white"
                 >
-                  <IconPhone className="size-5" color="#DDB162" />
+                  <IconPhone className="size-5" color="#A6A3A0" />
                   +91 22 3512 0060
                 </a>
                 <a
                   href="mailto:info@pcred.org"
                   className="flex items-center gap-3 text-sm text-white/70 transition-colors hover:text-white"
                 >
-                  <IconMail className="size-5" color="#DDB162" />
+                  <IconMail className="size-5" color="#A6A3A0" />
                   info@pcred.org
                 </a>
               </div>

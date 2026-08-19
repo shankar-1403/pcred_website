@@ -5,6 +5,7 @@ import InternalHeader from "../components/InternalHeader";
 import Footer from "@/components/Footer";
 import { usePathname } from "next/navigation";
 import ProtectedRoute from "./ProtectedRoute";
+import TextReveal from "./TextReveal";
 
 export default function LayoutContent({
   children,
@@ -36,6 +37,7 @@ export default function LayoutContent({
   }
   return (
     <>
+      <TextReveal />
       <Header/>
       <main className="flex-1">{children}</main>
       <Footer />

@@ -65,7 +65,7 @@ export default function Header() {
           <NavItems items={navItems} />
           <div className="flex items-center gap-3 z-99">
             <FontSizeToggle />
-            <Link href="/contact" className="px-6 py-3 rounded-4xl bg-[#DDB162] text-white text-xs cursor-pointer text-center">Contact Us</Link>
+            <Link href="/contact" className="px-6 py-3 rounded-4xl bg-[#084E75] hover:bg-[#0a5d8a] transition-colors text-white text-xs cursor-pointer text-center">Contact Us</Link>
           </div>
         </NavBody>
 
@@ -113,7 +113,7 @@ export default function Header() {
                           onClick={() => setIsMobileMenuOpen(false)}
                           className="relative flex items-center gap-2 text-sm text-white/70"
                         >
-                          <span className="size-1.5 shrink-0 rounded-full bg-[#DDB162]" />
+                          <span className="size-1.5 shrink-0 rounded-full bg-gold-500" />
                           {child.name}
                         </a>
                       ))}

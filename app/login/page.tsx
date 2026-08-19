@@ -87,7 +87,7 @@ export default function page() {
               <button
                 type="button"
                 onClick={() => setShowPassword((v) => !v)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-[#DDB162] p-1 cursor-pointer text-xs text-[#DDB162] hover:bg-slate-800"
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full border border-[#D9B872] p-1 cursor-pointer text-xs text-[#D9B872] hover:bg-slate-800"
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? <IconEyeOff size={20}/> : <IconEye size={20}/>}
@@ -104,7 +104,7 @@ export default function page() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full cursor-pointer rounded-lg bg-[#DDB162] py-2.5 text-sm font-semibold text-neutral-100 transition hover:bg-blue-500 disabled:opacity-50"
+            className="w-full cursor-pointer rounded-lg bg-[#D9B872] py-2.5 text-sm font-semibold text-neutral-100 transition hover:bg-blue-500 disabled:opacity-50"
           >
             {submitting ? 'Signing in…' : 'Sign in'}
           </button>

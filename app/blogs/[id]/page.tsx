@@ -23,7 +23,7 @@ export default function BlogDetailPage() {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4">
         <p className="text-xl font-semibold text-[#084E75]">Article not found.</p>
-        <Link href="/blogs" className="text-sm text-[#DDB162] underline">
+        <Link href="/blogs" className="text-sm text-[#8D8C8F] underline">
           Back to Blogs
         </Link>
       </div>
@@ -33,7 +33,7 @@ export default function BlogDetailPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-16">
+      <section className="relative overflow-hidden bg-linear-to-b from-white to-[#FBF9F3] pt-36 pb-16">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
         <div className="relative mx-auto max-w-4xl px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
@@ -51,7 +51,7 @@ export default function BlogDetailPage() {
               </span>
             )}
 
-            <h1 className="text-3xl font-bold leading-snug text-[#084E75] md:text-4xl lg:text-5xl">
+            <h1 className="font-serif text-3xl font-bold leading-snug text-[#084E75] md:text-4xl lg:text-5xl">
               {blog.title}
             </h1>
 
@@ -100,14 +100,14 @@ export default function BlogDetailPage() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {blog.excerpt && (
-            <p className="mb-10 text-lg leading-relaxed text-[#4a5568] border-l-4 border-[#DDB162] pl-5 italic">
+            <p className="mb-10 text-lg leading-relaxed text-[#4a5568] border-l-4 border-[#8D8C8F] pl-5 italic">
               {blog.excerpt}
             </p>
           )}
 
           {blog.content ? (
             <div
-              className="prose prose-lg max-w-none prose-headings:text-[#084E75] prose-a:text-[#DDB162] prose-strong:text-[#084E75]"
+              className="prose prose-lg max-w-none prose-headings:text-[#084E75] prose-a:text-[#8D8C8F] prose-strong:text-[#084E75]"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
           ) : (
@@ -118,7 +118,7 @@ export default function BlogDetailPage() {
         <div className="mt-16 border-t border-gray-100 pt-8">
           <Link
             href="/blogs"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#084E75] hover:text-[#DDB162] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#084E75] hover:text-[#8D8C8F] transition-colors"
           >
             <IconArrowLeft className="size-4" />
             Back to all articles

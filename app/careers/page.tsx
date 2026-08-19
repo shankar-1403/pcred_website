@@ -4,6 +4,8 @@ import { useState, useRef, type ChangeEvent, type FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { IconMapPin, IconBriefcase, IconClock, IconUsers, IconX, IconPaperclip } from "@tabler/icons-react";
 import { useCareers, type Career } from "@/src/hooks/useCareers";
+import Image from "next/image";
+import heroImage from "@/public/site/careers_hero_team.webp";
 
 const initialApply = { name: "", email: "", phone: "", experience: "", message: "" };
 
@@ -94,7 +96,7 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[#084E75]/10 px-6 py-5">
           <div>
-            <h2 className="text-xl font-bold text-[#084E75]">Apply Now</h2>
+            <h2 className="font-serif text-xl font-bold text-[#084E75]">Apply Now</h2>
             <p className="mt-0.5 text-xs text-[#8E8E90]">{career.title}</p>
           </div>
           <button
@@ -221,7 +223,7 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full cursor-pointer rounded-4xl bg-[#084E75] py-3 text-sm font-semibold text-[#DDB162] shadow-lg shadow-[#084E75]/20 transition-colors hover:bg-[#0a5d8a] disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full cursor-pointer rounded-4xl bg-[#084E75] py-3 text-sm font-semibold text-[#D9B872] shadow-lg shadow-[#084E75]/20 transition-colors hover:bg-[#0a5d8a] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {loading ? "Submitting…" : "Submit Application"}
               </button>
@@ -305,36 +307,72 @@ export default function CareersPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-20 md:pb-24">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
+      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24">
+        <Image
+          src={heroImage}
+          alt="Colleagues collaborating on a project"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#084E75]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center"
+            className="max-w-3xl"
           >
-            <span className="mb-3 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-              <span className="size-2 rounded-full bg-[#DDB162]" />
+            <span className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
+              <span className="size-2 rounded-full bg-[#D9B872]" />
               Careers
             </span>
-            <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl">
+            <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
               Build Your Career
               <br />
-              <span className="text-[#DDB162]">With Pcred</span>
+              <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">With Pcred</span>
             </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-base leading-relaxed text-[#4a5568]">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
               Join our team of financial experts and help MSMEs and enterprises achieve their funding goals.
             </p>
-            <div className="mt-10 flex items-center justify-center">
-              <div className="h-px w-40 bg-[#DDB162]/30" />
-              <span className="mx-3 size-2.5 rotate-45 bg-[#DDB162]/60 shrink-0 block" />
-              <div className="h-px w-40 bg-[#DDB162]/30" />
-            </div>
           </motion.div>
+        </div>
+      </section>
 
-          <div className="mt-20">
+      <section className="relative overflow-hidden bg-[radial-gradient(ellipse_100%_60%_at_50%_100%,rgba(141,140,143,0.12),transparent)] bg-white py-20 md:py-24">
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-6">
+          {!loading && activeJobs.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="mt-14 grid grid-cols-3 gap-x-6 gap-y-6 border-t border-[#084E75]/8 pt-10"
+            >
+              {[
+                { value: activeJobs.length, label: "Open positions" },
+                { value: new Set(activeJobs.map((c) => c.department).filter(Boolean)).size, label: "Departments hiring" },
+                { value: new Set(activeJobs.map((c) => c.location).filter(Boolean)).size, label: "Office locations" },
+              ].map((stat, i) => (
+                <div key={stat.label} className="relative border-l border-[#084E75]/10 pl-5 first:border-l-0 first:pl-0">
+                  <span className="font-serif block text-3xl font-bold leading-none text-[#084E75] md:text-4xl">
+                    {stat.value}
+                  </span>
+                  <span className="mt-2 block text-xs leading-snug text-[#4a5568] md:text-sm">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+          )}
+
+          <div className="mt-14">
             {loading ? (
               <div className="py-20 text-center text-[#8E8E90]">Loading openings…</div>
             ) : activeJobs.length === 0 ? (

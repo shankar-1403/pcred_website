@@ -141,7 +141,7 @@ function ApplyModal({
           >
             <div className="sticky top-0 flex items-center justify-between border-b border-[#084E75]/10 bg-white px-6 py-5">
               <div>
-                <h2 className="text-xl font-bold text-[#084E75]">Apply for CGTMSE Funding</h2>
+                <h2 className="font-serif text-xl font-bold text-[#084E75]">Apply for CGTMSE Funding</h2>
                 <p className="mt-1 text-sm text-[#8E8E90]">
                   Fill in your details and our team will contact you.
                 </p>
@@ -312,7 +312,7 @@ function ApplyModal({
 
                   <button
                     type="submit"
-                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-[#DDB162] shadow-lg shadow-[#084E75]/20 transition-colors hover:bg-[#0a5d8a]"
+                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-[#D9B872] shadow-lg shadow-[#084E75]/20 transition-colors hover:bg-[#0a5d8a]"
                   >
                     Submit Application
                     <IconSend className="size-5 transition-transform group-hover:translate-x-0.5" />
@@ -347,7 +347,7 @@ function FaqItem({
       >
         <span className="font-semibold text-white text-sm md:text-lg">{question}</span>
         <IconChevronDown
-          className={`size-5 shrink-0 text-[#DDB162] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+          className={`size-5 shrink-0 text-[#D9B872] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
       <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 bg-white"}`}>
@@ -377,7 +377,7 @@ export default function Scheme() {
   if (!scheme) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 px-6 text-center">
-        <h1 className="text-2xl font-semibold text-[#084E75]">Scheme not found</h1>
+        <h1 className="font-serif text-2xl font-semibold text-[#084E75]">Scheme not found</h1>
         <p className="text-[#8E8E90]">This scheme may have been removed or the link is incorrect.</p>
         <Link
           href="/services"
@@ -416,7 +416,7 @@ export default function Scheme() {
               className="h-full w-full object-cover"
             />
           ) : (
-            <div className="h-full w-full bg-linear-to-br from-[#084E75]/20 to-[#DDB162]/20" />
+            <div className="h-full w-full bg-linear-to-br from-[#084E75]/20 to-[#8D8C8F]/20" />
           )}
           <div className="absolute top-0 left-0 w-full h-full bg-white/96 lg:bg-transparent lg:bg-linear-to-r lg:from-white/90 lg:from-40% lg:via-white/70 lg:via-60% lg:to-transparent lg:to-80%" />
         </div>
@@ -433,8 +433,8 @@ export default function Scheme() {
                 <img src={scheme.section_1_logo} alt={scheme.section_1_header ?? "Scheme logo"} className="h-20"/>
                 ) : null}
             </div>
-            <h1 className="text-2xl font-bold leading-snug text-[#084E75] md:text-3xl lg:text-[length:var(--text-44)] lg:leading-[1.15]">
-              {scheme.section_1_header} <span className="text-[#DDB162]">{scheme.section_1_subheader}</span>
+            <h1 className="font-serif text-2xl font-bold leading-snug text-[#084E75] md:text-3xl lg:text-[length:var(--text-44)] lg:leading-[1.15]">
+              {scheme.section_1_header} <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">{scheme.section_1_subheader}</span>
             </h1>
             {scheme.section_1_description ? (
               <div className="text-sm text-[#084E75] mt-3 md:text-base md:mt-4" dangerouslySetInnerHTML={{
@@ -449,7 +449,7 @@ export default function Scheme() {
                      TablerIcons[item.icon as keyof typeof TablerIcons] as React.ComponentType<IconProps>
                   return (
                     <div key={`${item.point}-${index}`} className="flex items-center gap-2 md:gap-3">
-                      <div className="flex size-8 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/10 text-[#DDB162] text-xs font-semibold md:size-10">
+                      <div className="flex size-8 shrink-0 items-center justify-center rounded-4xl bg-[#8D8C8F]/10 text-[#8D8C8F] text-xs font-semibold md:size-10">
                         {Icon ? <Icon size={18} stroke={2} className="md:hidden" /> : null}
                         {Icon ? <Icon size={22} stroke={2} className="hidden md:block" /> : null}
                       </div>
@@ -462,7 +462,7 @@ export default function Scheme() {
               <div className="mt-4 grid gap-2 sm:grid-cols-2 md:mt-8">
                 {heroFeatures.map((item) => (
                   <div key={item.title} className="flex items-center gap-2 md:gap-3">
-                    <div className="flex size-8 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/10 text-[#DDB162] md:size-10">
+                    <div className="flex size-8 shrink-0 items-center justify-center rounded-4xl bg-[#8D8C8F]/10 text-[#8D8C8F] md:size-10">
                       <item.icon className="size-5 md:size-6" stroke={1.75} />
                     </div>
                     <p className="text-xs font-semibold text-[#084E75] md:text-sm">{item.title}</p>
@@ -482,10 +482,10 @@ export default function Scheme() {
                   href={scheme.video_link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-2 rounded-4xl border-2 border-[#DDB162] bg-white text-[#DDB162] text-base font-semibold cursor-pointer text-center flex items-center gap-2"
+                  className="px-6 py-2 rounded-4xl border-2 border-[#8D8C8F] bg-white text-[#8D8C8F] text-base font-semibold cursor-pointer text-center flex items-center gap-2"
                 >
-                  <span className="flex size-8 items-center justify-center rounded-full border border-[#DDB162]/20 bg-white/80 backdrop-blur-sm">
-                    <IconPlayerPlay className="size-4 fill-[#DDB162] text-[#DDB162]" />
+                  <span className="flex size-8 items-center justify-center rounded-full border border-[#8D8C8F]/20 bg-white/80 backdrop-blur-sm">
+                    <IconPlayerPlay className="size-4 fill-[#8D8C8F] text-[#8D8C8F]" />
                   </span>
                   How It Works
                 </Link>
@@ -495,16 +495,16 @@ export default function Scheme() {
         </div>
       </section>
 
-      <section id="what-is-scheme" className="bg-white py-20 md:py-28">
+      <section id="what-is-scheme" className="relative overflow-hidden bg-linear-to-b from-[#FAFAF9] via-white to-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 gap-6 md:grid-cols-3">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="border-b border-[#DDB162] pb-4 md:border-b-0 md:border-r md:pb-0 flex items-center"
+            className="border-b border-[#8D8C8F] pb-4 md:border-b-0 md:border-r md:pb-0 flex items-center"
           >
-            <h2 className="text-2xl font-semibold text-[#084E75] md:text-3xl lg:text-4xl">
+            <h2 className="font-serif text-2xl font-semibold text-[#084E75] md:text-3xl lg:text-4xl">
               {scheme.section_2_header ?? "About This Scheme"}
             </h2>
           </motion.div>
@@ -584,14 +584,14 @@ export default function Scheme() {
                           return(
                             <motion.li
                               key={`${item.label}-${i}`}
-                              initial={{ opacity: 0, x: 12 }}
-                              whileInView={{ opacity: 1, x: 0 }}
+                              initial={{ opacity: 0, y: 16 }}
+                              whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ duration: 0.35, delay: i * 0.06 }}
                               className="flex py-4 items-center justify-between bg-white"
                             >
                               <div className="flex items-center gap-2 w-[70%] md:gap-3 md:w-[80%]">
-                                <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/20 border border-[#DDB162] text-[#DDB162] text-sm font-semibold md:size-14">
+                                <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#8D8C8F]/20 border border-[#8D8C8F] text-[#8D8C8F] text-sm font-semibold md:size-14">
                                   {Icon ? <Icon size={18} stroke={2} className="md:hidden" /> : null}
                                   {Icon ? <Icon size={22} stroke={2} className="hidden md:block" /> : null}
                                 </div>
@@ -614,14 +614,14 @@ export default function Scheme() {
                     : eligibilityCriteria.map((item, i) => (
                         <motion.li
                           key={item.label}
-                          initial={{ opacity: 0, x: 12 }}
-                          whileInView={{ opacity: 1, x: 0 }}
+                          initial={{ opacity: 0, y: 16 }}
+                          whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.35, delay: i * 0.06 }}
                           className="flex py-4 items-center justify-between bg-white"
                         >
                           <div className="flex items-center gap-2 w-[70%] md:gap-3 md:w-[80%]">
-                            <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#DDB162]/20 border border-[#DDB162] text-[#DDB162] md:size-14">
+                            <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#8D8C8F]/20 border border-[#8D8C8F] text-[#8D8C8F] md:size-14">
                               <item.icon className="size-5 md:size-7" stroke={1.5} />
                             </div>
                             <div className="flex flex-col">
@@ -664,11 +664,11 @@ export default function Scheme() {
                   {scheme?.section_4_header}
                 </h4>
                 <p className="mt-3 text-white/80 text-sm md:text-lg">{scheme?.section_4_description}</p>
-                <p className="mt-3 font-semibold text-[#DDB162] text-sm md:text-lg">{scheme?.section_4_tagline}</p>
+                <p className="mt-3 font-semibold text-[#D9B872] text-sm md:text-lg">{scheme?.section_4_tagline}</p>
               </div>
-              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between rounded-4xl bg-linear-to-r from-[#DDB162] to-[#c99a3f] pl-4 pr-2 py-2 text-white shadow-md shadow-[#DDB162]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-48 text-sm">Check Eligibility
+              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between rounded-4xl bg-[#084E75] hover:bg-[#0a5d8a] pl-4 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-48 text-sm">Check Eligibility
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                  <IconArrowRight className="size-4" color="#DDB162" />
+                  <IconArrowRight className="size-4" color="#8D8C8F" />
                 </span>
               </button>
             </div>
@@ -676,7 +676,7 @@ export default function Scheme() {
         </div>
       </section>
 
-      <section className="bg-white py-20 md:py-28">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_100%_50%,rgba(141,140,143,0.1),transparent_55%)] bg-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -696,8 +696,8 @@ export default function Scheme() {
 
           <div className="flex flex-col gap-10 lg:flex-row lg:gap-14 lg:items-start">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="relative mx-auto w-full max-w-sm md:max-w-md lg:max-w-none lg:sticky lg:top-30"

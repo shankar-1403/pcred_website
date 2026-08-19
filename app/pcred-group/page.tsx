@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { IconArrowUpRight } from "@tabler/icons-react";
+import heroImage from "@/public/site/pcredgroup_hero_library.webp";
 
 const companies = [
   {
@@ -49,40 +50,82 @@ export default function Page() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#084E75]/10 via-white to-[#DDB162]/10 pt-36 pb-20 md:pb-24">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#DDB162]/10 blur-3xl" />
+      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24">
+        <Image
+          src={heroImage}
+          alt="Executive office library representing the PCRED group of companies"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#084E75]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mx-auto max-w-3xl text-center"
-          >
-            <span className="mb-3 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-              <span className="size-2 rounded-full bg-[#DDB162]" />
-              PCRED Group
-            </span>
-            <h1 className="mt-1 text-3xl font-bold text-[#084E75] md:text-4xl lg:text-5xl leading-tight">
-              A Group Built Around <br />
-              <span className="text-[#DDB162]">Financial Trust.</span>
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#4a5568] md:text-lg">
-              The PCRED Group brings together specialised companies working
-              across financial advisory, insurance and credit, each focused
-              on a distinct part of the financial journey.
-            </p>
-            <div className="mt-10 flex items-center justify-center">
-              <div className="h-px w-40 bg-[#DDB162]/30" />
-              <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#DDB162]/60" />
-              <div className="h-px w-40 bg-[#DDB162]/30" />
-            </div>
-          </motion.div>
-        </div>
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
+                <span className="size-2 rounded-full bg-[#D9B872]" />
+                PCRED Group
+              </span>
+              <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
+                A Group Built Around <br />
+                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Financial Trust.</span>
+              </h1>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
+                The PCRED Group brings together specialised companies working
+                across financial advisory, insurance and credit, each focused
+                on a distinct part of the financial journey.
+              </p>
+              <div className="mt-10 flex items-center">
+                <div className="h-px w-40 bg-white/15" />
+                <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#D9B872]/60" />
+                <div className="h-px w-24 bg-white/15" />
+              </div>
+            </motion.div>
 
-        {/* COMPANIES */}
-        <div className="relative mx-auto mt-16 max-w-7xl px-6 md:mt-20">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="relative hidden h-80 lg:block"
+            >
+              {companies.map((company, index) => (
+                <div
+                  key={company.number}
+                  className="absolute flex h-32 w-56 items-center justify-center rounded-3xl border border-white/10 bg-white p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)]"
+                  style={{
+                    top: `${index * 76}px`,
+                    left: `${index * 56}px`,
+                    zIndex: 10 - index,
+                    transform: `rotate(${(index - 1) * 3}deg)`,
+                  }}
+                >
+                  <div className="relative h-10 w-full">
+                    <Image
+                      src={company.logo}
+                      alt={`${company.name} logo`}
+                      fill
+                      className="object-contain"
+                      sizes="200px"
+                    />
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* COMPANIES */}
+      <section className="relative bg-white py-20 md:py-28">
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -90,12 +133,12 @@ export default function Page() {
             transition={{ duration: 0.5 }}
             className="mb-14 max-w-3xl"
           >
-            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#DDB162]">
-              <span className="size-2 rounded-full bg-[#DDB162]" />
+            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
+              <span className="size-2 rounded-full bg-[#8D8C8F]" />
               Our Companies
             </span>
-            <h2 className="text-3xl font-bold text-[#084E75] md:text-4xl">
-              Part of the <span className="text-[#DDB162]">PCRED Family.</span>
+            <h2 className="font-serif text-3xl font-bold text-[#084E75] md:text-4xl">
+              Part of the <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">PCRED Family.</span>
             </h2>
           </motion.div>
 
@@ -108,10 +151,10 @@ export default function Page() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 whileHover={{ y: -6 }}
-                className="group relative overflow-hidden rounded-3xl bg-linear-to-br from-[#DDB162]/15 via-white to-[#084E75]/10 p-8 shadow-[0_2px_8px_-2px_rgba(8,78,117,0.08),0_20px_50px_-20px_rgba(8,78,117,0.18)] ring-1 ring-[#084E75]/8 transition-shadow duration-300 hover:shadow-[0_2px_8px_-2px_rgba(8,78,117,0.08),0_30px_70px_-20px_rgba(8,78,117,0.3)] md:p-10"
+                className="group relative overflow-hidden rounded-3xl bg-linear-to-br from-[#8D8C8F]/15 via-white to-[#084E75]/10 p-8 shadow-[0_2px_8px_-2px_rgba(8,78,117,0.08),0_20px_50px_-20px_rgba(8,78,117,0.18)] ring-1 ring-[#084E75]/8 transition-shadow duration-300 hover:shadow-[0_2px_8px_-2px_rgba(8,78,117,0.08),0_30px_70px_-20px_rgba(8,78,117,0.3)] md:p-10"
               >
                 {/* Top accent bar */}
-                <div className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-[#084E75] via-[#DDB162] to-[#084E75] bg-[length:200%_100%] transition-[background-position] duration-500 group-hover:bg-[position:100%_0]" />
+                <div className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-[#084E75] via-[#8D8C8F] to-[#084E75] bg-[length:200%_100%] transition-[background-position] duration-500 group-hover:bg-[position:100%_0]" />
 
                 {/* Company logo */}
                 {company.logo && (
@@ -141,7 +184,7 @@ export default function Page() {
                         key={point}
                         className="flex items-start gap-3 text-sm leading-relaxed text-[#084E75]/70"
                       >
-                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[#DDB162]" />
+                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[#8D8C8F]" />
                         {point}
                       </li>
                     ))}
@@ -151,7 +194,7 @@ export default function Page() {
                     href={company.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-[#084E75] underline decoration-[#DDB162]/40 decoration-2 underline-offset-4 transition-all hover:decoration-[#DDB162] hover:text-[#c99a3f]"
+                    className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-[#084E75] underline decoration-[#b8892e]/40 decoration-2 underline-offset-4 transition-all hover:decoration-[#b8892e] hover:text-[#084E75]"
                   >
                     Visit {company.href.replace("https://", "")}
                     <IconArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

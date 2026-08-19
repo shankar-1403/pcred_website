@@ -118,7 +118,7 @@ export const NavItems = ({
               {hovered === idx && (
                 <motion.div
                   layoutId="hovered"
-                  className="absolute inset-0 rounded-full bg-[#DDB162]/20"
+                  className="absolute inset-0 rounded-full bg-gold-500/12"
                 />
               )}
 
@@ -144,7 +144,7 @@ export const NavItems = ({
               {hovered === idx && (
                 <motion.div
                   layoutId="hovered"
-                  className="absolute inset-0 rounded-full bg-[#DDB162]/20"
+                  className="absolute inset-0 rounded-full bg-gold-500/12"
                 />
               )}
 
@@ -191,9 +191,9 @@ export const NavItems = ({
                             key={child.link}
                             href={child.link!}
                             onClick={onItemClick}
-                            className="group/item flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-medium text-[#084E75] transition-all hover:bg-[#DDB162]/10"
+                            className="group/item flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-medium text-[#084E75] transition-all hover:bg-gold-500/8"
                           >
-                            <span className="size-1.5 shrink-0 rounded-full bg-[#DDB162]" />
+                            <span className="size-1.5 shrink-0 rounded-full bg-gold-500" />
 
                             {child.name}
                           </Link>
