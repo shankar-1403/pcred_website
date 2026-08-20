@@ -119,7 +119,7 @@ export function LifecycleRoadmap({ stages }: { stages: Stage[] }) {
         <defs>
           <linearGradient id="lifecycleRoadmapGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#B8892E" />
-            <stop offset="100%" stopColor="#084E75" />
+            <stop offset="100%" stopColor="#045178" />
           </linearGradient>
 
           <filter id="lifecycleBeamGlow" x="-100%" y="-100%" width="300%" height="300%">
@@ -194,7 +194,7 @@ export function LifecycleRoadmap({ stages }: { stages: Stage[] }) {
           return (
             <g key={stage.title} transform={`translate(${point.x}, ${point.y})`}>
               {/* Base circle */}
-              <circle r={R} fill="#084E75" stroke="none" />
+              <circle r={R} fill="#045178" stroke="none" />
 
               {/* Upper arc */}
               <motion.path
@@ -246,8 +246,8 @@ export function LifecycleRoadmap({ stages }: { stages: Stage[] }) {
                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#B8892E]">
                     Step {index + 1}
                   </span>
-                  <p className="text-xl font-semibold text-[#084E75]">{stage.title}</p>
-                  <p className="mt-0.5 text-sm leading-snug text-[#084E75]/60">
+                  <p className="text-xl font-semibold text-[#045178]">{stage.title}</p>
+                  <p className="mt-0.5 text-sm leading-snug text-[#045178]/60">
                     {stage.description}
                   </p>
                 </div>

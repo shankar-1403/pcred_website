@@ -195,10 +195,10 @@ function BlogsCMSPage() {
       <div className="max-w-7xl mx-auto pt-20 space-y-6">
         <section className="flex justify-between">
           <div>
-            <h1 className="text-2xl font-semibold text-[#084E75]">Blog master</h1>
+            <h1 className="text-2xl font-semibold text-[#045178]">Blog master</h1>
           </div>
           <div>
-            <button onClick={handleOpen} className="text-sm font-medium bg-[#084E75] text-white py-2 px-4 rounded-xl cursor-pointer">
+            <button onClick={handleOpen} className="text-sm font-medium bg-[#045178] text-white py-2 px-4 rounded-xl cursor-pointer">
               Add Blog
             </button>
           </div>
@@ -215,7 +215,7 @@ function BlogsCMSPage() {
                   type="button"
                   aria-label="Close modal"
                   onClick={handleCloseModal}
-                  className="absolute inset-0 cursor-pointer bg-[#084E75]/40 backdrop-blur-sm"
+                  className="absolute inset-0 cursor-pointer bg-[#045178]/40 backdrop-blur-sm"
                 />
 
                 <motion.div
@@ -225,16 +225,16 @@ function BlogsCMSPage() {
                   transition={{ duration: 0.25 }}
                   className="relative z-10 max-h-[90vh] w-full max-w-7xl overflow-y-auto rounded-4xl bg-white shadow-2xl"
                 >
-                  <div className="sticky top-0 flex items-center justify-between border-b border-[#084E75]/10 bg-white px-6 py-5">
+                  <div className="sticky top-0 flex items-center justify-between border-b border-[#045178]/10 bg-white px-6 py-5">
                     <div>
-                      <h2 className="text-xl font-bold text-[#084E75]">
+                      <h2 className="text-xl font-bold text-[#045178]">
                         {editingBlogId ? "Edit Blog" : "Add Blog"}
                       </h2>
                     </div>
                     <button
                       type="button"
                       onClick={handleCloseModal}
-                      className="flex size-9 cursor-pointer items-center justify-center rounded-full border border-[#084E75]/15 text-[#084E75] transition-colors hover:bg-[#084E75]/10"
+                      className="flex size-9 cursor-pointer items-center justify-center rounded-full border border-[#045178]/15 text-[#045178] transition-colors hover:bg-[#045178]/10"
                     >
                       <IconX className="size-5" />
                     </button>
@@ -251,45 +251,45 @@ function BlogsCMSPage() {
 
                       {/* Title */}
                       <div>
-                        <label htmlFor="title" className="mb-2 block text-sm font-medium text-[#084E75]">Title *</label>
-                        <input id="title" name="title" required value={formData.title} onChange={handleChange} type="text" className="border border-[#084E75] rounded-4xl w-full py-2 px-3" />
+                        <label htmlFor="title" className="mb-2 block text-sm font-medium text-[#045178]">Title *</label>
+                        <input id="title" name="title" required value={formData.title} onChange={handleChange} type="text" className="border border-[#045178] rounded-4xl w-full py-2 px-3" />
                       </div>
 
                       {/* Excerpt */}
                       <div>
-                        <label htmlFor="excerpt" className="mb-2 block text-sm font-medium text-[#084E75]">Excerpt *</label>
-                        <textarea id="excerpt" name="excerpt" required rows={3} value={formData.excerpt} onChange={handleChange} className="border border-[#084E75] rounded-4xl w-full py-2 px-3 resize-none" />
+                        <label htmlFor="excerpt" className="mb-2 block text-sm font-medium text-[#045178]">Excerpt *</label>
+                        <textarea id="excerpt" name="excerpt" required rows={3} value={formData.excerpt} onChange={handleChange} className="border border-[#045178] rounded-4xl w-full py-2 px-3 resize-none" />
                       </div>
 
-                      <hr className="text-[#084E75]" />
+                      <hr className="text-[#045178]" />
 
                       {/* Category, Author, Date, ReadTime */}
                       <div className="grid gap-4 grid-cols-2">
                         <div>
-                          <label htmlFor="category" className="mb-2 block text-sm font-medium text-[#084E75]">Category</label>
-                          <input id="category" name="category" value={formData.category} onChange={handleChange} type="text" placeholder="e.g. Funding" className="border border-[#084E75] rounded-4xl w-full py-2 px-3" />
+                          <label htmlFor="category" className="mb-2 block text-sm font-medium text-[#045178]">Category</label>
+                          <input id="category" name="category" value={formData.category} onChange={handleChange} type="text" placeholder="e.g. Funding" className="border border-[#045178] rounded-4xl w-full py-2 px-3" />
                         </div>
                         <div>
-                          <label htmlFor="author" className="mb-2 block text-sm font-medium text-[#084E75]">Author</label>
-                          <input id="author" name="author" value={formData.author} onChange={handleChange} type="text" className="border border-[#084E75] rounded-4xl w-full py-2 px-3" />
+                          <label htmlFor="author" className="mb-2 block text-sm font-medium text-[#045178]">Author</label>
+                          <input id="author" name="author" value={formData.author} onChange={handleChange} type="text" className="border border-[#045178] rounded-4xl w-full py-2 px-3" />
                         </div>
                         <div>
-                          <label htmlFor="date" className="mb-2 block text-sm font-medium text-[#084E75]">Date</label>
-                          <input id="date" name="date" value={formData.date} onChange={handleChange} type="text" placeholder="e.g. Mar 12, 2026" className="border border-[#084E75] rounded-4xl w-full py-2 px-3" />
+                          <label htmlFor="date" className="mb-2 block text-sm font-medium text-[#045178]">Date</label>
+                          <input id="date" name="date" value={formData.date} onChange={handleChange} type="text" placeholder="e.g. Mar 12, 2026" className="border border-[#045178] rounded-4xl w-full py-2 px-3" />
                         </div>
                         <div>
-                          <label htmlFor="readTime" className="mb-2 block text-sm font-medium text-[#084E75]">Read Time</label>
-                          <input id="readTime" name="readTime" value={formData.readTime} onChange={handleChange} type="text" placeholder="e.g. 5 min read" className="border border-[#084E75] rounded-4xl w-full py-2 px-3" />
+                          <label htmlFor="readTime" className="mb-2 block text-sm font-medium text-[#045178]">Read Time</label>
+                          <input id="readTime" name="readTime" value={formData.readTime} onChange={handleChange} type="text" placeholder="e.g. 5 min read" className="border border-[#045178] rounded-4xl w-full py-2 px-3" />
                         </div>
                       </div>
 
-                      <hr className="text-[#084E75]" />
+                      <hr className="text-[#045178]" />
 
                       {/* Cover image + featured */}
                       <div className="grid gap-4 grid-cols-2">
                         <div>
-                          <label htmlFor="cover_image" className="mb-2 block text-sm font-medium text-[#084E75]">Cover Image {!editingBlogId && "*"}</label>
-                          <input id="cover_image" name="cover_image" type="file" accept="image/*" onChange={handleFileChange} className="border border-[#084E75] rounded-4xl w-full py-2 px-3" />
+                          <label htmlFor="cover_image" className="mb-2 block text-sm font-medium text-[#045178]">Cover Image {!editingBlogId && "*"}</label>
+                          <input id="cover_image" name="cover_image" type="file" accept="image/*" onChange={handleFileChange} className="border border-[#045178] rounded-4xl w-full py-2 px-3" />
                           <p className="mt-1 text-xs text-[#8E8E90]">Locked to 16:9 (e.g. 1280x720px).</p>
                           {existingImages.cover_image ? (
                             <p className="mt-1 text-xs text-[#8E8E90]">Current image saved. Upload only to replace.</p>
@@ -302,22 +302,22 @@ function BlogsCMSPage() {
                             name="featured"
                             checked={formData.featured}
                             onChange={handleChange}
-                            className="size-4 accent-[#084E75]"
+                            className="size-4 accent-[#045178]"
                           />
-                          <label htmlFor="featured" className="text-sm font-medium text-[#084E75]">Mark as Featured Article</label>
+                          <label htmlFor="featured" className="text-sm font-medium text-[#045178]">Mark as Featured Article</label>
                         </div>
                       </div>
 
                       {/* Blog image (internal — shown inside the article only, not on cards) */}
                       <div>
-                        <label htmlFor="inner_image" className="mb-2 block text-sm font-medium text-[#084E75]">Blog Image (Internal)</label>
+                        <label htmlFor="inner_image" className="mb-2 block text-sm font-medium text-[#045178]">Blog Image (Internal)</label>
                         <input
                           id="inner_image"
                           name="inner_image"
                           type="file"
                           accept="image/*"
                           onChange={handleFileChange}
-                          className="border border-[#084E75] rounded-4xl w-full py-2 px-3"
+                          className="border border-[#045178] rounded-4xl w-full py-2 px-3"
                         />
                         <p className="mt-1 text-xs text-[#8E8E90]">Shown inside the blog only, not on cards. Any size/aspect ratio accepted.</p>
                         {existingImages.inner_image ? (
@@ -325,11 +325,11 @@ function BlogsCMSPage() {
                         ) : null}
                       </div>
 
-                      <hr className="text-[#084E75]" />
+                      <hr className="text-[#045178]" />
 
                       {/* Content */}
                       <div>
-                        <label className="mb-2 block text-sm font-medium text-[#084E75]">Content (Full Article)</label>
+                        <label className="mb-2 block text-sm font-medium text-[#045178]">Content (Full Article)</label>
                         <CKEditor
                           editor={ClassicEditor}
                           config={{
@@ -347,7 +347,7 @@ function BlogsCMSPage() {
                           <button          
                             type="submit"
                             disabled={loading}
-                            className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#084E75]/20 transition-colors hover:bg-[#0a5d8a] disabled:cursor-not-allowed disabled:opacity-60"
+                            className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#045178] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#045178]/20 transition-colors hover:bg-[#045178] disabled:cursor-not-allowed disabled:opacity-60"
                           >
                             {loading ? "Saving…" : editingBlogId ? "Update" : "Submit"}
                           </button>
@@ -364,7 +364,7 @@ function BlogsCMSPage() {
         <section className="max-w-full rounded-xl border border-slate-800 [-webkit-overflow-scrolling:touch] overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full min-w-190 table-auto text-left text-xs sm:text-sm">
-              <thead className="border-b border-slate-800 bg-[#084E75] text-sm uppercase text-white">
+              <thead className="border-b border-slate-800 bg-[#045178] text-sm uppercase text-white">
                 <tr>
                   <th className="px-4 py-2 font-medium whitespace-nowrap">Title</th>
                   <th className="px-4 py-2 font-medium whitespace-nowrap">Category</th>
@@ -374,7 +374,7 @@ function BlogsCMSPage() {
                   <th className="px-4 py-2 font-medium whitespace-nowrap">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#084E75]">
+              <tbody className="divide-y divide-[#045178]">
                 {blogsLoading ? (
                   <tr>
                     <td colSpan={6} className="px-4 py-6 text-center text-[#8E8E90]">Loading blogs…</td>
@@ -385,8 +385,8 @@ function BlogsCMSPage() {
                   </tr>
                 ) : (
                   tablePageItems.map((blog) => (
-                    <tr key={blog.id} className="text-[#084E75] text-sm">
-                      <td className="px-4 py-2 text-[#084E75] max-w-xs truncate">{blog.title || "Untitled"}</td>
+                    <tr key={blog.id} className="text-[#045178] text-sm">
+                      <td className="px-4 py-2 text-[#045178] max-w-xs truncate">{blog.title || "Untitled"}</td>
                       <td className="px-4 py-2 text-[#8E8E90]">{blog.category || "N/A"}</td>
                       <td className="px-4 py-2 text-[#8E8E90]">{blog.author || "N/A"}</td>
                       <td className="px-4 py-2 text-[#8E8E90]">{blog.date || "N/A"}</td>
@@ -399,7 +399,7 @@ function BlogsCMSPage() {
                         <button
                           type="button"
                           onClick={() => handleEdit(blog)}
-                          className="cursor-pointer rounded-xl bg-[#084E75] px-3 py-1 text-xs text-white transition-colors hover:bg-[#0a5d8a]"
+                          className="cursor-pointer rounded-xl bg-[#045178] px-3 py-1 text-xs text-white transition-colors hover:bg-[#045178]"
                         >
                           Edit
                         </button>

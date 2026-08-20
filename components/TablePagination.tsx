@@ -28,7 +28,7 @@ export default function TablePagination({
   return (
     <div
       className={[
-        "flex flex-col gap-3 border-t border-[#084E75] bg-[#084E75]/60 px-3 py-3 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between",
+        "flex flex-col gap-3 border-t border-[#045178] bg-[#045178]/60 px-3 py-3 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between",
         className,
       ]
         .filter(Boolean)
@@ -53,7 +53,7 @@ export default function TablePagination({
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                 onPageSizeChange(Number(e.target.value))
               }
-              className="rounded-lg border border-slate-600 bg-[#084E75] px-2 py-1.5 text-white outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30"
+              className="rounded-lg border border-slate-600 bg-[#045178] px-2 py-1.5 text-white outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30"
             >
               {PAGE_SIZE_OPTIONS.map((n) => (
                 <option key={n} value={n}>
@@ -69,7 +69,7 @@ export default function TablePagination({
             type="button"
             disabled={page <= 1}
             onClick={() => onPageChange(page - 1)}
-            className="rounded-lg border border-[#084E75] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#084E75] disabled:cursor-not-allowed disabled:opacity-40 sm:text-sm"
+            className="rounded-lg border border-[#045178] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#045178] disabled:cursor-not-allowed disabled:opacity-40 sm:text-sm"
           >
             Previous
           </button>
@@ -82,7 +82,7 @@ export default function TablePagination({
             type="button"
             disabled={page >= totalPages}
             onClick={() => onPageChange(page + 1)}
-            className="rounded-lg border border-[#084E75] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#084E75] disabled:cursor-not-allowed disabled:opacity-40 sm:text-sm"
+            className="rounded-lg border border-[#045178] px-3 py-1.5 text-xs font-medium text-white hover:bg-[#045178] disabled:cursor-not-allowed disabled:opacity-40 sm:text-sm"
           >
             Next
           </button>

@@ -4,6 +4,53 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-stone-50);
+    color: var(--color-navy-800);
+    letter-spacing: 0.01em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.03em;
+    font-weight: 600;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-gold-300) 40%, transparent);
+    color: var(--color-navy-900);
+  }
+
+  /* Dark → brand blue gradient for section backgrounds */
+  .bg-brand-gradient {
+    background-image: linear-gradient(180deg, var(--color-brand-deep) 0%, #045178 100%);
+  }
+
+  .bg-brand-gradient-br {
+    background-image: linear-gradient(135deg, var(--color-brand-deep) 0%, #045178 100%);
+  }
+
+  .bg-brand-gradient-r {
+    background-image: linear-gradient(90deg, var(--color-brand-deep) 0%, #045178 100%);
+  }
+}
+
 /* Word-appear: blur fade, CSS-scheduled stagger, will-change pre-promotes layers.
    Driven by components/TextReveal.tsx — adding .wa-go to a heading/paragraph
    triggers all its child word spans via animation-delay (--wa-d). */
@@ -35,26 +82,22 @@
 }
 
 /*
- * Brand color system. Navy is sampled directly from the PCRED logo
- * (public/logo.webp) and is the primary color. Maroon (also logo-derived)
- * was tried as the accent color but retired per explicit user direction —
- * too much red made the site feel heavy. Gold is the confirmed warm accent:
- * used generously in decorative moments and background washes, not just
- * headline text. Stone remains available as a neutral gray where a true
- * neutral (not a color accent) is needed.
+ * Brand color system. Canonical dark blue: #045178 only.
+ * Navy scale is derived from #045178 for tints/shades in utilities.
  */
 @theme {
-  --color-navy-50: #EAF1F5;
-  --color-navy-100: #CBDFE9;
-  --color-navy-200: #9CC0D3;
-  --color-navy-300: #649EBA;
-  --color-navy-400: #2E7998;
-  --color-navy-500: #0C5B7D;
-  --color-navy-600: #084B70; /* canonical brand navy — sampled from logo */
-  --color-navy-700: #073B58;
-  --color-navy-800: #062C42;
-  --color-navy-900: #0F2140; /* deep ink navy for large dark section fills — matches primacred's dark-panel navy */
-  --color-navy-950: #071428;
+  --color-brand-deep: #022436;
+  --color-navy-50: #E8F2F7;
+  --color-navy-100: #C5DDE9;
+  --color-navy-200: #9FC5D9;
+  --color-navy-300: #6FA8C4;
+  --color-navy-400: #4589AD;
+  --color-navy-500: #045178;
+  --color-navy-600: #045178; /* canonical brand dark blue */
+  --color-navy-700: #045178;
+  --color-navy-800: #045178;
+  --color-navy-900: #045178; /* dark section fills */
+  --color-navy-950: #045178;
 
   --color-maroon-50: #FBEAEA;
   --color-maroon-100: #F3C7C8;
@@ -159,6 +202,48 @@
   }
 }
 
+@keyframes text-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes text-ring-spin-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes webpattern-bg-pan {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.08);
+  }
+  25% {
+    transform: translate3d(-2.5%, -1.5%, 0) scale(1.1);
+  }
+  50% {
+    transform: translate3d(-1.5%, -3%, 0) scale(1.12);
+  }
+  75% {
+    transform: translate3d(1.5%, -1.5%, 0) scale(1.1);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.08);
+  }
+}
+
+.animate-webpattern-bg-pan {
+  animation: webpattern-bg-pan 28s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-webpattern-bg-pan {
+    animation: none;
+    transform: scale(1.08);
+  }
+}
+
 .font-new{
     font-family:"Geist Mono", "Geist Mono Fallback"
 }
@@ -208,4 +293,27 @@
     transform:translateY(calc(-100% - var(--gap)));
         }
     }
+  --animate-aurora: aurora 8s linear infinite
+;
+  @keyframes aurora {
+   0% {
+      background-position: 0% 0%;
+    }
+
+    100% {
+      background-position: 100% 100%;
+    }
+  }}
+
+
+@font-face {
+  font-family: 'Incompleeta';
+  src: url('../public/fonts/incompleeta-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-incompleeta {
+  font-family: 'Incompleeta', sans-serif;
 }

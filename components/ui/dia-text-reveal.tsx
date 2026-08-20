@@ -142,6 +142,11 @@ export interface DiaTextRevealProps extends Omit<
    * @defaultValue `false`
    */
   fixedWidth?: boolean
+  /**
+   * Controlled index into {@link DiaTextRevealProps.text}. When set, disables internal rotation
+   * and replays the reveal whenever the index changes.
+   */
+  textIndex?: number
 }
 
 export function DiaTextReveal({
@@ -156,10 +161,12 @@ export function DiaTextReveal({
   once = true,
   className,
   fixedWidth = false,
+  textIndex,
   ...props
 }: DiaTextRevealProps) {
   const texts = Array.isArray(text) ? text : [text]
   const isMulti = texts.length > 1
+  const isControlled = textIndex != null
   const prefersReducedMotion = useReducedMotion()
 
   const spanRef = useRef<HTMLSpanElement>(null)
@@ -168,7 +175,7 @@ export function DiaTextReveal({
     textColor,
     duration,
     delay,
-    repeat,
+    repeat: isControlled ? false : repeat,
     repeatDelay,
     texts,
   })
@@ -177,18 +184,18 @@ export function DiaTextReveal({
     textColor,
     duration,
     delay,
-    repeat,
+    repeat: isControlled ? false : repeat,
     repeatDelay,
     texts,
   }
 
-  const indexRef = useRef(0)
+  const indexRef = useRef(isControlled ? textIndex : 0)
   const hasPlayedRef = useRef(false)
   const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined)
   const playRef = useRef<() => void>(null!)
   const stopRef = useRef<(() => void) | null>(null)
 
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(isControlled ? textIndex : 0)
   const [measuredWidths, setMeasuredWidths] = useState<number[]>([])
 
   const sweepPos = useMotionValue(SWEEP_START)
@@ -197,7 +204,7 @@ export function DiaTextReveal({
     buildGradient(pos, optsRef.current.colors, optsRef.current.textColor)
   )
 
-  const isInView = useInView(spanRef, { once, amount: 0.1 })
+  const isInView = useInView(spanRef, { once: isControlled ? false : once, amount: 0.1 })
 
   const remeasure = () => {
     const el = spanRef.current
@@ -240,6 +247,40 @@ export function DiaTextReveal({
   }
 
   useEffect(() => {
+    if (!isControlled) return
+
+    const nextIndex = ((textIndex % texts.length) + texts.length) % texts.length
+    indexRef.current = nextIndex
+    setActiveIndex(nextIndex)
+
+    stopRef.current?.()
+    clearTimeout(timerRef.current)
+
+    if (prefersReducedMotion) {
+      sweepPos.set(SWEEP_END)
+      return
+    }
+    if (startOnView && !isInView) return
+
+    hasPlayedRef.current = true
+    playRef.current()
+
+    return () => {
+      stopRef.current?.()
+      clearTimeout(timerRef.current)
+    }
+  }, [
+    isControlled,
+    textIndex,
+    texts.length,
+    prefersReducedMotion,
+    startOnView,
+    isInView,
+    sweepPos,
+  ])
+
+  useEffect(() => {
+    if (isControlled) return
     if (prefersReducedMotion) {
       sweepPos.set(SWEEP_END)
       return
@@ -253,7 +294,7 @@ export function DiaTextReveal({
       stopRef.current?.()
       clearTimeout(timerRef.current)
     }
-  }, [isInView, startOnView, once, prefersReducedMotion, sweepPos])
+  }, [isControlled, isInView, startOnView, once, prefersReducedMotion, sweepPos])
 
   const fixedW =
     isMulti && fixedWidth && measuredWidths.length > 0
@@ -295,7 +336,7 @@ export function DiaTextReveal({
           delay,
         }}
         onAnimationComplete={() => {
-          if (!repeat) return
+          if (isControlled || !repeat) return
 
           timerRef.current = setTimeout(() => {
             const next =

@@ -84,7 +84,7 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
         type="button"
         aria-label="Close"
         onClick={onClose}
-        className="absolute inset-0 cursor-pointer bg-[#084E75]/40 backdrop-blur-sm"
+        className="absolute inset-0 cursor-pointer bg-[#045178]/40 backdrop-blur-sm"
       />
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 16 }}
@@ -94,15 +94,15 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
         className="relative z-10 w-full max-w-lg overflow-hidden rounded-4xl bg-white shadow-2xl"
       >
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-[#084E75]/10 px-6 py-5">
+        <div className="flex items-center justify-between border-b border-[#045178]/10 px-6 py-5">
           <div>
-            <h2 className="font-serif text-xl font-bold text-[#084E75]">Apply Now</h2>
+            <h2 className="font-serif text-xl font-bold text-[#045178]">Apply Now</h2>
             <p className="mt-0.5 text-xs text-[#8E8E90]">{career.title}</p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="flex size-9 cursor-pointer items-center justify-center rounded-full border border-[#084E75]/15 text-[#084E75] transition-colors hover:bg-[#084E75]/10"
+            className="flex size-9 cursor-pointer items-center justify-center rounded-full border border-[#045178]/15 text-[#045178] transition-colors hover:bg-[#045178]/10"
           >
             <IconX className="size-5" />
           </button>
@@ -116,11 +116,11 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-[#084E75]">Application Submitted!</h3>
+              <h3 className="text-lg font-semibold text-[#045178]">Application Submitted!</h3>
               <p className="mt-2 text-sm text-[#8E8E90]">We will review your application and get back to you shortly.</p>
               <button
                 onClick={onClose}
-                className="mt-6 rounded-full bg-[#084E75] px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#0a5d8a]"
+                className="mt-6 rounded-full bg-[#045178] px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#045178]"
               >
                 Close
               </button>
@@ -132,20 +132,20 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
               )}
 
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-[#084E75]">Full Name *</label>
+                <label className="mb-1.5 block text-sm font-medium text-[#045178]">Full Name *</label>
                 <input
                   name="name"
                   required
                   value={form.name}
                   onChange={handleChange}
                   placeholder="Your full name"
-                  className="border border-[#084E75] rounded-4xl w-full py-2 px-3 text-sm outline-none focus:ring-2 focus:ring-[#084E75]/20"
+                  className="border border-[#045178] rounded-4xl w-full py-2 px-3 text-sm outline-none focus:ring-2 focus:ring-[#045178]/20"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="mb-1.5 block text-sm font-medium text-[#084E75]">Email *</label>
+                  <label className="mb-1.5 block text-sm font-medium text-[#045178]">Email *</label>
                   <input
                     name="email"
                     type="email"
@@ -154,11 +154,11 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
                     onChange={handleChange}
                     placeholder="you@email.com"
                     inputMode="email"
-                    className="border border-[#084E75] rounded-4xl w-full py-2 px-3 text-sm outline-none focus:ring-2 focus:ring-[#084E75]/20"
+                    className="border border-[#045178] rounded-4xl w-full py-2 px-3 text-sm outline-none focus:ring-2 focus:ring-[#045178]/20"
                   />
                 </div>
                 <div>
-                  <label className="mb-1.5 block text-sm font-medium text-[#084E75]">Phone *</label>
+                  <label className="mb-1.5 block text-sm font-medium text-[#045178]">Phone *</label>
                   <input
                     name="phone"
                     type="tel"
@@ -167,14 +167,14 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
                     onChange={handleChange}
                     placeholder="+91 98765 43210"
                     inputMode="tel"
-                    className="border border-[#084E75] rounded-4xl w-full py-2 px-3 text-sm outline-none focus:ring-2 focus:ring-[#084E75]/20"
+                    className="border border-[#045178] rounded-4xl w-full py-2 px-3 text-sm outline-none focus:ring-2 focus:ring-[#045178]/20"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-[#084E75]">Years of Experience</label>
-                <div className="flex items-center overflow-hidden rounded-4xl border border-[#084E75] focus-within:ring-2 focus-within:ring-[#084E75]/20">
+                <label className="mb-1.5 block text-sm font-medium text-[#045178]">Years of Experience</label>
+                <div className="flex items-center overflow-hidden rounded-4xl border border-[#045178] focus-within:ring-2 focus-within:ring-[#045178]/20">
                   <input
                     name="experience"
                     type="number"
@@ -183,26 +183,26 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
                     value={form.experience}
                     onChange={handleChange}
                     placeholder="0"
-                    className="w-full py-2 pl-4 text-sm text-[#084E75]"
+                    className="w-full py-2 pl-4 text-sm text-[#045178]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-[#084E75]">Cover Message</label>
+                <label className="mb-1.5 block text-sm font-medium text-[#045178]">Cover Message</label>
                 <textarea
                   name="message"
                   value={form.message}
                   onChange={handleChange}
                   rows={3}
                   placeholder="Tell us why you're a great fit…"
-                  className="border border-[#084E75] rounded-2xl w-full py-2 px-3 text-sm outline-none focus:ring-2 focus:ring-[#084E75]/20 resize-none"
+                  className="border border-[#045178] rounded-2xl w-full py-2 px-3 text-sm outline-none focus:ring-2 focus:ring-[#045178]/20 resize-none"
                 />
               </div>
 
               {/* Resume upload */}
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-[#084E75]">Resume *  <span className="font-normal text-[#8E8E90]">(PDF, DOC, max 5 MB)</span></label>
+                <label className="mb-1.5 block text-sm font-medium text-[#045178]">Resume *  <span className="font-normal text-[#8E8E90]">(PDF, DOC, max 5 MB)</span></label>
                 <input
                   ref={fileRef}
                   type="file"
@@ -213,7 +213,7 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
                 <button
                   type="button"
                   onClick={() => fileRef.current?.click()}
-                  className="flex w-full cursor-pointer items-center gap-2 rounded-4xl border border-dashed border-[#084E75] px-4 py-3 text-sm text-[#084E75] transition-colors hover:bg-[#084E75]/5"
+                  className="flex w-full cursor-pointer items-center gap-2 rounded-4xl border border-dashed border-[#045178] px-4 py-3 text-sm text-[#045178] transition-colors hover:bg-[#045178]/5"
                 >
                   <IconPaperclip className="size-4 shrink-0" />
                   {resume ? resume.name : "Attach resume"}
@@ -223,7 +223,7 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full cursor-pointer rounded-4xl bg-[#084E75] py-3 text-sm font-semibold text-[#D9B872] shadow-lg shadow-[#084E75]/20 transition-colors hover:bg-[#0a5d8a] disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full cursor-pointer rounded-4xl bg-[#045178] py-3 text-sm font-semibold text-[#D9B872] shadow-lg shadow-[#045178]/20 transition-colors hover:bg-[#045178] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {loading ? "Submitting…" : "Submit Application"}
               </button>
@@ -242,14 +242,14 @@ function JobCard({ career, index, onApply }: { career: Career; index: number; on
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: (index % 3) * 0.08 }}
-      className="group flex flex-col gap-4 rounded-4xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      className="group flex flex-col gap-4 rounded-2xl border border-navy-900/8 bg-white p-6 shadow-[0_16px_40px_-28px_rgba(4,81,120,0.35)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_56px_-28px_rgba(4,81,120,0.4)]"
     >
       <div className="flex items-start justify-between gap-4">
-        <h3 className="text-lg font-bold leading-snug text-[#084E75] transition-colors group-hover:text-[#0a5d8a]">
+        <h3 className="text-lg font-bold leading-snug text-[#045178] transition-colors group-hover:text-[#045178]">
           {career.title}
         </h3>
         {career.type && (
-          <span className="shrink-0 rounded-full border border-[#084E75]/15 px-3 py-0.5 text-xs font-semibold uppercase tracking-wider text-[#084E75]">
+          <span className="shrink-0 rounded-full border border-[#045178]/15 px-3 py-0.5 text-xs font-semibold uppercase tracking-wider text-[#045178]">
             {career.type}
           </span>
         )}
@@ -292,7 +292,7 @@ function JobCard({ career, index, onApply }: { career: Career; index: number; on
       <button
         type="button"
         onClick={onApply}
-        className="mt-2 inline-flex w-fit cursor-pointer items-center gap-2 rounded-full bg-[#084E75] px-5 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#0a5d8a]"
+        className="mt-2 inline-flex w-fit cursor-pointer items-center gap-2 rounded-full bg-[#045178] px-5 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#045178]"
       >
         Apply Now
       </button>
@@ -316,9 +316,9 @@ export default function CareersPage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.58)_0%,rgba(4,81,120,0.46)_42%,rgba(4,81,120,0.18)_70%,rgba(4,81,120,0.08)_100%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#084E75]/25 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#045178]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -337,14 +337,14 @@ export default function CareersPage() {
               <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">With Pcred</span>
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
-              Join our team of financial experts and help MSMEs and enterprises achieve their funding goals.
+              Join our team of financial experts and help businesses and enterprises achieve their funding goals.
             </p>
           </motion.div>
         </div>
       </section>
 
       <section className="relative overflow-hidden bg-[radial-gradient(ellipse_100%_60%_at_50%_100%,rgba(141,140,143,0.12),transparent)] bg-white py-20 md:py-24">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#045178]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           {!loading && activeJobs.length > 0 && (
@@ -353,15 +353,15 @@ export default function CareersPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="mt-14 grid grid-cols-3 gap-x-6 gap-y-6 border-t border-[#084E75]/8 pt-10"
+              className="mt-14 grid grid-cols-3 gap-x-6 gap-y-6 border-t border-[#045178]/8 pt-10"
             >
               {[
                 { value: activeJobs.length, label: "Open positions" },
                 { value: new Set(activeJobs.map((c) => c.department).filter(Boolean)).size, label: "Departments hiring" },
                 { value: new Set(activeJobs.map((c) => c.location).filter(Boolean)).size, label: "Office locations" },
               ].map((stat, i) => (
-                <div key={stat.label} className="relative border-l border-[#084E75]/10 pl-5 first:border-l-0 first:pl-0">
-                  <span className="font-serif block text-3xl font-bold leading-none text-[#084E75] md:text-4xl">
+                <div key={stat.label} className="relative border-l border-[#045178]/10 pl-5 first:border-l-0 first:pl-0">
+                  <span className="font-serif block text-3xl font-bold leading-none text-[#045178] md:text-4xl">
                     {stat.value}
                   </span>
                   <span className="mt-2 block text-xs leading-snug text-[#4a5568] md:text-sm">

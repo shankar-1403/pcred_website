@@ -2,9 +2,16 @@
 
 import React,{useState,type FormEvent} from 'react';
 import {motion} from "motion/react";
-import { IconMail, IconPhone, IconClock, IconSend, IconCheck, IconMapPin} from "@tabler/icons-react";
+import { IconMail, IconPhone, IconClock, IconSend, IconCheck, IconMapPin, IconChevronDown} from "@tabler/icons-react";
 import Image from 'next/image';
 import heroImage from '@/public/site/contact_hero_bridge.webp';
+import {
+  formInputClass,
+  formInputErrorClass,
+  formLabelClass,
+  formSelectClass,
+  formTextareaClass,
+} from "@/lib/form-styles";
 
 function page() {
   const [form, setForm] = useState({
@@ -88,9 +95,6 @@ function page() {
     { icon: IconClock, label: "Hours", value: "Mon – Sat, 9:00 AM – 6:00 PM", href: undefined as string | undefined },
   ];
   
-  const inputClass =
-    "w-full rounded-4xl border border-[#084E75]/15 bg-white px-4 py-3.5 text-[#084E75] placeholder:text-[#8E8E90]/60 outline-none transition-all duration-200 focus:border-[#084E75] focus:ring-2 focus:ring-[#084E75]/15";
-  
   return (
     <>
       <section className="relative overflow-hidden pt-36 pb-20 md:pb-24">
@@ -102,9 +106,9 @@ function page() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.58)_0%,rgba(4,81,120,0.46)_42%,rgba(4,81,120,0.18)_70%,rgba(4,81,120,0.08)_100%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#084E75]/25 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#045178]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -123,7 +127,7 @@ function page() {
               <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Smart Finance</span>
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
-              We partner with MSMEs and growing enterprises to deliver strategic
+              We partner with businesses and growing enterprises to deliver strategic
               financial advisory, funding solutions, and long-term growth support.
             </p>
           </motion.div>
@@ -131,7 +135,7 @@ function page() {
       </section>
 
       <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_bottom_right,rgba(141,140,143,0.15),transparent_60%)] bg-white py-20 md:py-24">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#045178]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <div id="contact" className="grid grid-cols-1 gap-10 xl:grid-cols-[1fr_1.2fr] xl:grid-rows-[auto_1fr]">
@@ -139,8 +143,8 @@ function page() {
               <div className="relative mx-auto w-screen sm:w-[36rem] sm:h-[49.8rem] sm:aspect-auto xl:w-[35rem] xl:h-[48.5rem] aspect-[35/48.5] sm:aspect-auto">
               <div className="absolute left-0 top-0 w-[35rem] h-[48.5rem] origin-top-left scale-[calc(100vw/35rem)] sm:scale-[1.028] xl:scale-[1.0]">
                 {/* Decorative background glow behind the phone so it doesn't float on plain empty space */}
-                <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[3rem] bg-linear-to-br from-[#084E75]/12 via-white/40 to-[#8D8C8F]/15 blur-2xl" />
-                <div className="pointer-events-none absolute left-1/2 top-1/3 -z-10 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#084E75]/10 blur-3xl" />
+                <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[3rem] bg-linear-to-br from-[#045178]/12 via-white/40 to-[#8D8C8F]/15 blur-2xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 -z-10 size-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#045178]/10 blur-3xl" />
 
                 {/* Cards displayed inside the phone screen — positioned via percentages matching the frame's screen cutout */}
                 <motion.div
@@ -162,19 +166,19 @@ function page() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
-                        className="group flex items-center gap-3 rounded-2xl border border-[#084E75]/10 bg-white p-3.5 shadow-sm"
+                        className="group flex items-center gap-3 rounded-2xl border border-[#045178]/10 bg-white p-3.5 shadow-sm"
                       >
-                        <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#084E75]/10 text-[#084E75]">
+                        <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#045178]/10 text-[#045178]">
                           <item.icon className="size-5" />
                         </div>
                         <div className="min-w-0">
                           <p className="text-[length:var(--text-11)] font-semibold uppercase tracking-wider text-[#8E8E90] leading-none">{item.label}</p>
                           {item.href ? (
-                            <a href={item.href} className="mt-1 block truncate text-sm font-medium text-[#084E75] hover:underline">
+                            <a href={item.href} className="mt-1 block truncate text-sm font-medium text-[#045178] hover:underline">
                               {item.value}
                             </a>
                           ) : (
-                            <p className="mt-1 truncate text-sm font-medium text-[#084E75]">{item.value}</p>
+                            <p className="mt-1 truncate text-sm font-medium text-[#045178]">{item.value}</p>
                           )}
                         </div>
                       </motion.div>
@@ -184,10 +188,10 @@ function page() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: 0.15 + contactInfo.length * 0.08 }}
-                      className="overflow-hidden rounded-2xl border border-[#084E75]/10 bg-white p-2.5 shadow-sm"
+                      className="overflow-hidden rounded-2xl border border-[#045178]/10 bg-white p-2.5 shadow-sm"
                     >
                       <div className="mb-2 flex items-center gap-3">
-                        <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#084E75]/10 text-[#084E75]">
+                        <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#045178]/10 text-[#045178]">
                           <IconMapPin className="size-5" />
                         </div>
                         <span className="text-[length:var(--text-11)] font-semibold uppercase tracking-wider text-[#8E8E90]">Location</span>
@@ -219,57 +223,61 @@ function page() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="rounded-4xl border border-[#084E75]/10 bg-white p-8 shadow-xl shadow-[#084E75]/5 md:p-10 xl:col-start-2 xl:row-start-2 xl:self-start"
+                className="relative overflow-hidden rounded-2xl border border-navy-900/8 bg-white p-8 shadow-[0_24px_60px_-32px_rgba(4,81,120,0.35)] md:p-10 xl:col-start-2 xl:row-start-2 xl:self-start"
               >
-              <form onSubmit={handleFormSubmit} className="space-y-5">
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#D9B872]/70 to-transparent" />
+              <form onSubmit={handleFormSubmit} className="relative space-y-5">
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#084E75]">
-                        Full Name <span className="text-red-500">*</span>
+                      <label htmlFor="name" className={formLabelClass}>
+                        Full Name <span className="text-[#AC3639]">*</span>
                       </label>
-                      <input id="name" name="name" type="text" value={form.name} onChange={handleFormChange} placeholder="John Doe" className={`${inputClass} ${formErrors.name ? "border-red-400" : ""}`} />
-                      {formErrors.name && <p className="mt-1 text-xs text-red-500">{formErrors.name}</p>}
+                      <input id="name" name="name" type="text" value={form.name} onChange={handleFormChange} placeholder="Your name" className={`${formInputClass} ${formErrors.name ? formInputErrorClass : ""}`} />
+                      {formErrors.name && <p className="mt-1.5 text-xs text-red-500">{formErrors.name}</p>}
                     </div>
                     <div>
-                      <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#084E75]">
-                        Email <span className="text-red-500">*</span>
+                      <label htmlFor="email" className={formLabelClass}>
+                        Email <span className="text-[#AC3639]">*</span>
                       </label>
-                      <input id="email" name="email" type="text" value={form.email} onChange={handleFormChange} placeholder="you@company.com" className={`${inputClass} ${formErrors.email ? "border-red-400" : ""}`} />
-                      {formErrors.email && <p className="mt-1 text-xs text-red-500">{formErrors.email}</p>}
+                      <input id="email" name="email" type="text" value={form.email} onChange={handleFormChange} placeholder="Your email" className={`${formInputClass} ${formErrors.email ? formInputErrorClass : ""}`} />
+                      {formErrors.email && <p className="mt-1.5 text-xs text-red-500">{formErrors.email}</p>}
                     </div>
                   </div>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[#084E75]">
-                        Phone <span className="text-red-500">*</span>
+                      <label htmlFor="phone" className={formLabelClass}>
+                        Phone <span className="text-[#AC3639]">*</span>
                       </label>
-                      <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleFormChange} placeholder="+91 98765 43210" inputMode="tel" className={`${inputClass} ${formErrors.phone ? "border-red-400" : ""}`} />
-                      {formErrors.phone && <p className="mt-1 text-xs text-red-500">{formErrors.phone}</p>}
+                      <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleFormChange} placeholder="Your phone" inputMode="tel" className={`${formInputClass} ${formErrors.phone ? formInputErrorClass : ""}`} />
+                      {formErrors.phone && <p className="mt-1.5 text-xs text-red-500">{formErrors.phone}</p>}
                     </div>
                     <div>
-                      <label htmlFor="company" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      <label htmlFor="company" className={formLabelClass}>
                         Company
                       </label>
-                      <input id="company" name="company" type="text" value={form.company} onChange={handleFormChange} placeholder="Your company name" className={inputClass} />
+                      <input id="company" name="company" type="text" value={form.company} onChange={handleFormChange} placeholder="Your company name" className={formInputClass} />
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="service" className="mb-2 block text-sm font-medium text-[#084E75]">
+                    <label htmlFor="service" className={formLabelClass}>
                       Service of Interest
                     </label>
-                    <select id="service" name="service" value={form.service} onChange={handleFormChange} className={`${inputClass} cursor-pointer appearance-none`}>
-                      <option value="">Select a service</option>
-                      {contactServices.map((s) => (
-                        <option key={s} value={s}>{s}</option>
-                      ))}
-                    </select>
+                    <div className="relative">
+                      <select id="service" name="service" value={form.service} onChange={handleFormChange} className={formSelectClass}>
+                        <option value="">Select a service</option>
+                        {contactServices.map((s) => (
+                          <option key={s} value={s}>{s}</option>
+                        ))}
+                      </select>
+                      <IconChevronDown className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-[#045178]/45" />
+                    </div>
                   </div>
                   <div>
-                    <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#084E75]">
-                      Message <span className="text-red-500">*</span>
+                    <label htmlFor="message" className={formLabelClass}>
+                      Message <span className="text-[#AC3639]">*</span>
                     </label>
-                    <textarea id="message" name="message" rows={5} value={form.message} onChange={handleFormChange} placeholder="Tell us about your business needs and goals..." className={`${inputClass} resize-none ${formErrors.message ? "border-red-400" : ""}`} />
-                    {formErrors.message && <p className="mt-1 text-xs text-red-500">{formErrors.message}</p>}
+                    <textarea id="message" name="message" rows={5} value={form.message} onChange={handleFormChange} placeholder="Tell us about your business needs and goals..." className={`${formTextareaClass} ${formErrors.message ? formInputErrorClass : ""}`} />
+                    {formErrors.message && <p className="mt-1.5 text-xs text-red-500">{formErrors.message}</p>}
                   </div>
                   {error && (
                     <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>
@@ -277,7 +285,7 @@ function page() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl hover:shadow-[#084E75]/30 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#045178] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#045178]/25 transition-all duration-300 hover:bg-[#045178] hover:shadow-xl hover:shadow-[#045178]/30 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {loading ? "Sending…" : "Send Message"}
                     {!loading && <IconSend className="size-5 transition-transform group-hover:translate-x-1" />}
@@ -286,7 +294,7 @@ function page() {
                     <motion.div
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="flex items-center gap-3 rounded-xl bg-[#084E75]/8 px-4 py-3 text-sm text-[#084E75]"
+                      className="flex items-center gap-3 rounded-xl bg-[#045178]/8 px-4 py-3 text-sm text-[#045178]"
                     >
                       <IconCheck className="size-5 shrink-0" />
                       <span>Message sent! Our team will get back to you shortly.</span>

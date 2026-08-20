@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { AuthProvider } from "@/src/context/AuthContext";
 import { FontSizeProvider } from "@/src/context/FontSizeContext";
 import LayoutContent from "@/components/LayoutContent";
+import SmoothScroll from "@/components/SmoothScroll";
 
 // Applied before hydration so a returning visitor's saved font-size preference
 // is visible on first paint, with no flash back to the default "medium" size.
@@ -32,8 +33,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Pcred Corporate Advisory Services | Empowering Financial Excellence",
-  description: "pcred.org",
+  title: "PCRED | Corporate Advisory",
+  description:
+    "Strategic financial advisory for capital raising, debt structuring, M&A, valuation, CFO support and governance across India.",
   icons: {
     icon: "/logo.png?v=2",
     shortcut: "/logo.png?v=2",
@@ -61,6 +63,7 @@ export default function RootLayout({
           />
           <FontSizeProvider>
             <AuthProvider>
+              <SmoothScroll />
               <LayoutContent>{children}</LayoutContent>
             </AuthProvider>
           </FontSizeProvider>

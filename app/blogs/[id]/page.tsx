@@ -22,7 +22,7 @@ export default function BlogDetailPage() {
   if (!blog) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4">
-        <p className="text-xl font-semibold text-[#084E75]">Article not found.</p>
+        <p className="text-xl font-semibold text-[#045178]">Article not found.</p>
         <Link href="/blogs" className="text-sm text-[#8D8C8F] underline">
           Back to Blogs
         </Link>
@@ -34,24 +34,24 @@ export default function BlogDetailPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-linear-to-b from-white to-[#FBF9F3] pt-36 pb-16">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#045178]/5 blur-3xl" />
         <div className="relative mx-auto max-w-4xl px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <Link
               href="/blogs"
-              className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#084E75]/60 hover:text-[#084E75] transition-colors"
+              className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#045178]/60 hover:text-[#045178] transition-colors"
             >
               <IconArrowLeft className="size-4" />
               Back to Blogs
             </Link>
 
             {blog.category && (
-              <span className="mb-4 block w-fit rounded-full border border-[#084E75]/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#084E75]">
+              <span className="mb-4 block w-fit rounded-full border border-[#045178]/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#045178]">
                 {blog.category}
               </span>
             )}
 
-            <h1 className="font-serif text-3xl font-bold leading-snug text-[#084E75] md:text-4xl lg:text-5xl">
+            <h1 className="font-serif text-3xl font-bold leading-snug text-[#045178] md:text-4xl lg:text-5xl">
               {blog.title}
             </h1>
 
@@ -107,7 +107,7 @@ export default function BlogDetailPage() {
 
           {blog.content ? (
             <div
-              className="prose prose-lg max-w-none prose-headings:text-[#084E75] prose-a:text-[#8D8C8F] prose-strong:text-[#084E75]"
+              className="prose prose-lg max-w-none prose-headings:text-[#045178] prose-a:text-[#8D8C8F] prose-strong:text-[#045178]"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
           ) : (
@@ -115,10 +115,10 @@ export default function BlogDetailPage() {
           )}
         </motion.div>
 
-        <div className="mt-16 border-t border-gray-100 pt-8">
+        <div className="mt-16 border-t border-navy-900/8 pt-8">
           <Link
             href="/blogs"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#084E75] hover:text-[#8D8C8F] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#045178] hover:text-[#8D8C8F] transition-colors"
           >
             <IconArrowLeft className="size-4" />
             Back to all articles

@@ -59,9 +59,9 @@ export default function Page() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.58)_0%,rgba(4,81,120,0.46)_42%,rgba(4,81,120,0.18)_70%,rgba(4,81,120,0.08)_100%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#084E75]/25 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#045178]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
@@ -137,7 +137,7 @@ export default function Page() {
               <span className="size-2 rounded-full bg-[#8D8C8F]" />
               Our Companies
             </span>
-            <h2 className="font-serif text-3xl font-bold text-[#084E75] md:text-4xl">
+            <h2 className="font-serif text-3xl font-bold text-[#045178] md:text-4xl">
               Part of the <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">PCRED Family.</span>
             </h2>
           </motion.div>
@@ -151,10 +151,10 @@ export default function Page() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 whileHover={{ y: -6 }}
-                className="group relative overflow-hidden rounded-3xl bg-linear-to-br from-[#8D8C8F]/15 via-white to-[#084E75]/10 p-8 shadow-[0_2px_8px_-2px_rgba(8,78,117,0.08),0_20px_50px_-20px_rgba(8,78,117,0.18)] ring-1 ring-[#084E75]/8 transition-shadow duration-300 hover:shadow-[0_2px_8px_-2px_rgba(8,78,117,0.08),0_30px_70px_-20px_rgba(8,78,117,0.3)] md:p-10"
+                className="group relative overflow-hidden rounded-3xl bg-linear-to-br from-[#8D8C8F]/15 via-white to-[#045178]/10 p-8 shadow-[0_2px_8px_-2px_rgba(4,81,120,0.08),0_20px_50px_-20px_rgba(4,81,120,0.18)] ring-1 ring-[#045178]/8 transition-shadow duration-300 hover:shadow-[0_2px_8px_-2px_rgba(4,81,120,0.08),0_30px_70px_-20px_rgba(4,81,120,0.3)] md:p-10"
               >
                 {/* Top accent bar */}
-                <div className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-[#084E75] via-[#8D8C8F] to-[#084E75] bg-[length:200%_100%] transition-[background-position] duration-500 group-hover:bg-[position:100%_0]" />
+                <div className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-[#045178] via-[#8D8C8F] to-[#045178] bg-[length:200%_100%] transition-[background-position] duration-500 group-hover:bg-[position:100%_0]" />
 
                 {/* Company logo */}
                 {company.logo && (
@@ -174,7 +174,7 @@ export default function Page() {
                 )}
 
                 <div className="relative">
-                  <h3 className="text-2xl font-semibold text-[#084E75] md:text-3xl">
+                  <h3 className="text-2xl font-semibold text-[#045178] md:text-3xl">
                     {company.name}
                   </h3>
 
@@ -182,7 +182,7 @@ export default function Page() {
                     {company.points.map((point) => (
                       <li
                         key={point}
-                        className="flex items-start gap-3 text-sm leading-relaxed text-[#084E75]/70"
+                        className="flex items-start gap-3 text-sm leading-relaxed text-[#045178]/70"
                       >
                         <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[#8D8C8F]" />
                         {point}
@@ -194,7 +194,7 @@ export default function Page() {
                     href={company.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-[#084E75] underline decoration-[#b8892e]/40 decoration-2 underline-offset-4 transition-all hover:decoration-[#b8892e] hover:text-[#084E75]"
+                    className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-[#045178] underline decoration-[#b8892e]/40 decoration-2 underline-offset-4 transition-all hover:decoration-[#b8892e] hover:text-[#045178]"
                   >
                     Visit {company.href.replace("https://", "")}
                     <IconArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

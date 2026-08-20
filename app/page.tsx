@@ -1,16 +1,15 @@
 "use client";
 
-import { useCallback, useEffect, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import { IconArrowRight, IconArrowsExchange, IconBuilding, IconBuildingBank, IconChartBar, IconChartLine, IconStar, IconStarHalfFilled, IconChartHistogram, IconCheck, IconChevronLeft, IconChevronRight, IconCircleDashedCheck, IconHeartHandshake, IconMap2, IconQuote, IconRefresh, IconReportMoney, IconRocket, IconScale, IconSend, IconShieldCheck, IconStarFilled, IconTargetArrow, IconTrendingUp, IconUsers, IconUsersGroup, } from "@tabler/icons-react";
-import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
-import logo from "@/public/logo.png";
+import { IconArrowRight, IconArrowsExchange, IconBuilding, IconBuildingBank, IconChartBar, IconChartLine, IconStar, IconStarHalfFilled, IconChartHistogram, IconCheck, IconChevronDown, IconChevronLeft, IconChevronRight, IconCircleDashedCheck, IconHeartHandshake, IconMap2, IconQuote, IconRefresh, IconReportMoney, IconRocket, IconScale, IconSend, IconShieldCheck, IconStarFilled, IconTargetArrow, IconTrendingUp, IconUsers, IconUsersGroup, } from "@tabler/icons-react";
+import { HomeHero } from "@/components/HomeHero";
+import { WebPatternMotionBackground } from "@/components/WebPatternMotionBackground";
 import aboutImage from "@/public/who_we_are.webp";
 import positioningImage from "@/public/site/positioning_boardroom.webp";
-import homeHeroImage from "@/public/site/home_hero_skyline.webp";
 import corpFinanceServiceImage from "@/public/site/corpfin_hero_cityscape.webp";
 import maServiceImage from "@/public/site/ma_hero_skyline.webp";
 import valuationServiceImage from "@/public/site/valuation_hero_tablet.webp";
@@ -20,6 +19,13 @@ import { SpinningText } from "@/components/ui/spinning-text";
 import { LifecycleRoadmap } from "@/components/LifecycleRoadmap";
 import { MobileLifecycleTimeline } from "@/components/MobileLifecycleTimeline";
 import { Marquee } from "@/components/ui/marquee";
+import {
+  formInputClass,
+  formInputErrorClass,
+  formLabelClass,
+  formSelectClass,
+  formTextareaClass,
+} from "@/lib/form-styles";
 import bank_1 from "@/public/banking_partners/banking_partners-01.webp";
 import bank_2 from "@/public/banking_partners/banking_partners-02.webp";
 import bank_3 from "@/public/banking_partners/banking_partners-03.webp";
@@ -69,7 +75,7 @@ interface CompaniesCardProps {
 const CompaniesCard = ({ data }: CompaniesCardProps) => {
   return (
     <figure
-      className={"relative w-40 h-20 md:w-60 md:h-30 overflow-hidden rounded-4xl border p-1 md:p-2 border-blue-950 hover:shadow-lg hover:scale-105 transition-transform duration-300"}
+      className={"relative h-20 w-40 overflow-hidden rounded-2xl border border-navy-900/8 bg-white p-1 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-24px_rgba(4,81,120,0.35)] md:h-30 md:w-60 md:p-2"}
     >
       <div className="p-1 md:p-4 flex justify-center items-center h-full">
         <div className="h-full">
@@ -338,14 +344,12 @@ const companies_one = [{ image: bank_1 }, { image: bank_2 }, { image: bank_3 }, 
 
 const companies_two = [{ image: bank_21 }, { image: bank_22 }, { image: bank_23 }, { image: bank_24 }, { image: bank_25 }, { image: bank_26 }, { image: bank_27 }, { image: bank_28 }, { image: bank_29 }, { image: bank_30 }, { image: bank_31 }, { image: bank_32 }, { image: bank_33 }, { image: bank_34 }, { image: bank_35 }, { image: bank_36 }, { image: bank_37 }, { image: bank_38 }, { image: bank_39 }, { image: bank_40 }, { image: bank_41 }];
 
-
-const inputClass =
-  "w-full rounded-2xl border border-[#084E75]/15 bg-white px-4 py-3.5 text-[#084E75] placeholder:text-[#084E75]/50 outline-none transition-all duration-200 focus:border-[#084E75] focus:ring-2 focus:ring-[#084E75]/15";
-
 export default function Home() {
   const [activeFeature, setActiveFeature] = useState(0);
   const [activeReview, setActiveReview] = useState(0);
   const [reviewDirection, setReviewDirection] = useState(0);
+  const [serviceImagesReady, setServiceImagesReady] = useState(false);
+  const servicesSectionRef = useRef<HTMLElement>(null);
 
   const goToReview = useCallback(
     (index: number) => {
@@ -369,6 +373,23 @@ export default function Home() {
     const timer = setInterval(goNextReview, 6000);
     return () => clearInterval(timer);
   }, [goNextReview]);
+
+  useEffect(() => {
+    const section = servicesSectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        setServiceImagesReady(true);
+        observer.disconnect();
+      },
+      { rootMargin: "280px 0px" }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   const activeReviewData = reviews[activeReview];
   const reviewInitials = activeReviewData.role
@@ -449,239 +470,181 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative flex min-h-screen items-end overflow-hidden">
-
-        <Image
-          src={homeHeroImage}
-          alt="Mumbai skyline at dusk"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
-
-        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 px-6 pb-24 pt-32 md:gap-8 md:pb-32">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="flex flex-col gap-4"
-          >
-            <div className="flex items-end gap-3 md:gap-4">
-
-              <h1 className="font-serif flex flex-nowrap items-end gap-x-1 sm:gap-x-2 text-2xl font-bold uppercase tracking-tight text-white sm:text-4xl md:text-6xl lg:text-7xl">
-                <div className="mb-0.5 shrink-0 md:mb-2">
-                  <Image src={logo} alt="PCRED" className="h-7 w-auto object-contain sm:h-11 md:h-16 lg:h-20" width={80} height={80} />
-                </div>
-                <DiaTextReveal
-                  repeat
-                  duration={1.8}
-                  repeatDelay={1}
-                  text={["ERSISTANCE", "LANNING", "ERFORMANCE"]}
-                />
-              </h1>
-            </div>
-
-            <p className="max-w-2xl text-sm leading-relaxed text-white/85 sm:text-base md:text-xl lg:text-2xl">Strategic Financial Advisory Solutions Designed to Strengthen and Scale Businesses</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex flex-wrap gap-4"
-          >
-            <Link href="/schemes" className="group flex items-center justify-between rounded-4xl bg-[#084E75] pl-4 pr-2 py-2 text-white shadow-md shadow-[#084E75]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm">Our Schemes
-              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                <IconArrowRight className="size-4" color="#084E75" />
-              </span>
-            </Link>
-            <Link href="#contact" className="group flex items-center justify-between rounded-4xl border border-white/40 bg-white/5 pl-4 pr-2 py-2 text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/10 w-56 text-sm">Talk to an Advisor
-              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                <IconArrowRight className="size-4" color="#084E75" />
-              </span>
-            </Link>
-          </motion.div>
-
-        </div>
-
-        {/* Embedded hero info bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="relative z-10 hidden border-t border-white/15 bg-black/20 backdrop-blur-sm md:block"
-        >
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
-            <span className="shrink-0 text-[11px] font-semibold uppercase tracking-[0.25em] text-white/60">
-              Advisory Services
-            </span>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-1">
-              {["Corporate Finance", "M&A Advisory", "Valuation & Transaction", "CFO Advisory", "Risk & Governance"].map(
-                (label) => (
-                  <span key={label} className="text-xs font-medium text-white/70">
-                    {label}
-                  </span>
-                )
-              )}
-            </div>
-            <Link href="/services/corporate-finance" className="group flex shrink-0 items-center gap-1.5 text-xs font-semibold text-white transition-colors hover:text-[#D9B872]">
-              Our Services
-              <IconArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
-            </Link>
-          </div>
-        </motion.div>
-      </section>
+      <HomeHero />
 
       {/* Stats Strip */}
-      <section className="relative border-b border-[#084E75]/8 bg-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-2 gap-x-6 gap-y-8 py-10 sm:grid-cols-4 sm:gap-x-8 md:py-12">
-            {[
-              { value: "16+", label: "Years of advisory experience" },
-              { value: "2500+", label: "MSMEs and enterprises served" },
-              { value: "₹1500Cr+", label: "Capital facilitated" },
-              { value: `${companies_one.length + companies_two.length}+`, label: "Banking and institutional partners" },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
-                className="relative border-l border-[#084E75]/10 pl-5 first:border-l-0 first:pl-0 sm:pl-6"
-              >
-                <span className="font-serif block text-3xl font-bold leading-none text-[#084E75] md:text-4xl">
-                  {stat.value}
-                </span>
-                <span className="mt-2 block text-xs leading-snug text-[#4a5568] md:text-sm">
-                  {stat.label}
-                </span>
-              </motion.div>
-            ))}
-          </div>
+      <section className="relative overflow-hidden bg-brand-gradient py-4 md:py-5">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-24 top-1/2 size-56 -translate-y-1/2 rounded-full bg-white/5 blur-3xl" />
+          <div className="absolute -right-24 top-0 size-64 rounded-full bg-[#D9B872]/8 blur-3xl" />
         </div>
-      </section>
-
-      {/* Services Strip */}
-      <section className="relative bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-14 flex flex-col items-start justify-between gap-6 md:mb-16 md:flex-row md:items-end">
-            <div className="max-w-xl">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
-                <span className="size-2 rounded-full bg-[#8D8C8F]" />
-                Our Advisory Services
-              </span>
-              <h2 className="font-serif text-3xl font-bold text-[#084E75] md:text-4xl">
-                Structured Support Across
-                <br />
-                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Every Stage of Growth.</span>
-              </h2>
-            </div>
-            <Link
-              href="/services/corporate-finance"
-              className="group inline-flex shrink-0 items-center gap-2 border-b-2 border-[#084E75] pb-1 text-sm font-semibold uppercase tracking-wider text-[#084E75] transition-colors hover:border-[#D9B872] hover:text-[#0a5d8a]"
-            >
-              All Services
-              <IconArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-
-          <div className="divide-y divide-[#084E75]/10 border-y border-[#084E75]/10">
-            {servicesList.map((service, i) => {
-              const Icon = service.icon;
-              return (
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/6 backdrop-blur-sm">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#D9B872]/60 to-transparent" />
+            <div className="grid grid-cols-2 sm:grid-cols-4 sm:divide-x sm:divide-white/10">
+              {[
+                { value: "16+", label: "Years of advisory experience", accent: "Track Record" },
+                { value: "2500+", label: "MSMEs and enterprises served", accent: "Reach" },
+                { value: "₹1500Cr+", label: "Capital facilitated", accent: "Capital" },
+                { value: `${companies_one.length + companies_two.length}+`, label: "Banking and institutional partners", accent: "Partners" },
+              ].map((stat, i) => (
                 <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 16 }}
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.05 }}
+                  className={`group px-4 py-3.5 sm:px-5 sm:py-4 ${i >= 2 ? "border-t border-white/10 sm:border-t-0" : ""} ${i % 2 === 1 ? "border-l border-white/10 sm:border-l-0" : ""}`}
                 >
-                  <Link
-                    href={service.href}
-                    className="group relative grid grid-cols-[auto_1fr] items-center gap-4 overflow-hidden rounded-2xl px-3 py-7 transition-[padding] duration-500 ease-out hover:py-12 sm:grid-cols-[3rem_3.5rem_1fr_auto] sm:gap-6 sm:px-4 md:py-8 md:hover:py-16"
-                  >
-                    <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      <Image
-                        src={service.image}
-                        alt=""
-                        fill
-                        className="object-cover"
-                        sizes="100vw"
-                      />
-                      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.94)_0%,rgba(7,20,40,0.82)_38%,rgba(15,33,64,0.65)_68%,rgba(15,33,64,0.5)_100%),linear-gradient(to_top,rgba(7,20,40,0.45)_0%,transparent_45%)]" />
-                    </div>
-
-                    <span className="font-serif relative z-10 hidden text-2xl font-bold text-[#084E75]/20 transition-colors duration-500 group-hover:text-white/30 sm:block">
-                      {service.number}
+                  <div className="mb-1.5 flex items-center gap-2">
+                    <span className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/45">
+                      {stat.accent}
                     </span>
-                    <div className="relative z-10 flex size-12 shrink-0 items-center justify-center rounded-full bg-[#084E75]/5 text-[#084E75] transition-colors duration-500 group-hover:bg-white/10 group-hover:text-white">
-                      <Icon size={22} stroke={1.6} />
-                    </div>
-                    <div className="relative z-10 min-w-0">
-                      <h3 className="text-lg font-semibold text-[#084E75] transition-colors duration-500 group-hover:text-white md:text-xl">
-                        {service.title}
-                      </h3>
-                      <p className="mt-1 max-w-xl text-sm leading-relaxed text-[#4a5568] line-clamp-2 transition-colors duration-500 group-hover:text-white/75 sm:line-clamp-1">
-                        {service.description}
-                      </p>
-                    </div>
-                    <span className="relative z-10 hidden shrink-0 size-10 items-center justify-center rounded-full border border-[#084E75]/15 text-[#084E75] transition-all duration-500 group-hover:border-white/40 group-hover:bg-white/10 group-hover:text-white sm:flex">
-                      <IconArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-                    </span>
-                  </Link>
+                    <span className="size-1.5 rounded-full bg-[#D9B872]/80" />
+                  </div>
+                  <span className="font-serif block text-2xl font-bold leading-none text-white md:text-[1.75rem]">
+                    {stat.value}
+                  </span>
+                  <span className="mt-1 block text-[11px] leading-snug text-white/65 md:text-xs">
+                    {stat.label}
+                  </span>
                 </motion.div>
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Positioning Statement */}
-      <section className="relative isolate overflow-hidden bg-linear-to-br from-[#FAFAF9] via-white to-[#FBF6EC] py-20 md:py-28">
-        <div className="pointer-events-none absolute -left-24 top-0 size-72 rounded-full bg-[#B8892E]/8 blur-[90px]" />
-        <div className="pointer-events-none absolute -right-20 bottom-0 size-80 rounded-full bg-[#084E75]/6 blur-[90px]" />
+      <section className="relative overflow-hidden bg-[#FAFAF9] py-16 md:py-10">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.35]"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, #045178 1px, transparent 0)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+        <div className="pointer-events-none absolute -left-32 top-1/4 size-72 rounded-full bg-[#D9B872]/10 blur-[90px]" />
+        <div className="pointer-events-none absolute -right-24 bottom-0 size-64 rounded-full bg-[#045178]/8 blur-[80px]" />
 
         <div className="relative mx-auto max-w-7xl px-6">
-          <div className="grid gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+          <div className="grid items-center gap-8 lg:grid-cols-5 lg:gap-10">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col justify-center"
+              className="order-1 flex flex-col justify-center lg:col-span-2"
             >
-              <span className="mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
-                <span className="size-2 rounded-full bg-[#8D8C8F]" />
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#B8892E]">
+                <span className="size-2 rounded-full bg-[#D9B872]" />
                 Our Purpose
               </span>
-              <h2 className="font-serif text-3xl font-semibold leading-tight text-[#084E75] sm:text-4xl md:text-5xl md:leading-[1.15]">
-                Building Stronger Businesses.
-                <span className="mt-1 block bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text font-bold text-transparent">
-                  Creating Lasting Value.
+              <h2 className="font-serif text-3xl font-semibold leading-tight text-[#045178] md:text-4xl">
+                Structure First.<br/>
+                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text font-bold text-transparent">
+                  Capital Second.
                 </span>
               </h2>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-[#084E75]/75 md:text-lg">
-                PCRED is a leading Corporate Advisory firm helping businesses across India
-                make smarter financial decisions, unlock growth opportunities, and build
-                sustainable enterprises.
+
+              <p className="mt-5 text-sm leading-relaxed text-[#545355] md:text-base">
+                PCRED helps businesses across India make smarter financial decisions,
+                unlock growth, and build sustainable enterprises.
               </p>
 
-              <div className="mt-10 flex flex-wrap gap-3">
-                <Link href="#contact" className="group flex items-center justify-between rounded-4xl bg-[#084E75] hover:bg-[#0a5d8a] pl-4 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-56 sm:w-50 text-sm">Talk to an Advisor
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                    <IconArrowRight className="size-4" color="#8D8C8F" />
+              <div className="mt-6 flex-col flex md:flex-row gap-3">
+                <Link
+                  href="#contact"
+                  className="group inline-flex items-center justify-between rounded-full bg-[#045178] py-2 pl-4 pr-2 text-sm text-white shadow-md shadow-[#045178]/20 transition-all hover:-translate-y-0.5 hover:shadow-lg w-full md:w-50"
+                >
+                  Talk to an Advisor
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white/90">
+                    <IconArrowRight className="size-3.5" color="#045178" />
                   </span>
                 </Link>
+                <Link
+                  href="/services/corporate-finance"
+                  className="group inline-flex items-center justify-between rounded-full border border-[#045178]/15 bg-white py-2 pl-4 pr-2 text-sm text-[#045178] transition-all hover:-translate-y-0.5 hover:border-[#D9B872]/50 hover:shadow-md w-full md:w-50"
+                >
+                  Our Services
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#045178]/6">
+                    <IconArrowRight className="size-3.5" color="#045178" />
+                  </span>
+                </Link>
+              </div>
+            </motion.div>
 
-                <Link href="/services/corporate-finance" className="group flex items-center justify-between rounded-4xl border border-[#084E75]/15 bg-white pl-4 pr-2 py-2 text-[#084E75] shadow-md shadow-[#8D8C8F]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-56 sm:w-50 text-sm">Our Services
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                    <IconArrowRight className="size-4" color="#8D8C8F" />
-                  </span>
-                </Link>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+              className="relative order-2 lg:col-span-3"
+            >
+              <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-[#D9B872]/20 to-[#045178]/10 blur-sm lg:-inset-3" />
+              <div className="relative aspect-[5/3] overflow-hidden rounded-2xl border border-white/60 shadow-[0_20px_48px_-18px_rgba(4,81,120,0.3)] sm:aspect-[16/10] lg:aspect-[16/11] lg:min-h-[380px]">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster={positioningImage.src}
+                  className="absolute inset-0 size-full object-cover"
+                  aria-label="PCRED advisors in a boardroom discussion"
+                >
+                  <source src="/banner.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-linear-to-tr from-[#022436]/50 via-transparent to-[#045178]/20" />
+                <div className="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full border border-white/20 bg-black/30 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-white/90 backdrop-blur-md">
+                  <span className="size-1.5 animate-pulse rounded-full bg-[#D9B872]" />
+                  Advisory in action
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Are Section */}
+      <section className="relative overflow-hidden py-12 md:py-16">
+        <WebPatternMotionBackground />
+
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative order-2 pb-8 lg:order-1 lg:pb-6"
+            >
+              <div className="relative">
+                <div className="absolute -inset-2 rounded-[1.5rem] border border-[#D9B872]/25 sm:-inset-3" />
+                <div className="relative overflow-hidden rounded-2xl">
+                  <Image
+                    src={aboutImage}
+                    alt="PCRED advisory team"
+                    className="aspect-[5/3] w-full object-cover sm:aspect-[16/10]"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#045178]/55 via-transparent to-[#045178]/10" />
+                </div>
+              </div>
+
+              <div className="absolute -bottom-5 -right-2 z-10 sm:-bottom-6 sm:right-4">
+                <div className="relative size-28 sm:size-32">
+                  <SpinningText
+                    radius={46}
+                    duration={24}
+                    className="absolute inset-0 text-white/90"
+                  >
+                    Years of Experience • Years of Experience • Years of Experience •
+                  </SpinningText>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex size-16 items-center justify-center rounded-full bg-[#D9B872] shadow-[0_12px_32px_-8px_rgba(0,0,0,0.45)] sm:size-[4.5rem]">
+                      <span className="font-serif text-2xl font-bold text-white sm:text-3xl">16+</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -689,105 +652,50 @@ export default function Home() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative flex flex-col justify-center gap-4"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="order-1 lg:order-2"
             >
-              <div className="relative mb-2 flex aspect-video w-full items-center justify-center overflow-hidden rounded-3xl">
-                <Image
-                  src={positioningImage}
-                  alt="PCRED advisors in a boardroom discussion"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 40vw, 90vw"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
-              </div>
-              {advisoryFeatures.map((feature, i) => {
-                const Icon = feature.icon;
-                return (
-                  <div
-                    key={feature.title}
-                    className="relative z-10 flex items-start gap-4 rounded-2xl border border-[#084E75]/8 bg-white p-5 shadow-[0_12px_32px_-16px_rgba(8,78,117,0.18)]"
-                    style={{ marginLeft: `${i * 18}px` }}
-                  >
-                    <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#084E75]/8 text-[#084E75]">
-                      <Icon size={20} stroke={1.6} />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold text-[#084E75]">{feature.title}</p>
-                      <p className="mt-0.5 text-xs leading-relaxed text-[#084E75]/60">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Who We Are Section */}
-      <section className="relative h-full bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/bg_webpattern.webp')" }}>
-        <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-18">
-          <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative"
-            >
-              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872] mb-4">
+              <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
                 <span className="size-2 rounded-full bg-[#D9B872]" />
                 Who We Are
               </span>
 
-              <h3 className="text-3xl font-semibold leading-12 text-white md:text-4xl">
+              <h2 className="font-serif text-3xl font-semibold leading-tight text-white md:text-4xl">
                 Strategic Advisors for Businesses
-                <br />
-                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">That Think Long-Term</span>
-              </h3>
-
-              <p className="mt-6 max-w-lg text-base leading-relaxed text-white/75 md:text-lg">Every successful business reaches moments where the right financial decision changes everything.</p>
-
-              <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-[#084E75] hover:bg-[#0a5d8a] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm mt-8 sm:mt-14">Discover Our Story
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                  <IconArrowRight className="size-4" color="#D9B872" />
+                <span className="mt-1 block bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">
+                  That Think Long-Term
                 </span>
-              </Link>
-              <div className="absolute right-2 hidden sm:block sm:right-8 md:right-16 md:-translate-y-20 lg:right-8 lg:translate-y-0">
-                <SpinningText>Years of Experience • Years of Experience •</SpinningText>
-                <div className="absolute -top-11 -right-11 bg-[#D9B872] w-22 h-22 flex justify-center items-center rounded-full">
-                  <span className="text-white text-4xl font-bold">16+</span>
-                </div>
-              </div>
-            </motion.div>
+              </h2>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative"
-            >
-              <div className="absolute -inset-2 rounded-4xl border border-[#D9B872]/30 sm:-inset-4" />
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl shadow-black/30">
-                <Image
-                  src={aboutImage}
-                  alt="PCRED advisory team"
-                  className="aspect-7/5 w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
+              <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/75 md:text-base">
+                Every successful business reaches moments where the right financial
+                decision changes everything. We stay with leadership through those
+                moments — from capital structure to growth.
+              </p>
+
+              <div className="mt-5 grid max-w-md grid-cols-3 gap-3 border-t border-white/10 pt-4">
+                {[
+                  { value: "2500+", label: "Clients" },
+                  { value: "₹1500Cr+", label: "Capital" },
+                ].map((stat) => (
+                  <div key={stat.label}>
+                    <p className="font-serif text-lg font-semibold text-white md:text-xl">
+                      {stat.value}
+                    </p>
+                    <p className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.14em] text-white/50">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
               </div>
+
             </motion.div>
           </div>
-
         </div>
       </section>
 
       {/* Business Lifecycle */}
-      <section className="bg-[#FAFAF9] py-20 md:py-28">
+      <section className="bg-[#FAFAF9] py-20 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-end lg:gap-16">
             <motion.div
@@ -800,12 +708,12 @@ export default function Home() {
                 <span className="size-2 rounded-full bg-[#8D8C8F]" />
                 Business Lifecycle
               </span>
-              <h2 className="font-serif text-3xl font-semibold text-[#084E75] leading-12 md:text-4xl">
+              <h2 className="font-serif text-3xl font-semibold text-[#045178] leading-12 md:text-4xl">
                 One Advisory Partner.
                 <br />
                 <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Every stage of growth.</span>
               </h2>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-[#084E75]/70 md:text-lg">
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-[#045178]/70 md:text-lg">
                 From ambitious startups to established enterprises, we support businesses
                 throughout their journey with strategic financial guidance and corporate
                 advisory.
@@ -817,10 +725,10 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex items-center gap-6 rounded-3xl border border-[#084E75]/10 bg-white p-6 shadow-[0_20px_50px_-25px_rgba(8,78,117,0.25)] lg:justify-self-end"
+              className="flex items-center gap-6 rounded-3xl border border-[#045178]/10 bg-white p-6 shadow-[0_20px_50px_-25px_rgba(4,81,120,0.25)] lg:justify-self-end"
             >
-              <span className="font-serif text-5xl font-bold text-[#084E75]">{stages.length}</span>
-              <span className="max-w-[10rem] text-sm leading-snug text-[#084E75]/70">
+              <span className="font-serif text-5xl font-bold text-[#045178]">{stages.length}</span>
+              <span className="max-w-[10rem] text-sm leading-snug text-[#045178]/70">
                 Distinct stages, one advisory partner from start to IPO.
               </span>
             </motion.div>
@@ -833,7 +741,7 @@ export default function Home() {
       </section>
 
       {/* Platform / Capabilities Section */}
-      <section className="relative overflow-hidden bg-[#0F2140] py-20 md:py-28">
+      <section className="relative overflow-hidden bg-brand-gradient py-16 md:py-20">
         <div className="pointer-events-none absolute inset-0 opacity-10">
           <div className="absolute -right-52 -top-52 size-150 rounded-full border border-[#D9B872]" />
           <div className="absolute -bottom-52 -left-52 size-125 rounded-full border border-[#D9B872]" />
@@ -846,100 +754,220 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="mb-14 max-w-2xl"
+            className="mb-8 max-w-xl md:mb-10"
           >
             <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
               <span className="size-2 rounded-full bg-[#D9B872]" />
               Strategic Advantage
             </span>
-            <h2 className="font-serif text-3xl font-semibold leading-12 text-white md:text-4xl">
+            <h2 className="font-serif text-3xl font-semibold leading-tight text-white md:text-4xl">
               Trusted by Businesses.
-              <br />
-              <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Driven by Results.</span>
+              <span className="mt-1 block bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">
+                Driven by Results.
+              </span>
             </h2>
           </motion.div>
 
-          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col border-y border-white/10 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:border-y-0 lg:flex lg:gap-x-0"
-            >
-              {features.map((feature, i) => {
-                const isActive = i === activeFeature;
-                return (
+          {/* Mobile: vertical accordion */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="flex flex-col gap-2 lg:hidden"
+          >
+            {features.map((feature, i) => {
+              const isActive = i === activeFeature;
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={feature.title}
+                  className={`overflow-hidden rounded-2xl border transition-colors duration-300 ${
+                    isActive
+                      ? "border-[#D9B872]/40"
+                      : "border-white/10"
+                  }`}
+                >
                   <button
-                    key={feature.title}
                     type="button"
                     onClick={() => setActiveFeature(i)}
-                    className={`group flex items-center gap-4 border-white/10 py-5 text-left transition-colors first:pt-0 last:pb-0 ${
-                      isActive ? "text-white" : "text-white/45 hover:text-white/75"
-                    } border-b sm:border-b-0 sm:py-4 lg:border-b`}
+                    className="relative flex w-full items-center gap-3 overflow-hidden px-4 py-4 text-left"
+                    aria-expanded={isActive}
                   >
-                    <span className="font-serif w-8 shrink-0 text-xl font-bold">
+                    <img
+                      src={feature.image}
+                      alt=""
+                      aria-hidden
+                      className="absolute inset-0 h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-[#022436]/78" />
+                    <span
+                      className={`relative z-10 font-serif text-lg font-bold ${
+                        isActive ? "text-[#D9B872]" : "text-white/50"
+                      }`}
+                    >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="min-w-0 flex-1 text-base font-semibold md:text-lg">
+                    <span
+                      className={`relative z-10 min-w-0 flex-1 text-base font-semibold ${
+                        isActive ? "text-white" : "text-white/70"
+                      }`}
+                    >
                       {feature.title}
                     </span>
                     <span
-                      className={`h-px shrink-0 bg-[#D9B872] transition-all duration-300 ${
-                        isActive ? "w-8 opacity-100" : "w-0 opacity-0"
+                      className={`relative z-10 flex size-9 shrink-0 items-center justify-center rounded-full transition-colors ${
+                        isActive
+                          ? "bg-[#D9B872] text-[#045178]"
+                          : "border border-white/30 bg-white/10 text-white"
                       }`}
-                    />
+                    >
+                      <IconChevronDown
+                        className={`size-4 transition-transform duration-300 ${
+                          isActive ? "rotate-180" : ""
+                        }`}
+                      />
+                    </span>
                   </button>
-                );
-              })}
-            </motion.div>
+                  <AnimatePresence initial={false}>
+                    {isActive && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="relative space-y-4 border-t border-white/10 bg-[#022436]/90 px-4 pb-4 pt-3">
+                          <div className="flex items-start justify-between gap-3">
+                            <div>
+                              <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#D9B872]">
+                                {feature.subtitle}
+                              </span>
+                              <p className="mt-2 text-sm leading-relaxed text-white/70">
+                                {feature.description}
+                              </p>
+                            </div>
+                            <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#D9B872] text-[#045178]">
+                              <Icon size={18} stroke={1.8} />
+                            </div>
+                          </div>
+                          <div className="relative aspect-16/10 overflow-hidden rounded-xl">
+                            <img
+                              src={feature.image}
+                              alt={feature.title}
+                              className="absolute inset-0 h-full w-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-linear-to-t from-[#045178]/70 via-[#045178]/10 to-transparent" />
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeFeature}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.35 }}
-                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm md:p-9"
+          {/* Desktop: horizontal accordion */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="hidden h-[440px] gap-2 lg:flex xl:h-[480px]"
+          >
+            {features.map((feature, i) => {
+              const isActive = i === activeFeature;
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={feature.title}
+                  className={`relative flex h-full overflow-hidden rounded-2xl border transition-[flex-grow,border-color] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                    isActive
+                      ? "flex-[3.4] border-[#D9B872]/50"
+                      : "flex-[0.58] border-white/15"
+                  }`}
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
-                        {features[activeFeature].subtitle}
+                  {/* Panel image — only decode active + keep others lazy */}
+                  <img
+                    src={feature.image}
+                    alt=""
+                    aria-hidden
+                    loading={isActive || i <= 1 ? "eager" : "lazy"}
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div
+                    className={`absolute inset-0 ${
+                      isActive
+                        ? "bg-linear-to-t from-[#022436]/95 via-[#022436]/45 to-[#022436]/20"
+                        : "bg-[#022436]/72"
+                    }`}
+                  />
+
+                  {/* Collapsed: click to open */}
+                  {!isActive && (
+                    <button
+                      type="button"
+                      onClick={() => setActiveFeature(i)}
+                      aria-label={`Open ${feature.title}`}
+                      className="relative z-10 flex h-full w-full flex-col items-center justify-between px-3 py-6 text-left transition-colors hover:bg-white/5"
+                    >
+                      <span className="font-serif text-xl font-bold text-[#D9B872]">
+                        {String(i + 1).padStart(2, "0")}
                       </span>
-                      <h3 className="mt-2 text-2xl font-bold text-white md:text-3xl">
-                        {features[activeFeature].title}
-                      </h3>
+                      <span
+                        className="origin-center whitespace-nowrap text-sm font-semibold tracking-wide text-white"
+                        style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+                      >
+                        {feature.title}
+                      </span>
+                      <span className="flex size-10 items-center justify-center rounded-full border border-[#D9B872]/50 bg-[#D9B872] text-[#045178] shadow-lg shadow-black/20 transition-transform group-hover:scale-105">
+                        <IconChevronRight className="size-4" stroke={2} />
+                      </span>
+                    </button>
+                  )}
+
+                  {/* Expanded content */}
+                  {isActive && (
+                    <div className="relative z-10 flex h-full min-w-0 flex-1 flex-col p-6 xl:p-8">
+                      <div className="flex justify-end">
+                        <div className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[#D9B872] text-[#045178]">
+                          <Icon size={20} stroke={1.8} />
+                        </div>
+                      </div>
+
+                      <div className="mt-auto flex items-end justify-between gap-4">
+                        <div className="min-w-0 max-w-lg">
+                          <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
+                            {feature.subtitle}
+                          </span>
+                          <h3 className="mt-2 font-serif text-2xl font-bold text-white xl:text-3xl">
+                            <span className="mr-2 font-serif text-lg font-bold text-[#D9B872]">
+                              {String(i + 1).padStart(2, "0")}
+                            </span>
+                            {feature.title}
+                          </h3>
+                          <p className="mt-3 text-sm leading-relaxed text-white/80 xl:text-base">
+                            {feature.description}
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setActiveFeature((i + 1) % features.length)}
+                          className="mb-1 flex shrink-0 items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition-colors hover:border-[#D9B872]/50 hover:bg-[#D9B872]/15"
+                        >
+                          Next
+                          <IconChevronRight className="size-3.5" />
+                        </button>
+                      </div>
                     </div>
-                    <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-[#D9B872] text-[#084E75]">
-                      {(() => {
-                        const Icon = features[activeFeature].icon;
-                        return <Icon size={22} stroke={1.8} />;
-                      })()}
-                    </div>
-                  </div>
-                  <p className="mt-4 max-w-lg text-base leading-relaxed text-white/70">
-                    {features[activeFeature].description}
-                  </p>
-                  <div className="relative mt-7 aspect-16/9 overflow-hidden rounded-2xl">
-                    <img
-                      src={features[activeFeature].image}
-                      alt={features[activeFeature].title}
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-[#084E75]/70 via-[#084E75]/10 to-transparent" />
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </motion.div>
-          </div>
+                  )}
+                </div>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
 
@@ -959,24 +987,9 @@ export default function Home() {
                 Our Partners
               </span>
 
-              <h5 className="text-3xl font-semibold leading-14 text-[#084E75] md:text-4xl">
+              <h2 className="text-3xl font-semibold leading-tight text-[#045178] md:text-4xl">
                 Trusted <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Banking Partners</span>
-              </h5>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex items-center gap-5 rounded-3xl border border-[#084E75]/10 bg-[#FAFAF9] p-6 lg:justify-self-end"
-            >
-              <span className="font-serif text-5xl font-bold leading-none text-[#084E75]">
-                {companies_one.length + companies_two.length}+
-              </span>
-              <span className="text-sm leading-relaxed text-[#4a5568]">
-                Banking and financial institution partners backing every mandate.
-              </span>
+              </h2>
             </motion.div>
           </div>
           <motion.div
@@ -996,14 +1009,14 @@ export default function Home() {
                 <CompaniesCard key={index} data={logo.image} />
               ))}
             </Marquee>
-            <div className="from-white pointer-events-none absolute inset-y-0 left-0 hidden w-1/4 bg-linear-to-r md:block"></div>
-            <div className="from-white pointer-events-none absolute inset-y-0 right-0 hidden w-1/4 bg-linear-to-l md:block"></div>
+            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/4 bg-linear-to-r from-stone-50 md:block" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/4 bg-linear-to-l from-stone-50 md:block" />
           </motion.div>
         </div>
       </section>
 
       {/* Why PCRED */}
-      <section className="relative border-t border-[#084E75]/8 bg-white py-20 md:py-28">
+      <section className="relative border-t border-[#045178]/8 bg-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1016,7 +1029,7 @@ export default function Home() {
               <span className="size-2 rounded-full bg-[#8D8C8F]" />
               Why PCRED
             </span>
-            <h2 className="font-serif text-3xl font-bold text-[#084E75] md:text-4xl">
+            <h2 className="font-serif text-3xl font-bold text-[#045178] md:text-4xl">
               Advisory <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">With Perspective.</span>
             </h2>
           </motion.div>
@@ -1033,13 +1046,13 @@ export default function Home() {
                   transition={{ duration: 0.4, delay: i * 0.06 }}
                   className="flex gap-5"
                 >
-                  <span className="font-serif shrink-0 text-2xl font-bold leading-none text-[#084E75]/20">
+                  <span className="font-serif shrink-0 text-2xl font-bold leading-none text-[#045178]/20">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div className="min-w-0">
                     <div className="flex items-center gap-2.5">
-                      <Icon size={18} className="shrink-0 text-[#084E75]" stroke={1.7} />
-                      <h3 className="text-lg font-semibold text-[#084E75]">{item.title}</h3>
+                      <Icon size={18} className="shrink-0 text-[#045178]" stroke={1.7} />
+                      <h3 className="text-lg font-semibold text-[#045178]">{item.title}</h3>
                     </div>
                     <p className="mt-2 text-sm leading-relaxed text-[#4a5568]">
                       {item.description}
@@ -1057,7 +1070,7 @@ export default function Home() {
         className="relative bg-cover bg-fixed bg-[65%_center] bg-no-repeat py-14 md:bg-center md:py-14"
         style={{ backgroundImage: "url('/right_financial_partner.webp')" }}
       >
-        <div className="absolute inset-0 bg-[#084E75]/60" />
+        <div className="absolute inset-0 bg-linear-to-r from-[#022436]/85 to-[#045178]/65" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(141,140,143,0.15),transparent_60%)]" />
 
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-center">
@@ -1068,13 +1081,13 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="max-w-xl"
           >
-            <h5 className="text-3xl font-semibold leading-tight md:leading-14 text-white md:text-4xl">
+            <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
               Looking for the Right
               <br />
               <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Financial Partner?</span>
-            </h5>
+            </h2>
             <p className="mt-3 text-sm text-white/70 md:text-lg">
-              Our MSME advisory experts help businesses secure funding, optimize
+              Our Corporate Advisory advisory experts help businesses secure funding, optimize
               finances, and achieve sustainable growth.
             </p>
           </motion.div>
@@ -1086,7 +1099,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="w-full sm:w-auto"
           >
-            <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-[#084E75] hover:bg-[#0a5d8a] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm">Discover Our Story
+            <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-[#045178] hover:bg-[#045178] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm">Discover Our Story
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                 <IconArrowRight className="size-4" color="#D9B872" />
               </span>
@@ -1097,7 +1110,7 @@ export default function Home() {
 
       {/* Reviews Section */}
       <section className="relative overflow-hidden bg-linear-to-b from-white via-[#FBF9F3] to-white py-20 md:py-28">
-        <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-[#084E75]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-[#045178]/5 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 -left-32 size-96 rounded-full bg-[#5BBCEB]/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
@@ -1114,26 +1127,26 @@ export default function Home() {
                 Client Stories
               </span>
 
-              <h5 className="text-3xl font-semibold leading-tight md:leading-14 text-[#084E75] md:text-4xl">
+              <h2 className="text-3xl font-semibold leading-tight text-[#045178] md:text-4xl">
                 Trusted by Businesses
                 <br />
                 <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Across India</span>
-              </h5>
+              </h2>
             </div>
 
-            <div className="flex items-center gap-6 rounded-3xl border border-[#084E75]/10 bg-[#084E75]/5 px-6 py-4 backdrop-blur-sm">
+            <div className="flex items-center gap-6 rounded-3xl border border-[#045178]/10 bg-[#045178]/5 px-6 py-4 backdrop-blur-sm">
               <div className="text-center">
-                <p className="text-3xl font-bold text-[#084E75]">4.7</p>
+                <p className="text-3xl font-bold text-[#045178]">4.7</p>
                 <div className="mt-1 flex justify-center gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <IconStarFilled key={i} className="size-4 text-[#b8892e]" />
                   ))}
                 </div>
               </div>
-              <div className="h-10 w-px bg-[#084E75]/15" />
+              <div className="h-10 w-px bg-[#045178]/15" />
               <div>
-                <p className="text-2xl font-bold text-[#084E75]">2500+</p>
-                <p className="text-sm text-[#084E75]/70">Satisfied Clients</p>
+                <p className="text-2xl font-bold text-[#045178]">2500+</p>
+                <p className="text-sm text-[#045178]/70">Satisfied Clients</p>
               </div>
             </div>
           </motion.div>
@@ -1149,7 +1162,7 @@ export default function Home() {
                   exit={{ opacity: 0, x: reviewDirection >= 0 ? -60 : 60 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
-                  <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-[#084E75] to-[#0a5d8a] p-8 md:p-12">
+                  <div className="relative overflow-hidden rounded-3xl bg-brand-gradient-br p-8 md:p-12">
                     <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-white/5" />
                     <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-[#5BBCEB]/10" />
 
@@ -1213,8 +1226,8 @@ export default function Home() {
                     aria-label={`Go to review ${i + 1}`}
                     onClick={() => goToReview(i)}
                     className={`h-2 rounded-full transition-all duration-300 ${i === activeReview
-                      ? "w-8 bg-[#084E75]"
-                      : "w-2 bg-[#084E75]/25 hover:bg-[#084E75]/50"
+                      ? "w-8 bg-[#045178]"
+                      : "w-2 bg-[#045178]/25 hover:bg-[#045178]/50"
                       }`}
                   />
                 ))}
@@ -1224,7 +1237,7 @@ export default function Home() {
                   type="button"
                   aria-label="Previous review"
                   onClick={goPrevReview}
-                  className="flex size-11 cursor-pointer items-center justify-center rounded-full border border-[#084E75]/15 bg-white text-[#084E75] transition-all hover:bg-[#084E75] hover:text-white"
+                  className="flex size-11 cursor-pointer items-center justify-center rounded-full border border-[#045178]/15 bg-white text-[#045178] transition-all hover:bg-[#045178] hover:text-white"
                 >
                   <IconChevronLeft className="size-5" />
                 </button>
@@ -1232,13 +1245,13 @@ export default function Home() {
                   type="button"
                   aria-label="Next review"
                   onClick={goNextReview}
-                  className="flex size-11 cursor-pointer items-center justify-center rounded-full border border-[#084E75]/15 bg-white text-[#084E75] transition-all hover:bg-[#084E75] hover:text-white"
+                  className="flex size-11 cursor-pointer items-center justify-center rounded-full border border-[#045178]/15 bg-white text-[#045178] transition-all hover:bg-[#045178] hover:text-white"
                 >
                   <IconChevronRight className="size-5" />
                 </button>
               </div>
             </div>
-            <p className="mt-4 text-center text-sm text-[#084E75]/60">
+            <p className="mt-4 text-center text-sm text-[#045178]/60">
               {String(activeReview + 1).padStart(2, "0")} /{" "}
               {String(reviews.length).padStart(2, "0")}
             </p>
@@ -1249,9 +1262,9 @@ export default function Home() {
       {/* Contact Section */}
       <section
         id="contact"
-        className="relative overflow-hidden bg-linear-to-b from-[#084E75]/20 via-white to-[#8D8C8F]/15 py-20 md:py-28"
+        className="relative overflow-hidden bg-linear-to-b from-[#045178]/20 via-white to-[#8D8C8F]/15 py-20 md:py-28"
       >
-        <div className="pointer-events-none absolute -left-40 top-20 size-80 rounded-full bg-[#084E75]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -left-40 top-20 size-80 rounded-full bg-[#045178]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -1265,11 +1278,11 @@ export default function Home() {
               <span className="size-2 rounded-full bg-[#8D8C8F]" />
               Get In Touch
             </span>
-            <h5 className="text-3xl font-semibold leading-tight md:text-4xl lg:text-4xl text-[#084E75]">
+            <h2 className="text-3xl font-semibold leading-tight md:text-4xl text-[#045178]">
               {"Let's Start a "}
               <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Conversation</span>
-            </h5>
-            <p className="mt-5 text-base leading-relaxed md:text-lg text-[#084E75]/80">
+            </h2>
+            <p className="mt-5 text-base leading-relaxed md:text-lg text-[#045178]/80">
               Tell us about your business goals. Our advisory team will respond within one business day.
             </p>
           </motion.div>
@@ -1280,57 +1293,61 @@ export default function Home() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="rounded-3xl border border-[#084E75]/10 bg-white p-8 shadow-[0_1px_3px_rgba(8,78,117,0.06),0_25px_50px_-15px_rgba(8,78,117,0.3)] transition-shadow duration-300 hover:shadow-[0_1px_3px_rgba(8,78,117,0.06),0_35px_60px_-15px_rgba(8,78,117,0.4)] md:p-10"
+              className="relative overflow-hidden rounded-3xl border border-[#045178]/10 bg-white p-8 shadow-[0_1px_3px_rgba(4,81,120,0.06),0_25px_50px_-15px_rgba(4,81,120,0.3)] transition-shadow duration-300 hover:shadow-[0_1px_3px_rgba(4,81,120,0.06),0_35px_60px_-15px_rgba(4,81,120,0.4)] md:p-10"
             >
-              <form onSubmit={handleFormSubmit} className="space-y-5">
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#D9B872]/70 to-transparent" />
+              <form onSubmit={handleFormSubmit} className="relative space-y-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="name" className="mb-2 block text-sm font-medium text-[#084E75]">
-                      Full Name <span className="text-red-500">*</span>
+                    <label htmlFor="name" className={formLabelClass}>
+                      Full Name <span className="text-[#AC3639]">*</span>
                     </label>
-                    <input id="name" name="name" type="text" value={form.name} onChange={handleFormChange} placeholder="John Doe" className={`${inputClass} ${formErrors.name ? "border-red-400" : ""}`} />
-                    {formErrors.name && <p className="mt-1 text-xs text-red-500">{formErrors.name}</p>}
+                    <input id="name" name="name" type="text" value={form.name} onChange={handleFormChange} placeholder="Your name" className={`${formInputClass} ${formErrors.name ? formInputErrorClass : ""}`} />
+                    {formErrors.name && <p className="mt-1.5 text-xs text-red-500">{formErrors.name}</p>}
                   </div>
                   <div>
-                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#084E75]">
-                      Email <span className="text-red-500">*</span>
+                    <label htmlFor="email" className={formLabelClass}>
+                      Email <span className="text-[#AC3639]">*</span>
                     </label>
-                    <input id="email" name="email" type="text" value={form.email} onChange={handleFormChange} placeholder="you@company.com" className={`${inputClass} ${formErrors.email ? "border-red-400" : ""}`} />
-                    {formErrors.email && <p className="mt-1 text-xs text-red-500">{formErrors.email}</p>}
+                    <input id="email" name="email" type="text" value={form.email} onChange={handleFormChange} placeholder="Your email" className={`${formInputClass} ${formErrors.email ? formInputErrorClass : ""}`} />
+                    {formErrors.email && <p className="mt-1.5 text-xs text-red-500">{formErrors.email}</p>}
                   </div>
                 </div>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[#084E75]">
-                      Phone <span className="text-red-500">*</span>
+                    <label htmlFor="phone" className={formLabelClass}>
+                      Phone <span className="text-[#AC3639]">*</span>
                     </label>
-                    <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleFormChange} placeholder="+91 98765 43210" className={`${inputClass} ${formErrors.phone ? "border-red-400" : ""}`} />
-                    {formErrors.phone && <p className="mt-1 text-xs text-red-500">{formErrors.phone}</p>}
+                    <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleFormChange} placeholder="Your phone" className={`${formInputClass} ${formErrors.phone ? formInputErrorClass : ""}`} />
+                    {formErrors.phone && <p className="mt-1.5 text-xs text-red-500">{formErrors.phone}</p>}
                   </div>
                   <div>
-                    <label htmlFor="company" className="mb-2 block text-sm font-medium text-[#084E75]">
+                    <label htmlFor="company" className={formLabelClass}>
                       Company
                     </label>
-                    <input id="company" name="company" type="text" value={form.company} onChange={handleFormChange} placeholder="Your company name" className={inputClass} />
+                    <input id="company" name="company" type="text" value={form.company} onChange={handleFormChange} placeholder="Your company name" className={formInputClass} />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="service" className="mb-2 block text-sm font-medium text-[#084E75]">
+                  <label htmlFor="service" className={formLabelClass}>
                     Service of Interest
                   </label>
-                  <select id="service" name="service" value={form.service} onChange={handleFormChange} className={`${inputClass} cursor-pointer appearance-none`}>
-                    <option value="">Select a service</option>
-                    {contactServices.map((s) => (
-                      <option key={s} value={s}>{s}</option>
-                    ))}
-                  </select>
+                  <div className="relative">
+                    <select id="service" name="service" value={form.service} onChange={handleFormChange} className={formSelectClass}>
+                      <option value="">Select a service</option>
+                      {contactServices.map((s) => (
+                        <option key={s} value={s}>{s}</option>
+                      ))}
+                    </select>
+                    <IconChevronDown className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-[#045178]/45" />
+                  </div>
                 </div>
                 <div>
-                  <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#084E75]">
-                    Message <span className="text-red-500">*</span>
+                  <label htmlFor="message" className={formLabelClass}>
+                    Message <span className="text-[#AC3639]">*</span>
                   </label>
-                  <textarea id="message" name="message" rows={5} value={form.message} onChange={handleFormChange} placeholder="Tell us about your business needs and goals..." className={`${inputClass} resize-none ${formErrors.message ? "border-red-400" : ""}`} />
-                  {formErrors.message && <p className="mt-1 text-xs text-red-500">{formErrors.message}</p>}
+                  <textarea id="message" name="message" rows={5} value={form.message} onChange={handleFormChange} placeholder="Tell us about your business needs and goals..." className={`${formTextareaClass} ${formErrors.message ? formInputErrorClass : ""}`} />
+                  {formErrors.message && <p className="mt-1.5 text-xs text-red-500">{formErrors.message}</p>}
                 </div>
                 {error && (
                   <p className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>
@@ -1338,7 +1355,7 @@ export default function Home() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#084E75] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#084E75]/25 transition-all duration-300 hover:bg-[#0a5d8a] hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#045178] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#045178]/25 transition-all duration-300 hover:bg-[#045178] hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {loading ? "Sending…" : "Send Message"}
                   {!loading && <IconSend className="size-5 transition-transform group-hover:translate-x-1" />}
@@ -1347,7 +1364,7 @@ export default function Home() {
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-3 rounded-xl bg-[#084E75]/8 px-4 py-3 text-sm text-[#084E75]"
+                    className="flex items-center gap-3 rounded-xl bg-[#045178]/8 px-4 py-3 text-sm text-[#045178]"
                   >
                     <IconCheck className="size-5 shrink-0" />
                     <span>Message sent! Our team will get back to you shortly.</span>
@@ -1363,13 +1380,13 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               className="hidden md:block"
             >
-              <div className="relative h-full min-h-[500px] overflow-hidden rounded-3xl shadow-[0_1px_3px_rgba(8,78,117,0.06),0_25px_50px_-15px_rgba(8,78,117,0.3)] transition-shadow duration-300 hover:shadow-[0_1px_3px_rgba(8,78,117,0.06),0_35px_60px_-15px_rgba(8,78,117,0.4)]">
+              <div className="relative h-full min-h-[500px] overflow-hidden rounded-3xl shadow-[0_1px_3px_rgba(4,81,120,0.06),0_25px_50px_-15px_rgba(4,81,120,0.3)] transition-shadow duration-300 hover:shadow-[0_1px_3px_rgba(4,81,120,0.06),0_35px_60px_-15px_rgba(4,81,120,0.4)]">
                 <img
                   src="/about_image.webp"
                   alt="Contact"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(7,20,40,0.58)_0%,rgba(7,20,40,0.46)_42%,rgba(7,20,40,0.18)_70%,rgba(7,20,40,0.08)_100%),linear-gradient(to_top,rgba(7,20,40,0.28)_0%,transparent_40%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.58)_0%,rgba(4,81,120,0.46)_42%,rgba(4,81,120,0.18)_70%,rgba(4,81,120,0.08)_100%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
               </div>
             </motion.div>
           </div>

@@ -72,7 +72,7 @@ const eligibilityCriteria = [
 ];
 
 const inputClass =
-  "w-full rounded-4xl border border-[#084E75]/15 bg-white px-4 py-3.5 text-[#084E75] placeholder:text-[#8E8E90]/60 outline-none transition-all duration-200 focus:border-[#084E75] focus:ring-2 focus:ring-[#084E75]/15";
+  "w-full rounded-4xl border border-[#045178]/15 bg-white px-4 py-3.5 text-[#045178] placeholder:text-[#8E8E90]/60 outline-none transition-all duration-200 focus:border-[#045178] focus:ring-2 focus:ring-[#045178]/15";
 
 const initialForm = {
   name: "",
@@ -129,7 +129,7 @@ function ApplyModal({
             type="button"
             aria-label="Close modal"
             onClick={handleClose}
-            className="absolute inset-0 cursor-pointer bg-[#084E75]/40 backdrop-blur-sm"
+            className="absolute inset-0 cursor-pointer bg-[#045178]/40 backdrop-blur-sm"
           />
 
           <motion.div
@@ -139,9 +139,9 @@ function ApplyModal({
             transition={{ duration: 0.25 }}
             className="relative z-10 max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-4xl bg-white shadow-2xl"
           >
-            <div className="sticky top-0 flex items-center justify-between border-b border-[#084E75]/10 bg-white px-6 py-5">
+            <div className="sticky top-0 flex items-center justify-between border-b border-[#045178]/10 bg-white px-6 py-5">
               <div>
-                <h2 className="font-serif text-xl font-bold text-[#084E75]">Apply for CGTMSE Funding</h2>
+                <h2 className="font-serif text-xl font-bold text-[#045178]">Apply for CGTMSE Funding</h2>
                 <p className="mt-1 text-sm text-[#8E8E90]">
                   Fill in your details and our team will contact you.
                 </p>
@@ -149,7 +149,7 @@ function ApplyModal({
               <button
                 type="button"
                 onClick={handleClose}
-                className="flex size-9 cursor-pointer items-center justify-center rounded-full border border-[#084E75]/15 text-[#084E75] transition-colors hover:bg-[#084E75]/10"
+                className="flex size-9 cursor-pointer items-center justify-center rounded-full border border-[#045178]/15 text-[#045178] transition-colors hover:bg-[#045178]/10"
               >
                 <IconX className="size-5" />
               </button>
@@ -158,10 +158,10 @@ function ApplyModal({
             <div className="p-6">
               {submitted ? (
                 <div className="flex flex-col items-center py-8 text-center">
-                  <div className="mb-4 flex size-14 items-center justify-center rounded-full bg-[#084E75]/10 text-[#084E75]">
+                  <div className="mb-4 flex size-14 items-center justify-center rounded-full bg-[#045178]/10 text-[#045178]">
                     <IconCheck className="size-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-[#084E75]">Application Submitted!</h3>
+                  <h3 className="text-xl font-bold text-[#045178]">Application Submitted!</h3>
                   <p className="mt-2 max-w-sm text-sm text-[#8E8E90]">
                     Thank you for applying. Our funding experts will review your profile and get
                     back to you shortly.
@@ -169,7 +169,7 @@ function ApplyModal({
                   <button
                     type="button"
                     onClick={handleClose}
-                    className="mt-6 cursor-pointer rounded-4xl bg-[#084E75] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0a5d8a]"
+                    className="mt-6 cursor-pointer rounded-4xl bg-[#045178] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#045178]"
                   >
                     Close
                   </button>
@@ -178,7 +178,7 @@ function ApplyModal({
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="sm:col-span-2">
-                      <label htmlFor="cgtmse-name" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      <label htmlFor="cgtmse-name" className="mb-2 block text-sm font-medium text-[#045178]">
                         Full Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -193,7 +193,7 @@ function ApplyModal({
                       />
                     </div>
                     <div>
-                      <label htmlFor="cgtmse-email" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      <label htmlFor="cgtmse-email" className="mb-2 block text-sm font-medium text-[#045178]">
                         Email <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -208,7 +208,7 @@ function ApplyModal({
                       />
                     </div>
                     <div>
-                      <label htmlFor="cgtmse-phone" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      <label htmlFor="cgtmse-phone" className="mb-2 block text-sm font-medium text-[#045178]">
                         Phone <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -223,7 +223,7 @@ function ApplyModal({
                       />
                     </div>
                     <div className="sm:col-span-2">
-                      <label htmlFor="cgtmse-company" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      <label htmlFor="cgtmse-company" className="mb-2 block text-sm font-medium text-[#045178]">
                         Company Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -238,7 +238,7 @@ function ApplyModal({
                       />
                     </div>
                     <div>
-                      <label htmlFor="cgtmse-businessType" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      <label htmlFor="cgtmse-businessType" className="mb-2 block text-sm font-medium text-[#045178]">
                         Business Type <span className="text-red-500">*</span>
                       </label>
                       <select
@@ -257,7 +257,7 @@ function ApplyModal({
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="cgtmse-turnover" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      <label htmlFor="cgtmse-turnover" className="mb-2 block text-sm font-medium text-[#045178]">
                         Annual Turnover <span className="text-red-500">*</span>
                       </label>
                       <select
@@ -276,7 +276,7 @@ function ApplyModal({
                       </select>
                     </div>
                     <div className="sm:col-span-2">
-                      <label htmlFor="cgtmse-loanAmount" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      <label htmlFor="cgtmse-loanAmount" className="mb-2 block text-sm font-medium text-[#045178]">
                         Loan Amount Required <span className="text-red-500">*</span>
                       </label>
                       <select
@@ -295,7 +295,7 @@ function ApplyModal({
                       </select>
                     </div>
                     <div className="sm:col-span-2">
-                      <label htmlFor="cgtmse-message" className="mb-2 block text-sm font-medium text-[#084E75]">
+                      <label htmlFor="cgtmse-message" className="mb-2 block text-sm font-medium text-[#045178]">
                         Additional Details
                       </label>
                       <textarea
@@ -312,7 +312,7 @@ function ApplyModal({
 
                   <button
                     type="submit"
-                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#084E75] px-6 py-4 text-base font-semibold text-[#D9B872] shadow-lg shadow-[#084E75]/20 transition-colors hover:bg-[#0a5d8a]"
+                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#045178] px-6 py-4 text-base font-semibold text-[#D9B872] shadow-lg shadow-[#045178]/20 transition-colors hover:bg-[#045178]"
                   >
                     Submit Application
                     <IconSend className="size-5 transition-transform group-hover:translate-x-0.5" />
@@ -339,11 +339,11 @@ function FaqItem({
   onToggle: () => void;
 }) {
   return (
-    <div className="overflow-hidden rounded-4xl shadow-sm border border-[#084E75]">
+    <div className="overflow-hidden rounded-4xl shadow-sm border border-[#045178]">
       <button
         type="button"
         onClick={onToggle}
-        className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left bg-[#084E75]"
+        className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left bg-brand-gradient"
       >
         <span className="font-semibold text-white text-sm md:text-lg">{question}</span>
         <IconChevronDown
@@ -352,7 +352,7 @@ function FaqItem({
       </button>
       <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 bg-white"}`}>
         <div className="overflow-hidden">
-          <p className="px-6 py-4 leading-relaxed text-[#084E75] text-sm md:text-base lg:text-lg">{answer}</p>
+          <p className="px-6 py-4 leading-relaxed text-[#045178] text-sm md:text-base lg:text-lg">{answer}</p>
         </div>
       </div>
     </div>
@@ -368,7 +368,7 @@ export default function Scheme() {
   console.log(scheme)
   if (loading) {
     return (
-      <div className="flex min-h-[60vh] items-center justify-center text-[#084E75]">
+      <div className="flex min-h-[60vh] items-center justify-center text-[#045178]">
         Loading scheme…
       </div>
     );
@@ -377,11 +377,11 @@ export default function Scheme() {
   if (!scheme) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 px-6 text-center">
-        <h1 className="font-serif text-2xl font-semibold text-[#084E75]">Scheme not found</h1>
+        <h1 className="font-serif text-2xl font-semibold text-[#045178]">Scheme not found</h1>
         <p className="text-[#8E8E90]">This scheme may have been removed or the link is incorrect.</p>
         <Link
           href="/services"
-          className="rounded-4xl bg-[#084E75] px-6 py-3 text-sm font-semibold text-white"
+          className="rounded-4xl bg-[#045178] px-6 py-3 text-sm font-semibold text-white"
         >
           Back to Schemes
         </Link>
@@ -416,7 +416,7 @@ export default function Scheme() {
               className="h-full w-full object-cover"
             />
           ) : (
-            <div className="h-full w-full bg-linear-to-br from-[#084E75]/20 to-[#8D8C8F]/20" />
+            <div className="h-full w-full bg-linear-to-br from-[#045178]/20 to-[#8D8C8F]/20" />
           )}
           <div className="absolute top-0 left-0 w-full h-full bg-white/96 lg:bg-transparent lg:bg-linear-to-r lg:from-white/90 lg:from-40% lg:via-white/70 lg:via-60% lg:to-transparent lg:to-80%" />
         </div>
@@ -433,11 +433,11 @@ export default function Scheme() {
                 <img src={scheme.section_1_logo} alt={scheme.section_1_header ?? "Scheme logo"} className="h-20"/>
                 ) : null}
             </div>
-            <h1 className="font-serif text-2xl font-bold leading-snug text-[#084E75] md:text-3xl lg:text-[length:var(--text-44)] lg:leading-[1.15]">
+            <h1 className="font-serif text-2xl font-bold leading-snug text-[#045178] md:text-3xl lg:text-[length:var(--text-44)] lg:leading-[1.15]">
               {scheme.section_1_header} <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">{scheme.section_1_subheader}</span>
             </h1>
             {scheme.section_1_description ? (
-              <div className="text-sm text-[#084E75] mt-3 md:text-base md:mt-4" dangerouslySetInnerHTML={{
+              <div className="text-sm text-[#045178] mt-3 md:text-base md:mt-4" dangerouslySetInnerHTML={{
                 __html: scheme.section_1_description ?? "",
               }}/>
             ) : null}
@@ -453,7 +453,7 @@ export default function Scheme() {
                         {Icon ? <Icon size={18} stroke={2} className="md:hidden" /> : null}
                         {Icon ? <Icon size={22} stroke={2} className="hidden md:block" /> : null}
                       </div>
-                      <p className="text-xs font-semibold text-[#084E75] md:text-sm">{item.point}</p>
+                      <p className="text-xs font-semibold text-[#045178] md:text-sm">{item.point}</p>
                     </div>
                   )
                 })}
@@ -465,16 +465,16 @@ export default function Scheme() {
                     <div className="flex size-8 shrink-0 items-center justify-center rounded-4xl bg-[#8D8C8F]/10 text-[#8D8C8F] md:size-10">
                       <item.icon className="size-5 md:size-6" stroke={1.75} />
                     </div>
-                    <p className="text-xs font-semibold text-[#084E75] md:text-sm">{item.title}</p>
+                    <p className="text-xs font-semibold text-[#045178] md:text-sm">{item.title}</p>
                   </div>
                 ))}
               </div>
             )}
 
             <div className="mt-5 flex flex-wrap items-center gap-3 md:mt-8 md:gap-4">
-              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between rounded-4xl bg-[#084E75] border-2 border-[#084E75] pl-4 pr-2 py-2 text-white shadow-md shadow-[#084E75]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm">Apply Now
+              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between rounded-4xl bg-[#045178] border-2 border-[#045178] pl-4 pr-2 py-2 text-white shadow-md shadow-[#045178]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm">Apply Now
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                  <IconArrowRight className="size-4" color="#084E75" />
+                  <IconArrowRight className="size-4" color="#045178" />
                 </span>
               </button>
               {scheme.video_link ? (
@@ -504,7 +504,7 @@ export default function Scheme() {
             transition={{ duration: 0.5 }}
             className="border-b border-[#8D8C8F] pb-4 md:border-b-0 md:border-r md:pb-0 flex items-center"
           >
-            <h2 className="font-serif text-2xl font-semibold text-[#084E75] md:text-3xl lg:text-4xl">
+            <h2 className="font-serif text-2xl font-semibold text-[#045178] md:text-3xl lg:text-4xl">
               {scheme.section_2_header ?? "About This Scheme"}
             </h2>
           </motion.div>
@@ -516,7 +516,7 @@ export default function Scheme() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-base leading-relaxed md:text-lg col-span-2"
           >
-            <div className="text-[#084E75] text-sm leading-7 md:text-base md:leading-8 lg:text-lg"
+            <div className="text-[#045178] text-sm leading-7 md:text-base md:leading-8 lg:text-lg"
               dangerouslySetInnerHTML={{
                 __html: scheme.section_2_description ?? "",
               }}
@@ -535,10 +535,10 @@ export default function Scheme() {
               transition={{ duration: 0.5 }}
               className="lg:col-span-3"
             >
-              <h3 className="text-2xl font-semibold text-[#084E75] md:text-3xl lg:text-4xl">
+              <h3 className="text-2xl font-semibold text-[#045178] md:text-3xl lg:text-4xl">
                 Eligibility Criteria
               </h3>
-              <p className="mt-4 text-base leading-relaxed text-[#084E75] md:text-lg">
+              <p className="mt-4 text-base leading-relaxed text-[#045178] md:text-lg">
                 {scheme.section_3_description ??
                   "Review the eligibility requirements for this scheme below."}
               </p>
@@ -552,7 +552,7 @@ export default function Scheme() {
                     className="h-80 w-full rounded-4xl object-cover"
                   />
                 ) : (
-                  <div className="flex h-80 w-full items-center justify-center rounded-4xl bg-[#084E75]/10 text-sm text-[#084E75]">
+                  <div className="flex h-80 w-full items-center justify-center rounded-4xl bg-[#045178]/10 text-sm text-[#045178]">
                     Eligibility overview
                   </div>
                 )}
@@ -567,7 +567,7 @@ export default function Scheme() {
               className="lg:col-span-4"
             >
               <div className="overflow-hidden rounded-4xl border-l border-r border-gray-100 bg-white shadow-lg">
-                <div className="border-b border-gray-100 bg-[#084E75] px-4 py-4 flex justify-between">
+                <div className="border-b border-gray-100 bg-brand-gradient px-4 py-4 flex justify-between">
                   <span className="text-xs font-semibold uppercase tracking-wide text-white w-[70%] pl-11 md:w-[80%] md:pl-17.5">
                     Particulars
                   </span>
@@ -576,7 +576,7 @@ export default function Scheme() {
                   </span>
                 </div>
 
-                <ul className="divide-y divide-[#084E75]/20 px-4">
+                <ul className="divide-y divide-[#045178]/20 px-4">
                   {eligibilityRows.length > 0
                     ? eligibilityRows.map((item, i) => {
                         const Icon = 
@@ -596,15 +596,15 @@ export default function Scheme() {
                                   {Icon ? <Icon size={22} stroke={2} className="hidden md:block" /> : null}
                                 </div>
                                 <div className="flex flex-col">
-                                  <span className="font-bold text-[#084E75] text-sm md:text-lg">{item.label}</span>
-                                  <span className="text-[#084E75] text-xs">{item.description}</span>
+                                  <span className="font-bold text-[#045178] text-sm md:text-lg">{item.label}</span>
+                                  <span className="text-[#045178] text-xs">{item.description}</span>
                                 </div>
                               </div>
                               <div className="w-[30%] flex flex-col md:w-[20%]">
-                                <p className="text-sm font-semibold leading-relaxed text-[#084E75] md:text-xl">
+                                <p className="text-sm font-semibold leading-relaxed text-[#045178] md:text-xl">
                                   {item.criteria}
                                 </p>
-                                <span className="text-xs text-[#084E75]">
+                                <span className="text-xs text-[#045178]">
                                   {item.criteria_description}
                                 </span>
                               </div>
@@ -625,21 +625,21 @@ export default function Scheme() {
                               <item.icon className="size-5 md:size-7" stroke={1.5} />
                             </div>
                             <div className="flex flex-col">
-                              <span className="font-bold text-[#084E75] text-sm md:text-lg">{item.label}</span>
-                              <span className="text-[#084E75] text-xs">{item.description}</span>
+                              <span className="font-bold text-[#045178] text-sm md:text-lg">{item.label}</span>
+                              <span className="text-[#045178] text-xs">{item.description}</span>
                             </div>
                           </div>
                           <div className="w-[30%] flex flex-col md:w-[20%]">
-                            <p className="text-sm font-semibold leading-relaxed text-[#084E75] md:text-xl">
+                            <p className="text-sm font-semibold leading-relaxed text-[#045178] md:text-xl">
                               {item.value}
                             </p>
-                            <span className="text-xs text-[#084E75]">{item.desc_value}</span>
+                            <span className="text-xs text-[#045178]">{item.desc_value}</span>
                           </div>
                         </motion.li>
                       ))}
                 </ul>
-                <div className="border-t border-gray-100 bg-[#084E75]/10 px-6 py-4">
-                  <div className="text-base tracking-wide text-[#084E75]" dangerouslySetInnerHTML={{__html: scheme.table_footer ?? ""}}/>
+                <div className="border-t border-gray-100 bg-[#045178]/10 px-6 py-4">
+                  <div className="text-base tracking-wide text-[#045178]" dangerouslySetInnerHTML={{__html: scheme.table_footer ?? ""}}/>
                 </div>
               </div>
             </motion.div>
@@ -654,7 +654,7 @@ export default function Scheme() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-4xl bg-[#084E75] px-8 py-12 md:px-14 md:py-14"
+            className="relative overflow-hidden rounded-4xl bg-brand-gradient-br px-8 py-12 md:px-14 md:py-14"
           >
             <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-white/10 blur-2xl" />
 
@@ -666,7 +666,7 @@ export default function Scheme() {
                 <p className="mt-3 text-white/80 text-sm md:text-lg">{scheme?.section_4_description}</p>
                 <p className="mt-3 font-semibold text-[#D9B872] text-sm md:text-lg">{scheme?.section_4_tagline}</p>
               </div>
-              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between rounded-4xl bg-[#084E75] hover:bg-[#0a5d8a] pl-4 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-48 text-sm">Check Eligibility
+              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between rounded-4xl bg-[#045178] hover:bg-[#045178] pl-4 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-48 text-sm">Check Eligibility
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#8D8C8F" />
                 </span>
@@ -676,7 +676,7 @@ export default function Scheme() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_100%_50%,rgba(141,140,143,0.1),transparent_55%)] bg-white py-20 md:py-28">
+      <section className="relative bg-[radial-gradient(circle_at_100%_50%,rgba(141,140,143,0.1),transparent_55%)] bg-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -685,22 +685,22 @@ export default function Scheme() {
             transition={{ duration: 0.5 }}
             className="mb-8 md:mb-12"
           >
-            <h5 className="text-2xl font-semibold text-[#084E75] md:text-3xl lg:text-4xl">
+            <h5 className="text-2xl font-semibold text-[#045178] md:text-3xl lg:text-4xl">
               Frequently Asked Questions
             </h5>
-            <p className="mt-3 max-w-2xl text-sm text-[#084E75] md:text-lg">
+            <p className="mt-3 max-w-2xl text-sm text-[#045178] md:text-lg">
               {scheme.faq_description ??
                 "Find answers to common questions about this scheme and the application process."}
             </p>
           </motion.div>
 
-          <div className="flex flex-col gap-10 lg:flex-row lg:gap-14 lg:items-start">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-14">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="relative mx-auto w-full max-w-sm md:max-w-md lg:max-w-none lg:sticky lg:top-30"
+              className="relative mx-auto w-full max-w-sm shrink-0 md:max-w-md lg:sticky lg:top-28 lg:mx-0 lg:w-[38%] lg:max-w-none"
             >
               <div className="relative aspect-5/5 overflow-hidden rounded-4xl shadow-lg">
                 {scheme.faq_image ? (
@@ -711,14 +711,14 @@ export default function Scheme() {
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  <div className="flex h-full min-h-80 w-full items-center justify-center bg-[#084E75]/10 text-sm text-[#084E75]">
+                  <div className="flex h-full min-h-80 w-full items-center justify-center bg-[#045178]/10 text-sm text-[#045178]">
                     FAQ illustration
                   </div>
                 )}
               </div>
             </motion.div>
 
-            <div className="space-y-3">
+            <div className="min-w-0 flex-1 space-y-3">
               {
                 faqItems.length > 0 ? (
                   faqItems.map((faq, i) => (
@@ -742,7 +742,7 @@ export default function Scheme() {
 
       <section className="pb-5">
         <div className="mx-auto max-w-4xl px-6">
-          <div className="text-center text-xs leading-relaxed text-[#084E75]" dangerouslySetInnerHTML={{__html: scheme.disclaimer ?? ""}}/>
+          <div className="text-center text-xs leading-relaxed text-[#045178]" dangerouslySetInnerHTML={{__html: scheme.disclaimer ?? ""}}/>
         </div>
       </section>
     </>

@@ -1,7 +1,6 @@
 "use client"
 
 import React, { type ComponentPropsWithoutRef } from "react"
-import { motion, Transition, Variants } from "motion/react"
 
 import { cn } from "@/lib/utils"
 
@@ -9,35 +8,15 @@ interface SpinningTextProps extends ComponentPropsWithoutRef<"div"> {
   children: string | string[]
   duration?: number
   reverse?: boolean
+  /** Ring radius in SVG units (viewBox is 144×144; ~52 fits a 128–144px badge). */
   radius?: number
-  transition?: Transition
-  variants?: {
-    container?: Variants
-    item?: Variants
-  }
-}
-
-const BASE_TRANSITION: Transition = {
-  repeat: Infinity,
-  ease: "linear",
-}
-
-const BASE_ITEM_VARIANTS: Variants = {
-  hidden: {
-    opacity: 1,
-  },
-  visible: {
-    opacity: 1,
-  },
 }
 
 export function SpinningText({
   children,
-  duration = 10,
+  duration = 20,
   reverse = false,
-  radius = 6,
-  transition,
-  variants,
+  radius = 52,
   className,
   style,
 }: SpinningTextProps) {
@@ -46,67 +25,55 @@ export function SpinningText({
   }
 
   if (Array.isArray(children)) {
-    // Validate all elements are strings
     if (!children.every((child) => typeof child === "string")) {
       throw new Error("all elements in children array must be strings")
     }
     children = children.join("")
   }
 
-  const letters = children.split("")
-  letters.push(" ")
-
-  const finalTransition: Transition = {
-    ...BASE_TRANSITION,
-    ...transition,
-    duration: (transition as { duration?: number })?.duration ?? duration,
-  }
-
-  const containerVariants: Variants = {
-    visible: { rotate: reverse ? -360 : 360 },
-    ...variants?.container,
-  }
-
-  const itemVariants: Variants = {
-    ...BASE_ITEM_VARIANTS,
-    ...variants?.item,
-  }
+  const pathId = React.useId().replace(/:/g, "")
+  const center = 72
+  const text = children.toUpperCase()
 
   return (
-    <motion.div
-      className={cn("relative", className)}
-      style={{
-        ...style,
-      }}
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      transition={finalTransition}
+    <div
+      className={cn("relative size-full", className)}
+      style={
+        {
+          ...style,
+          "--spin-duration": `${duration}s`,
+        } as React.CSSProperties
+      }
     >
-      {letters.map((letter, index) => (
-        <motion.span
-          aria-hidden="true"
-          key={`${index}-${letter}`}
-          variants={itemVariants}
-          className="absolute top-1/2 left-1/2 inline-block uppercase text-white"
-          style={
-            {
-              "--index": index,
-              "--total": letters.length,
-              "--radius": radius,
-              transform: `
-                  translate(-50%, -50%)
-                  rotate(calc(360deg / var(--total) * var(--index)))
-                  translateY(calc(var(--radius, 5) * -1ch))
-                `,
-              transformOrigin: "center",
-            } as React.CSSProperties
-          }
+      <svg
+        viewBox="0 0 144 144"
+        className={cn(
+          "absolute inset-0 size-full origin-center",
+          reverse
+            ? "animate-[text-ring-spin-reverse_var(--spin-duration)_linear_infinite]"
+            : "animate-[text-ring-spin_var(--spin-duration)_linear_infinite]",
+          "motion-reduce:animate-none",
+        )}
+        aria-hidden
+      >
+        <defs>
+          <path
+            id={pathId}
+            d={`M ${center},${center} m -${radius},0 a ${radius},${radius} 0 1,1 ${radius * 2},0 a ${radius},${radius} 0 1,1 -${radius * 2},0`}
+          />
+        </defs>
+        <text
+          fill="currentColor"
+          fontSize="8.5"
+          fontWeight="600"
+          letterSpacing="2.5"
         >
-          {letter}
-        </motion.span>
-      ))}
-      <span className="sr-only">{children}</span>
-    </motion.div>
+          <textPath href={`#${pathId}`} startOffset="0%">
+            {text}
+          </textPath>
+        </text>
+      </svg>
+      <span className="sr-only">{text}</span>
+    </div>
   )
 }

@@ -88,7 +88,7 @@ We are pleased to introduce PCRED, a leading corporate advisory firm with over a
 Our core services include:
 ✅ Working Capital Solutions
 ✅ Export Finance & Supply Chain Finance
-✅ Government Schemes & MSME Advisory
+✅ Government Schemes & Corporate Advisory
 ✅ Retail Loans
 ✅ IPO Advisory & Equity Financing
 ✅ Debt Syndication & Project Finance

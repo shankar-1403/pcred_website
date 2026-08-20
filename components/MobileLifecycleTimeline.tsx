@@ -127,7 +127,7 @@ export function MobileLifecycleTimeline({ stages }: { stages: Stage[] }) {
       {/* Dashed track */}
       {ready && (
         <div aria-hidden className="pointer-events-none absolute"
-          style={{ left: CX - 1, top: topY, height: svgH, borderLeft: "2px dashed rgba(8,78,117,0.45)" }}
+          style={{ left: CX - 1, top: topY, height: svgH, borderLeft: "2px dashed rgba(4,81,120,0.45)" }}
         />
       )}
 
@@ -214,14 +214,14 @@ export function MobileLifecycleTimeline({ stages }: { stages: Stage[] }) {
           <div key={stage.title} className={`flex items-start gap-4${isLast ? "" : " mb-10"}`}>
             <div
               ref={(el) => { nodeRefs.current[index] = el; }}
-              className="relative z-10 flex size-11 shrink-0 items-center justify-center rounded-full bg-[#084E75]"
+              className="relative z-10 flex size-11 shrink-0 items-center justify-center rounded-full bg-[#045178]"
             >
               <StageIcon size={20} stroke={1.5} className="text-white" />
             </div>
             <div className="pt-1">
               <span className="text-xs font-bold uppercase tracking-widest text-[#B8892E]">Step {index + 1}</span>
-              <h3 className="mt-0.5 text-base font-semibold text-[#084E75]">{stage.title}</h3>
-              <p className="mt-0.5 text-sm leading-relaxed text-[#084E75]/65">{stage.description}</p>
+              <h3 className="mt-0.5 text-base font-semibold text-[#045178]">{stage.title}</h3>
+              <p className="mt-0.5 text-sm leading-relaxed text-[#045178]/65">{stage.description}</p>
             </div>
           </div>
         );

@@ -25,28 +25,10 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#0F2140] text-white" style={{ backgroundImage: "url('/who_we_are.webp')", backgroundSize: "cover", backgroundPosition: "center 35%" }}>
-      <div className="absolute inset-0 bg-[#0F2140]/96" />
-      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/60 to-transparent" />
-      <div className="pointer-events-none absolute -right-32 top-0 size-64 rounded-full bg-[#5BBCEB]/15 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-32 -left-32 size-80 rounded-full bg-cyan-400/10 blur-3xl" />
-
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 w-full md:w-[46%] lg:w-[35%]"
-        style={{
-          background:
-            "radial-gradient(ellipse at top left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.32) 35%, rgba(0,0,0,0.12) 55%, transparent 75%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 w-full md:w-[46%] lg:w-[35%]"
-        style={{
-          background:
-            "radial-gradient(ellipse at bottom right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.32) 35%, rgba(0,0,0,0.12) 55%, transparent 75%)",
-        }}
-      />
+    <footer className="relative overflow-hidden bg-brand-gradient-r text-white">
+      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-gold-300/70 to-transparent" />
+      <div className="pointer-events-none absolute -right-32 top-0 size-64 rounded-full bg-navy-400/15 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 -left-32 size-80 rounded-full bg-gold-500/8 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
@@ -67,7 +49,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gold-500 text-left md:text-center">Quick Links</h3>
+            <h3 className="mb-4 font-sans text-sm font-semibold uppercase tracking-widest text-gold-300 text-left md:text-center">Quick Links</h3>
             <div className="flex justify-start gap-x-10 md:justify-evenly md:gap-x-0">
               {[quickLinks.slice(0, 3), quickLinks.slice(3)].map((group, gi) => (
                 <ul key={gi} className="space-y-1">
@@ -87,7 +69,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex flex-col">
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-gold-500 text-left md:text-center">Get In Touch</h3>
+            <h3 className="mb-4 font-sans text-sm font-semibold uppercase tracking-widest text-gold-300 text-left md:text-center">Get In Touch</h3>
             <div className="flex flex-col gap-5">
               <a
                 href="https://maps.google.com/?q=Lodha+Supremus,520,Off+Mahakali+Caves+Rd,Chakala+Industrial+Area+MIDC,Andheri+East,Mumbai,Maharashtra+400093"

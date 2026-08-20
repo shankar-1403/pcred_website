@@ -51,7 +51,7 @@ interface MobileNavMenuProps {
 
 export const Navbar = ({ children, className }: NavbarProps) => {
   return (
-    <div className={cn("fixed bg-white/70 shadow-xl backdrop-blur-lg border-b border-b-gray-300 inset-x-0 top-0 z-40 w-full", className)}>
+    <div className={cn("fixed inset-x-0 top-0 z-40 w-full border-b border-navy-900/8 bg-white/88 backdrop-blur-xl", className)}>
       <div>
         {children}
       </div>
@@ -113,7 +113,7 @@ export const NavItems = ({
             <Link
               href={item.link}
               onClick={onItemClick}
-              className="relative flex cursor-pointer items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold text-[#084E75]"
+              className="relative flex cursor-pointer items-center gap-1 rounded-full px-3.5 py-2 text-[13px] font-medium tracking-wide text-navy-700"
             >
               {hovered === idx && (
                 <motion.div
@@ -139,7 +139,7 @@ export const NavItems = ({
           ) : (
             <button
               type="button"
-              className="relative flex cursor-pointer items-center gap-1 rounded-full px-4 py-2 text-sm font-semibold text-[#084E75]"
+              className="relative flex cursor-pointer items-center gap-1 rounded-full px-3.5 py-2 text-[13px] font-medium tracking-wide text-navy-700"
             >
               {hovered === idx && (
                 <motion.div
@@ -170,10 +170,10 @@ export const NavItems = ({
               onMouseLeave={closeMenu}
             >
               <div className="mx-auto max-w-7xl pt-2">
-                <div className="overflow-hidden rounded-2xl border border-[#084E75]/10 bg-white shadow-2xl">
+                <div className="overflow-hidden rounded-2xl border border-navy-900/8 bg-white shadow-[0_24px_80px_-24px_rgba(4,81,120,0.35)]">
                   {/* Mega-menu header */}
-                  <div className="border-b border-[#084E75]/8 bg-[#084E75]/3 px-8 py-4">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-[#084E75]/50">
+                  <div className="border-b border-navy-900/6 bg-stone-50 px-8 py-4">
+                    <p className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-navy-700/50">
                       {item.name}
                     </p>
                   </div>
@@ -181,7 +181,7 @@ export const NavItems = ({
                   {/* Mega-menu content */}
                   <div className="p-8">
                     {item.children.length === 0 ? (
-                      <p className="text-sm italic text-[#084E75]/40">
+                      <p className="text-sm italic text-[#045178]/40">
                         More schemes coming soon.
                       </p>
                     ) : (
@@ -191,7 +191,7 @@ export const NavItems = ({
                             key={child.link}
                             href={child.link!}
                             onClick={onItemClick}
-                            className="group/item flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-medium text-[#084E75] transition-all hover:bg-gold-500/8"
+                            className="group/item flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-medium text-[#045178] transition-all hover:bg-gold-500/8"
                           >
                             <span className="size-1.5 shrink-0 rounded-full bg-gold-500" />
 
@@ -256,7 +256,7 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "fixed inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-b-lg bg-[#084E75] px-4 py-8 shadow-[0_8px_24px_rgba(34,42,53,0.12)]",
+            "fixed inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-b-2xl bg-brand-gradient px-6 py-8 shadow-[0_24px_60px_-16px_rgba(4,81,120,0.55)]",
             className,
           )}
         >
@@ -275,9 +275,9 @@ export const MobileNavToggle = ({
   onClick: () => void;
 }) => {
   return isOpen ? (
-    <IconX className="text-black dark:text-white" onClick={onClick} />
+    <IconX className="text-navy-800" onClick={onClick} />
   ) : (
-    <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
+    <IconMenu2 className="text-navy-800" onClick={onClick} />
   );
 };
 
@@ -307,11 +307,11 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<"button">
 )) => {
   const baseStyles =
-    "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
+    "px-5 py-2.5 rounded-full bg-navy-600 text-white text-sm font-semibold tracking-wide relative cursor-pointer hover:bg-navy-500 transition-colors duration-200 inline-block text-center";
 
   const variantStyles = {
     primary:
-      "shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
+      "shadow-[0_8px_24px_-8px_rgba(8,75,112,0.45)]",
     secondary: "bg-transparent shadow-none dark:text-white",
     dark: "bg-black text-white shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
     gradient:
