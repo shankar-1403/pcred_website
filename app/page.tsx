@@ -552,10 +552,10 @@ export default function Home() {
                 unlock growth, and build sustainable enterprises.
               </p>
 
-              <div className="mt-6 flex-col flex md:flex-row gap-3">
+              <div className="mt-6 flex flex-col items-start gap-3 md:flex-row md:items-center">
                 <Link
                   href="#contact"
-                  className="group inline-flex items-center justify-between rounded-full bg-[#045178] py-2 pl-4 pr-2 text-sm text-white shadow-md shadow-[#045178]/20 transition-all hover:-translate-y-0.5 hover:shadow-lg w-full md:w-50"
+                  className="group inline-flex items-center justify-between gap-3 rounded-full bg-[#045178] py-2 pl-4 pr-2 text-sm text-white shadow-md shadow-[#045178]/20 transition-all hover:-translate-y-0.5 hover:shadow-lg md:w-50"
                 >
                   Talk to an Advisor
                   <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white/90">
@@ -564,7 +564,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/services/corporate-finance"
-                  className="group inline-flex items-center justify-between rounded-full border border-[#045178]/15 bg-white py-2 pl-4 pr-2 text-sm text-[#045178] transition-all hover:-translate-y-0.5 hover:border-[#D9B872]/50 hover:shadow-md w-full md:w-50"
+                  className="group inline-flex items-center justify-between gap-3 rounded-full border border-[#045178]/15 bg-white py-2 pl-4 pr-2 text-sm text-[#045178] transition-all hover:-translate-y-0.5 hover:border-[#D9B872]/50 hover:shadow-md md:w-50"
                 >
                   Our Services
                   <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#045178]/6">
@@ -782,41 +782,47 @@ export default function Home() {
               return (
                 <div
                   key={feature.title}
-                  className={`overflow-hidden rounded-2xl border transition-colors duration-300 ${
+                  className={`relative overflow-hidden rounded-2xl border transition-colors duration-300 ${
                     isActive
                       ? "border-[#D9B872]/40"
                       : "border-white/10"
                   }`}
                 >
+                  <img
+                    src={feature.image}
+                    alt=""
+                    aria-hidden
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div
+                    className={`absolute inset-0 ${
+                      isActive
+                        ? "bg-linear-to-b from-[#022436]/55 via-[#022436]/78 to-[#022436]/93"
+                        : "bg-[#022436]/78"
+                    }`}
+                  />
                   <button
                     type="button"
-                    onClick={() => setActiveFeature(i)}
-                    className="relative flex w-full items-center gap-3 overflow-hidden px-4 py-4 text-left"
+                    onClick={() => setActiveFeature(isActive ? -1 : i)}
+                    className="relative z-10 flex w-full items-center gap-3 px-4 py-4 text-left"
                     aria-expanded={isActive}
                   >
-                    <img
-                      src={feature.image}
-                      alt=""
-                      aria-hidden
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-[#022436]/78" />
                     <span
-                      className={`relative z-10 font-serif text-lg font-bold ${
+                      className={`font-serif text-lg font-bold ${
                         isActive ? "text-[#D9B872]" : "text-white/50"
                       }`}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span
-                      className={`relative z-10 min-w-0 flex-1 text-base font-semibold ${
+                      className={`min-w-0 flex-1 text-base font-semibold ${
                         isActive ? "text-white" : "text-white/70"
                       }`}
                     >
                       {feature.title}
                     </span>
                     <span
-                      className={`relative z-10 flex size-9 shrink-0 items-center justify-center rounded-full transition-colors ${
+                      className={`flex size-9 shrink-0 items-center justify-center rounded-full transition-colors ${
                         isActive
                           ? "bg-[#D9B872] text-[#045178]"
                           : "border border-white/30 bg-white/10 text-white"
@@ -836,29 +842,21 @@ export default function Home() {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-                        className="overflow-hidden"
+                        className="relative z-10 overflow-hidden"
                       >
-                        <div className="relative space-y-4 border-t border-white/10 bg-[#022436]/90 px-4 pb-4 pt-3">
+                        <div className="border-t border-white/10 px-4 pb-5 pt-3">
                           <div className="flex items-start justify-between gap-3">
                             <div>
                               <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#D9B872]">
                                 {feature.subtitle}
                               </span>
-                              <p className="mt-2 text-sm leading-relaxed text-white/70">
+                              <p className="mt-2 text-sm leading-relaxed text-white/80">
                                 {feature.description}
                               </p>
                             </div>
                             <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#D9B872] text-[#045178]">
                               <Icon size={18} stroke={1.8} />
                             </div>
-                          </div>
-                          <div className="relative aspect-16/10 overflow-hidden rounded-xl">
-                            <img
-                              src={feature.image}
-                              alt={feature.title}
-                              className="absolute inset-0 h-full w-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-linear-to-t from-[#045178]/70 via-[#045178]/10 to-transparent" />
                           </div>
                         </div>
                       </motion.div>
@@ -1099,7 +1097,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="w-full sm:w-auto"
           >
-            <Link href="/about-us" className="group flex items-center justify-between rounded-4xl bg-[#045178] hover:bg-[#045178] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm">Discover Our Story
+            <Link href="/about-us" className="group flex items-center justify-between gap-3 rounded-4xl bg-[#045178] hover:bg-[#045178] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm">Discover Our Story
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                 <IconArrowRight className="size-4" color="#D9B872" />
               </span>
@@ -1378,15 +1376,14 @@ export default function Home() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="hidden md:block"
+              className="hidden md:flex md:items-center"
             >
-              <div className="relative h-full min-h-[500px] overflow-hidden rounded-3xl shadow-[0_1px_3px_rgba(4,81,120,0.06),0_25px_50px_-15px_rgba(4,81,120,0.3)] transition-shadow duration-300 hover:shadow-[0_1px_3px_rgba(4,81,120,0.06),0_35px_60px_-15px_rgba(4,81,120,0.4)]">
+              <div className="relative aspect-1694/1879 w-full">
                 <img
-                  src="/about_image.webp"
-                  alt="Contact"
-                  className="absolute inset-0 h-full w-full object-cover"
+                  src="/site/contact_advisors.webp"
+                  alt="PCRED advisors reviewing a client portfolio"
+                  className="absolute inset-0 h-full w-full object-contain object-center"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.58)_0%,rgba(4,81,120,0.46)_42%,rgba(4,81,120,0.18)_70%,rgba(4,81,120,0.08)_100%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
               </div>
             </motion.div>
           </div>

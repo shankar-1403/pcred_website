@@ -65,7 +65,7 @@ export default function Page() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24">
+      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24 min-h-[560px]">
         <Image
           src={heroImage}
           alt="Executive office overlooking the city skyline"
@@ -170,11 +170,10 @@ export default function Page() {
                   src="/who_we_are.webp"
                   alt="CFO advisory"
                   fill
-                  className="object-cover grayscale"
+                  className="object-cover"
                   sizes="(min-width: 1024px) 50vw, 100vw"
                 />
-                <div className="absolute inset-0 bg-[#045178] mix-blend-color" />
-                <div className="absolute inset-0 bg-linear-to-t from-[#045178]/50 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.58)_0%,rgba(4,81,120,0.46)_42%,rgba(4,81,120,0.18)_70%,rgba(4,81,120,0.08)_100%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
               </div>
             </motion.div>
           </div>
@@ -267,7 +266,7 @@ export default function Page() {
               Our Approach
             </span>
 
-            <h2 className="font-serif mt-4 text-3xl font-bold text-[#045178] md:text-4xl lg:text-5xl leading-tight">
+            <h2 className="font-serif mt-4 text-3xl font-bold text-[#045178] md:text-4xl leading-tight">
               Clarity First.<br/>
               <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Decisions Second.</span>
             </h2>

@@ -160,6 +160,7 @@ export function HomeHero() {
 
           <motion.p
             key={`subtitle-${activeSlide}`}
+            data-no-reveal
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={SLIDE_TRANSITION}
@@ -172,7 +173,7 @@ export function HomeHero() {
         <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
           <Link
             href="/schemes"
-            className="group flex w-full md:w-44 items-center justify-between rounded-4xl bg-[#045178] py-2 pl-4 pr-2 text-sm text-white shadow-md shadow-[#045178]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+            className="group flex items-center justify-between gap-3 rounded-4xl bg-[#045178] py-2 pl-4 pr-2 text-sm text-white shadow-md shadow-[#045178]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg md:w-44"
           >
             Our Schemes
             <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
@@ -181,7 +182,7 @@ export function HomeHero() {
           </Link>
           <Link
             href="#contact"
-            className="group flex w-full md:w-56 items-center justify-between rounded-4xl border border-white/40 bg-white/5 py-2 pl-4 pr-2 text-sm text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/10"
+            className="group flex items-center justify-between gap-3 rounded-4xl border border-white/40 bg-white/5 py-2 pl-4 pr-2 text-sm text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/10 md:w-56"
           >
             Talk to an Advisor
             <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">

@@ -91,7 +91,7 @@ export default function BlogsPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24">
+      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24 min-h-[560px]">
         <Image
           src={heroImage}
           alt="Curated resources and guides for financial advisory"
@@ -123,6 +123,11 @@ export default function BlogsPage() {
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
               Expert perspectives on funding, growth strategy, and financial planning for businesses and enterprises.
             </p>
+            <div className="mt-10 flex items-center">
+              <div className="h-px w-40 bg-white/15" />
+              <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#D9B872]/60" />
+              <div className="h-px w-24 bg-white/15" />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -169,7 +174,7 @@ export default function BlogsPage() {
                     transition={{ duration: 0.5 }}
                     className="mt-24 mb-10"
                   >
-                    <h2 className="font-serif text-2xl font-semibold text-[#045178] md:text-3xl">Featured Article</h2>
+                    <h2 className="font-serif text-3xl font-semibold text-[#045178] md:text-4xl">Featured Article</h2>
                   </motion.div>
 
                   <motion.div
@@ -241,7 +246,7 @@ export default function BlogsPage() {
                       transition={{ duration: 0.5 }}
                       className="mb-10"
                     >
-                      <h2 className="font-serif text-2xl font-semibold text-[#045178] md:text-3xl">Latest Articles</h2>
+                      <h2 className="font-serif text-3xl font-semibold text-[#045178] md:text-4xl">Latest Articles</h2>
                     </motion.div>
                   </div>
 

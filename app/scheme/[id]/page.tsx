@@ -413,12 +413,12 @@ export default function Scheme() {
             <img
               src={scheme.section_1_banner}
               alt={scheme.section_1_header ?? "Scheme banner"}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-[62%_center] lg:object-center"
             />
           ) : (
             <div className="h-full w-full bg-linear-to-br from-[#045178]/20 to-[#8D8C8F]/20" />
           )}
-          <div className="absolute top-0 left-0 w-full h-full bg-white/96 lg:bg-transparent lg:bg-linear-to-r lg:from-white/90 lg:from-40% lg:via-white/70 lg:via-60% lg:to-transparent lg:to-80%" />
+          <div className="absolute top-0 left-0 w-full h-full bg-linear-to-b from-white/85 from-15% via-white/55 via-45% to-white/35 lg:bg-transparent lg:bg-linear-to-r lg:from-white/90 lg:from-40% lg:via-white/70 lg:via-60% lg:to-transparent lg:to-80%" />
         </div>
 
         <div className="relative z-10 pb-0 h-full">
@@ -433,7 +433,7 @@ export default function Scheme() {
                 <img src={scheme.section_1_logo} alt={scheme.section_1_header ?? "Scheme logo"} className="h-20"/>
                 ) : null}
             </div>
-            <h1 className="font-serif text-2xl font-bold leading-snug text-[#045178] md:text-3xl lg:text-[length:var(--text-44)] lg:leading-[1.15]">
+            <h1 className="font-serif text-3xl font-bold leading-tight text-[#045178] md:text-4xl lg:text-5xl">
               {scheme.section_1_header} <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">{scheme.section_1_subheader}</span>
             </h1>
             {scheme.section_1_description ? (
@@ -472,7 +472,7 @@ export default function Scheme() {
             )}
 
             <div className="mt-5 flex flex-wrap items-center gap-3 md:mt-8 md:gap-4">
-              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between rounded-4xl bg-[#045178] border-2 border-[#045178] pl-4 pr-2 py-2 text-white shadow-md shadow-[#045178]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm">Apply Now
+              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between gap-3 rounded-4xl bg-[#045178] border-2 border-[#045178] pl-4 pr-2 py-2 text-white shadow-md shadow-[#045178]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm">Apply Now
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#045178" />
                 </span>
@@ -504,7 +504,7 @@ export default function Scheme() {
             transition={{ duration: 0.5 }}
             className="border-b border-[#8D8C8F] pb-4 md:border-b-0 md:border-r md:pb-0 flex items-center"
           >
-            <h2 className="font-serif text-2xl font-semibold text-[#045178] md:text-3xl lg:text-4xl">
+            <h2 className="font-serif text-3xl font-semibold text-[#045178] md:text-4xl">
               {scheme.section_2_header ?? "About This Scheme"}
             </h2>
           </motion.div>
@@ -535,7 +535,7 @@ export default function Scheme() {
               transition={{ duration: 0.5 }}
               className="lg:col-span-3"
             >
-              <h3 className="text-2xl font-semibold text-[#045178] md:text-3xl lg:text-4xl">
+              <h3 className="text-3xl font-semibold text-[#045178] md:text-4xl">
                 Eligibility Criteria
               </h3>
               <p className="mt-4 text-base leading-relaxed text-[#045178] md:text-lg">
@@ -660,13 +660,13 @@ export default function Scheme() {
 
             <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
               <div className="max-w-2xl">
-                <h4 className="text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
+                <h4 className="text-3xl font-semibold text-white md:text-4xl">
                   {scheme?.section_4_header}
                 </h4>
                 <p className="mt-3 text-white/80 text-sm md:text-lg">{scheme?.section_4_description}</p>
                 <p className="mt-3 font-semibold text-[#D9B872] text-sm md:text-lg">{scheme?.section_4_tagline}</p>
               </div>
-              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between rounded-4xl bg-[#045178] hover:bg-[#045178] pl-4 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-48 text-sm">Check Eligibility
+              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between gap-3 rounded-4xl bg-[#045178] hover:bg-[#045178] pl-4 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-48 text-sm">Check Eligibility
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#8D8C8F" />
                 </span>

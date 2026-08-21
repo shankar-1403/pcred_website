@@ -56,7 +56,7 @@ export default function AboutUsPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24">
+      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24 min-h-[560px]">
         <Image
           src={AboutHeroImage}
           alt="PCRED advisors in a client discussion"
@@ -89,6 +89,11 @@ export default function AboutUsPage() {
               We partner with businesses and growing enterprises to deliver strategic
               financial advisory, funding solutions, and long-term growth support.
             </p>
+            <div className="mt-10 flex items-center">
+              <div className="h-px w-40 bg-white/15" />
+              <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#D9B872]/60" />
+              <div className="h-px w-24 bg-white/15" />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -183,7 +188,7 @@ export default function AboutUsPage() {
                   </h3>
                   <Link
                     href="/contact"
-                    className="mt-5 shrink-0 group inline-flex items-center justify-between rounded-full bg-[#045178] hover:bg-[#045178] pl-5 pr-2 py-2 text-sm font-semibold text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-36"
+                    className="mt-5 shrink-0 group inline-flex items-center justify-between gap-2 rounded-full bg-[#045178] hover:bg-[#045178] pl-5 pr-2 py-2 text-sm font-semibold text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44"
                   >
                     Get Started
                     <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
@@ -194,8 +199,8 @@ export default function AboutUsPage() {
 
                 {/* Right image flush to border */}
                 <div className="relative h-full w-96 shrink-0 hidden lg:block">
-                  <Image src={WhoWeAre} alt="Who We Are" fill className="object-cover grayscale" />
-                  <div className="absolute inset-0 bg-[#045178] mix-blend-color" />
+                  <Image src={WhoWeAre} alt="Who We Are" fill className="object-cover" />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.35)_0%,rgba(4,81,120,0.15)_35%,transparent_60%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
                   <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-[#faf5ec] via-[#faf5ec]/60 to-transparent" />
                 </div>
               </div>
@@ -271,7 +276,7 @@ export default function AboutUsPage() {
               <span className="size-2 rounded-full bg-[#D9B872]" />
               Our Foundation
             </span>
-            <h4 className="mt-2 text-2xl font-semibold text-white md:text-3xl">
+            <h4 className="mt-2 text-3xl font-semibold text-white md:text-4xl">
               Mission & <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Vision</span>
             </h4>
           </motion.div>
@@ -331,7 +336,7 @@ export default function AboutUsPage() {
                 <span className="size-1.5 rounded-full bg-[#D9B872]" />
                 What Drives Us
               </span>
-              <h2 className="font-serif text-2xl font-semibold text-[#045178] md:text-3xl">
+              <h2 className="font-serif text-3xl font-semibold text-[#045178] md:text-4xl">
                 Our Core{" "}
                 <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">
                   Beliefs
@@ -430,7 +435,7 @@ export default function AboutUsPage() {
 
               <Link
                 href="/contact"
-                className="group flex items-center justify-between rounded-full bg-[#045178] hover:bg-[#045178] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
+                className="group flex items-center justify-between gap-2 rounded-full bg-[#045178] hover:bg-[#045178] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
               >
                 Get In Touch
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">

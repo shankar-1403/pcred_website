@@ -307,7 +307,7 @@ export default function CareersPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24">
+      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24 min-h-[560px]">
         <Image
           src={heroImage}
           alt="Colleagues collaborating on a project"
@@ -339,6 +339,11 @@ export default function CareersPage() {
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
               Join our team of financial experts and help businesses and enterprises achieve their funding goals.
             </p>
+            <div className="mt-10 flex items-center">
+              <div className="h-px w-40 bg-white/15" />
+              <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#D9B872]/60" />
+              <div className="h-px w-24 bg-white/15" />
+            </div>
           </motion.div>
         </div>
       </section>

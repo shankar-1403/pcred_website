@@ -14,7 +14,7 @@ export default function SchemesPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24">
+      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24 min-h-[560px]">
         <Image
           src={heroImage}
           alt="Highway infrastructure symbolizing growth funded by government schemes"
@@ -47,6 +47,11 @@ export default function SchemesPage() {
               Explore government-backed and institutional funding schemes designed
               to support businesses and enterprises at every stage of their journey.
             </p>
+            <div className="mt-10 flex items-center">
+              <div className="h-px w-40 bg-white/15" />
+              <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#D9B872]/60" />
+              <div className="h-px w-24 bg-white/15" />
+            </div>
           </motion.div>
         </div>
       </section>
@@ -157,7 +162,7 @@ export default function SchemesPage() {
               </div>
               <Link
                 href="/contact"
-                className="group flex items-center justify-between rounded-full bg-[#045178] hover:bg-[#045178] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
+                className="group flex items-center justify-between gap-2 rounded-full bg-[#045178] hover:bg-[#045178] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
               >
                 Get In Touch
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">

@@ -15,7 +15,8 @@ import { usePathname } from "next/navigation";
  * when it enters the viewport; already-visible elements play immediately.
  */
 
-const SEL = "main h1, main h2, main h3, main h4, main p";
+const SEL =
+  "main h1:not([data-no-reveal]), main h2:not([data-no-reveal]), main h3:not([data-no-reveal]), main h4:not([data-no-reveal]), main p:not([data-no-reveal])";
 const WORD_MS = 70; // ms stagger between words
 const MAX_MS = 1100; // cap so last words don't wait forever
 

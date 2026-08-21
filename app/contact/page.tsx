@@ -97,7 +97,7 @@ function page() {
   
   return (
     <>
-      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24">
+      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24 min-h-[560px]">
         <Image
           src={heroImage}
           alt="Infrastructure connecting businesses and opportunities"
@@ -130,6 +130,11 @@ function page() {
               We partner with businesses and growing enterprises to deliver strategic
               financial advisory, funding solutions, and long-term growth support.
             </p>
+            <div className="mt-10 flex items-center">
+              <div className="h-px w-40 bg-white/15" />
+              <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#D9B872]/60" />
+              <div className="h-px w-24 bg-white/15" />
+            </div>
           </motion.div>
         </div>
       </section>

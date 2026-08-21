@@ -44,13 +44,27 @@ const companies = [
     logo: "/ecb-logo.webp",
     logoSize: "h-11 w-28 sm:h-12 sm:w-32",
   },
+  {
+    number: "04",
+    name: "PRIMACRED",
+    tagline: "Strategic advisory, finance & risk consulting for businesses that think ahead",
+    points: [
+      "Integrated financial advisory, risk consulting and underwriting support for growing businesses",
+      "Structured risk assessment across financial, operational and insurance dimensions",
+      "Practical, implementation-ready advisory grounded in operating reality, not abstraction",
+    ],
+    href: "https://primacred.in",
+    logo: "/primacred-logo.webp",
+    logoSize: "h-16 w-36 sm:h-20 sm:w-44",
+    logoOffset: "-right-3",
+  },
 ];
 
 export default function Page() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24">
+      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24 min-h-[560px]">
         <Image
           src={heroImage}
           alt="Executive office library representing the PCRED group of companies"
@@ -94,12 +108,14 @@ export default function Page() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="relative hidden h-80 lg:block"
+              className="relative hidden h-96 lg:block"
             >
               {companies.map((company, index) => (
                 <div
                   key={company.number}
-                  className="absolute flex h-32 w-56 items-center justify-center rounded-3xl border border-white/10 bg-white p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)]"
+                  className={`absolute flex h-32 w-56 items-center rounded-3xl border border-white/10 bg-white p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] ${
+                    company.name === "PRIMACRED" ? "justify-end" : "justify-center"
+                  }`}
                   style={{
                     top: `${index * 76}px`,
                     left: `${index * 56}px`,
@@ -107,12 +123,18 @@ export default function Page() {
                     transform: `rotate(${(index - 1) * 3}deg)`,
                   }}
                 >
-                  <div className="relative h-10 w-full">
+                  <div
+                    className={`relative h-10 ${
+                      company.name === "PRIMACRED" ? "w-4/5" : "w-full"
+                    }`}
+                  >
                     <Image
                       src={company.logo}
                       alt={`${company.name} logo`}
                       fill
-                      className="object-contain"
+                      className={`object-contain ${
+                        company.name === "PRIMACRED" ? "object-right" : "object-center"
+                      }`}
                       sizes="200px"
                     />
                   </div>
@@ -159,9 +181,9 @@ export default function Page() {
                 {/* Company logo */}
                 {company.logo && (
                   <div
-                    className={`pointer-events-none absolute right-6 top-6 opacity-90 ${
-                      company.logoSize ?? "h-14 w-32 sm:h-16 sm:w-36"
-                    }`}
+                    className={`pointer-events-none absolute top-6 opacity-90 ${
+                      company.logoOffset ?? "right-6"
+                    } ${company.logoSize ?? "h-14 w-32 sm:h-16 sm:w-36"}`}
                   >
                     <Image
                       src={company.logo}
@@ -174,7 +196,7 @@ export default function Page() {
                 )}
 
                 <div className="relative">
-                  <h3 className="text-2xl font-semibold text-[#045178] md:text-3xl">
+                  <h3 className="pr-28 pt-7 text-lg font-semibold text-[#045178] sm:pr-32 md:text-xl">
                     {company.name}
                   </h3>
 
