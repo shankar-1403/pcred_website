@@ -6,6 +6,21 @@ export const runtime = "nodejs";
 const storageBucket = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET;
 const firebaseApiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
 
+const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
+const ALLOWED_IMAGE_TYPES: Record<string, string> = {
+  "image/webp": "webp",
+  "image/png": "png",
+  "image/jpeg": "jpg",
+  "image/svg+xml": "svg",
+  "image/gif": "gif",
+};
+
+/** Keep ids/fields to a safe flat segment — blocks "../" path traversal. */
+function seg(value: string) {
+  return value.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 80);
+}
+
+
 async function verifyIdToken(idToken: string) {
   if (!firebaseApiKey) throw new Error("Firebase API key is not configured.");
   const response = await fetch(
@@ -79,14 +94,34 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid upload payload." }, { status: 400 });
     }
 
-    const ext = file.name.includes(".") ? file.name.split(".").pop() : "bin";
-    const objectPath = `blogs/${blogId}/${field}.${ext}`;
+    const ext = ALLOWED_IMAGE_TYPES[file.type];
+    if (!ext) {
+      return NextResponse.json(
+        { error: "Unsupported image type. Use WEBP, PNG, JPG, SVG or GIF." },
+        { status: 400 }
+      );
+    }
+    if (file.size > MAX_UPLOAD_BYTES) {
+      return NextResponse.json(
+        { error: "Image must be smaller than 10MB." },
+        { status: 400 }
+      );
+    }
+
+    const safeId = seg(blogId);
+    const safeField = seg(field);
+    if (!safeId || !safeField) {
+      return NextResponse.json({ error: "Invalid upload payload." }, { status: 400 });
+    }
+    const objectPath = `blogs/${safeId}/${safeField}.${ext}`;
     const fileBuffer = await file.arrayBuffer();
     const url = await uploadToFirebaseStorage(idToken, objectPath, file, fileBuffer);
     return NextResponse.json({ url });
   } catch (error) {
     console.error("[blogs/upload]", error);
-    const message = error instanceof Error ? error.message : "Upload failed.";
-    return NextResponse.json({ error: message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Upload failed. Please try again." },
+      { status: 500 }
+    );
   }
 }

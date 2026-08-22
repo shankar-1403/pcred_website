@@ -116,12 +116,26 @@ export default function TextReveal() {
     // after this effect's initial scan already ran. A MutationObserver
     // catches that content the moment it lands in the DOM and reveals it
     // too, instead of it sitting permanently unrevealed.
-    const mo = new MutationObserver(() => scan());
+    // Coalesce into one scan per frame. Without this, a burst of childList
+    // mutations (e.g. the hero carousel remounting its heading on every slide)
+    // runs scan() synchronously per mutation, and each run calls
+    // getBoundingClientRect() — forcing a synchronous layout mid-transition.
+    let scanQueued = 0;
+    const queueScan = () => {
+      if (scanQueued) return;
+      scanQueued = requestAnimationFrame(() => {
+        scanQueued = 0;
+        scan();
+      });
+    };
+
+    const mo = new MutationObserver(queueScan);
     mo.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       obs.disconnect();
       mo.disconnect();
+      if (scanQueued) cancelAnimationFrame(scanQueued);
       document.querySelectorAll("[data-wa]").forEach((el) => {
         el.removeAttribute("data-wa");
         el.removeAttribute("data-wa-played");

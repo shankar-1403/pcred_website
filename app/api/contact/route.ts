@@ -10,6 +10,11 @@ const COMPANY_PROFILE_PATH = path.join(process.cwd(), "public", "PCRED_Company_P
 
 const RTDB_URL = process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL;
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+/** Trim and cap a field so one submission can't write an unbounded payload. */
+const field = (v: unknown, max: number) => String(v ?? "").trim().slice(0, max);
+
 async function writeToDatabase(data: Record<string, string>) {
   if (!RTDB_URL) throw new Error("Firebase database URL not configured.");
 
@@ -45,14 +50,19 @@ async function appendToSheets(data: Record<string, string>) {
 
   const sheets = google.sheets({ version: "v4", auth });
 
+  // Prefix any value that Sheets would evaluate as a formula. With
+  // USER_ENTERED a submitted "=IMPORTXML(...)" would execute inside the sheet
+  // and can exfiltrate its contents, so neutralise the leading character.
+  const safe = (v: string) => (/^[=+\-@\t\r]/.test(v) ? `'${v}` : v);
+
   const row = [
     data.submittedAt,
-    data.name,
-    data.email,
-    data.phone,
-    data.company,
-    data.service,
-    data.message,
+    safe(data.name),
+    safe(data.email),
+    safe(data.phone),
+    safe(data.company),
+    safe(data.service),
+    safe(data.message),
   ];
 
   await sheets.spreadsheets.values.append({
@@ -129,30 +139,47 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Required fields missing." }, { status: 400 });
     }
 
+    if (!EMAIL_RE.test(String(email).trim())) {
+      return NextResponse.json(
+        { error: "Please enter a valid email address." },
+        { status: 400 }
+      );
+    }
+
     const data = {
-      name: String(name).trim(),
-      email: String(email).trim(),
-      phone: String(phone).trim(),
-      company: String(company ?? "").trim(),
-      service: String(service ?? "").trim(),
-      message: String(message).trim(),
+      name: field(name, 120),
+      email: field(email, 200),
+      phone: field(phone, 40),
+      company: field(company, 160),
+      service: field(service, 120),
+      message: field(message, 5000),
       submittedAt: new Date().toISOString(),
     };
 
     await writeToDatabase(data);
 
-    appendToSheets(data).catch((err) =>
-      console.error("[contact] Sheets append failed:", err)
-    );
+    // Awaited, not fire-and-forget: on a serverless host the container can be
+    // frozen as soon as the response is returned, so detached promises here
+    // would frequently never reach Sheets or the SMTP server. Settled together
+    // so one failing side-effect can't discard the other.
+    const [sheets, mail] = await Promise.allSettled([
+      appendToSheets(data),
+      sendWelcomeEmail(data),
+    ]);
 
-    sendWelcomeEmail(data).catch((err) =>
-      console.error("[contact] Welcome email failed:", err)
-    );
+    if (sheets.status === "rejected") {
+      console.error("[contact] Sheets append failed:", sheets.reason);
+    }
+    if (mail.status === "rejected") {
+      console.error("[contact] Welcome email failed:", mail.reason);
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("[contact]", error);
-    const message = error instanceof Error ? error.message : "Submission failed.";
-    return NextResponse.json({ error: message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Submission failed. Please try again." },
+      { status: 500 }
+    );
   }
 }

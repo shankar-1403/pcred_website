@@ -628,20 +628,20 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[#045178]/55 via-transparent to-[#045178]/10" />
                 </div>
-              </div>
 
-              <div className="absolute -bottom-5 -right-2 z-10 sm:-bottom-6 sm:right-4">
-                <div className="relative size-28 sm:size-32">
-                  <SpinningText
-                    radius={46}
-                    duration={24}
-                    className="absolute inset-0 text-white/90"
-                  >
-                    Years of Experience • Years of Experience • Years of Experience •
-                  </SpinningText>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex size-16 items-center justify-center rounded-full bg-[#D9B872] shadow-[0_12px_32px_-8px_rgba(0,0,0,0.45)] sm:size-[4.5rem]">
-                      <span className="font-serif text-2xl font-bold text-white sm:text-3xl">16+</span>
+                <div className="absolute bottom-3 right-3 z-10 sm:bottom-5 sm:right-5">
+                  <div className="relative size-24 sm:size-28 lg:size-32">
+                    <SpinningText
+                      radius={46}
+                      duration={24}
+                      className="absolute inset-0 text-white/90"
+                    >
+                      Years of Experience • Years of Experience • Years of Experience •
+                    </SpinningText>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="flex size-14 items-center justify-center rounded-full bg-[#D9B872] shadow-[0_12px_32px_-8px_rgba(0,0,0,0.45)] sm:size-16 lg:size-[4.5rem]">
+                        <span className="font-serif text-xl font-bold text-white sm:text-2xl lg:text-3xl">16+</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1376,13 +1376,17 @@ export default function Home() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="hidden md:flex md:items-center"
+              className="hidden md:block"
             >
-              <div className="relative aspect-1694/1879 w-full">
+              {/* Stretches to the grid row height so the panel is exactly as
+                  tall as the form beside it. object-cover fills that box —
+                  object-contain would letterbox, since the artwork is near
+                  square (1.027) while the column is portrait. */}
+              <div className="relative h-full w-full overflow-hidden rounded-2xl">
                 <img
                   src="/site/contact_advisors.webp"
                   alt="PCRED advisors reviewing a client portfolio"
-                  className="absolute inset-0 h-full w-full object-contain object-center"
+                  className="absolute inset-0 h-full w-full object-cover object-center"
                 />
               </div>
             </motion.div>

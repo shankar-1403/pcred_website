@@ -173,7 +173,7 @@ export default function Page() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 whileHover={{ y: -6 }}
-                className="group relative overflow-hidden rounded-3xl bg-linear-to-br from-[#8D8C8F]/15 via-white to-[#045178]/10 p-8 shadow-[0_2px_8px_-2px_rgba(4,81,120,0.08),0_20px_50px_-20px_rgba(4,81,120,0.18)] ring-1 ring-[#045178]/8 transition-shadow duration-300 hover:shadow-[0_2px_8px_-2px_rgba(4,81,120,0.08),0_30px_70px_-20px_rgba(4,81,120,0.3)] md:p-10"
+                className="group relative flex flex-col overflow-hidden rounded-3xl bg-linear-to-br from-[#8D8C8F]/15 via-white to-[#045178]/10 p-8 shadow-[0_2px_8px_-2px_rgba(4,81,120,0.08),0_20px_50px_-20px_rgba(4,81,120,0.18)] ring-1 ring-[#045178]/8 transition-shadow duration-300 hover:shadow-[0_2px_8px_-2px_rgba(4,81,120,0.08),0_30px_70px_-20px_rgba(4,81,120,0.3)] md:p-10"
               >
                 {/* Top accent bar */}
                 <div className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-[#045178] via-[#8D8C8F] to-[#045178] bg-[length:200%_100%] transition-[background-position] duration-500 group-hover:bg-[position:100%_0]" />
@@ -195,7 +195,7 @@ export default function Page() {
                   </div>
                 )}
 
-                <div className="relative">
+                <div className="relative flex flex-1 flex-col">
                   <h3 className="pr-28 pt-7 text-lg font-semibold text-[#045178] sm:pr-32 md:text-xl">
                     {company.name}
                   </h3>
@@ -216,7 +216,7 @@ export default function Page() {
                     href={company.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-[#045178] underline decoration-[#b8892e]/40 decoration-2 underline-offset-4 transition-all hover:decoration-[#b8892e] hover:text-[#045178]"
+                    className="mt-auto inline-flex w-fit items-center gap-1.5 pt-8 text-sm font-semibold text-[#045178] underline decoration-[#b8892e]/40 decoration-2 underline-offset-4 transition-all hover:decoration-[#b8892e] hover:text-[#045178]"
                   >
                     Visit {company.href.replace("https://", "")}
                     <IconArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
