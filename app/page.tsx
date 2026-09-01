@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useState, type FormEvent } from "react";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import Link from "next/link";
@@ -8,13 +8,13 @@ import { AnimatePresence, motion } from "motion/react";
 import { IconArrowRight, IconArrowsExchange, IconBuilding, IconBuildingBank, IconChartBar, IconChartLine, IconStar, IconStarHalfFilled, IconChartHistogram, IconCheck, IconChevronDown, IconChevronLeft, IconChevronRight, IconCircleDashedCheck, IconHeartHandshake, IconMap2, IconQuote, IconRefresh, IconReportMoney, IconRocket, IconScale, IconSend, IconShieldCheck, IconStarFilled, IconTargetArrow, IconTrendingUp, IconUsers, IconUsersGroup, } from "@tabler/icons-react";
 import { HomeHero } from "@/components/HomeHero";
 import { WebPatternMotionBackground } from "@/components/WebPatternMotionBackground";
-import aboutImage from "@/public/who_we_are.webp";
-import positioningImage from "@/public/site/positioning_boardroom.webp";
-import corpFinanceServiceImage from "@/public/site/corpfin_hero_cityscape.webp";
-import maServiceImage from "@/public/site/ma_hero_skyline.webp";
-import valuationServiceImage from "@/public/site/valuation_hero_tablet.webp";
-import cfoServiceImage from "@/public/site/cfo_hero_office.webp";
-import riskServiceImage from "@/public/site/risk_hero_site_walk.webp";
+import whoWeAreImage from "@/public/site/generated/who_we_are_advisors.png";
+import purposeImage from "@/public/site/generated/purpose_structure_capital.png";
+import strategicPerspectiveImage from "@/public/site/generated/strategic_perspective.png";
+import executionExcellenceImage from "@/public/site/generated/execution_excellence.png";
+import panIndiaReachImage from "@/public/site/generated/pan_india_reach.png";
+import industryExpertiseImage from "@/public/site/generated/industry_expertise.png";
+import relationshipDrivenImage from "@/public/site/generated/relationship_driven.png";
 import { SpinningText } from "@/components/ui/spinning-text";
 import { LifecycleRoadmap } from "@/components/LifecycleRoadmap";
 import { MobileLifecycleTimeline } from "@/components/MobileLifecycleTimeline";
@@ -244,52 +244,6 @@ const whyPcred = [
   },
 ];
 
-const servicesList = [
-  {
-    number: "01",
-    title: "Corporate Finance",
-    description:
-      "PCRED advises companies, promoters and investors on capital raising, debt structuring and financial strategy across critical stages of the corporate lifecycle.",
-    icon: IconBuildingBank,
-    href: "/services/corporate-finance",
-    image: corpFinanceServiceImage,
-  },
-  {
-    number: "02",
-    title: "M&A Advisory",
-    description: "M&A decisions have implications far beyond the transaction itself.",
-    icon: IconArrowsExchange,
-    href: "/services/ma-advisory",
-    image: maServiceImage,
-  },
-  {
-    number: "03",
-    title: "Valuation & Transaction",
-    description:
-      "Valuation is fundamental to capital allocation, investment decisions and corporate transactions.",
-    icon: IconScale,
-    href: "/services/valuation-transaction",
-    image: valuationServiceImage,
-  },
-  {
-    number: "04",
-    title: "CFO Advisory",
-    description: "Sound financial management is fundamental to sustainable enterprise value.",
-    icon: IconReportMoney,
-    href: "/services/cfo-advisory",
-    image: cfoServiceImage,
-  },
-  {
-    number: "05",
-    title: "Risk & Governance",
-    description:
-      "As organisations become larger and more complex, governance and risk management become integral to protecting enterprise value.",
-    icon: IconShieldCheck,
-    href: "/services/risk-governance",
-    image: riskServiceImage,
-  },
-];
-
 const features = [
   {
     title: "Strategic Perspective",
@@ -297,21 +251,21 @@ const features = [
     description:
       "Financial advice aligned with long-term business objectives.",
     icon: IconTargetArrow,
-    image: "/strategic_perspective.webp",
+    image: strategicPerspectiveImage,
   },
   {
     title: "Execution Excellence",
     subtitle: "Results That Matter",
     description: "Turning strategies into measurable business outcomes.",
     icon: IconChartBar,
-    image: "/execution_excellence.webp",
+    image: executionExcellenceImage,
   },
   {
     title: "Pan-India Reach",
     subtitle: "Nationwide Support",
     description: "Supporting businesses across industries throughout India.",
     icon: IconMap2,
-    image: "/pan_india_reach.webp",
+    image: panIndiaReachImage,
   },
   {
     title: "Industry Expertise",
@@ -319,7 +273,7 @@ const features = [
     description:
       "Deep understanding of finance, governance, capital, and business growth.",
     icon: IconUsersGroup,
-    image: "/industry_expertise.webp",
+    image: industryExpertiseImage,
   },
   {
     title: "Relationship-Driven",
@@ -327,7 +281,7 @@ const features = [
     description:
       "Long-term partnerships built on trust, transparency, and performance.",
     icon: IconHeartHandshake,
-    image: "/relationship_driven.webp",
+    image: relationshipDrivenImage,
   },
 ];
 
@@ -348,8 +302,6 @@ export default function Home() {
   const [activeFeature, setActiveFeature] = useState(0);
   const [activeReview, setActiveReview] = useState(0);
   const [reviewDirection, setReviewDirection] = useState(0);
-  const [serviceImagesReady, setServiceImagesReady] = useState(false);
-  const servicesSectionRef = useRef<HTMLElement>(null);
 
   const goToReview = useCallback(
     (index: number) => {
@@ -373,23 +325,6 @@ export default function Home() {
     const timer = setInterval(goNextReview, 6000);
     return () => clearInterval(timer);
   }, [goNextReview]);
-
-  useEffect(() => {
-    const section = servicesSectionRef.current;
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) return;
-        setServiceImagesReady(true);
-        observer.disconnect();
-      },
-      { rootMargin: "280px 0px" }
-    );
-
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
 
   const activeReviewData = reviews[activeReview];
   const reviewInitials = activeReviewData.role
@@ -583,21 +518,17 @@ export default function Home() {
             >
               <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-[#D9B872]/20 to-[#045178]/10 blur-sm lg:-inset-3" />
               <div className="relative aspect-[5/3] overflow-hidden rounded-2xl border border-white/60 shadow-[0_20px_48px_-18px_rgba(4,81,120,0.3)] sm:aspect-[16/10] lg:aspect-[16/11] lg:min-h-[380px]">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  poster={positioningImage.src}
-                  className="absolute inset-0 size-full object-cover"
-                  aria-label="PCRED advisors in a boardroom discussion"
-                >
-                  <source src="/banner.mp4" type="video/mp4" />
-                </video>
+                <Image
+                  src={purposeImage}
+                  alt="Financial structure and capital planning at a PCRED advisory desk"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                />
                 <div className="absolute inset-0 bg-linear-to-tr from-[#022436]/50 via-transparent to-[#045178]/20" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full border border-white/20 bg-black/30 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-white/90 backdrop-blur-md">
                   <span className="size-1.5 animate-pulse rounded-full bg-[#D9B872]" />
-                  Advisory in action
+                  Structure before capital
                 </div>
               </div>
             </motion.div>
@@ -622,8 +553,8 @@ export default function Home() {
                 <div className="absolute -inset-2 rounded-[1.5rem] border border-[#D9B872]/25 sm:-inset-3" />
                 <div className="relative overflow-hidden rounded-2xl">
                   <Image
-                    src={aboutImage}
-                    alt="PCRED advisory team"
+                    src={whoWeAreImage}
+                    alt="PCRED advisors in a strategic client meeting"
                     className="aspect-[5/3] w-full object-cover sm:aspect-[16/10]"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[#045178]/55 via-transparent to-[#045178]/10" />
@@ -789,7 +720,7 @@ export default function Home() {
                   }`}
                 >
                   <img
-                    src={feature.image}
+                    src={feature.image.src}
                     alt=""
                     aria-hidden
                     className="absolute inset-0 h-full w-full object-cover"
@@ -889,7 +820,7 @@ export default function Home() {
                 >
                   {/* Panel image — only decode active + keep others lazy */}
                   <img
-                    src={feature.image}
+                    src={feature.image.src}
                     alt=""
                     aria-hidden
                     loading={isActive || i <= 1 ? "eager" : "lazy"}
@@ -1066,7 +997,7 @@ export default function Home() {
       {/* CTA Section */}
       <section
         className="relative bg-cover bg-fixed bg-[65%_center] bg-no-repeat py-14 md:bg-center md:py-14"
-        style={{ backgroundImage: "url('/right_financial_partner.webp')" }}
+        style={{ backgroundImage: "url('/site/generated/cta_financial_partner.png')" }}
       >
         <div className="absolute inset-0 bg-linear-to-r from-[#022436]/85 to-[#045178]/65" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(141,140,143,0.15),transparent_60%)]" />

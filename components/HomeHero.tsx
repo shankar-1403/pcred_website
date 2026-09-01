@@ -7,10 +7,10 @@ import { AnimatePresence, motion } from "motion/react";
 import { IconArrowRight, IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
 import { AuroraText } from "./ui/aurora-text";
-import homeHeroImage from "@/public/site/home_hero_skyline.webp";
-import positioningImage from "@/public/site/positioning_boardroom.webp";
-import corpFinanceServiceImage from "@/public/site/corpfin_hero_cityscape.webp";
-import maServiceImage from "@/public/site/ma_hero_skyline.webp";
+import homeHeroImage from "@/public/site/generated/home_hero_advisory.png";
+import positioningImage from "@/public/site/generated/hero_boardroom_value.png";
+import corpFinanceServiceImage from "@/public/site/generated/hero_corpfin_desk.png";
+import transactionSupportImage from "@/public/site/generated/hero_ma_transaction.png";
 
 const HERO_SLIDES: {
   image: StaticImageData;
@@ -19,7 +19,7 @@ const HERO_SLIDES: {
 }[] = [
   {
     image: homeHeroImage,
-    alt: "Mumbai skyline at dusk",
+    alt: "Mumbai business district skyline at dusk representing strategic financial advisory",
     subtitle:
       "Strategic Financial Advisory Solutions Designed to Strengthen and Scale Businesses",
   },
@@ -31,13 +31,13 @@ const HERO_SLIDES: {
   },
   {
     image: corpFinanceServiceImage,
-    alt: "City skyline representing corporate finance",
+    alt: "Corporate finance advisory at a planning desk",
     subtitle:
       "Capital strategy, debt structuring and financial advisory across every stage of growth.",
   },
   {
-    image: maServiceImage,
-    alt: "Skyline representing M&A advisory",
+    image: transactionSupportImage,
+    alt: "Advisors reviewing a valuation and transaction mandate",
     subtitle:
       "M&A, valuation and transaction support for promoters, investors and leadership teams.",
   },
