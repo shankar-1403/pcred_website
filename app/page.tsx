@@ -476,7 +476,7 @@ export default function Home() {
                 Our Purpose
               </span>
               <h2 className="font-serif text-3xl font-semibold leading-tight text-[#045178] md:text-4xl">
-                Structure First.<br/>
+                Structure First.<br />
                 <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text font-bold text-transparent">
                   Capital Second.
                 </span>
@@ -518,12 +518,13 @@ export default function Home() {
             >
               <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-[#D9B872]/20 to-[#045178]/10 blur-sm lg:-inset-3" />
               <div className="relative aspect-[5/3] overflow-hidden rounded-2xl border border-white/60 shadow-[0_20px_48px_-18px_rgba(4,81,120,0.3)] sm:aspect-[16/10] lg:aspect-[16/11] lg:min-h-[380px]">
-                <Image
-                  src={purposeImage}
-                  alt="Financial structure and capital planning at a PCRED advisory desk"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 60vw"
+                <video
+                  src={'/banner.mp4'}
+                  className="h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                 />
                 <div className="absolute inset-0 bg-linear-to-tr from-[#022436]/50 via-transparent to-[#045178]/20" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full border border-white/20 bg-black/30 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-white/90 backdrop-blur-md">
@@ -713,11 +714,10 @@ export default function Home() {
               return (
                 <div
                   key={feature.title}
-                  className={`relative overflow-hidden rounded-2xl border transition-colors duration-300 ${
-                    isActive
+                  className={`relative overflow-hidden rounded-2xl border transition-colors duration-300 ${isActive
                       ? "border-[#D9B872]/40"
                       : "border-white/10"
-                  }`}
+                    }`}
                 >
                   <img
                     src={feature.image.src}
@@ -726,11 +726,10 @@ export default function Home() {
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div
-                    className={`absolute inset-0 ${
-                      isActive
+                    className={`absolute inset-0 ${isActive
                         ? "bg-linear-to-b from-[#022436]/55 via-[#022436]/78 to-[#022436]/93"
                         : "bg-[#022436]/78"
-                    }`}
+                      }`}
                   />
                   <button
                     type="button"
@@ -739,30 +738,26 @@ export default function Home() {
                     aria-expanded={isActive}
                   >
                     <span
-                      className={`font-serif text-lg font-bold ${
-                        isActive ? "text-[#D9B872]" : "text-white/50"
-                      }`}
+                      className={`font-serif text-lg font-bold ${isActive ? "text-[#D9B872]" : "text-white/50"
+                        }`}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span
-                      className={`min-w-0 flex-1 text-base font-semibold ${
-                        isActive ? "text-white" : "text-white/70"
-                      }`}
+                      className={`min-w-0 flex-1 text-base font-semibold ${isActive ? "text-white" : "text-white/70"
+                        }`}
                     >
                       {feature.title}
                     </span>
                     <span
-                      className={`flex size-9 shrink-0 items-center justify-center rounded-full transition-colors ${
-                        isActive
+                      className={`flex size-9 shrink-0 items-center justify-center rounded-full transition-colors ${isActive
                           ? "bg-[#D9B872] text-[#045178]"
                           : "border border-white/30 bg-white/10 text-white"
-                      }`}
+                        }`}
                     >
                       <IconChevronDown
-                        className={`size-4 transition-transform duration-300 ${
-                          isActive ? "rotate-180" : ""
-                        }`}
+                        className={`size-4 transition-transform duration-300 ${isActive ? "rotate-180" : ""
+                          }`}
                       />
                     </span>
                   </button>
@@ -812,11 +807,10 @@ export default function Home() {
               return (
                 <div
                   key={feature.title}
-                  className={`relative flex h-full overflow-hidden rounded-2xl border transition-[flex-grow,border-color] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-                    isActive
+                  className={`relative flex h-full overflow-hidden rounded-2xl border transition-[flex-grow,border-color] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive
                       ? "flex-[3.4] border-[#D9B872]/50"
                       : "flex-[0.58] border-white/15"
-                  }`}
+                    }`}
                 >
                   {/* Panel image — only decode active + keep others lazy */}
                   <img
@@ -828,11 +822,10 @@ export default function Home() {
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div
-                    className={`absolute inset-0 ${
-                      isActive
+                    className={`absolute inset-0 ${isActive
                         ? "bg-linear-to-t from-[#022436]/95 via-[#022436]/45 to-[#022436]/20"
                         : "bg-[#022436]/72"
-                    }`}
+                      }`}
                   />
 
                   {/* Collapsed: click to open */}
