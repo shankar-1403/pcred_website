@@ -71,9 +71,6 @@ export default function SchemesPage() {
               <h2 className="font-serif text-3xl font-semibold text-[#045178] md:text-4xl leading-tight">
                 Explore Our Schemes
               </h2>
-              <span className="hidden shrink-0 rounded-full border border-[#045178]/15 bg-[#045178]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#045178]/70 sm:block">
-                {String(schemes.length).padStart(2, "0")} Available
-              </span>
             </div>
           </motion.div>
 
@@ -101,33 +98,40 @@ export default function SchemesPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
-                    className="group relative flex flex-col bg-linear-to-br from-[#045178]/8 via-white to-[#8D8C8F]/12 p-4 rounded-2xl border border-[#045178]/12 transition-all duration-300 hover:shadow-xl hover:from-[#045178]/15 hover:via-white hover:to-[#8D8C8F]/20 hover:border-[#8D8C8F]/40"
+                    className="group relative flex flex-col rounded-2xl border border-[#045178]/12 transition-all duration-300 hover:shadow-xl overflow-hidden h-50"
                   >
-                    <div className="mb-4 flex items-start justify-between">
-                      <div className="flex size-9 items-center justify-center rounded-xl bg-[#045178]">
-                        <Icon className="size-4 text-white" stroke={1.5} />
-                      </div>
-                      <span className="font-mono text-5xl font-black text-[#045178]/10 leading-none select-none">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
+                    <div className="absolute inset-0">
+                      <img
+                        src={scheme.section_1_banner}
+                        alt={scheme.section_1_header}
+                        className="h-full w-full object-cover"
+                      />
+
+                      <div className="absolute inset-0 bg-linear-to-r from-[#045178] from-35% via-[#045178]/40 via-65% to-transparent to-70%" />
                     </div>
+                    <div className="relative p-4">
+                      <div className="mb-4 flex items-start justify-between relative">
+                        <div className="flex size-9 items-center justify-center rounded-xl bg-[#D9B872]">
+                          <Icon className="size-4 text-white" stroke={1.5} />
+                        </div>
+                        <span className="font-mono text-5xl font-black text-white/40 leading-none select-none">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
 
-                    <h3 className="mb-1.5 text-base font-semibold leading-snug text-[#045178]">
-                      {scheme.dropdown_label ?? scheme.section_1_header ?? "Scheme"}
-                    </h3>
+                      <h3 className="mb-1.5 text-base font-semibold leading-snug text-white w-40">
+                        {scheme.section_1_header ?? "Scheme"}
+                      </h3>
 
-                    <p className="flex-1 text-xs leading-relaxed text-[#4a5568]">
-                      {scheme.section_1_subheader ?? "Learn more about eligibility and benefits."}
-                    </p>
-
-                    <div className="mt-4">
-                      <Link
-                        href={`/scheme/${scheme.id}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#045178]/70 transition-colors duration-300 group-hover:text-[#045178]"
-                      >
-                        View Scheme
-                        <IconArrowRight className="size-3.5 text-[#8D8C8F] transition-transform duration-300 group-hover:translate-x-0.5" />
-                      </Link>
+                      <div className="mt-4">
+                        <Link
+                          href={`/scheme/${scheme.id}`}
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-white transition-colors duration-300 group-hover:text-white"
+                        >
+                          View Scheme
+                          <IconArrowRight className="size-3.5 text-[#D9B872] transition-transform duration-300 group-hover:translate-x-0.5" />
+                        </Link>
+                      </div>
                     </div>
                   </motion.div>
                 );

@@ -184,7 +184,7 @@ export function HomeHero() {
             href="#contact"
             className="group flex items-center justify-between gap-3 rounded-4xl border border-white/40 bg-white/5 py-2 pl-4 pr-2 text-sm text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/10 md:w-56"
           >
-            Talk to an Advisor
+            Talk to an Expert
             <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
               <IconArrowRight className="size-4" color="#045178" />
             </span>

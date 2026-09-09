@@ -261,38 +261,40 @@ export default function Page() {
         <div className="pointer-events-none absolute -left-20 top-0 size-72 rounded-full bg-[#B8892E]/8 blur-[90px]" />
         <div className="pointer-events-none absolute -right-16 bottom-0 size-80 rounded-full bg-[#045178]/6 blur-[90px]" />
 
-        <div className="relative mx-auto max-w-3xl px-6">
+        <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
+            className="flex flex-col md:flex-row md:gap-40"
           >
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8D8C8F]">
-              <span className="size-1.5 rounded-full bg-[#8D8C8F]" />
-              Our Approach
-            </span>
-
-            <h2 className="font-serif mt-4 text-3xl font-bold text-[#045178] md:text-4xl leading-tight">
-              Governance First.<br/>
-              <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Compliance Second.</span>
-            </h2>
-
-            <p className="mt-6 text-base leading-relaxed text-[#045178]/70 md:text-lg">
-              Effective governance is not simply a compliance requirement.
-              It provides the framework through which an organisation{" "}
-              <span className="font-semibold text-[#045178]">
-                makes decisions, manages risk, allocates accountability and
-                protects stakeholder interests.
+            <div>
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8D8C8F]">
+                <span className="size-1.5 rounded-full bg-[#8D8C8F]" />
+                Our Approach
               </span>
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-[#045178]/70 md:text-lg">
-              Our advisory approach aligns governance and risk management
-              with the organisation&apos;s operating model and strategic
-              priorities.
-            </p>
 
-            <div className="relative mt-10 flex aspect-21/9 w-full items-center justify-center overflow-hidden rounded-3xl">
+              <h2 className="font-serif mt-4 text-3xl font-bold text-[#045178] md:text-4xl leading-tight">
+                Governance First.<br/>
+                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Compliance Second.</span>
+              </h2>
+
+              <p className="mt-6 text-base leading-relaxed text-[#045178]/70 md:text-lg">
+                Effective governance is not simply a compliance requirement.
+                It provides the framework through which an organisation{" "}
+                <span className="font-semibold text-[#045178]">
+                  makes decisions, manages risk, allocates accountability and
+                  protects stakeholder interests.
+                </span>
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-[#045178]/70 md:text-lg">
+                Our advisory approach aligns governance and risk management
+                with the organisation&apos;s operating model and strategic
+                priorities.
+              </p>
+            </div>
+            <div className="relative flex aspect-21/9 w-full items-center justify-center overflow-hidden rounded-3xl">
               <Image
                 src={monitoringImage}
                 alt="Analysts monitoring risk and governance dashboards"
@@ -397,7 +399,7 @@ export default function Page() {
                 href="/contact"
                 className="group flex items-center justify-between rounded-full bg-[#045178] hover:bg-[#045178] py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg"
               >
-                Discuss Your Governance & Risk Requirements
+                Talk to an Expert
                 <span className="ml-3 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#D9B872" />
                 </span>

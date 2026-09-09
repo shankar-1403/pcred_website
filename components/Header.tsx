@@ -35,6 +35,7 @@ export default function Header() {
     },
     {
       name: "Schemes",
+      link:"/schemes",
       children: schemes.map((scheme) => ({
         name: scheme.dropdown_label ?? "",
         link: `/scheme/${scheme.id}`,
@@ -43,10 +44,6 @@ export default function Header() {
     {
       name: "Blogs",
       link: "/blogs",
-    },
-    {
-      name: "Careers",
-      link: "/careers",
     },
     {
       name: "PCRED Group",

@@ -492,17 +492,8 @@ export default function Home() {
                   href="#contact"
                   className="group inline-flex items-center justify-between gap-3 rounded-full bg-[#045178] py-2 pl-4 pr-2 text-sm text-white shadow-md shadow-[#045178]/20 transition-all hover:-translate-y-0.5 hover:shadow-lg md:w-50"
                 >
-                  Talk to an Advisor
+                  Talk to an Expert
                   <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white/90">
-                    <IconArrowRight className="size-3.5" color="#045178" />
-                  </span>
-                </Link>
-                <Link
-                  href="/services/corporate-finance"
-                  className="group inline-flex items-center justify-between gap-3 rounded-full border border-[#045178]/15 bg-white py-2 pl-4 pr-2 text-sm text-[#045178] transition-all hover:-translate-y-0.5 hover:border-[#D9B872]/50 hover:shadow-md md:w-50"
-                >
-                  Our Services
-                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#045178]/6">
                     <IconArrowRight className="size-3.5" color="#045178" />
                   </span>
                 </Link>
@@ -937,56 +928,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why PCRED */}
-      <section className="relative border-t border-[#045178]/8 bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-14 max-w-2xl"
-          >
-            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
-              <span className="size-2 rounded-full bg-[#8D8C8F]" />
-              Why PCRED
-            </span>
-            <h2 className="font-serif text-3xl font-bold text-[#045178] md:text-4xl">
-              Advisory <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">With Perspective.</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2">
-            {whyPcred.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="flex gap-5"
-                >
-                  <span className="font-serif shrink-0 text-2xl font-bold leading-none text-[#045178]/20">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2.5">
-                      <Icon size={18} className="shrink-0 text-[#045178]" stroke={1.7} />
-                      <h3 className="text-lg font-semibold text-[#045178]">{item.title}</h3>
-                    </div>
-                    <p className="mt-2 text-sm leading-relaxed text-[#4a5568]">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section
         className="relative bg-cover bg-fixed bg-[65%_center] bg-no-repeat py-14 md:bg-center md:py-14"
@@ -1021,7 +962,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="w-full sm:w-auto"
           >
-            <Link href="/about-us" className="group flex items-center justify-between gap-3 rounded-4xl bg-[#045178] hover:bg-[#045178] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm">Discover Our Story
+            <Link href="/contact" className="group flex items-center justify-between gap-3 rounded-4xl bg-[#045178] hover:bg-[#045178] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm">Talk to an Expert
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                 <IconArrowRight className="size-4" color="#D9B872" />
               </span>
@@ -1095,9 +1036,7 @@ export default function Home() {
                           &ldquo;{activeReviewData.quote}&rdquo;
                         </p>
                         <div className="flex items-center gap-4">
-                          <div className="flex size-12 items-center justify-center rounded-full bg-white/15 text-sm font-semibold text-white ring-2 ring-white/20">
-                            {reviewInitials}
-                          </div>
+                          <div className="h-0.5 w-8 bg-[#b8892e] rounded-full"/>
                           <p className="text-sm font-semibold text-white/80">
                             {activeReviewData.role}
                           </p>

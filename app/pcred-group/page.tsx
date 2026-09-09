@@ -21,7 +21,7 @@ const companies = [
   },
   {
     number: "02",
-    name: "CredArc",
+    name: "Credarc",
     tagline: "AI-driven ESG intelligence for businesses and institutions",
     points: [
       "AI-driven ESG intelligence for businesses and institutions",
@@ -33,20 +33,7 @@ const companies = [
   },
   {
     number: "03",
-    name: "ECB",
-    tagline: "Empowering MSMEs with practical business guidance and growth solutions",
-    points: [
-      "Empowering MSMEs with practical business guidance and growth solutions",
-      "Connecting entrepreneurs with finance, experts, technology and government opportunities",
-      "End-to-end handholding for business growth, expansion and strategic decision-making",
-    ],
-    href: "https://ec-bharat.com",
-    logo: "/ecb-logo.webp",
-    logoSize: "h-11 w-28 sm:h-12 sm:w-32",
-  },
-  {
-    number: "04",
-    name: "PRIMACRED",
+    name: "Primacred",
     tagline: "Strategic advisory, finance & risk consulting for businesses that think ahead",
     points: [
       "Integrated financial advisory, risk consulting and underwriting support for growing businesses",
