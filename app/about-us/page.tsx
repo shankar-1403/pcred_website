@@ -50,7 +50,7 @@ const coreBeliefs = [
     description:
       "Through ethical practices, honest communication, and reliable support, we build long-term relationships founded on trust and accountability.",
   },
-];
+]; 
 
 export default function AboutUsPage() {
   return (
