@@ -32,7 +32,6 @@ const managementTeam: { name: string; designation: string; image: string | null;
   // slightly within the same fixed card frame so it reads at a similar size.
   { name: "Pooja Dubey", designation: "Co-Founder", image: "/team/management-2.png", imageScale: 1.12 },
   { name: "Ashwini Bhatia", designation: "Co-Founder", image: "/team/management-3.png" },
-  { name: "Team Member", designation: "Designation", image: null },
 ];
 
 const coreBeliefs = [
@@ -301,7 +300,7 @@ export default function AboutUsPage() {
                 transition={{ duration: 0.25, ease: "easeOut" }}
                 className="group overflow-hidden rounded-2xl border border-[#045178]/10 bg-white/90 shadow-[0_8px_30px_-12px_rgba(4,81,120,0.12)] backdrop-blur-sm transition-[border-color,box-shadow] duration-300 hover:border-[#D9B872]/45 hover:shadow-[0_16px_40px_-14px_rgba(4,81,120,0.16)]"
               >
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#045178]/5">
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-white">
                   {member.image ? (
                     <Image
                       src={member.image}
