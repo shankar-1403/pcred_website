@@ -343,17 +343,6 @@ export default function AboutUsPage() {
                 </span>
               </h2>
             </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.08 }}
-              className="max-w-md text-sm leading-relaxed text-[#545355] lg:text-right"
-            >
-              The principles that guide every advisory relationship — from capital
-              planning to long-term partnership.
-            </motion.p>
           </div>
 
           <motion.div
