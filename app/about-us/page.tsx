@@ -8,7 +8,7 @@ import AboutUsThree from "../../public/aboutpage3.png";
 import AboutUsTwo from "../../public/aboutpage2.png";
 import WhoWeAre from "../../public/who_we_are.webp";
 import MissionVisionBg from "../../public/site/aboutus_reception_interior.webp";
-import AboutHeroImage from "../../public/site/aboutus_hero_meeting.webp";
+import AboutHeroImage from "../../public/site/generated/aboutus_hero_banner.png";
 
 const aboutPillars = [
   {
@@ -59,7 +59,7 @@ export default function AboutUsPage() {
       <section className="relative overflow-hidden pt-36 pb-20 md:pb-24 min-h-[560px]">
         <Image
           src={AboutHeroImage}
-          alt="PCRED advisors in a client discussion"
+          alt="PCRED advisory office — building businesses through smart finance"
           fill
           priority
           className="object-cover"
