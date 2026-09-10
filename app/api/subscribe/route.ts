@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { google } from "googleapis";
-import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
 
@@ -77,55 +76,6 @@ async function appendToSheets(data: Record<string, string>) {
   });
 }
 
-async function sendConfirmation(email: string) {
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-
-  if (!user || !pass) {
-    console.warn("[subscribe] SMTP not configured — skipping confirmation email.");
-    return;
-  }
-
-  const transporter = nodemailer.createTransport({
-    host: "smtpout.secureserver.net",
-    port: 465,
-    secure: true,
-    auth: { user, pass },
-  });
-
-  const html = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-      <div style="background: #045178; padding: 28px 32px; border-radius: 12px 12px 0 0;">
-        <h1 style="margin: 0; color: #ffffff; font-size: 22px;">You're subscribed</h1>
-        <p style="margin: 6px 0 0; color: #DDB162; font-size: 14px;">PCRED Insights</p>
-      </div>
-      <div style="background: #f9fafb; padding: 28px 32px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 12px 12px;">
-        <p style="margin: 0 0 16px; line-height: 1.6;">Thank you for subscribing to PCRED updates.</p>
-        <p style="margin: 0 0 16px; line-height: 1.6;">
-          You'll receive our perspectives on funding, capital structure, government
-          schemes and growth strategy for Indian businesses — no more than a few
-          emails a month.
-        </p>
-        <p style="margin: 24px 0 0; line-height: 1.6;">
-          Warm regards,<br/>
-          <strong style="color:#045178;">PCRED Venture Pvt. Ltd.</strong>
-        </p>
-        <p style="margin: 24px 0 0; font-size: 12px; color: #9ca3af;">
-          You received this because ${email.replace(/[<>&"']/g, "")} was entered on pcred.org.
-          If this wasn't you, simply ignore this email.
-        </p>
-      </div>
-    </div>
-  `;
-
-  await transporter.sendMail({
-    from: `"PCRED" <${user}>`,
-    to: email,
-    subject: "You're subscribed to PCRED Insights",
-    html,
-  });
-}
-
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -151,19 +101,12 @@ export async function POST(request: Request) {
     await writeToDatabase(data);
 
     // Awaited, not fire-and-forget: on a serverless host the container can be
-    // frozen as soon as the response is returned, so detached promises here
-    // would frequently never reach Sheets or the SMTP server. Settled together
-    // so one failing side-effect can't discard the other.
-    const [sheets, mail] = await Promise.allSettled([
-      appendToSheets(data),
-      sendConfirmation(data.email),
-    ]);
-
-    if (sheets.status === "rejected") {
-      console.error("[subscribe] Sheets append failed:", sheets.reason);
-    }
-    if (mail.status === "rejected") {
-      console.error("[subscribe] Confirmation email failed:", mail.reason);
+    // frozen as soon as the response is returned, so a detached promise here
+    // would frequently never reach Sheets.
+    try {
+      await appendToSheets(data);
+    } catch (err) {
+      console.error("[subscribe] Sheets append failed:", err);
     }
 
     return NextResponse.json({ success: true });

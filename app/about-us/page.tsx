@@ -279,7 +279,7 @@ export default function AboutUsPage() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5 lg:grid-cols-4"
+            className="mx-auto grid max-w-7xl grid-cols-2 place-items-center gap-5 sm:grid-cols-3 sm:gap-8 lg:gap-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.12 }}
@@ -296,22 +296,27 @@ export default function AboutUsPage() {
                     transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
                   },
                 }}
-                whileHover={{ y: -4 }}
+                whileHover={{ y: -6 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="group overflow-hidden rounded-2xl border border-[#045178]/10 bg-white/90 shadow-[0_8px_30px_-12px_rgba(4,81,120,0.12)] backdrop-blur-sm transition-[border-color,box-shadow] duration-300 hover:border-[#D9B872]/45 hover:shadow-[0_16px_40px_-14px_rgba(4,81,120,0.16)]"
+                className="group relative w-full max-w-[400px] overflow-hidden rounded-3xl bg-linear-to-br from-[#8D8C8F]/10 via-white to-[#045178]/8 shadow-[0_2px_8px_-2px_rgba(4,81,120,0.08),0_20px_50px_-20px_rgba(4,81,120,0.18)] ring-1 ring-[#045178]/8 transition-shadow duration-300 hover:shadow-[0_2px_8px_-2px_rgba(4,81,120,0.08),0_30px_70px_-20px_rgba(4,81,120,0.32)]"
               >
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-white">
+                {/* Animated top accent bar — the same signature used on the
+                    PCRED Group cards, so this matches the site's established
+                    modern-card language instead of a one-off treatment. */}
+                <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-linear-to-r from-[#045178] via-[#D9B872] to-[#045178] bg-[length:200%_100%] transition-[background-position] duration-500 group-hover:bg-[position:100%_0]" />
+
+                <div className="relative aspect-[5/6] w-full overflow-hidden bg-white">
                   {member.image ? (
                     <Image
                       src={member.image}
                       alt={member.name}
                       fill
-                      className={`object-cover transition-transform duration-300 ${
+                      className={`object-cover transition-transform duration-500 ${
                         member.imageScale
                           ? "scale-[1.12] group-hover:scale-[1.18]"
-                          : "group-hover:scale-105"
+                          : "group-hover:scale-[1.04]"
                       }`}
-                      sizes="(min-width: 1024px) 22vw, (min-width: 768px) 30vw, 45vw"
+                      sizes="(min-width: 1024px) 26vw, (min-width: 768px) 34vw, 45vw"
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center">
@@ -320,11 +325,17 @@ export default function AboutUsPage() {
                   )}
                 </div>
 
-                <div className="px-4 py-4 text-center md:px-5">
-                  <h3 className="font-serif text-base font-semibold leading-snug text-[#045178] md:text-lg">
+                {/* Navy-gradient info panel — the same brand gradient used for
+                    CTAs elsewhere on the site — for real color contrast against
+                    the photo instead of a flat white-on-white footer. */}
+                <div className="relative overflow-hidden bg-brand-gradient-r px-6 py-6 text-center">
+                  <div className="pointer-events-none absolute -left-10 -top-10 size-28 rounded-full bg-white/5 blur-2xl" />
+                  <div className="pointer-events-none absolute -right-8 -bottom-10 size-28 rounded-full bg-gold-500/10 blur-2xl" />
+                  <span className="relative mx-auto mb-3 block h-px w-10 bg-linear-to-r from-transparent via-gold-300 to-transparent" />
+                  <h3 className="relative font-serif text-lg font-semibold leading-snug text-white md:text-xl">
                     {member.name}
                   </h3>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#8D8C8F] md:text-[13px]">
+                  <p className="relative mt-2 inline-block rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-300 ring-1 ring-white/10 md:text-xs">
                     {member.designation}
                   </p>
                 </div>
