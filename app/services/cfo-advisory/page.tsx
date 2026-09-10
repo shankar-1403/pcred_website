@@ -333,7 +333,7 @@ export default function Page() {
       </section>
 
       {/* CTA */}
-      <section className="py-16">
+      <section className="py-16 pb-20 md:pb-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -348,7 +348,7 @@ export default function Page() {
             <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
             <div className="pointer-events-none absolute bottom-0 right-32 size-40 rounded-full bg-[#D9B872]/10 blur-2xl" />
 
-            <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+            <div className="relative flex flex-col items-center text-center justify-between gap-8 md:flex-row md:items-center md:text-left">
               <div className="max-w-xl">
                 <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
                   <span className="size-2 rounded-full bg-[#D9B872]" />

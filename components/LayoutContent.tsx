@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import InternalHeader from "../components/InternalHeader";
 import Footer from "@/components/Footer";
+import SubscribeForm from "@/components/SubscribeForm";
 import { usePathname } from "next/navigation";
 import ProtectedRoute from "./ProtectedRoute";
 import TextReveal from "./TextReveal";
@@ -40,6 +41,7 @@ export default function LayoutContent({
       <TextReveal />
       <Header/>
       <main className="flex-1">{children}</main>
+      <SubscribeForm />
       <Footer />
     </>
   );

@@ -1112,7 +1112,10 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            <p className="mt-4 text-center text-sm text-[#045178]/60">
+            {/* data-no-reveal: TextReveal rewrites the text nodes of matched
+                paragraphs, which detaches the node React updates — without it
+                this counter freezes at its first rendered value. */}
+            <p data-no-reveal className="mt-4 text-center text-sm text-[#045178]/60">
               {String(activeReview + 1).padStart(2, "0")} /{" "}
               {String(reviews.length).padStart(2, "0")}
             </p>

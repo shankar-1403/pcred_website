@@ -658,7 +658,7 @@ export default function Scheme() {
           >
             <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-white/10 blur-2xl" />
 
-            <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+            <div className="relative flex flex-col items-center text-center justify-between gap-8 md:flex-row md:items-center md:text-left">
               <div className="max-w-2xl">
                 <h4 className="text-3xl font-semibold text-white md:text-4xl">
                   {scheme?.section_4_header}
@@ -740,7 +740,7 @@ export default function Scheme() {
         </div>
       </section>
 
-      <section className="pb-5">
+      <section className="pb-16 md:pb-20">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center text-xs leading-relaxed text-[#045178]" dangerouslySetInnerHTML={{__html: scheme.disclaimer ?? ""}}/>
         </div>

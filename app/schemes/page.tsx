@@ -141,7 +141,7 @@ export default function SchemesPage() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-16 pb-20 md:pb-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -155,7 +155,7 @@ export default function SchemesPage() {
             <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#045178]/50 blur-2xl" />
             <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
 
-            <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+            <div className="relative flex flex-col items-center text-center justify-between gap-8 md:flex-row md:items-center md:text-left">
               <div className="max-w-xl">
                 <h4 className="text-3xl font-semibold text-white md:text-4xl">
                   Not sure which scheme fits your needs?

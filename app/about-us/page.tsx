@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { IconTargetArrow, IconBulb, IconFlag3, IconChartLine, IconTrendingUp, IconUsers, IconShieldCheck, IconArrowRight } from "@tabler/icons-react";
+import { IconTargetArrow, IconBulb, IconFlag3, IconChartLine, IconTrendingUp, IconUsers, IconShieldCheck, IconArrowRight, IconUser } from "@tabler/icons-react";
 import Image from "next/image";
 import AboutUsThree from "../../public/aboutpage3.png";
 import AboutUsTwo from "../../public/aboutpage2.png";
@@ -23,6 +23,16 @@ const aboutPillars = [
     text: "To be a leading force in empowering businesses through strategic financial expertise, innovation, and growth-driven solutions.",
     number: "02",
   }
+];
+
+// Name/designation are placeholders pending final copy — photos are live.
+const managementTeam: { name: string; designation: string; image: string | null; imageScale?: number }[] = [
+  { name: "Vijay Sharma", designation: "Founder and CEO", image: "/team/management-1.png" },
+  // Her source photo is framed further back than the others — scale it up
+  // slightly within the same fixed card frame so it reads at a similar size.
+  { name: "Pooja Dubey", designation: "Co-Founder", image: "/team/management-2.png", imageScale: 1.12 },
+  { name: "Ashwini Bhatia", designation: "Co-Founder", image: "/team/management-3.png" },
+  { name: "Team Member", designation: "Designation", image: null },
 ];
 
 const coreBeliefs = [
@@ -242,6 +252,89 @@ export default function AboutUsPage() {
         </div>
       </section>
 
+      {/* ── MANAGEMENT TEAM ── */}
+      <section className="relative overflow-hidden bg-linear-to-br from-[#FAFAF9] via-white to-[#FBF6EC] py-12 md:py-16">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-24 -top-24 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 size-80 rounded-full bg-[#045178]/6 blur-3xl" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-8 max-w-xl md:mb-10"
+          >
+            <span className="mb-2 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#B8892E]">
+              <span className="size-1.5 rounded-full bg-[#D9B872]" />
+              The People Behind PCRED
+            </span>
+            <h2 className="font-serif text-3xl font-semibold text-[#045178] md:text-4xl">
+              Management{" "}
+              <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">
+                Team
+              </span>
+            </h2>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5 lg:grid-cols-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.12 }}
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
+          >
+            {managementTeam.map((member, i) => (
+              <motion.article
+                key={`${member.name}-${i}`}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+                  },
+                }}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="group overflow-hidden rounded-2xl border border-[#045178]/10 bg-white/90 shadow-[0_8px_30px_-12px_rgba(4,81,120,0.12)] backdrop-blur-sm transition-[border-color,box-shadow] duration-300 hover:border-[#D9B872]/45 hover:shadow-[0_16px_40px_-14px_rgba(4,81,120,0.16)]"
+              >
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#045178]/5">
+                  {member.image ? (
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className={`object-cover transition-transform duration-300 ${
+                        member.imageScale
+                          ? "scale-[1.12] group-hover:scale-[1.18]"
+                          : "group-hover:scale-105"
+                      }`}
+                      sizes="(min-width: 1024px) 22vw, (min-width: 768px) 30vw, 45vw"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center">
+                      <IconUser className="size-14 text-[#045178]/20" stroke={1.4} />
+                    </div>
+                  )}
+                </div>
+
+                <div className="px-4 py-4 text-center md:px-5">
+                  <h3 className="font-serif text-base font-semibold leading-snug text-[#045178] md:text-lg">
+                    {member.name}
+                  </h3>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#8D8C8F] md:text-[13px]">
+                    {member.designation}
+                  </p>
+                </div>
+              </motion.article>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── MISSION VISION AIM ── */}
       <section className="relative overflow-hidden py-12 md:py-16">
         <Image
@@ -395,7 +488,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16">
+      <section className="py-16 pb-20 md:pb-24">
         <div className="mx-auto max-w-7xl px-6">   
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -410,7 +503,7 @@ export default function AboutUsPage() {
             <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
             <div className="pointer-events-none absolute right-32 bottom-0 size-40 rounded-full bg-[#D9B872]/10 blur-2xl" />
 
-            <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+            <div className="relative flex flex-col items-center text-center justify-between gap-8 md:flex-row md:items-center md:text-left">
               <div className="max-w-xl">
                 <h5 className="text-3xl font-semibold text-white md:leading-14 md:text-4xl">
                   Looking for the Right

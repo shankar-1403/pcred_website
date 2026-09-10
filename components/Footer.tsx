@@ -30,7 +30,9 @@ export default function Footer() {
       <div className="pointer-events-none absolute -right-32 top-0 size-64 rounded-full bg-navy-400/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -left-32 size-80 rounded-full bg-gold-500/8 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-8">
+      {/* Extra top padding clears the lower half of the overlapping
+          subscribe card rendered just above the footer. */}
+      <div className="relative mx-auto max-w-7xl px-6 pt-32 pb-8 md:pt-36">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <Link href="/" className="relative inline-block">
