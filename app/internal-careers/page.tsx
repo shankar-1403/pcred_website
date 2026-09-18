@@ -2,11 +2,11 @@
 
 import React, { useState, type ChangeEvent, type FormEvent } from "react";
 import { db } from "@/src/lib/firebase";
-import { push, ref, set } from "firebase/database";
+import { push, ref, set, remove } from "firebase/database";
 import { useAuth } from "@/src/context/AuthContext";
 import { useCareers, type Career } from "@/src/hooks/useCareers";
 import { AnimatePresence, motion } from "motion/react";
-import { IconX } from "@tabler/icons-react";
+import { IconX, IconTrash } from "@tabler/icons-react";
 import TablePagination from "@/components/TablePagination";
 import { usePagination } from "@/src/hooks/usePagination";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
@@ -36,6 +36,7 @@ function CareersCMSPage() {
   const [requirements, setRequirements] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [editingCareerId, setEditingCareerId] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
   const {
     page: tablePage,
@@ -90,6 +91,23 @@ function CareersCMSPage() {
     setError("");
     setSuccess("");
     setModalOpen(true);
+  };
+
+  const handleDelete = async (career: Career) => {
+    if (!window.confirm(`Delete "${career.title || "this job"}"? This cannot be undone.`)) {
+      return;
+    }
+    setDeletingId(career.id);
+    setError("");
+    setSuccess("");
+    try {
+      await remove(ref(db, `careers/${career.id}`));
+      setSuccess("Job deleted successfully.");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Could not delete job.");
+    } finally {
+      setDeletingId(null);
+    }
   };
 
   async function handleSave(e: FormEvent) {
@@ -281,6 +299,12 @@ function CareersCMSPage() {
         </section>
 
         <section className="max-w-full rounded-xl border border-slate-800 [-webkit-overflow-scrolling:touch] overflow-hidden">
+          {!modalOpen && error ? (
+            <p className="m-3 rounded-4xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>
+          ) : null}
+          {!modalOpen && success ? (
+            <p className="m-3 rounded-4xl bg-green-50 px-4 py-3 text-sm text-green-700">{success}</p>
+          ) : null}
           <div className="overflow-x-auto">
             <table className="w-full min-w-190 table-auto text-left text-xs sm:text-sm">
               <thead className="border-b border-slate-800 bg-[#045178] text-sm uppercase text-white">
@@ -317,13 +341,24 @@ function CareersCMSPage() {
                         )}
                       </td>
                       <td className="px-4 py-2">
-                        <button
-                          type="button"
-                          onClick={() => handleEdit(career)}
-                          className="cursor-pointer rounded-xl bg-[#045178] px-3 py-1 text-xs text-white transition-colors hover:bg-[#045178]"
-                        >
-                          Edit
-                        </button>
+                        <div className="flex gap-2">
+                          <button
+                            type="button"
+                            onClick={() => handleEdit(career)}
+                            className="cursor-pointer rounded-xl bg-[#045178] px-3 py-1 text-xs text-white transition-colors hover:bg-[#045178]"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => handleDelete(career)}
+                            disabled={deletingId === career.id}
+                            className="flex cursor-pointer items-center gap-1 rounded-xl bg-red-500 px-3 py-1 text-xs text-white transition-colors hover:bg-red-600 disabled:cursor-not-allowed disabled:opacity-60"
+                          >
+                            <IconTrash className="size-3.5" />
+                            {deletingId === career.id ? "Deleting…" : "Delete"}
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))
