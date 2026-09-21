@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/pcred_footer_logo.webp";
+import logo from "../public/pcred_footer_logo.webp";
 import {
   IconMail,
   IconMapPin,
@@ -36,7 +36,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <Link href="/" className="relative inline-block">
-              <Image src={logo} alt="Pcred" width={140} height={60} className="relative h-14 w-auto" />
+              <Image src={logo.src} alt="Pcred" width={140} height={60} className="relative h-14 w-auto" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
               Strategic financial advisory solutions designed to strengthen and
