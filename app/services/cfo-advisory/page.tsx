@@ -74,9 +74,9 @@ export default function Page() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.58)_0%,rgba(4,81,120,0.46)_42%,rgba(4,81,120,0.18)_70%,rgba(4,81,120,0.08)_100%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.58)_0%,rgba(0,37,90,0.46)_42%,rgba(0,37,90,0.18)_70%,rgba(0,37,90,0.08)_100%),linear-gradient(to_top,rgba(0,37,90,0.28)_0%,transparent_40%)]" />
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#045178]/25 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#00255a]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -108,7 +108,7 @@ export default function Page() {
 
       {/* PERSPECTIVE */}
       <section className="relative overflow-hidden bg-white py-20 md:py-28">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#045178]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00255a]/5 blur-3xl" />
         <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#8D8C8F]/10 blur-3xl" />
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -122,7 +122,7 @@ export default function Page() {
                 <span className="size-2 rounded-full bg-[#8D8C8F]" />
                 Our Perspective
               </span>
-              <h2 className="font-serif text-3xl font-bold leading-snug text-[#045178] md:text-4xl">
+              <h2 className="font-serif text-3xl font-bold leading-snug text-[#00255a] md:text-4xl">
                 Should Build Clarity,
                 <br />
                 <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Not Simply Reports.</span>
@@ -144,12 +144,12 @@ export default function Page() {
                 ].map((item) => (
                   <div
                     key={item}
-                    className="flex items-center gap-3 rounded-2xl border border-[#045178]/10 bg-[#045178]/5 px-4 py-3"
+                    className="flex items-center gap-3 rounded-2xl border border-[#00255a]/10 bg-[#00255a]/5 px-4 py-3"
                   >
-                    <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#8D8C8F]/20 text-[#045178]">
+                    <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#8D8C8F]/20 text-[#00255a]">
                       <IconCheck size={14} stroke={2.5} />
                     </span>
-                    <span className="text-sm font-medium text-[#045178]">
+                    <span className="text-sm font-medium text-[#00255a]">
                       {item}
                     </span>
                   </div>
@@ -165,7 +165,7 @@ export default function Page() {
               className="relative overflow-hidden rounded-3xl"
             >
               <div className="absolute -inset-1 rounded-3xl border border-[#8D8C8F]/25" />
-              <div className="relative aspect-4/3 overflow-hidden rounded-3xl shadow-xl shadow-[#045178]/10">
+              <div className="relative aspect-4/3 overflow-hidden rounded-3xl shadow-xl shadow-[#00255a]/10">
                 <Image
                   src="/who_we_are.webp"
                   alt="CFO advisory"
@@ -173,7 +173,7 @@ export default function Page() {
                   className="object-cover"
                   sizes="(min-width: 1024px) 50vw, 100vw"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.58)_0%,rgba(4,81,120,0.46)_42%,rgba(4,81,120,0.18)_70%,rgba(4,81,120,0.08)_100%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.58)_0%,rgba(0,37,90,0.46)_42%,rgba(0,37,90,0.18)_70%,rgba(0,37,90,0.08)_100%),linear-gradient(to_top,rgba(0,37,90,0.28)_0%,transparent_40%)]" />
               </div>
             </motion.div>
           </div>
@@ -228,7 +228,7 @@ export default function Page() {
                   <div className="absolute inset-0 bg-linear-to-br from-[#D9B872]/0 to-[#D9B872]/5 opacity-0 transition-opacity group-hover:opacity-100" />
                   <div className="relative">
                     <div className="mb-5 flex items-center justify-between">
-                      <div className="inline-flex rounded-2xl bg-[#D9B872] p-3 text-[#045178]">
+                      <div className="inline-flex rounded-2xl bg-[#D9B872] p-3 text-[#00255a]">
                         <Icon size={24} stroke={1.8} />
                       </div>
                       <span className="text-xs font-bold tracking-[0.2em] text-white/35">
@@ -252,7 +252,7 @@ export default function Page() {
       {/* APPROACH */}
       <section className="relative isolate overflow-hidden bg-linear-to-br from-[#FAFAF9] via-white to-[#F1F0EF] py-20 md:py-28">
         <div className="pointer-events-none absolute -left-20 top-0 size-72 rounded-full bg-[#B8892E]/8 blur-[90px]" />
-        <div className="pointer-events-none absolute -right-16 bottom-0 size-80 rounded-full bg-[#045178]/6 blur-[90px]" />
+        <div className="pointer-events-none absolute -right-16 bottom-0 size-80 rounded-full bg-[#00255a]/6 blur-[90px]" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -268,15 +268,15 @@ export default function Page() {
                 Our Approach
               </span>
 
-              <h2 className="font-serif mt-4 text-3xl font-bold text-[#045178] md:text-4xl leading-tight">
+              <h2 className="font-serif mt-4 text-3xl font-bold text-[#00255a] md:text-4xl leading-tight">
                 Clarity First.<br/>
                 <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Decisions Second.</span>
               </h2>
 
-              <p className="mt-6 text-base leading-relaxed text-[#045178]/70 md:text-lg">
+              <p className="mt-6 text-base leading-relaxed text-[#00255a]/70 md:text-lg">
                 We focus on creating a financial function that provides
                 management with a clear view of{" "}
-                <span className="font-semibold text-[#045178]">
+                <span className="font-semibold text-[#00255a]">
                   where the business stands, where it is heading, what is
                   driving performance and what financial decisions need to be
                   made.
@@ -292,7 +292,7 @@ export default function Page() {
                 className="object-cover"
                 sizes="(min-width: 1024px) 60vw, 90vw"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.58)_0%,rgba(4,81,120,0.46)_42%,rgba(4,81,120,0.18)_70%,rgba(4,81,120,0.08)_100%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.58)_0%,rgba(0,37,90,0.46)_42%,rgba(0,37,90,0.18)_70%,rgba(0,37,90,0.08)_100%),linear-gradient(to_top,rgba(0,37,90,0.28)_0%,transparent_40%)]" />
             </div>
           </motion.div>
         </div>
@@ -343,8 +343,8 @@ export default function Page() {
             className="relative overflow-hidden rounded-3xl bg-cover bg-[80%_center] bg-no-repeat px-8 py-10 md:bg-center md:px-14"
             style={{ backgroundImage: "url('/right_advisor.webp')" }}
           >
-            <div className="absolute inset-0 bg-linear-to-br from-[#022436]/90 to-[#045178]/75" />
-            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#045178]/50 blur-2xl" />
+            <div className="absolute inset-0 bg-linear-to-br from-[#001538]/90 to-[#00255a]/75" />
+            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#00255a]/50 blur-2xl" />
             <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
             <div className="pointer-events-none absolute bottom-0 right-32 size-40 rounded-full bg-[#D9B872]/10 blur-2xl" />
 
@@ -367,7 +367,7 @@ export default function Page() {
 
               <Link
                 href="/contact"
-                className="group flex items-center justify-between rounded-full bg-[#045178] hover:bg-[#045178] py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                className="group flex items-center justify-between rounded-full bg-[#00255a] hover:bg-[#00255a] py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg"
               >
                 Talk to an Expert
                 <span className="ml-3 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">

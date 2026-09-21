@@ -23,9 +23,9 @@ export default function SchemesPage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.58)_0%,rgba(4,81,120,0.46)_42%,rgba(4,81,120,0.18)_70%,rgba(4,81,120,0.08)_100%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.58)_0%,rgba(0,37,90,0.46)_42%,rgba(0,37,90,0.18)_70%,rgba(0,37,90,0.08)_100%),linear-gradient(to_top,rgba(0,37,90,0.28)_0%,transparent_40%)]" />
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#045178]/25 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#00255a]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -57,7 +57,7 @@ export default function SchemesPage() {
       </section>
 
       <section className="relative overflow-hidden bg-linear-to-tr from-[#FAFAF9] via-white to-white py-20 md:py-24">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#045178]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00255a]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -68,18 +68,18 @@ export default function SchemesPage() {
             className="mb-14"
           >
             <div className="flex items-end justify-between gap-6">
-              <h2 className="font-serif text-3xl font-semibold text-[#045178] md:text-4xl leading-tight">
+              <h2 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl leading-tight">
                 Explore Our Schemes
               </h2>
             </div>
           </motion.div>
 
           {loading ? (
-            <div className="flex min-h-[30vh] items-center justify-center text-[#045178]">
+            <div className="flex min-h-[30vh] items-center justify-center text-[#00255a]">
               Loading schemes…
             </div>
           ) : schemes.length === 0 ? (
-            <div className="flex min-h-[30vh] items-center justify-center text-center text-[#045178]">
+            <div className="flex min-h-[30vh] items-center justify-center text-center text-[#00255a]">
               No schemes available right now. Please check back soon.
             </div>
           ) : (
@@ -98,7 +98,7 @@ export default function SchemesPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
-                    className="group relative flex flex-col rounded-2xl border border-[#045178]/12 transition-all duration-300 hover:shadow-xl overflow-hidden h-50"
+                    className="group relative flex flex-col rounded-2xl border border-[#00255a]/12 transition-all duration-300 hover:shadow-xl overflow-hidden h-50"
                   >
                     <div className="absolute inset-0">
                       <img
@@ -107,7 +107,7 @@ export default function SchemesPage() {
                         className="h-full w-full object-cover"
                       />
 
-                      <div className="absolute inset-0 bg-linear-to-r from-[#045178] from-35% via-[#045178]/40 via-65% to-transparent to-70%" />
+                      <div className="absolute inset-0 bg-linear-to-r from-[#00255a] from-35% via-[#00255a]/40 via-65% to-transparent to-70%" />
                     </div>
                     <div className="relative p-4">
                       <div className="mb-4 flex items-start justify-between relative">
@@ -151,8 +151,8 @@ export default function SchemesPage() {
             className="relative overflow-hidden rounded-4xl bg-cover bg-[80%_center] bg-no-repeat px-8 py-12 md:bg-center md:px-14 md:py-14"
             style={{ backgroundImage: "url('/right_advisor.webp')" }}
           >
-            <div className="absolute inset-0 bg-linear-to-br from-[#022436]/90 to-[#045178]/75" />
-            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#045178]/50 blur-2xl" />
+            <div className="absolute inset-0 bg-linear-to-br from-[#001538]/90 to-[#00255a]/75" />
+            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#00255a]/50 blur-2xl" />
             <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
 
             <div className="relative flex flex-col items-center text-center justify-between gap-8 md:flex-row md:items-center md:text-left">
@@ -166,7 +166,7 @@ export default function SchemesPage() {
               </div>
               <Link
                 href="/contact"
-                className="group flex items-center justify-between gap-2 rounded-full bg-[#045178] hover:bg-[#045178] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
+                className="group flex items-center justify-between gap-2 rounded-full bg-[#00255a] hover:bg-[#00255a] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
               >
                 Get In Touch
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">

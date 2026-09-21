@@ -39,15 +39,15 @@
 
   /* Dark → brand blue gradient for section backgrounds */
   .bg-brand-gradient {
-    background-image: linear-gradient(180deg, var(--color-brand-deep) 0%, #045178 100%);
+    background-image: linear-gradient(180deg, var(--color-brand-deep) 0%, var(--color-primary) 100%);
   }
 
   .bg-brand-gradient-br {
-    background-image: linear-gradient(135deg, var(--color-brand-deep) 0%, #045178 100%);
+    background-image: linear-gradient(135deg, var(--color-brand-deep) 0%, var(--color-primary) 100%);
   }
 
   .bg-brand-gradient-r {
-    background-image: linear-gradient(90deg, var(--color-brand-deep) 0%, #045178 100%);
+    background-image: linear-gradient(90deg, var(--color-brand-deep) 0%, var(--color-primary) 100%);
   }
 }
 
@@ -82,22 +82,23 @@
 }
 
 /*
- * Brand color system. Canonical dark blue: #045178 only.
- * Navy scale is derived from #045178 for tints/shades in utilities.
+ * Brand color system. Canonical primary: #00255A.
+ * Navy scale is derived from #00255A for tints/shades in utilities.
  */
 @theme {
-  --color-brand-deep: #022436;
-  --color-navy-50: #E8F2F7;
-  --color-navy-100: #C5DDE9;
-  --color-navy-200: #9FC5D9;
-  --color-navy-300: #6FA8C4;
-  --color-navy-400: #4589AD;
-  --color-navy-500: #045178;
-  --color-navy-600: #045178; /* canonical brand dark blue */
-  --color-navy-700: #045178;
-  --color-navy-800: #045178;
-  --color-navy-900: #045178; /* dark section fills */
-  --color-navy-950: #045178;
+  --color-primary: #00255a;
+  --color-brand-deep: #001538;
+  --color-navy-50: #E6EEF8;
+  --color-navy-100: #C2D4EC;
+  --color-navy-200: #8FAFDC;
+  --color-navy-300: #5586C8;
+  --color-navy-400: #2A6BB0;
+  --color-navy-500: #00255a;
+  --color-navy-600: #00255a; /* canonical brand primary */
+  --color-navy-700: #00255a;
+  --color-navy-800: #00255a;
+  --color-navy-900: #00255a;
+  --color-navy-950: #001538;
 
   --color-maroon-50: #FBEAEA;
   --color-maroon-100: #F3C7C8;

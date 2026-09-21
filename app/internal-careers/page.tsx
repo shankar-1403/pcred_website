@@ -155,10 +155,10 @@ function CareersCMSPage() {
       <div className="max-w-7xl mx-auto pt-20 space-y-6">
         <section className="flex justify-between">
           <div>
-            <h1 className="text-2xl font-semibold text-[#045178]">Careers master</h1>
+            <h1 className="text-2xl font-semibold text-[#00255a]">Careers master</h1>
           </div>
           <div>
-            <button onClick={handleOpen} className="text-sm font-medium bg-[#045178] text-white py-2 px-4 rounded-xl cursor-pointer">
+            <button onClick={handleOpen} className="text-sm font-medium bg-[#00255a] text-white py-2 px-4 rounded-xl cursor-pointer">
               Add Job
             </button>
           </div>
@@ -175,7 +175,7 @@ function CareersCMSPage() {
                   type="button"
                   aria-label="Close modal"
                   onClick={handleCloseModal}
-                  className="absolute inset-0 cursor-pointer bg-[#045178]/40 backdrop-blur-sm"
+                  className="absolute inset-0 cursor-pointer bg-[#00255a]/40 backdrop-blur-sm"
                 />
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95, y: 16 }}
@@ -184,16 +184,16 @@ function CareersCMSPage() {
                   transition={{ duration: 0.25 }}
                   className="relative z-10 max-h-[90vh] w-full max-w-7xl overflow-y-auto rounded-4xl bg-white shadow-2xl"
                 >
-                  <div className="sticky top-0 flex items-center justify-between border-b border-[#045178]/10 bg-white px-6 py-5">
+                  <div className="sticky top-0 flex items-center justify-between border-b border-[#00255a]/10 bg-white px-6 py-5">
                     <div>
-                      <h2 className="text-xl font-bold text-[#045178]">
+                      <h2 className="text-xl font-bold text-[#00255a]">
                         {editingCareerId ? "Edit Job" : "Add Job"}
                       </h2>
                     </div>
                     <button
                       type="button"
                       onClick={handleCloseModal}
-                      className="flex size-9 cursor-pointer items-center justify-center rounded-full border border-[#045178]/15 text-[#045178] transition-colors hover:bg-[#045178]/10"
+                      className="flex size-9 cursor-pointer items-center justify-center rounded-full border border-[#00255a]/15 text-[#00255a] transition-colors hover:bg-[#00255a]/10"
                     >
                       <IconX className="size-5" />
                     </button>
@@ -210,24 +210,24 @@ function CareersCMSPage() {
 
                       {/* Title */}
                       <div>
-                        <label htmlFor="title" className="mb-2 block text-sm font-medium text-[#045178]">Job Title *</label>
-                        <input id="title" name="title" required value={formData.title} onChange={handleChange} type="text" placeholder="e.g. Financial Analyst" className="border border-[#045178] rounded-4xl w-full py-2 px-3" />
+                        <label htmlFor="title" className="mb-2 block text-sm font-medium text-[#00255a]">Job Title *</label>
+                        <input id="title" name="title" required value={formData.title} onChange={handleChange} type="text" placeholder="e.g. Financial Analyst" className="border border-[#00255a] rounded-4xl w-full py-2 px-3" />
                       </div>
 
-                      <hr className="text-[#045178]" />
+                      <hr className="text-[#00255a]" />
 
                       <div className="grid gap-4 grid-cols-2">
                         <div>
-                          <label htmlFor="department" className="mb-2 block text-sm font-medium text-[#045178]">Department</label>
-                          <input id="department" name="department" value={formData.department} onChange={handleChange} type="text" placeholder="e.g. Advisory" className="border border-[#045178] rounded-4xl w-full py-2 px-3" />
+                          <label htmlFor="department" className="mb-2 block text-sm font-medium text-[#00255a]">Department</label>
+                          <input id="department" name="department" value={formData.department} onChange={handleChange} type="text" placeholder="e.g. Advisory" className="border border-[#00255a] rounded-4xl w-full py-2 px-3" />
                         </div>
                         <div>
-                          <label htmlFor="location" className="mb-2 block text-sm font-medium text-[#045178]">Location</label>
-                          <input id="location" name="location" value={formData.location} onChange={handleChange} type="text" placeholder="e.g. Mumbai" className="border border-[#045178] rounded-4xl w-full py-2 px-3" />
+                          <label htmlFor="location" className="mb-2 block text-sm font-medium text-[#00255a]">Location</label>
+                          <input id="location" name="location" value={formData.location} onChange={handleChange} type="text" placeholder="e.g. Mumbai" className="border border-[#00255a] rounded-4xl w-full py-2 px-3" />
                         </div>
                         <div>
-                          <label htmlFor="type" className="mb-2 block text-sm font-medium text-[#045178]">Job Type</label>
-                          <select id="type" name="type" value={formData.type} onChange={handleChange} className="border border-[#045178] rounded-4xl w-full py-2 px-3">
+                          <label htmlFor="type" className="mb-2 block text-sm font-medium text-[#00255a]">Job Type</label>
+                          <select id="type" name="type" value={formData.type} onChange={handleChange} className="border border-[#00255a] rounded-4xl w-full py-2 px-3">
                             <option value="">Select type</option>
                             <option value="Full-time">Full-time</option>
                             <option value="Part-time">Part-time</option>
@@ -236,23 +236,23 @@ function CareersCMSPage() {
                           </select>
                         </div>
                         <div>
-                          <label htmlFor="experience" className="mb-2 block text-sm font-medium text-[#045178]">Experience</label>
-                          <input id="experience" name="experience" value={formData.experience} onChange={handleChange} type="text" placeholder="e.g. 2-4 years" className="border border-[#045178] rounded-4xl w-full py-2 px-3" />
+                          <label htmlFor="experience" className="mb-2 block text-sm font-medium text-[#00255a]">Experience</label>
+                          <input id="experience" name="experience" value={formData.experience} onChange={handleChange} type="text" placeholder="e.g. 2-4 years" className="border border-[#00255a] rounded-4xl w-full py-2 px-3" />
                         </div>
                         <div>
-                          <label htmlFor="openings" className="mb-2 block text-sm font-medium text-[#045178]">No. of Openings</label>
-                          <input id="openings" name="openings" value={formData.openings} onChange={handleChange} type="number" min="1" placeholder="1" className="border border-[#045178] rounded-4xl w-full py-2 px-3" />
+                          <label htmlFor="openings" className="mb-2 block text-sm font-medium text-[#00255a]">No. of Openings</label>
+                          <input id="openings" name="openings" value={formData.openings} onChange={handleChange} type="number" min="1" placeholder="1" className="border border-[#00255a] rounded-4xl w-full py-2 px-3" />
                         </div>
                         <div className="flex items-center gap-3 pt-6">
-                          <input type="checkbox" id="active" name="active" checked={formData.active} onChange={handleChange} className="size-4 accent-[#045178]" />
-                          <label htmlFor="active" className="text-sm font-medium text-[#045178]">Active (visible on website)</label>
+                          <input type="checkbox" id="active" name="active" checked={formData.active} onChange={handleChange} className="size-4 accent-[#00255a]" />
+                          <label htmlFor="active" className="text-sm font-medium text-[#00255a]">Active (visible on website)</label>
                         </div>
                       </div>
 
-                      <hr className="text-[#045178]" />
+                      <hr className="text-[#00255a]" />
 
                       <div>
-                        <label className="mb-2 block text-sm font-medium text-[#045178]">Job Description</label>
+                        <label className="mb-2 block text-sm font-medium text-[#00255a]">Job Description</label>
                         <CKEditor
                           editor={ClassicEditor}
                           config={{
@@ -266,7 +266,7 @@ function CareersCMSPage() {
                       </div>
 
                       <div>
-                        <label className="mb-2 block text-sm font-medium text-[#045178]">Requirements</label>
+                        <label className="mb-2 block text-sm font-medium text-[#00255a]">Requirements</label>
                         <CKEditor
                           editor={ClassicEditor}
                           config={{
@@ -284,7 +284,7 @@ function CareersCMSPage() {
                           <button
                             type="submit"
                             disabled={loading}
-                            className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#045178] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#045178]/20 transition-colors hover:bg-[#045178] disabled:cursor-not-allowed disabled:opacity-60"
+                            className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#00255a] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#00255a]/20 transition-colors hover:bg-[#00255a] disabled:cursor-not-allowed disabled:opacity-60"
                           >
                             {loading ? "Saving…" : editingCareerId ? "Update" : "Submit"}
                           </button>
@@ -307,7 +307,7 @@ function CareersCMSPage() {
           ) : null}
           <div className="overflow-x-auto">
             <table className="w-full min-w-190 table-auto text-left text-xs sm:text-sm">
-              <thead className="border-b border-slate-800 bg-[#045178] text-sm uppercase text-white">
+              <thead className="border-b border-slate-800 bg-[#00255a] text-sm uppercase text-white">
                 <tr>
                   <th className="px-4 py-2 font-medium whitespace-nowrap">Job Title</th>
                   <th className="px-4 py-2 font-medium whitespace-nowrap">Department</th>
@@ -317,7 +317,7 @@ function CareersCMSPage() {
                   <th className="px-4 py-2 font-medium whitespace-nowrap">Action</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#045178]">
+              <tbody className="divide-y divide-[#00255a]">
                 {careersLoading ? (
                   <tr>
                     <td colSpan={6} className="px-4 py-6 text-center text-[#8E8E90]">Loading jobs…</td>
@@ -328,8 +328,8 @@ function CareersCMSPage() {
                   </tr>
                 ) : (
                   tablePageItems.map((career) => (
-                    <tr key={career.id} className="text-[#045178] text-sm">
-                      <td className="px-4 py-2 text-[#045178] max-w-xs truncate">{career.title || "Untitled"}</td>
+                    <tr key={career.id} className="text-[#00255a] text-sm">
+                      <td className="px-4 py-2 text-[#00255a] max-w-xs truncate">{career.title || "Untitled"}</td>
                       <td className="px-4 py-2 text-[#8E8E90]">{career.department || "N/A"}</td>
                       <td className="px-4 py-2 text-[#8E8E90]">{career.location || "N/A"}</td>
                       <td className="px-4 py-2 text-[#8E8E90]">{career.type || "N/A"}</td>
@@ -345,7 +345,7 @@ function CareersCMSPage() {
                           <button
                             type="button"
                             onClick={() => handleEdit(career)}
-                            className="cursor-pointer rounded-xl bg-[#045178] px-3 py-1 text-xs text-white transition-colors hover:bg-[#045178]"
+                            className="cursor-pointer rounded-xl bg-[#00255a] px-3 py-1 text-xs text-white transition-colors hover:bg-[#00255a]"
                           >
                             Edit
                           </button>

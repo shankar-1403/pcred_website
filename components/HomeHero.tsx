@@ -134,7 +134,7 @@ export function HomeHero() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.38)_0%,rgba(4,81,120,0.28)_42%,rgba(4,81,120,0.12)_70%,rgba(4,81,120,0.04)_100%),linear-gradient(to_top,rgba(4,81,120,0.16)_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.38)_0%,rgba(0,37,90,0.28)_42%,rgba(0,37,90,0.12)_70%,rgba(0,37,90,0.04)_100%),linear-gradient(to_top,rgba(0,37,90,0.16)_0%,transparent_40%)]" />
       </div>
 
       {/* Hero content — aligned with header (max-w-7xl px-6) */}
@@ -173,11 +173,11 @@ export function HomeHero() {
         <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
           <Link
             href="/schemes"
-            className="group flex items-center justify-between gap-3 rounded-4xl bg-[#045178] py-2 pl-4 pr-2 text-sm text-white shadow-md shadow-[#045178]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg md:w-44"
+            className="group flex items-center justify-between gap-3 rounded-4xl bg-[#00255a] py-2 pl-4 pr-2 text-sm text-white shadow-md shadow-[#00255a]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg md:w-44"
           >
             Our Schemes
             <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-              <IconArrowRight className="size-4" color="#045178" />
+              <IconArrowRight className="size-4" color="#00255a" />
             </span>
           </Link>
           <Link
@@ -186,7 +186,7 @@ export function HomeHero() {
           >
             Talk to an Expert
             <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-              <IconArrowRight className="size-4" color="#045178" />
+              <IconArrowRight className="size-4" color="#00255a" />
             </span>
           </Link>
         </div>

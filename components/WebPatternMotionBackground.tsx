@@ -12,7 +12,7 @@ export function WebPatternMotionBackground({
   overlayClassName = "",
 }: WebPatternMotionBackgroundProps) {
   return (
-    <div className={`pointer-events-none absolute inset-0 overflow-hidden bg-[#022436] ${className}`}>
+    <div className={`pointer-events-none absolute inset-0 overflow-hidden bg-[#001538] ${className}`}>
       <motion.div
         aria-hidden
         className="absolute -inset-[14%] motion-reduce:transform-none"
@@ -33,7 +33,7 @@ export function WebPatternMotionBackground({
         }}
       />
 
-      <div className="absolute inset-0 bg-linear-to-br from-[#022436]/20 via-transparent to-[#045178]/25" />
+      <div className="absolute inset-0 bg-linear-to-br from-[#001538]/20 via-transparent to-[#00255a]/25" />
       <div
         className={`absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(221,177,98,0.12),transparent_55%)] ${overlayClassName}`}
       />

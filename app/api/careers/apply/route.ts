@@ -110,7 +110,7 @@ async function sendEmail(data: {
 
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-      <div style="background: #045178; padding: 28px 32px; border-radius: 12px 12px 0 0;">
+      <div style="background: #00255a; padding: 28px 32px; border-radius: 12px 12px 0 0;">
         <h1 style="margin: 0; color: #ffffff; font-size: 22px;">New Job Application</h1>
         <p style="margin: 6px 0 0; color: #DDB162; font-size: 14px;">${esc(data.jobTitle)}</p>
       </div>
@@ -123,7 +123,7 @@ async function sendEmail(data: {
               <span style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">Full Name</span>
             </td>
             <td style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">
-              <span style="font-size: 15px; font-weight: 600; color: #045178;">${esc(data.name)}</span>
+              <span style="font-size: 15px; font-weight: 600; color: #00255a;">${esc(data.name)}</span>
             </td>
           </tr>
           <tr>
@@ -131,7 +131,7 @@ async function sendEmail(data: {
               <span style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">Email</span>
             </td>
             <td style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">
-              <a href="mailto:${encodeURIComponent(data.email)}" style="color: #045178; text-decoration: none;">${esc(data.email)}</a>
+              <a href="mailto:${encodeURIComponent(data.email)}" style="color: #00255a; text-decoration: none;">${esc(data.email)}</a>
             </td>
           </tr>
           <tr>
@@ -139,7 +139,7 @@ async function sendEmail(data: {
               <span style="font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">Phone</span>
             </td>
             <td style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">
-              <a href="tel:${encodeURIComponent(data.phone)}" style="color: #045178; text-decoration: none;">${esc(data.phone)}</a>
+              <a href="tel:${encodeURIComponent(data.phone)}" style="color: #00255a; text-decoration: none;">${esc(data.phone)}</a>
             </td>
           </tr>
           <tr>
@@ -164,7 +164,7 @@ async function sendEmail(data: {
         ${data.resumeUrl ? `
         <div style="margin-top: 24px; text-align: center;">
           <a href="${data.resumeUrl}"
-             style="display: inline-block; background: #045178; color: #ffffff; padding: 12px 28px; border-radius: 50px; font-size: 14px; font-weight: 600; text-decoration: none;">
+             style="display: inline-block; background: #00255a; color: #ffffff; padding: 12px 28px; border-radius: 50px; font-size: 14px; font-weight: 600; text-decoration: none;">
             View / Download Resume
           </a>
         </div>` : ""}

@@ -46,8 +46,8 @@ export function FontSizeToggle({ className = "" }: { className?: string }) {
         onClick={() => setIsOpen((prev) => !prev)}
         className={`flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-full border text-[0.8125rem] font-bold leading-none transition-colors ${
           isOpen
-            ? "border-[#045178] bg-[#045178] text-white"
-            : "border-[#045178]/15 bg-white/80 text-[#045178] hover:bg-[#045178]/10"
+            ? "border-[#00255a] bg-[#00255a] text-white"
+            : "border-[#00255a]/15 bg-white/80 text-[#00255a] hover:bg-[#00255a]/10"
         }`}
       >
         Aa
@@ -57,7 +57,7 @@ export function FontSizeToggle({ className = "" }: { className?: string }) {
         <div
           role="menu"
           aria-label="Text size"
-          className="absolute right-0 top-full z-50 mt-2 w-max rounded-2xl border border-[#045178]/10 bg-white p-3 shadow-xl shadow-[#045178]/10"
+          className="absolute right-0 top-full z-50 mt-2 w-max rounded-2xl border border-[#00255a]/10 bg-white p-3 shadow-xl shadow-[#00255a]/10"
         >
           <div className="flex items-center gap-2">
             {OPTIONS.map((option) => {
@@ -72,8 +72,8 @@ export function FontSizeToggle({ className = "" }: { className?: string }) {
                   onClick={() => setFontSize(option.value)}
                   className={`flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl border text-[0.8125rem] font-semibold leading-none transition-colors ${
                     isActive
-                      ? "border-[#045178] bg-[#045178] text-white"
-                      : "border-[#045178]/15 text-[#045178] hover:bg-[#045178]/10"
+                      ? "border-[#00255a] bg-[#00255a] text-white"
+                      : "border-[#00255a]/15 text-[#00255a] hover:bg-[#00255a]/10"
                   }`}
                 >
                   {option.label}

@@ -74,9 +74,9 @@ export default function AboutUsPage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.58)_0%,rgba(4,81,120,0.46)_42%,rgba(4,81,120,0.18)_70%,rgba(4,81,120,0.08)_100%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.58)_0%,rgba(0,37,90,0.46)_42%,rgba(0,37,90,0.18)_70%,rgba(0,37,90,0.08)_100%),linear-gradient(to_top,rgba(0,37,90,0.28)_0%,transparent_40%)]" />
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#045178]/25 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#00255a]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -108,8 +108,8 @@ export default function AboutUsPage() {
       </section>
 
       {/* ── WHO WE ARE ── */}
-      <section className="relative overflow-hidden bg-linear-to-bl from-[#045178]/8 via-white to-[#8D8C8F]/16 py-20 md:py-24">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#045178]/5 blur-3xl" />
+      <section className="relative overflow-hidden bg-linear-to-bl from-[#00255a]/8 via-white to-[#8D8C8F]/16 py-20 md:py-24">
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00255a]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 lg:h-[560px] [&>*]:min-w-0">
@@ -126,7 +126,7 @@ export default function AboutUsPage() {
                 {/* Diagonal light sweep */}
                 <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rotate-45 bg-linear-to-br from-white/8 to-transparent" />
                 {/* Bottom left deeper blue shadow */}
-                <div className="pointer-events-none absolute -bottom-10 -left-10 size-32 rounded-full bg-[#045178]/60 blur-2xl" style={{ zIndex: 0 }} />
+                <div className="pointer-events-none absolute -bottom-10 -left-10 size-32 rounded-full bg-[#00255a]/60 blur-2xl" style={{ zIndex: 0 }} />
                 {/* Gold accent glow */}
                 <div className="pointer-events-none absolute bottom-6 right-6 size-20 rounded-full bg-[#8D8C8F]/15 blur-xl" />
                 {/* Dot grid */}
@@ -151,27 +151,27 @@ export default function AboutUsPage() {
               transition={{ duration: 0.5, delay: 0.08 }}
               className="lg:col-span-2 lg:row-span-1"
             >
-              <div className="relative overflow-hidden rounded-3xl border border-[#045178]/15 bg-linear-to-br from-[#8D8C8F]/12 via-[#EEF6FB] to-[#045178]/25 p-7 h-full flex flex-col justify-center md:p-8">
+              <div className="relative overflow-hidden rounded-3xl border border-[#00255a]/15 bg-linear-to-br from-[#8D8C8F]/12 via-[#EEF6FB] to-[#00255a]/25 p-7 h-full flex flex-col justify-center md:p-8">
                 {/* Blue glow bottom-right */}
-                <div className="pointer-events-none absolute -bottom-6 -right-6 size-40 rounded-full bg-[#045178]/18 blur-2xl" />
+                <div className="pointer-events-none absolute -bottom-6 -right-6 size-40 rounded-full bg-[#00255a]/18 blur-2xl" />
                 {/* Gold glow top-left */}
                 <div className="pointer-events-none absolute -top-6 -left-6 size-24 rounded-full bg-[#8D8C8F]/15 blur-2xl" />
                 {/* Dot grid */}
-                <div className="pointer-events-none absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #045178 1px, transparent 0)", backgroundSize: "24px 24px" }} />
+                <div className="pointer-events-none absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #00255a 1px, transparent 0)", backgroundSize: "24px 24px" }} />
 
-                <h2 className="font-serif relative text-2xl font-semibold leading-snug text-[#045178] md:text-3xl lg:text-4xl">
+                <h2 className="font-serif relative text-2xl font-semibold leading-snug text-[#00255a] md:text-3xl lg:text-4xl">
                   Strategic financial guidance for business growth and clarity
                 </h2>
                 <p className="relative mt-3 text-sm leading-relaxed text-[#4a5568] max-w-full">
                   We work alongside businesses to build strong financial foundations, helping them navigate complexity, unlock capital, and grow with confidence.
                 </p>
                 <div className="relative mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:mt-2 lg:flex lg:gap-6">
-                  <div className="rounded-2xl bg-[#045178]/6 px-4 py-3">
-                    <span className="block text-2xl font-black text-[#045178]">98%</span>
+                  <div className="rounded-2xl bg-[#00255a]/6 px-4 py-3">
+                    <span className="block text-2xl font-black text-[#00255a]">98%</span>
                     <span className="text-xs text-[#4a5568] leading-tight">Client retention rate</span>
                   </div>
                   <div className="rounded-2xl bg-[#8D8C8F]/10 px-4 py-3">
-                    <span className="block text-2xl font-black text-[#045178]">₹1500Cr+</span>
+                    <span className="block text-2xl font-black text-[#00255a]">₹1500Cr+</span>
                     <span className="text-xs text-[#4a5568] leading-tight">Capital facilitated</span>
                   </div>
                 </div>
@@ -186,18 +186,18 @@ export default function AboutUsPage() {
               transition={{ duration: 0.5, delay: 0.12 }}
               className="md:col-span-2 lg:col-span-2 lg:row-span-1"
             >
-              <div className="relative overflow-hidden rounded-3xl border border-[#045178]/10 bg-linear-to-r from-[#045178]/8 to-[#8D8C8F]/10 h-full flex items-center">
-                <div className="pointer-events-none absolute left-0 top-0 h-full w-1 rounded-l-3xl bg-linear-to-b from-[#045178] to-[#8D8C8F]" />
+              <div className="relative overflow-hidden rounded-3xl border border-[#00255a]/10 bg-linear-to-r from-[#00255a]/8 to-[#8D8C8F]/10 h-full flex items-center">
+                <div className="pointer-events-none absolute left-0 top-0 h-full w-1 rounded-l-3xl bg-linear-to-b from-[#00255a] to-[#8D8C8F]" />
 
                 {/* Left text content */}
                 <div className="px-7 py-7 flex-1 md:px-9 md:py-8">
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F] mb-2">Our direction</p>
-                  <h3 className="text-lg font-bold text-[#045178] leading-snug max-w-sm">
+                  <h3 className="text-lg font-bold text-[#00255a] leading-snug max-w-sm">
                     Leading the Future of Financial Advisory for Businesses
                   </h3>
                   <Link
                     href="/contact"
-                    className="mt-5 shrink-0 group inline-flex items-center justify-between gap-2 rounded-full bg-[#045178] hover:bg-[#045178] pl-5 pr-2 py-2 text-sm font-semibold text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44"
+                    className="mt-5 shrink-0 group inline-flex items-center justify-between gap-2 rounded-full bg-[#00255a] hover:bg-[#00255a] pl-5 pr-2 py-2 text-sm font-semibold text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44"
                   >
                     Get Started
                     <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
@@ -209,7 +209,7 @@ export default function AboutUsPage() {
                 {/* Right image flush to border */}
                 <div className="relative h-full w-96 shrink-0 hidden lg:block">
                   <Image src={WhoWeAre} alt="Who We Are" fill className="object-cover" />
-                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.35)_0%,rgba(4,81,120,0.15)_35%,transparent_60%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.35)_0%,rgba(0,37,90,0.15)_35%,transparent_60%),linear-gradient(to_top,rgba(0,37,90,0.28)_0%,transparent_40%)]" />
                   <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-[#faf5ec] via-[#faf5ec]/60 to-transparent" />
                 </div>
               </div>
@@ -229,7 +229,7 @@ export default function AboutUsPage() {
                 {/* Bottom left shadow */}
                 <div className="pointer-events-none absolute -bottom-10 -left-10 size-32 rounded-full bg-[#3d2c0d]/50 blur-2xl" style={{ zIndex: 0 }} />
                 {/* Blue accent glow */}
-                <div className="pointer-events-none absolute bottom-6 right-6 size-20 rounded-full bg-[#045178]/10 blur-xl" />
+                <div className="pointer-events-none absolute bottom-6 right-6 size-20 rounded-full bg-[#00255a]/10 blur-xl" />
                 {/* Dot grid */}
                 <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "20px 20px" }} />
 
@@ -255,7 +255,7 @@ export default function AboutUsPage() {
       <section className="relative overflow-hidden bg-linear-to-br from-[#FAFAF9] via-white to-[#FBF6EC] py-12 md:py-16">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -right-24 -top-24 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
-          <div className="absolute -bottom-24 -left-24 size-80 rounded-full bg-[#045178]/6 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 size-80 rounded-full bg-[#00255a]/6 blur-3xl" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6">
@@ -270,7 +270,7 @@ export default function AboutUsPage() {
               <span className="size-1.5 rounded-full bg-[#D9B872]" />
               The People Behind PCRED
             </span>
-            <h2 className="font-serif text-3xl font-semibold text-[#045178] md:text-4xl">
+            <h2 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl">
               Management{" "}
               <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">
                 Team
@@ -298,12 +298,12 @@ export default function AboutUsPage() {
                 }}
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="group relative w-full max-w-[400px] overflow-hidden rounded-3xl bg-linear-to-br from-[#8D8C8F]/10 via-white to-[#045178]/8 shadow-[0_2px_8px_-2px_rgba(4,81,120,0.08),0_20px_50px_-20px_rgba(4,81,120,0.18)] ring-1 ring-[#045178]/8 transition-shadow duration-300 hover:shadow-[0_2px_8px_-2px_rgba(4,81,120,0.08),0_30px_70px_-20px_rgba(4,81,120,0.32)]"
+                className="group relative w-full max-w-[400px] overflow-hidden rounded-3xl bg-linear-to-br from-[#8D8C8F]/10 via-white to-[#00255a]/8 shadow-[0_2px_8px_-2px_rgba(0,37,90,0.08),0_20px_50px_-20px_rgba(0,37,90,0.18)] ring-1 ring-[#00255a]/8 transition-shadow duration-300 hover:shadow-[0_2px_8px_-2px_rgba(0,37,90,0.08),0_30px_70px_-20px_rgba(0,37,90,0.32)]"
               >
                 {/* Animated top accent bar — the same signature used on the
                     PCRED Group cards, so this matches the site's established
                     modern-card language instead of a one-off treatment. */}
-                <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-linear-to-r from-[#045178] via-[#D9B872] to-[#045178] bg-[length:200%_100%] transition-[background-position] duration-500 group-hover:bg-[position:100%_0]" />
+                <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-linear-to-r from-[#00255a] via-[#D9B872] to-[#00255a] bg-[length:200%_100%] transition-[background-position] duration-500 group-hover:bg-[position:100%_0]" />
 
                 <div className="relative aspect-[5/6] w-full overflow-hidden bg-white">
                   {member.image ? (
@@ -320,7 +320,7 @@ export default function AboutUsPage() {
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center">
-                      <IconUser className="size-14 text-[#045178]/20" stroke={1.4} />
+                      <IconUser className="size-14 text-[#00255a]/20" stroke={1.4} />
                     </div>
                   )}
                 </div>
@@ -354,15 +354,15 @@ export default function AboutUsPage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.94)_0%,rgba(4,81,120,0.82)_38%,rgba(4,81,120,0.65)_68%,rgba(4,81,120,0.5)_100%),linear-gradient(to_top,rgba(4,81,120,0.45)_0%,transparent_45%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.94)_0%,rgba(0,37,90,0.82)_38%,rgba(0,37,90,0.65)_68%,rgba(0,37,90,0.5)_100%),linear-gradient(to_top,rgba(0,37,90,0.45)_0%,transparent_45%)]" />
         {/* Gold hairline divider at top */}
         <div className="pointer-events-none absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-linear-to-r from-transparent via-[#D9B872]/30 to-transparent" />
 
         {/* Ambient depth — overhead spotlight + vignette so the section reads as a lit space */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/2 top-0 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-[#D9B872]/8 blur-3xl" />
-          <div className="absolute left-1/2 top-1/3 h-[380px] w-[1100px] -translate-x-1/2 rounded-full bg-[#045178]/20 blur-3xl" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.94)_0%,rgba(4,81,120,0.82)_38%,rgba(4,81,120,0.65)_68%,rgba(4,81,120,0.5)_100%),linear-gradient(to_top,rgba(4,81,120,0.45)_0%,transparent_45%)]" />
+          <div className="absolute left-1/2 top-1/3 h-[380px] w-[1100px] -translate-x-1/2 rounded-full bg-[#00255a]/20 blur-3xl" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.94)_0%,rgba(0,37,90,0.82)_38%,rgba(0,37,90,0.65)_68%,rgba(0,37,90,0.5)_100%),linear-gradient(to_top,rgba(0,37,90,0.45)_0%,transparent_45%)]" />
           <div className="absolute inset-0 shadow-[inset_0_0_150px_55px_rgba(0,20,35,0.55)]" />
         </div>
 
@@ -423,7 +423,7 @@ export default function AboutUsPage() {
       <section className="relative overflow-hidden bg-linear-to-br from-[#FAFAF9] via-white to-[#FBF6EC] py-12 md:py-16">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -right-24 -top-24 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
-          <div className="absolute -bottom-24 -left-24 size-80 rounded-full bg-[#045178]/6 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 size-80 rounded-full bg-[#00255a]/6 blur-3xl" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6">
@@ -439,7 +439,7 @@ export default function AboutUsPage() {
                 <span className="size-1.5 rounded-full bg-[#D9B872]" />
                 What Drives Us
               </span>
-              <h2 className="font-serif text-3xl font-semibold text-[#045178] md:text-4xl">
+              <h2 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl">
                 Our Core{" "}
                 <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">
                   Beliefs
@@ -468,21 +468,21 @@ export default function AboutUsPage() {
                 }}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className="group relative overflow-hidden rounded-2xl border border-[#045178]/10 bg-white/90 p-5 shadow-[0_8px_30px_-12px_rgba(4,81,120,0.12)] backdrop-blur-sm transition-[border-color,box-shadow] duration-300 hover:border-[#D9B872]/45 hover:shadow-[0_16px_40px_-14px_rgba(4,81,120,0.16)] md:p-6"
+                className="group relative overflow-hidden rounded-2xl border border-[#00255a]/10 bg-white/90 p-5 shadow-[0_8px_30px_-12px_rgba(0,37,90,0.12)] backdrop-blur-sm transition-[border-color,box-shadow] duration-300 hover:border-[#D9B872]/45 hover:shadow-[0_16px_40px_-14px_rgba(0,37,90,0.16)] md:p-6"
               >
-                <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-[#D9B872]/0 via-transparent to-[#045178]/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-[#D9B872]/0 via-transparent to-[#00255a]/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#D9B872]/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                 <div className="relative flex items-start justify-between gap-3">
-                  <div className="inline-flex size-10 items-center justify-center rounded-xl bg-brand-gradient-br text-[#D9B872] shadow-md shadow-[#045178]/18 transition-transform duration-300 group-hover:scale-105">
+                  <div className="inline-flex size-10 items-center justify-center rounded-xl bg-brand-gradient-br text-[#D9B872] shadow-md shadow-[#00255a]/18 transition-transform duration-300 group-hover:scale-105">
                     <belief.icon className="size-5" stroke={1.6} />
                   </div>
-                  <span className="font-serif text-3xl font-bold leading-none text-[#045178]/8 transition-colors duration-300 group-hover:text-[#D9B872]/25">
+                  <span className="font-serif text-3xl font-bold leading-none text-[#00255a]/8 transition-colors duration-300 group-hover:text-[#D9B872]/25">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
 
-                <h3 className="relative mt-4 font-serif text-lg font-semibold leading-snug text-[#045178] md:text-xl">
+                <h3 className="relative mt-4 font-serif text-lg font-semibold leading-snug text-[#00255a] md:text-xl">
                   {belief.title}
                 </h3>
 
@@ -508,8 +508,8 @@ export default function AboutUsPage() {
             className="relative overflow-hidden rounded-3xl bg-cover bg-[80%_center] bg-no-repeat px-8 py-10 md:bg-center md:px-14"
             style={{ backgroundImage: "url('/right_advisor.webp')" }}
           >
-            <div className="absolute inset-0 bg-linear-to-br from-[#022436]/90 to-[#045178]/75" />
-            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#045178]/50 blur-2xl" />
+            <div className="absolute inset-0 bg-linear-to-br from-[#001538]/90 to-[#00255a]/75" />
+            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#00255a]/50 blur-2xl" />
             <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
             <div className="pointer-events-none absolute right-32 bottom-0 size-40 rounded-full bg-[#D9B872]/10 blur-2xl" />
 
@@ -527,7 +527,7 @@ export default function AboutUsPage() {
 
               <Link
                 href="/contact"
-                className="group flex items-center justify-between gap-2 rounded-full bg-[#045178] hover:bg-[#045178] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
+                className="group flex items-center justify-between gap-2 rounded-full bg-[#00255a] hover:bg-[#00255a] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
               >
                 Get In Touch
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">

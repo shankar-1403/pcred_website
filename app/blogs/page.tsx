@@ -17,9 +17,9 @@ function BlogCard({ blog, index }: { blog: Blog; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: (index % 3) * 0.08 }}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-navy-900/8 bg-white shadow-[0_16px_40px_-28px_rgba(4,81,120,0.35)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_56px_-28px_rgba(4,81,120,0.4)]"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-navy-900/8 bg-white shadow-[0_16px_40px_-28px_rgba(0,37,90,0.35)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_56px_-28px_rgba(0,37,90,0.4)]"
     >
-      <div className="relative aspect-video overflow-hidden bg-[#045178]/5">
+      <div className="relative aspect-video overflow-hidden bg-[#00255a]/5">
         {blog.cover_image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -28,9 +28,9 @@ function BlogCard({ blog, index }: { blog: Blog; index: number }) {
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="h-full w-full bg-linear-to-br from-[#045178]/10 to-[#8D8C8F]/10" />
+          <div className="h-full w-full bg-linear-to-br from-[#00255a]/10 to-[#8D8C8F]/10" />
         )}
-        <div className="absolute inset-0 bg-linear-to-t from-[#045178]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#00255a]/60 via-transparent to-transparent" />
       </div>
 
       <div className="flex flex-1 flex-col p-6">
@@ -49,7 +49,7 @@ function BlogCard({ blog, index }: { blog: Blog; index: number }) {
           )}
         </div>
 
-        <h3 className="mb-3 line-clamp-2 text-xl font-semibold leading-snug text-[#045178] transition-colors group-hover:text-[#045178]">
+        <h3 className="mb-3 line-clamp-2 text-xl font-semibold leading-snug text-[#00255a] transition-colors group-hover:text-[#00255a]">
           {blog.title}
         </h3>
 
@@ -59,7 +59,7 @@ function BlogCard({ blog, index }: { blog: Blog; index: number }) {
 
         <Link
           href={`/blogs/${blog.id}`}
-          className="inline-flex w-fit items-center gap-1.5 border-b-2 border-[#045178] pb-1 text-xs font-semibold uppercase tracking-wider text-[#045178] transition-colors hover:border-[#8D8C8F] hover:text-[#045178]"
+          className="inline-flex w-fit items-center gap-1.5 border-b-2 border-[#00255a] pb-1 text-xs font-semibold uppercase tracking-wider text-[#00255a] transition-colors hover:border-[#8D8C8F] hover:text-[#00255a]"
         >
           Read article
           <IconArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -100,9 +100,9 @@ export default function BlogsPage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(4,81,120,0.58)_0%,rgba(4,81,120,0.46)_42%,rgba(4,81,120,0.18)_70%,rgba(4,81,120,0.08)_100%),linear-gradient(to_top,rgba(4,81,120,0.28)_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.58)_0%,rgba(0,37,90,0.46)_42%,rgba(0,37,90,0.18)_70%,rgba(0,37,90,0.08)_100%),linear-gradient(to_top,rgba(0,37,90,0.28)_0%,transparent_40%)]" />
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#045178]/25 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#00255a]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -133,7 +133,7 @@ export default function BlogsPage() {
       </section>
 
       <section className="relative overflow-hidden bg-[conic-gradient(from_200deg_at_20%_-10%,white,rgba(141,140,143,0.12),white_60%)] py-20 md:py-24">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#045178]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00255a]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           {loading ? (
@@ -147,15 +147,15 @@ export default function BlogsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4 }}
-                className="mt-14 grid grid-cols-3 gap-x-6 gap-y-6 border-t border-[#045178]/8 pt-10"
+                className="mt-14 grid grid-cols-3 gap-x-6 gap-y-6 border-t border-[#00255a]/8 pt-10"
               >
                 {[
                   { value: blogs.length, label: "Published articles" },
                   { value: new Set(blogs.map((b) => b.category).filter(Boolean)).size, label: "Topics covered" },
                   { value: new Set(blogs.map((b) => b.author).filter(Boolean)).size, label: "Contributing authors" },
                 ].map((stat) => (
-                  <div key={stat.label} className="relative border-l border-[#045178]/10 pl-5 first:border-l-0 first:pl-0">
-                    <span className="font-serif block text-3xl font-bold leading-none text-[#045178] md:text-4xl">
+                  <div key={stat.label} className="relative border-l border-[#00255a]/10 pl-5 first:border-l-0 first:pl-0">
+                    <span className="font-serif block text-3xl font-bold leading-none text-[#00255a] md:text-4xl">
                       {stat.value}
                     </span>
                     <span className="mt-2 block text-xs leading-snug text-[#4a5568] md:text-sm">
@@ -174,7 +174,7 @@ export default function BlogsPage() {
                     transition={{ duration: 0.5 }}
                     className="mt-24 mb-10"
                   >
-                    <h2 className="font-serif text-3xl font-semibold text-[#045178] md:text-4xl">Featured Article</h2>
+                    <h2 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl">Featured Article</h2>
                   </motion.div>
 
                   <motion.div
@@ -182,9 +182,9 @@ export default function BlogsPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="group relative mb-16 grid overflow-hidden rounded-3xl border border-navy-900/8 bg-white shadow-[0_24px_60px_-32px_rgba(4,81,120,0.4)] transition-all duration-300 hover:-translate-y-1 md:grid-cols-5"
+                    className="group relative mb-16 grid overflow-hidden rounded-3xl border border-navy-900/8 bg-white shadow-[0_24px_60px_-32px_rgba(0,37,90,0.4)] transition-all duration-300 hover:-translate-y-1 md:grid-cols-5"
                   >
-                    <div className="relative aspect-video overflow-hidden bg-[#045178]/5 md:col-span-3">
+                    <div className="relative aspect-video overflow-hidden bg-[#00255a]/5 md:col-span-3">
                       {featuredBlog.cover_image ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
@@ -193,14 +193,14 @@ export default function BlogsPage() {
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                       ) : (
-                        <div className="h-full w-full bg-linear-to-br from-[#045178]/10 to-[#8D8C8F]/10" />
+                        <div className="h-full w-full bg-linear-to-br from-[#00255a]/10 to-[#8D8C8F]/10" />
                       )}
-                      <div className="absolute inset-0 bg-linear-to-t from-[#045178]/60 via-transparent to-transparent md:bg-linear-to-r md:from-transparent md:via-transparent md:to-[#045178]/60" />
+                      <div className="absolute inset-0 bg-linear-to-t from-[#00255a]/60 via-transparent to-transparent md:bg-linear-to-r md:from-transparent md:via-transparent md:to-[#00255a]/60" />
                     </div>
                     <div className="relative flex flex-col justify-center p-8 md:col-span-2 md:p-12">
                       <div className="pointer-events-none absolute left-0 top-10 bottom-10 hidden w-px bg-[#8D8C8F]/40 md:block" />
                       {featuredBlog.category && (
-                        <span className="mb-4 w-fit rounded-full border border-[#045178]/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#045178]">
+                        <span className="mb-4 w-fit rounded-full border border-[#00255a]/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#00255a]">
                           {featuredBlog.category}
                         </span>
                       )}
@@ -218,7 +218,7 @@ export default function BlogsPage() {
                           </span>
                         )}
                       </div>
-                      <h3 className="mb-4 line-clamp-2 text-2xl font-bold leading-snug text-[#045178] md:text-3xl">
+                      <h3 className="mb-4 line-clamp-2 text-2xl font-bold leading-snug text-[#00255a] md:text-3xl">
                         {featuredBlog.title}
                       </h3>
                       <p className="mb-8 line-clamp-2 text-base leading-relaxed text-[#8E8E90]">
@@ -226,7 +226,7 @@ export default function BlogsPage() {
                       </p>
                       <Link
                         href={`/blogs/${featuredBlog.id}`}
-                        className="group/btn inline-flex w-fit items-center gap-2 border-b-2 border-[#045178] pb-1 text-sm font-semibold uppercase tracking-wider text-[#045178] transition-colors hover:border-[#8D8C8F] hover:text-[#045178]"
+                        className="group/btn inline-flex w-fit items-center gap-2 border-b-2 border-[#00255a] pb-1 text-sm font-semibold uppercase tracking-wider text-[#00255a] transition-colors hover:border-[#8D8C8F] hover:text-[#00255a]"
                       >
                         Read article
                         <IconArrowRight className="size-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
@@ -246,7 +246,7 @@ export default function BlogsPage() {
                       transition={{ duration: 0.5 }}
                       className="mb-10"
                     >
-                      <h2 className="font-serif text-3xl font-semibold text-[#045178] md:text-4xl">Latest Articles</h2>
+                      <h2 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl">Latest Articles</h2>
                     </motion.div>
                   </div>
 
@@ -261,7 +261,7 @@ export default function BlogsPage() {
                       <button
                         onClick={() => goToPage(currentPage - 1)}
                         disabled={currentPage === 1}
-                        className="flex size-10 items-center justify-center rounded-full border border-[#045178]/20 text-[#045178] transition-all hover:border-[#045178] hover:bg-[#045178]/5 disabled:pointer-events-none disabled:opacity-30"
+                        className="flex size-10 items-center justify-center rounded-full border border-[#00255a]/20 text-[#00255a] transition-all hover:border-[#00255a] hover:bg-[#00255a]/5 disabled:pointer-events-none disabled:opacity-30"
                       >
                         <IconChevronLeft className="size-4" />
                       </button>
@@ -272,8 +272,8 @@ export default function BlogsPage() {
                           onClick={() => goToPage(page)}
                           className={`flex size-10 items-center justify-center rounded-full text-sm font-semibold transition-all ${
                             page === currentPage
-                              ? "bg-[#045178] text-white shadow-md"
-                              : "border border-[#045178]/20 text-[#045178] hover:border-[#045178] hover:bg-[#045178]/5"
+                              ? "bg-[#00255a] text-white shadow-md"
+                              : "border border-[#00255a]/20 text-[#00255a] hover:border-[#00255a] hover:bg-[#00255a]/5"
                           }`}
                         >
                           {page}
@@ -283,7 +283,7 @@ export default function BlogsPage() {
                       <button
                         onClick={() => goToPage(currentPage + 1)}
                         disabled={currentPage === totalPages}
-                        className="flex size-10 items-center justify-center rounded-full border border-[#045178]/20 text-[#045178] transition-all hover:border-[#045178] hover:bg-[#045178]/5 disabled:pointer-events-none disabled:opacity-30"
+                        className="flex size-10 items-center justify-center rounded-full border border-[#00255a]/20 text-[#00255a] transition-all hover:border-[#00255a] hover:bg-[#00255a]/5 disabled:pointer-events-none disabled:opacity-30"
                       >
                         <IconChevronRight className="size-4" />
                       </button>

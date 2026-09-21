@@ -170,7 +170,7 @@ export const NavItems = ({
               onMouseLeave={closeMenu}
             >
               <div className="mx-auto max-w-7xl pt-2">
-                <div className="overflow-hidden rounded-2xl border border-navy-900/8 bg-white shadow-[0_24px_80px_-24px_rgba(4,81,120,0.35)]">
+                <div className="overflow-hidden rounded-2xl border border-navy-900/8 bg-white shadow-[0_24px_80px_-24px_rgba(0,37,90,0.35)]">
                   {/* Mega-menu header */}
                   <div className="border-b border-navy-900/6 bg-stone-50 px-8 py-4">
                     <p className="font-sans text-xs font-semibold uppercase tracking-[0.22em] text-navy-700/50">
@@ -181,7 +181,7 @@ export const NavItems = ({
                   {/* Mega-menu content */}
                   <div className="p-8">
                     {item.children.length === 0 ? (
-                      <p className="text-sm italic text-[#045178]/40">
+                      <p className="text-sm italic text-[#00255a]/40">
                         More schemes coming soon.
                       </p>
                     ) : (
@@ -191,7 +191,7 @@ export const NavItems = ({
                             key={child.link}
                             href={child.link!}
                             onClick={onItemClick}
-                            className="group/item flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-medium text-[#045178] transition-all hover:bg-gold-500/8"
+                            className="group/item flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-medium text-[#00255a] transition-all hover:bg-gold-500/8"
                           >
                             <span className="size-1.5 shrink-0 rounded-full bg-gold-500" />
 
@@ -256,7 +256,7 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "fixed inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-b-2xl bg-brand-gradient px-6 py-8 shadow-[0_24px_60px_-16px_rgba(4,81,120,0.55)]",
+            "fixed inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-b-2xl bg-brand-gradient px-6 py-8 shadow-[0_24px_60px_-16px_rgba(0,37,90,0.55)]",
             className,
           )}
         >
