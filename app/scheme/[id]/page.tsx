@@ -158,7 +158,7 @@ function ApplyModal({
             <div className="p-6">
               {submitted ? (
                 <div className="flex flex-col items-center py-8 text-center">
-                  <div className="mb-4 flex size-14 items-center justify-center rounded-full bg-[#00255a]/10 text-[#00255a]">
+                  <div className="mb-4 flex size-14 items-center justify-center rounded-full bg-[#00b2fc]/10 text-[#00255a]">
                     <IconCheck className="size-7" />
                   </div>
                   <h3 className="text-xl font-bold text-[#00255a]">Application Submitted!</h3>
@@ -312,7 +312,7 @@ function ApplyModal({
 
                   <button
                     type="submit"
-                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#00255a] px-6 py-4 text-base font-semibold text-[#D9B872] shadow-lg shadow-[#00255a]/20 transition-colors hover:bg-[#00255a]"
+                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#00255a] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#00255a]/20 transition-colors hover:bg-[#00255a]"
                   >
                     Submit Application
                     <IconSend className="size-5 transition-transform group-hover:translate-x-0.5" />
@@ -347,7 +347,7 @@ function FaqItem({
       >
         <span className="font-semibold text-white text-sm md:text-lg">{question}</span>
         <IconChevronDown
-          className={`size-5 shrink-0 text-[#D9B872] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+          className={`size-5 shrink-0 text-[#00b2fc] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
       <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 bg-white"}`}>
@@ -434,7 +434,7 @@ export default function Scheme() {
                 ) : null}
             </div>
             <h1 className="font-serif text-3xl font-bold leading-tight text-[#00255a] md:text-4xl lg:text-5xl">
-              {scheme.section_1_header} <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">{scheme.section_1_subheader}</span>
+              {scheme.section_1_header} <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">{scheme.section_1_subheader}</span>
             </h1>
             {scheme.section_1_description ? (
               <div className="text-sm text-[#00255a] mt-3 md:text-base md:mt-4" dangerouslySetInnerHTML={{
@@ -664,9 +664,9 @@ export default function Scheme() {
                   {scheme?.section_4_header}
                 </h4>
                 <p className="mt-3 text-white/80 text-sm md:text-lg">{scheme?.section_4_description}</p>
-                <p className="mt-3 font-semibold text-[#D9B872] text-sm md:text-lg">{scheme?.section_4_tagline}</p>
+                <p className="mt-3 font-semibold text-[#00b2fc] text-sm md:text-lg">{scheme?.section_4_tagline}</p>
               </div>
-              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between gap-3 rounded-4xl bg-[#00255a] hover:bg-[#00255a] pl-4 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-48 text-sm">Check Eligibility
+              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between gap-3 rounded-4xl bg-[#00255a] hover:bg-[#0037d8] pl-4 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-48 text-sm">Check Eligibility
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#8D8C8F" />
                 </span>

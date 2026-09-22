@@ -411,11 +411,11 @@ export default function Home() {
       <section className="relative overflow-hidden bg-brand-gradient py-4 md:py-5">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -left-24 top-1/2 size-56 -translate-y-1/2 rounded-full bg-white/5 blur-3xl" />
-          <div className="absolute -right-24 top-0 size-64 rounded-full bg-[#D9B872]/8 blur-3xl" />
+          <div className="absolute -right-24 top-0 size-64 rounded-full bg-[#00b2fc]/8 blur-3xl" />
         </div>
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/6 backdrop-blur-sm">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#D9B872]/60 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#00b2fc]/60 to-transparent" />
             <div className="grid grid-cols-2 sm:grid-cols-4 sm:divide-x sm:divide-white/10">
               {[
                 { value: "16+", label: "Years of advisory experience", accent: "Track Record" },
@@ -435,7 +435,7 @@ export default function Home() {
                     <span className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/45">
                       {stat.accent}
                     </span>
-                    <span className="size-1.5 rounded-full bg-[#D9B872]/80" />
+                    <span className="size-1.5 rounded-full bg-[#00b2fc]/80" />
                   </div>
                   <span className="font-serif block text-2xl font-bold leading-none text-white md:text-[1.75rem]">
                     {stat.value}
@@ -459,8 +459,8 @@ export default function Home() {
             backgroundSize: "28px 28px",
           }}
         />
-        <div className="pointer-events-none absolute -left-32 top-1/4 size-72 rounded-full bg-[#D9B872]/10 blur-[90px]" />
-        <div className="pointer-events-none absolute -right-24 bottom-0 size-64 rounded-full bg-[#00255a]/8 blur-[80px]" />
+        <div className="pointer-events-none absolute -left-32 top-1/4 size-72 rounded-full bg-[#00b2fc]/10 blur-[90px]" />
+        <div className="pointer-events-none absolute -right-24 bottom-0 size-64 rounded-full bg-[#00b2fc]/8 blur-[80px]" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-8 lg:grid-cols-5 lg:gap-10">
@@ -471,13 +471,13 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               className="order-1 flex flex-col justify-center lg:col-span-2"
             >
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#B8892E]">
-                <span className="size-2 rounded-full bg-[#D9B872]" />
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#0037d8]">
+                <span className="size-2 rounded-full bg-[#00b2fc]" />
                 Our Purpose
               </span>
               <h2 className="font-serif text-3xl font-semibold leading-tight text-[#00255a] md:text-4xl">
                 Structure First.<br />
-                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text font-bold text-transparent">
+                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text font-bold text-transparent">
                   Capital Second.
                 </span>
               </h2>
@@ -507,7 +507,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.08 }}
               className="relative order-2 lg:col-span-3"
             >
-              <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-[#D9B872]/20 to-[#00255a]/10 blur-sm lg:-inset-3" />
+              <div className="absolute -inset-2 rounded-2xl bg-linear-to-br from-[#00b2fc]/20 to-[#00255a]/10 blur-sm lg:-inset-3" />
               <div className="relative aspect-[5/3] overflow-hidden rounded-2xl border border-white/60 shadow-[0_20px_48px_-18px_rgba(0,37,90,0.3)] sm:aspect-[16/10] lg:aspect-[16/11] lg:min-h-[380px]">
                 <video
                   src={'/banner.mp4'}
@@ -519,7 +519,7 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-linear-to-tr from-[#001538]/50 via-transparent to-[#00255a]/20" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-1.5 rounded-full border border-white/20 bg-black/30 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.14em] text-white/90 backdrop-blur-md">
-                  <span className="size-1.5 animate-pulse rounded-full bg-[#D9B872]" />
+                  <span className="size-1.5 animate-pulse rounded-full bg-[#00b2fc]" />
                   Structure before capital
                 </div>
               </div>
@@ -542,7 +542,7 @@ export default function Home() {
               className="relative order-2 pb-8 lg:order-1 lg:pb-6"
             >
               <div className="relative">
-                <div className="absolute -inset-2 rounded-[1.5rem] border border-[#D9B872]/25 sm:-inset-3" />
+                <div className="absolute -inset-2 rounded-[1.5rem] border border-[#00b2fc]/25 sm:-inset-3" />
                 <div className="relative overflow-hidden rounded-2xl">
                   <Image
                     src={whoWeAreImage}
@@ -562,7 +562,7 @@ export default function Home() {
                       Years of Experience • Years of Experience • Years of Experience •
                     </SpinningText>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="flex size-14 items-center justify-center rounded-full bg-[#D9B872] shadow-[0_12px_32px_-8px_rgba(0,0,0,0.45)] sm:size-16 lg:size-[4.5rem]">
+                      <div className="flex size-14 items-center justify-center rounded-full bg-[#00b2fc] shadow-[0_12px_32px_-8px_rgba(0,0,0,0.45)] sm:size-16 lg:size-[4.5rem]">
                         <span className="font-serif text-xl font-bold text-white sm:text-2xl lg:text-3xl">16+</span>
                       </div>
                     </div>
@@ -578,14 +578,14 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="order-1 lg:order-2"
             >
-              <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
-                <span className="size-2 rounded-full bg-[#D9B872]" />
+              <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
+                <span className="size-2 rounded-full bg-[#00b2fc]" />
                 Who We Are
               </span>
 
               <h2 className="font-serif text-3xl font-semibold leading-tight text-white md:text-4xl">
                 Strategic Advisors for Businesses
-                <span className="mt-1 block bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">
+                <span className="mt-1 block bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">
                   That Think Long-Term
                 </span>
               </h2>
@@ -634,7 +634,7 @@ export default function Home() {
               <h2 className="font-serif text-3xl font-semibold text-[#00255a] leading-12 md:text-4xl">
                 One Advisory Partner.
                 <br />
-                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Every stage of growth.</span>
+                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Every stage of growth.</span>
               </h2>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-[#00255a]/70 md:text-lg">
                 From ambitious startups to established enterprises, we support businesses
@@ -666,8 +666,8 @@ export default function Home() {
       {/* Platform / Capabilities Section */}
       <section className="relative overflow-hidden bg-brand-gradient py-16 md:py-20">
         <div className="pointer-events-none absolute inset-0 opacity-10">
-          <div className="absolute -right-52 -top-52 size-150 rounded-full border border-[#D9B872]" />
-          <div className="absolute -bottom-52 -left-52 size-125 rounded-full border border-[#D9B872]" />
+          <div className="absolute -right-52 -top-52 size-150 rounded-full border border-[#00b2fc]" />
+          <div className="absolute -bottom-52 -left-52 size-125 rounded-full border border-[#00b2fc]" />
         </div>
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(141,140,143,0.08),transparent_70%)]" />
 
@@ -679,13 +679,13 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="mb-8 max-w-xl md:mb-10"
           >
-            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
-              <span className="size-2 rounded-full bg-[#D9B872]" />
+            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
+              <span className="size-2 rounded-full bg-[#00b2fc]" />
               Strategic Advantage
             </span>
             <h2 className="font-serif text-3xl font-semibold leading-tight text-white md:text-4xl">
               Trusted by Businesses.
-              <span className="mt-1 block bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">
+              <span className="mt-1 block bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">
                 Driven by Results.
               </span>
             </h2>
@@ -706,7 +706,7 @@ export default function Home() {
                 <div
                   key={feature.title}
                   className={`relative overflow-hidden rounded-2xl border transition-colors duration-300 ${isActive
-                      ? "border-[#D9B872]/40"
+                      ? "border-[#00b2fc]/40"
                       : "border-white/10"
                     }`}
                 >
@@ -729,7 +729,7 @@ export default function Home() {
                     aria-expanded={isActive}
                   >
                     <span
-                      className={`font-serif text-lg font-bold ${isActive ? "text-[#D9B872]" : "text-white/50"
+                      className={`font-serif text-lg font-bold ${isActive ? "text-[#00b2fc]" : "text-white/50"
                         }`}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -742,7 +742,7 @@ export default function Home() {
                     </span>
                     <span
                       className={`flex size-9 shrink-0 items-center justify-center rounded-full transition-colors ${isActive
-                          ? "bg-[#D9B872] text-[#00255a]"
+                          ? "bg-[#00b2fc] text-[#00255a]"
                           : "border border-white/30 bg-white/10 text-white"
                         }`}
                     >
@@ -764,14 +764,14 @@ export default function Home() {
                         <div className="border-t border-white/10 px-4 pb-5 pt-3">
                           <div className="flex items-start justify-between gap-3">
                             <div>
-                              <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#D9B872]">
+                              <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#00b2fc]">
                                 {feature.subtitle}
                               </span>
                               <p className="mt-2 text-sm leading-relaxed text-white/80">
                                 {feature.description}
                               </p>
                             </div>
-                            <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#D9B872] text-[#00255a]">
+                            <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#00b2fc] text-[#00255a]">
                               <Icon size={18} stroke={1.8} />
                             </div>
                           </div>
@@ -799,7 +799,7 @@ export default function Home() {
                 <div
                   key={feature.title}
                   className={`relative flex h-full overflow-hidden rounded-2xl border transition-[flex-grow,border-color] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${isActive
-                      ? "flex-[3.4] border-[#D9B872]/50"
+                      ? "flex-[3.4] border-[#00b2fc]/50"
                       : "flex-[0.58] border-white/15"
                     }`}
                 >
@@ -827,7 +827,7 @@ export default function Home() {
                       aria-label={`Open ${feature.title}`}
                       className="relative z-10 flex h-full w-full flex-col items-center justify-between px-3 py-6 text-left transition-colors hover:bg-white/5"
                     >
-                      <span className="font-serif text-xl font-bold text-[#D9B872]">
+                      <span className="font-serif text-xl font-bold text-[#00b2fc]">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span
@@ -836,7 +836,7 @@ export default function Home() {
                       >
                         {feature.title}
                       </span>
-                      <span className="flex size-10 items-center justify-center rounded-full border border-[#D9B872]/50 bg-[#D9B872] text-[#00255a] shadow-lg shadow-black/20 transition-transform group-hover:scale-105">
+                      <span className="flex size-10 items-center justify-center rounded-full border border-[#00b2fc]/50 bg-[#00b2fc] text-[#00255a] shadow-lg shadow-black/20 transition-transform group-hover:scale-105">
                         <IconChevronRight className="size-4" stroke={2} />
                       </span>
                     </button>
@@ -846,18 +846,18 @@ export default function Home() {
                   {isActive && (
                     <div className="relative z-10 flex h-full min-w-0 flex-1 flex-col p-6 xl:p-8">
                       <div className="flex justify-end">
-                        <div className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[#D9B872] text-[#00255a]">
+                        <div className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[#00b2fc] text-[#00255a]">
                           <Icon size={20} stroke={1.8} />
                         </div>
                       </div>
 
                       <div className="mt-auto flex items-end justify-between gap-4">
                         <div className="min-w-0 max-w-lg">
-                          <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
+                          <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
                             {feature.subtitle}
                           </span>
                           <h3 className="mt-2 font-serif text-2xl font-bold text-white xl:text-3xl">
-                            <span className="mr-2 font-serif text-lg font-bold text-[#D9B872]">
+                            <span className="mr-2 font-serif text-lg font-bold text-[#00b2fc]">
                               {String(i + 1).padStart(2, "0")}
                             </span>
                             {feature.title}
@@ -869,7 +869,7 @@ export default function Home() {
                         <button
                           type="button"
                           onClick={() => setActiveFeature((i + 1) % features.length)}
-                          className="mb-1 flex shrink-0 items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition-colors hover:border-[#D9B872]/50 hover:bg-[#D9B872]/15"
+                          className="mb-1 flex shrink-0 items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition-colors hover:border-[#00b2fc]/50 hover:bg-[#0037d8]/15"
                         >
                           Next
                           <IconChevronRight className="size-3.5" />
@@ -901,7 +901,7 @@ export default function Home() {
               </span>
 
               <h2 className="text-3xl font-semibold leading-tight text-[#00255a] md:text-4xl">
-                Trusted <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Banking Partners</span>
+                Trusted <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Banking Partners</span>
               </h2>
             </motion.div>
           </div>
@@ -947,7 +947,7 @@ export default function Home() {
             <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
               Looking for the Right
               <br />
-              <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Financial Partner?</span>
+              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Financial Partner?</span>
             </h2>
             <p className="mt-3 text-sm text-white/70 md:text-lg">
               Our Corporate Advisory advisory experts help businesses secure funding, optimize
@@ -962,9 +962,9 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="w-full sm:w-auto"
           >
-            <Link href="/contact" className="group flex items-center justify-between gap-3 rounded-4xl bg-[#00255a] hover:bg-[#00255a] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm">Talk to an Expert
+            <Link href="/contact" className="group flex items-center justify-between gap-3 rounded-4xl bg-[#00255a] hover:bg-[#0037d8] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm">Talk to an Expert
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                <IconArrowRight className="size-4" color="#D9B872" />
+                <IconArrowRight className="size-4" color="#00b2fc" />
               </span>
             </Link>
           </motion.div>
@@ -973,7 +973,7 @@ export default function Home() {
 
       {/* Reviews Section */}
       <section className="relative overflow-hidden bg-linear-to-b from-white via-[#FBF9F3] to-white py-20 md:py-28">
-        <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-[#00255a]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-[#00b2fc]/5 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 -left-32 size-96 rounded-full bg-[#5BBCEB]/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
@@ -993,7 +993,7 @@ export default function Home() {
               <h2 className="text-3xl font-semibold leading-tight text-[#00255a] md:text-4xl">
                 Trusted by Businesses
                 <br />
-                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Across India</span>
+                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Across India</span>
               </h2>
             </div>
 
@@ -1002,7 +1002,7 @@ export default function Home() {
                 <p className="text-3xl font-bold text-[#00255a]">4.7</p>
                 <div className="mt-1 flex justify-center gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <IconStarFilled key={i} className="size-4 text-[#b8892e]" />
+                    <IconStarFilled key={i} className="size-4 text-[#0037d8]" />
                   ))}
                 </div>
               </div>
@@ -1036,7 +1036,7 @@ export default function Home() {
                           &ldquo;{activeReviewData.quote}&rdquo;
                         </p>
                         <div className="flex items-center gap-4">
-                          <div className="h-0.5 w-8 bg-[#b8892e] rounded-full"/>
+                          <div className="h-0.5 w-8 bg-[#0037d8] rounded-full"/>
                           <p className="text-sm font-semibold text-white/80">
                             {activeReviewData.role}
                           </p>
@@ -1050,7 +1050,7 @@ export default function Home() {
                             return (
                               <IconStarFilled
                                 key={i}
-                                className="size-5 text-[#b8892e]"
+                                className="size-5 text-[#0037d8]"
                               />
                             );
                           }
@@ -1059,7 +1059,7 @@ export default function Home() {
                             return (
                               <IconStarHalfFilled
                                 key={i}
-                                className="size-5 text-[#b8892e]"
+                                className="size-5 text-[#0037d8]"
                               />
                             );
                           }
@@ -1067,7 +1067,7 @@ export default function Home() {
                           return (
                             <IconStar
                               key={i}
-                              className="size-5 text-[#b8892e]"
+                              className="size-5 text-[#0037d8]"
                             />
                           );
                         })}
@@ -1128,7 +1128,7 @@ export default function Home() {
         id="contact"
         className="relative overflow-hidden bg-linear-to-b from-[#00255a]/20 via-white to-[#8D8C8F]/15 py-20 md:py-28"
       >
-        <div className="pointer-events-none absolute -left-40 top-20 size-80 rounded-full bg-[#00255a]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -left-40 top-20 size-80 rounded-full bg-[#00b2fc]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -1144,7 +1144,7 @@ export default function Home() {
             </span>
             <h2 className="text-3xl font-semibold leading-tight md:text-4xl text-[#00255a]">
               {"Let's Start a "}
-              <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Conversation</span>
+              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Conversation</span>
             </h2>
             <p className="mt-5 text-base leading-relaxed md:text-lg text-[#00255a]/80">
               Tell us about your business goals. Our advisory team will respond within one business day.
@@ -1159,7 +1159,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="relative overflow-hidden rounded-3xl border border-[#00255a]/10 bg-white p-8 shadow-[0_1px_3px_rgba(0,37,90,0.06),0_25px_50px_-15px_rgba(0,37,90,0.3)] transition-shadow duration-300 hover:shadow-[0_1px_3px_rgba(0,37,90,0.06),0_35px_60px_-15px_rgba(0,37,90,0.4)] md:p-10"
             >
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#D9B872]/70 to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#00b2fc]/70 to-transparent" />
               <form onSubmit={handleFormSubmit} className="relative space-y-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
@@ -1219,7 +1219,7 @@ export default function Home() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#00255a] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#00255a]/25 transition-all duration-300 hover:bg-[#00255a] hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#00255a] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#00255a]/25 transition-all duration-300 hover:bg-[#0037d8] hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {loading ? "Sending…" : "Send Message"}
                   {!loading && <IconSend className="size-5 transition-transform group-hover:translate-x-1" />}
@@ -1228,7 +1228,7 @@ export default function Home() {
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-3 rounded-xl bg-[#00255a]/8 px-4 py-3 text-sm text-[#00255a]"
+                    className="flex items-center gap-3 rounded-xl bg-[#00b2fc]/8 px-4 py-3 text-sm text-[#00255a]"
                   >
                     <IconCheck className="size-5 shrink-0" />
                     <span>Message sent! Our team will get back to you shortly.</span>

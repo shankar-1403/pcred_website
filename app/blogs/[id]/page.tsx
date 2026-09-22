@@ -34,7 +34,7 @@ export default function BlogDetailPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-linear-to-b from-white to-[#FBF9F3] pt-36 pb-16">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00255a]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00b2fc]/5 blur-3xl" />
         <div className="relative mx-auto max-w-4xl px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <Link

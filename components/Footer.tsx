@@ -25,10 +25,7 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-brand-gradient-r text-white">
-      <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-gold-300/70 to-transparent" />
-      <div className="pointer-events-none absolute -right-32 top-0 size-64 rounded-full bg-navy-400/15 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-32 -left-32 size-80 rounded-full bg-gold-500/8 blur-3xl" />
+    <footer className="relative overflow-hidden bg-[#00255a] text-white">
 
       {/* Extra top padding clears the lower half of the overlapping
           subscribe card rendered just above the footer. */}

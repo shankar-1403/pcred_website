@@ -416,7 +416,7 @@ function BlogsCMSPage() {
                       <td className="px-4 py-2 text-[#8E8E90]">{blog.date || "N/A"}</td>
                       <td className="px-4 py-2">
                         {blog.featured ? (
-                          <span className="rounded-full bg-[#B8892E]/15 px-2 py-0.5 text-xs font-semibold text-[#B8892E]">Yes</span>
+                          <span className="rounded-full bg-[#0037d8]/15 px-2 py-0.5 text-xs font-semibold text-[#0037d8]">Yes</span>
                         ) : "N/A"}
                       </td>
                       <td className="px-4 py-2">

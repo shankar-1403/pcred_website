@@ -101,8 +101,8 @@ export default function BlogsPage() {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.58)_0%,rgba(0,37,90,0.46)_42%,rgba(0,37,90,0.18)_70%,rgba(0,37,90,0.08)_100%),linear-gradient(to_top,rgba(0,37,90,0.28)_0%,transparent_40%)]" />
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#00255a]/25 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00b2fc]/8 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#00b2fc]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -111,21 +111,21 @@ export default function BlogsPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <span className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
-              <span className="size-2 rounded-full bg-[#D9B872]" />
+            <span className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
+              <span className="size-2 rounded-full bg-[#00b2fc]" />
               Blog & Resources
             </span>
             <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
               Financial Advisory
               <br />
-              <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Blog & Resources</span>
+              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Blog & Resources</span>
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
               Expert perspectives on funding, growth strategy, and financial planning for businesses and enterprises.
             </p>
             <div className="mt-10 flex items-center">
               <div className="h-px w-40 bg-white/15" />
-              <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#D9B872]/60" />
+              <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#00b2fc]/60" />
               <div className="h-px w-24 bg-white/15" />
             </div>
           </motion.div>
@@ -133,7 +133,7 @@ export default function BlogsPage() {
       </section>
 
       <section className="relative overflow-hidden bg-[conic-gradient(from_200deg_at_20%_-10%,white,rgba(141,140,143,0.12),white_60%)] py-20 md:py-24">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00255a]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00b2fc]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           {loading ? (

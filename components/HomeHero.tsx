@@ -214,7 +214,7 @@ export function HomeHero() {
                 onClick={() => goToSlide(index)}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
                   index === activeSlide
-                    ? "w-7 bg-[#D9B872]"
+                    ? "w-7 bg-[#00b2fc]"
                     : "w-1.5 bg-white/40 hover:bg-white/70"
                 }`}
               />

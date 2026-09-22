@@ -61,8 +61,8 @@ export default function Page() {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.58)_0%,rgba(0,37,90,0.46)_42%,rgba(0,37,90,0.18)_70%,rgba(0,37,90,0.08)_100%),linear-gradient(to_top,rgba(0,37,90,0.28)_0%,transparent_40%)]" />
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#00255a]/25 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00b2fc]/8 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#00b2fc]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
@@ -71,13 +71,13 @@ export default function Page() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
-                <span className="size-2 rounded-full bg-[#D9B872]" />
+              <span className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
+                <span className="size-2 rounded-full bg-[#00b2fc]" />
                 PCRED Group
               </span>
               <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
                 A Group Built Around <br />
-                <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Financial Trust.</span>
+                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Financial Trust.</span>
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
                 The PCRED Group brings together specialised companies working
@@ -86,7 +86,7 @@ export default function Page() {
               </p>
               <div className="mt-10 flex items-center">
                 <div className="h-px w-40 bg-white/15" />
-                <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#D9B872]/60" />
+                <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#00b2fc]/60" />
                 <div className="h-px w-24 bg-white/15" />
               </div>
             </motion.div>
@@ -147,7 +147,7 @@ export default function Page() {
               Our Companies
             </span>
             <h2 className="font-serif text-3xl font-bold text-[#00255a] md:text-4xl">
-              Part of the <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">PCRED Family.</span>
+              Part of the <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">PCRED Family.</span>
             </h2>
           </motion.div>
 
@@ -203,7 +203,7 @@ export default function Page() {
                     href={company.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex w-fit items-center gap-1.5 pt-8 text-sm font-semibold text-[#00255a] underline decoration-[#b8892e]/40 decoration-2 underline-offset-4 transition-all hover:decoration-[#b8892e] hover:text-[#00255a]"
+                    className="mt-auto inline-flex w-fit items-center gap-1.5 pt-8 text-sm font-semibold text-[#00255a] underline decoration-[#0037d8]/40 decoration-2 underline-offset-4 transition-all hover:decoration-[#0037d8] hover:text-[#00255a]"
                   >
                     Visit {company.href.replace("https://", "")}
                     <IconArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

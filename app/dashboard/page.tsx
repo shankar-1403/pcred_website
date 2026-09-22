@@ -538,7 +538,7 @@ function SchemesCMSPage() {
                           />
                         </div>
                       </div>
-                      <div className='bg-[#B8892E]/10 p-4 rounded-4xl'>
+                      <div className='bg-[#0037d8]/10 p-4 rounded-4xl'>
                         {items.map((item, index) => (
                           <div
                             key={index}
@@ -634,7 +634,7 @@ function SchemesCMSPage() {
                         </div>
                       </div>
                       
-                      <div className='bg-[#B8892E]/10 p-4 rounded-4xl'>
+                      <div className='bg-[#0037d8]/10 p-4 rounded-4xl'>
                         <p className="text-lg font-semibold text-[#00255a] underline mb-4">Table Section</p>
                         {table.map((item, index) => (
                           <div
@@ -735,7 +735,7 @@ function SchemesCMSPage() {
                             <p className="mt-1 text-xs text-[#8E8E90]">Current image saved. Upload only to replace.</p>
                           ) : null}
                         </div>
-                        <div className='bg-[#B8892E]/10 p-4 rounded-4xl col-span-2'>
+                        <div className='bg-[#0037d8]/10 p-4 rounded-4xl col-span-2'>
                           {faq.map((item, index) => (
                             <div
                               key={index}

@@ -62,7 +62,7 @@ export default function Header() {
           <NavItems items={navItems} />
           <div className="flex items-center gap-3 z-99">
             <FontSizeToggle />
-            <Link href="/contact" className="rounded-full bg-navy-600 px-5 py-2.5 text-center text-xs font-semibold tracking-[0.12em] uppercase text-white transition-colors hover:bg-navy-500">Contact Us</Link>
+            <Link href="/contact" className="rounded-full bg-[#00255a] px-5 py-2.5 text-center text-xs font-semibold tracking-[0.12em] uppercase text-white transition-colors hover:bg-[#0037d8]">Contact Us</Link>
           </div>
         </NavBody>
 
@@ -129,7 +129,7 @@ export default function Header() {
               )
             )}
             <div className="flex w-full flex-col gap-4">
-              <NavbarButton href="/contact" onClick={() => setIsMobileMenuOpen(false)} variant="primary" className="w-full bg-gold-400 text-navy-900 hover:bg-gold-300">Contact Us</NavbarButton>
+              <NavbarButton href="/contact" onClick={() => setIsMobileMenuOpen(false)} variant="primary" className="w-full bg-[#00255a] text-white hover:bg-[#0037d8]">Contact Us</NavbarButton>
             </div>
           </MobileNavMenu>
         </MobileNav>

@@ -5,7 +5,7 @@ const reps = [
   ["bg-linear-to-br from-[#00255a] to-[#00255a]", "bg-brand-gradient-br"],
   ["bg-linear-to-br from-[#00255a] via-[#00255a] to-[#00255a]", "bg-brand-gradient-br"],
   ["relative overflow-hidden bg-[#00255a] py-", "relative overflow-hidden bg-brand-gradient py-"],
-  ["relative overflow-hidden rounded-4xl bg-[#00255a]", "relative overflow-hidden rounded-4xl bg-brand-gradient-br"],
+  ["relative overflow-hidden rounded-4xl bg-[#00b2fc]", "relative overflow-hidden rounded-4xl bg-brand-gradient-br"],
   ["relative overflow-hidden rounded-3xl bg-navy-900", "relative overflow-hidden rounded-3xl bg-brand-gradient-br"],
   ['<div className="absolute inset-0 bg-[#00255a]/60" />', '<div className="absolute inset-0 bg-linear-to-r from-[#022436]/85 to-[#00255a]/65" />'],
   ['<div className="absolute inset-0 bg-[#00255a]/78" />', '<div className="absolute inset-0 bg-linear-to-br from-[#022436]/90 to-[#00255a]/75" />'],

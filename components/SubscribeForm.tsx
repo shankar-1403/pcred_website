@@ -87,7 +87,7 @@ export default function SubscribeForm() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="flex shrink-0 items-center justify-center gap-1.5 rounded-4xl bg-gold-500 px-3 py-1.5 text-xs font-semibold text-[#00255a] shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:px-5 sm:py-2 sm:text-sm"
+                className="flex shrink-0 items-center justify-center gap-1.5 rounded-4xl bg-[#00255a] px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-[#0037d8] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:px-5 sm:py-2 sm:text-sm"
               >
                 {status === "loading" ? (
                   <>

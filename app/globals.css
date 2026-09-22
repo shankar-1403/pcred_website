@@ -37,17 +37,17 @@
     color: var(--color-navy-900);
   }
 
-  /* Dark → brand blue gradient for section backgrounds */
+  /* Dark section backgrounds use tertiary navy */
   .bg-brand-gradient {
-    background-image: linear-gradient(180deg, var(--color-brand-deep) 0%, var(--color-primary) 100%);
+    background-image: linear-gradient(180deg, var(--color-brand-deep) 0%, var(--color-tertiary) 100%);
   }
 
   .bg-brand-gradient-br {
-    background-image: linear-gradient(135deg, var(--color-brand-deep) 0%, var(--color-primary) 100%);
+    background-image: linear-gradient(135deg, var(--color-brand-deep) 0%, var(--color-tertiary) 100%);
   }
 
   .bg-brand-gradient-r {
-    background-image: linear-gradient(90deg, var(--color-brand-deep) 0%, var(--color-primary) 100%);
+    background-image: linear-gradient(90deg, var(--color-brand-deep) 0%, var(--color-tertiary) 55%, var(--color-secondary) 100%);
   }
 }
 
@@ -82,19 +82,24 @@
 }
 
 /*
- * Brand color system. Canonical primary: #00255A.
- * Navy scale is derived from #00255A for tints/shades in utilities.
+ * Brand color system (from brand guide):
+ * Primary   #00B2FC — actions, highlights, links
+ * Secondary #0037D8 — sections, headers, interactive blocks
+ * Tertiary  #00255A — backgrounds, text, footers
  */
 @theme {
-  --color-primary: #00255a;
+  --color-primary: #00b2fc;
+  --color-secondary: #0037d8;
+  --color-tertiary: #00255a;
   --color-brand-deep: #001538;
+
   --color-navy-50: #E6EEF8;
   --color-navy-100: #C2D4EC;
   --color-navy-200: #8FAFDC;
   --color-navy-300: #5586C8;
-  --color-navy-400: #2A6BB0;
-  --color-navy-500: #00255a;
-  --color-navy-600: #00255a; /* canonical brand primary */
+  --color-navy-400: #0037d8; /* secondary */
+  --color-navy-500: #0037d8;
+  --color-navy-600: #00255a; /* tertiary */
   --color-navy-700: #00255a;
   --color-navy-800: #00255a;
   --color-navy-900: #00255a;
@@ -105,7 +110,7 @@
   --color-maroon-200: #E39A9C;
   --color-maroon-300: #CC6669;
   --color-maroon-400: #AC3639;
-  --color-maroon-500: #8A191F; /* canonical brand maroon — sampled from logo */
+  --color-maroon-500: #8A191F;
   --color-maroon-600: #75151A;
   --color-maroon-700: #5E1115;
   --color-maroon-800: #470D10;
@@ -116,22 +121,23 @@
   --color-stone-200: #E2E0DE;
   --color-stone-300: #C7C4C1;
   --color-stone-400: #A6A3A0;
-  --color-stone-500: #8D8C8F; /* canonical brand gray — sampled from logo ("CRED") */
+  --color-stone-500: #8D8C8F;
   --color-stone-600: #706F72;
   --color-stone-700: #545355;
   --color-stone-800: #38373A;
   --color-stone-900: #1C1B1D;
 
-  --color-gold-50: #FBF5E9;
-  --color-gold-100: #F3E2BB;
-  --color-gold-200: #E8CD8C;
-  --color-gold-300: #D9B872; /* light tint — used for gold accents on dark/navy backgrounds */
-  --color-gold-400: #C7A047;
-  --color-gold-500: #B8892E; /* canonical brand gold — the confirmed accent color */
-  --color-gold-600: #96701F;
-  --color-gold-700: #6B4F15;
-  --color-gold-800: #4A370F;
-  --color-gold-900: #2E2209;
+  /* Accent scale mapped to primary cyan (legacy gold-* utility names) */
+  --color-gold-50: #E6F7FF;
+  --color-gold-100: #B8E9FE;
+  --color-gold-200: #7AD6FD;
+  --color-gold-300: #00b2fc; /* primary */
+  --color-gold-400: #0099E0;
+  --color-gold-500: #0037d8; /* secondary */
+  --color-gold-600: #0037d8;
+  --color-gold-700: #00255a;
+  --color-gold-800: #001F4A;
+  --color-gold-900: #001538;
 }
 
 /*
@@ -294,17 +300,17 @@
     transform:translateY(calc(-100% - var(--gap)));
         }
     }
-  --animate-aurora: aurora 8s linear infinite
-;
+  --animate-aurora: aurora 5.5s linear infinite;
   @keyframes aurora {
-   0% {
-      background-position: 0% 0%;
-    }
-
-    100% {
+    /* BR → TL; size 400% + repeating opaque stops keep the glyph fully filled */
+    from {
       background-position: 100% 100%;
     }
-  }}
+    to {
+      background-position: 0% 0%;
+    }
+  }
+}
 
 
 @font-face {

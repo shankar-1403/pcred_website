@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import logo from "../../public/pcred_logo_advisory.webp"
+import logo from "../../public/pcred_logo.webp"
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 
@@ -284,7 +284,7 @@ export const MobileNavToggle = ({
 export const NavbarLogo = () => {
   return (
     <Link href="/" className="relative z-20 flex items-center text-black">
-      <Image src={logo} alt="logo" className="h-10 w-auto"/>
+      <Image src={logo} alt="logo" className="h-12 w-auto"/>
     </Link>
   );
 };
@@ -307,15 +307,15 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<"button">
 )) => {
   const baseStyles =
-    "px-5 py-2.5 rounded-full bg-navy-600 text-white text-sm font-semibold tracking-wide relative cursor-pointer hover:bg-navy-500 transition-colors duration-200 inline-block text-center";
+    "px-5 py-2.5 rounded-full bg-[#00255a] text-white text-sm font-semibold tracking-wide relative cursor-pointer hover:bg-[#0037d8] transition-colors duration-200 inline-block text-center";
 
   const variantStyles = {
     primary:
-      "shadow-[0_8px_24px_-8px_rgba(8,75,112,0.45)]",
-    secondary: "bg-transparent shadow-none dark:text-white",
-    dark: "bg-black text-white shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
+      "shadow-[0_8px_24px_-8px_rgba(0,37,90,0.45)]",
+    secondary: "bg-[#0037d8] shadow-none hover:bg-[#00255a]",
+    dark: "bg-[#00255a] text-white shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] hover:bg-[#001538]",
     gradient:
-      "bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
+      "bg-gradient-to-b from-[#0037d8] to-[#00255a] text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
   };
 
   return (

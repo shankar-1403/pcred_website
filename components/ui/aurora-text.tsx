@@ -13,35 +13,45 @@ export const AuroraText = memo(
   ({
     children,
     className = "",
-    colors = ["#ffffff", "#ffffff", "#ffffff", "#ffffff", "#4692b9", "#ffffff", "#ffffff", "#ffffff"],
+    // Opaque only — every stop fills the glyph (no transparent gaps)
+    colors = [
+      "#ffffff",
+      "#ffffff",
+      "#b8e9fe",
+      "#00b2fc",
+      "#b8e9fe",
+      "#ffffff",
+      "#ffffff",
+      "#b8e9fe",
+      "#00b2fc",
+      "#b8e9fe",
+      "#ffffff",
+      "#ffffff",
+    ],
     speed = 1,
   }: AuroraTextProps) => {
-    // Memoised so the inline style object keeps a stable identity across
-    // parent re-renders (e.g. the hero carousel advancing). Re-applying an
-    // inline style that carries animation properties restarts the running
-    // CSS animation, which reads as a visible jump in the gradient.
-    const colorKey = colors.join(",")
     const gradientStyle = useMemo(
       () => ({
-        backgroundImage: `linear-gradient(135deg, ${colorKey}, ${colorKey.split(",")[0]})`,
-        backgroundSize: "200% 200%",
+        backgroundColor: "#ffffff",
+        backgroundImage: `linear-gradient(135deg, ${colors.join(", ")})`,
+        backgroundSize: "400% 400%",
+        backgroundRepeat: "repeat",
         WebkitBackgroundClip: "text" as const,
+        backgroundClip: "text" as const,
         WebkitTextFillColor: "transparent" as const,
-        animationDuration: `${10 / speed}s`,
-        // Promote to its own compositing layer so the per-frame repaint of the
-        // gradient stays confined to this glyph instead of being rasterised as
-        // part of the full-bleed hero layer during a slide crossfade.
+        color: "transparent",
+        animationDuration: `${5.5 / speed}s`,
         willChange: "background-position" as const,
         transform: "translateZ(0)",
       }),
-      [colorKey, speed]
+      [colors, speed]
     )
 
     return (
       <span className={`relative inline-block ${className}`}>
         <span className="sr-only">{children}</span>
         <span
-          className="animate-aurora relative bg-clip-text text-transparent font-incompleeta"
+          className="animate-aurora relative font-incompleeta"
           style={gradientStyle}
           aria-hidden="true"
         >

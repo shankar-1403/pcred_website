@@ -24,8 +24,8 @@ export default function SchemesPage() {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.58)_0%,rgba(0,37,90,0.46)_42%,rgba(0,37,90,0.18)_70%,rgba(0,37,90,0.08)_100%),linear-gradient(to_top,rgba(0,37,90,0.28)_0%,transparent_40%)]" />
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#D9B872]/8 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#00255a]/25 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00b2fc]/8 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#00b2fc]/25 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -34,14 +34,14 @@ export default function SchemesPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <span className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#D9B872]">
-              <span className="size-2 rounded-full bg-[#D9B872]" />
+            <span className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
+              <span className="size-2 rounded-full bg-[#00b2fc]" />
               Our Schemes
             </span>
             <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
               Funding Schemes For
               <br />
-              <span className="bg-linear-to-r from-[#D9B872] to-[#96701F] bg-clip-text text-transparent">Every Stage Of Growth</span>
+              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Every Stage Of Growth</span>
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
               Explore government-backed and institutional funding schemes designed
@@ -49,7 +49,7 @@ export default function SchemesPage() {
             </p>
             <div className="mt-10 flex items-center">
               <div className="h-px w-40 bg-white/15" />
-              <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#D9B872]/60" />
+              <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#00b2fc]/60" />
               <div className="h-px w-24 bg-white/15" />
             </div>
           </motion.div>
@@ -57,7 +57,7 @@ export default function SchemesPage() {
       </section>
 
       <section className="relative overflow-hidden bg-linear-to-tr from-[#FAFAF9] via-white to-white py-20 md:py-24">
-        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00255a]/5 blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00b2fc]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -111,7 +111,7 @@ export default function SchemesPage() {
                     </div>
                     <div className="relative p-4">
                       <div className="mb-4 flex items-start justify-between relative">
-                        <div className="flex size-9 items-center justify-center rounded-xl bg-[#D9B872]">
+                        <div className="flex size-9 items-center justify-center rounded-xl bg-[#00b2fc]">
                           <Icon className="size-4 text-white" stroke={1.5} />
                         </div>
                         <span className="font-mono text-5xl font-black text-white/40 leading-none select-none">
@@ -129,7 +129,7 @@ export default function SchemesPage() {
                           className="inline-flex items-center gap-1.5 text-xs font-semibold text-white transition-colors duration-300 group-hover:text-white"
                         >
                           View Scheme
-                          <IconArrowRight className="size-3.5 text-[#D9B872] transition-transform duration-300 group-hover:translate-x-0.5" />
+                          <IconArrowRight className="size-3.5 text-[#00b2fc] transition-transform duration-300 group-hover:translate-x-0.5" />
                         </Link>
                       </div>
                     </div>
@@ -152,7 +152,7 @@ export default function SchemesPage() {
             style={{ backgroundImage: "url('/right_advisor.webp')" }}
           >
             <div className="absolute inset-0 bg-linear-to-br from-[#001538]/90 to-[#00255a]/75" />
-            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#00255a]/50 blur-2xl" />
+            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#00b2fc]/50 blur-2xl" />
             <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
 
             <div className="relative flex flex-col items-center text-center justify-between gap-8 md:flex-row md:items-center md:text-left">
@@ -166,7 +166,7 @@ export default function SchemesPage() {
               </div>
               <Link
                 href="/contact"
-                className="group flex items-center justify-between gap-2 rounded-full bg-[#00255a] hover:bg-[#00255a] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
+                className="group flex items-center justify-between gap-2 rounded-full bg-[#00255a] hover:bg-[#0037d8] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
               >
                 Get In Touch
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
