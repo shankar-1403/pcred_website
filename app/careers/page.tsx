@@ -120,7 +120,7 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
               <p className="mt-2 text-sm text-[#8E8E90]">We will review your application and get back to you shortly.</p>
               <button
                 onClick={onClose}
-                className="mt-6 rounded-full bg-[#00255a] px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#00255a]"
+                className="mt-6 rounded-full bg-[#00b2fc] px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#0037d8]"
               >
                 Close
               </button>
@@ -223,7 +223,7 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full cursor-pointer rounded-4xl bg-[#00255a] py-3 text-sm font-semibold text-white shadow-lg shadow-[#00255a]/20 transition-colors hover:bg-[#00255a] disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full cursor-pointer rounded-full bg-[#00b2fc] py-3 text-sm font-semibold text-white shadow-md shadow-black/15 transition-colors hover:bg-[#0037d8] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {loading ? "Submitting…" : "Submit Application"}
               </button>
@@ -284,7 +284,7 @@ function JobCard({ career, index, onApply }: { career: Career; index: number; on
 
       {career.description && (
         <div
-          className="prose prose-sm max-w-none line-clamp-3 text-sm leading-relaxed text-[#8E8E90]"
+          className="prose prose-sm max-w-none line-clamp-3 text-sm leading-relaxed text-[#4a5568]"
           dangerouslySetInnerHTML={{ __html: career.description }}
         />
       )}
@@ -292,7 +292,7 @@ function JobCard({ career, index, onApply }: { career: Career; index: number; on
       <button
         type="button"
         onClick={onApply}
-        className="mt-2 inline-flex w-fit cursor-pointer items-center gap-2 rounded-full bg-[#00255a] px-5 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#00255a]"
+        className="mt-2 inline-flex w-fit cursor-pointer items-center gap-2 rounded-full bg-[#00b2fc] px-5 py-2 text-xs font-semibold text-white transition-colors hover:bg-[#0037d8]"
       >
         Apply Now
       </button>
@@ -334,9 +334,9 @@ export default function CareersPage() {
             <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
               Build Your Career
               <br />
-              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">With Pcred</span>
+              <span className="text-[#00b2fc]">With Pcred</span>
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-base">
               Join our team of financial experts and help businesses and enterprises achieve their funding goals.
             </p>
             <div className="mt-10 flex items-center">
@@ -348,7 +348,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[radial-gradient(ellipse_100%_60%_at_50%_100%,rgba(141,140,143,0.12),transparent)] bg-white py-20 md:py-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#EEF6FB] via-white to-[#FAFAF9] py-20 md:py-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00b2fc]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">

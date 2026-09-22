@@ -49,17 +49,17 @@ function BlogCard({ blog, index }: { blog: Blog; index: number }) {
           )}
         </div>
 
-        <h3 className="mb-3 line-clamp-2 text-xl font-semibold leading-snug text-[#00255a] transition-colors group-hover:text-[#00255a]">
+        <h3 className="mb-3 line-clamp-2 text-lg font-semibold leading-snug text-[#00255a] transition-colors group-hover:text-[#00255a]">
           {blog.title}
         </h3>
 
-        <p className="mb-6 line-clamp-3 flex-1 text-sm leading-relaxed text-[#8E8E90]">
+        <p className="mb-6 line-clamp-3 flex-1 text-sm leading-relaxed text-[#4a5568]">
           {blog.excerpt}
         </p>
 
         <Link
           href={`/blogs/${blog.id}`}
-          className="inline-flex w-fit items-center gap-1.5 border-b-2 border-[#00255a] pb-1 text-xs font-semibold uppercase tracking-wider text-[#00255a] transition-colors hover:border-[#8D8C8F] hover:text-[#00255a]"
+          className="inline-flex w-fit items-center gap-1.5 border-b-2 border-[#00255a] pb-1 text-xs font-semibold uppercase tracking-wider text-[#00255a] transition-colors hover:border-[#00b2fc] hover:text-[#00b2fc]"
         >
           Read article
           <IconArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -118,9 +118,9 @@ export default function BlogsPage() {
             <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
               Financial Advisory
               <br />
-              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Blog & Resources</span>
+              <span className="text-[#00b2fc]">Blog & Resources</span>
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-base">
               Expert perspectives on funding, growth strategy, and financial planning for businesses and enterprises.
             </p>
             <div className="mt-10 flex items-center">
@@ -132,7 +132,7 @@ export default function BlogsPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[conic-gradient(from_200deg_at_20%_-10%,white,rgba(141,140,143,0.12),white_60%)] py-20 md:py-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#EEF6FB] via-white to-[#FAFAF9] py-20 md:py-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00b2fc]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
@@ -174,7 +174,7 @@ export default function BlogsPage() {
                     transition={{ duration: 0.5 }}
                     className="mt-24 mb-10"
                   >
-                    <h2 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl">Featured Article</h2>
+                    <h2 className="font-serif text-3xl font-bold text-[#00255a] md:text-4xl">Featured Article</h2>
                   </motion.div>
 
                   <motion.div
@@ -221,12 +221,12 @@ export default function BlogsPage() {
                       <h3 className="mb-4 line-clamp-2 text-2xl font-bold leading-snug text-[#00255a] md:text-3xl">
                         {featuredBlog.title}
                       </h3>
-                      <p className="mb-8 line-clamp-2 text-base leading-relaxed text-[#8E8E90]">
+                      <p className="mb-8 line-clamp-2 text-sm leading-relaxed text-[#4a5568] md:text-base">
                         {featuredBlog.excerpt}
                       </p>
                       <Link
                         href={`/blogs/${featuredBlog.id}`}
-                        className="group/btn inline-flex w-fit items-center gap-2 border-b-2 border-[#00255a] pb-1 text-sm font-semibold uppercase tracking-wider text-[#00255a] transition-colors hover:border-[#8D8C8F] hover:text-[#00255a]"
+                        className="group/btn inline-flex w-fit items-center gap-2 border-b-2 border-[#00255a] pb-1 text-sm font-semibold uppercase tracking-wider text-[#00255a] transition-colors hover:border-[#00b2fc] hover:text-[#00b2fc]"
                       >
                         Read article
                         <IconArrowRight className="size-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
@@ -246,7 +246,7 @@ export default function BlogsPage() {
                       transition={{ duration: 0.5 }}
                       className="mb-10"
                     >
-                      <h2 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl">Latest Articles</h2>
+                      <h2 className="font-serif text-3xl font-bold text-[#00255a] md:text-4xl">Latest Articles</h2>
                     </motion.div>
                   </div>
 

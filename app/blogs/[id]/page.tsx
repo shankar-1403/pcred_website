@@ -23,7 +23,7 @@ export default function BlogDetailPage() {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4">
         <p className="text-xl font-semibold text-[#00255a]">Article not found.</p>
-        <Link href="/blogs" className="text-sm text-[#8D8C8F] underline">
+        <Link href="/blogs" className="text-sm text-[#00b2fc] underline">
           Back to Blogs
         </Link>
       </div>
@@ -33,7 +33,7 @@ export default function BlogDetailPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-linear-to-b from-white to-[#FBF9F3] pt-36 pb-16">
+      <section className="relative overflow-hidden bg-linear-to-b from-[#EEF6FB] via-white to-[#FAFAF9] pt-36 pb-16">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00b2fc]/5 blur-3xl" />
         <div className="relative mx-auto max-w-4xl px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
@@ -100,14 +100,14 @@ export default function BlogDetailPage() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {blog.excerpt && (
-            <p className="mb-10 text-lg leading-relaxed text-[#4a5568] border-l-4 border-[#8D8C8F] pl-5 italic">
+            <p className="mb-10 text-base leading-relaxed text-[#4a5568] border-l-4 border-[#00b2fc] pl-5 italic">
               {blog.excerpt}
             </p>
           )}
 
           {blog.content ? (
             <div
-              className="prose prose-lg max-w-none prose-headings:text-[#00255a] prose-a:text-[#8D8C8F] prose-strong:text-[#00255a]"
+              className="prose prose-base max-w-none prose-headings:text-[#00255a] prose-a:text-[#00b2fc] prose-strong:text-[#00255a]"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
           ) : (
@@ -118,7 +118,7 @@ export default function BlogDetailPage() {
         <div className="mt-16 border-t border-navy-900/8 pt-8">
           <Link
             href="/blogs"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#00255a] hover:text-[#8D8C8F] transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#00255a] hover:text-[#00b2fc] transition-colors"
           >
             <IconArrowLeft className="size-4" />
             Back to all articles

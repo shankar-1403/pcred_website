@@ -40,7 +40,7 @@ const services = [
   },
   {
     number: "04",
-    title: "Working Capital & Structured Finance",
+    title: "Working Capital",
     description:
       "Advisory on liquidity requirements and financing structures supporting operating and expansion needs.",
     icon: IconReportMoney,
@@ -99,13 +99,9 @@ export default function Page() {
             </span>
             <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
               Capital Strategy for Complex <br/>
-              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Financial Requirements.</span>
+              <span className="text-[#00b2fc]">Financial Requirements.</span>
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
-              PCRED advises companies, promoters and investors on capital
-              raising, debt structuring and financial strategy across critical
-              stages of the corporate lifecycle.
-            </p>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-base">PCRED advises companies, promoters and investors on capital raising, debt structuring and financial strategy across critical stages of the corporate lifecycle.</p>
             <div className="mt-10 flex items-center">
               <div className="h-px w-40 bg-white/15" />
               <span className="mx-3 size-2.5 shrink-0 rotate-45 bg-[#00b2fc]/60" />
@@ -127,19 +123,16 @@ export default function Page() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
-                <span className="size-2 rounded-full bg-[#8D8C8F]" />
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
+                <span className="size-2 rounded-full bg-[#00b2fc]" />
                 Our Perspective
               </span>
               <h2 className="font-serif text-3xl font-bold leading-snug text-[#00255a] md:text-4xl">
                 Built Around the Business,
                 <br />
-                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Not Simply the Capital.</span>
+                <span className="text-[#00b2fc]">Not Simply the Capital.</span>
               </h2>
-              <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">
-                Our work focuses on developing financing structures aligned
-                with the client&apos;s:
-              </p>
+              <p className="mt-6 text-sm leading-relaxed text-[#4a5568] md:text-base">Our work focuses on developing financing structures aligned with the client&apos;s:</p>
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {[
                   "Capital requirements",
@@ -208,12 +201,11 @@ export default function Page() {
               <span className="size-2 rounded-full bg-[#00b2fc]" />
               What We Advise On
             </span>
-            <h2 className="font-serif text-3xl font-bold text-white md:text-4xl">
-              Financing <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Solutions</span>
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-white/70 md:text-lg">
-              Structured advisory across debt, capital raising, liquidity and
-              lender engagement.
+            <h3 className="font-serif text-3xl font-bold text-white md:text-4xl">
+              Financing <span className="text-[#00b2fc]">Solutions</span>
+            </h3>
+            <p className="mt-4 text-sm leading-relaxed text-white/70 md:text-base">
+              Structured advisory across Debt, Capital Raising, Liquidity and Lender Engagement.
             </p>
           </motion.div>
 
@@ -240,9 +232,9 @@ export default function Page() {
                         {service.number}
                       </span>
                     </div>
-                    <h3 className="text-xl font-semibold text-white">
+                    <h4 className="text-lg font-semibold text-white">
                       {service.title}
-                    </h3>
+                    </h4>
                     <p className="mt-3 text-sm leading-relaxed text-white/70">
                       {service.description}
                     </p>
@@ -255,7 +247,7 @@ export default function Page() {
       </section>
 
       {/* APPROACH */}
-      <section className="relative isolate overflow-hidden bg-linear-to-br from-[#FAFAF9] via-white to-[#FBF6EC] py-20 md:py-28">
+      <section className="relative isolate overflow-hidden bg-linear-to-br from-[#EEF6FB] via-white to-[#FAFAF9] py-20 md:py-28">
         <div className="pointer-events-none absolute -left-20 top-0 size-72 rounded-full bg-[#0037d8]/8 blur-[90px]" />
         <div className="pointer-events-none absolute -right-16 bottom-0 size-80 rounded-full bg-[#00b2fc]/6 blur-[90px]" />
 
@@ -268,17 +260,17 @@ export default function Page() {
             className="flex flex-col md:flex-row md:gap-40"
           >
             <div>
-              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8D8C8F]">
-                <span className="size-1.5 rounded-full bg-[#8D8C8F]" />
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#00b2fc]">
+                <span className="size-1.5 rounded-full bg-[#00b2fc]" />
                 Our Approach
               </span>
 
-              <h2 className="font-serif mt-4 text-3xl font-bold text-[#00255a] md:text-4xl leading-tight">
+              <h5 className="font-serif mt-4 text-3xl font-bold text-[#00255a] md:text-4xl leading-tight">
                 Structure First.<br/>
-                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Capital Second.</span>
-              </h2>
+                <span className="text-[#00b2fc]">Capital Second.</span>
+              </h5>
 
-              <p className="mt-6 text-base leading-relaxed text-[#00255a]/70 md:text-lg">
+              <p className="mt-6 text-sm leading-relaxed text-[#00255a]/70 md:text-base">
                 Every financing requirement requires a considered assessment
                 of{" "}
                 <span className="font-semibold text-[#00255a]">
@@ -286,7 +278,7 @@ export default function Page() {
                   financial sustainability.
                 </span>
               </p>
-              <p className="mt-4 text-base leading-relaxed text-[#00255a]/70 md:text-lg">
+              <p className="mt-4 text-sm leading-relaxed text-[#00255a]/70 md:text-base">
                 PCRED works with management and stakeholders to evaluate
                 alternatives, establish the appropriate structure and support
                 the financing process through execution.
@@ -327,10 +319,10 @@ export default function Page() {
               <span className="size-2 rounded-full bg-[#00b2fc]" />
               Selected Outcomes
             </span>
-            <h2 className="font-serif text-3xl font-bold text-white md:text-4xl">
+            <h5 className="font-serif text-3xl font-bold text-white md:text-4xl">
               What Effective Advisory{" "}
-              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Delivers.</span>
-            </h2>
+              <span className="text-[#00b2fc]">Delivers.</span>
+            </h5>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70">
               Clear structures, stronger lender conversations, and financing
               choices that support the business over time.
@@ -371,9 +363,6 @@ export default function Page() {
             style={{ backgroundImage: "url('/right_advisor.webp')" }}
           >
             <div className="absolute inset-0 bg-linear-to-br from-[#001538]/90 to-[#00255a]/75" />
-            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#00b2fc]/50 blur-2xl" />
-            <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
-            <div className="pointer-events-none absolute bottom-0 right-32 size-40 rounded-full bg-[#00b2fc]/10 blur-2xl" />
 
             <div className="relative flex flex-col items-center text-center justify-between gap-8 md:flex-row md:items-center md:text-left">
               <div className="max-w-xl">
@@ -381,11 +370,11 @@ export default function Page() {
                   <span className="size-2 rounded-full bg-[#00b2fc]" />
                   Corporate Finance
                 </span>
-                <h2 className="font-serif text-3xl font-semibold text-white md:text-4xl md:leading-tight">
+                <h5 className="font-serif text-3xl font-semibold text-white md:text-4xl md:leading-tight">
                   Have a Financing
                   <br />
-                  <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Requirement?</span>
-                </h2>
+                  <span className="text-[#00b2fc]">Requirement?</span>
+                </h5>
                 <p className="mt-3 text-white/70">
                   Speak with our advisors about capital raising, debt
                   structuring, and financing strategy for your next stage of
@@ -395,10 +384,10 @@ export default function Page() {
 
               <Link
                 href="/contact"
-                className="group flex items-center justify-between rounded-full bg-[#00255a] hover:bg-[#0037d8] py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                className="group flex items-center justify-between gap-2 rounded-full bg-[#00b2fc] hover:bg-[#0037d8] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold whitespace-nowrap"
               >
                 Talk to an Expert
-                <span className="ml-3 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#00b2fc" />
                 </span>
               </Link>

@@ -1,17 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../public/pcred_footer_logo.webp";
-import {
-  IconMail,
-  IconMapPin,
-  IconPhone,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-} from "@tabler/icons-react";
+import {IconMail,IconMapPin,IconPhone,IconBrandInstagram,IconBrandLinkedin, IconBrandYoutube, IconBrandFacebook} from "@tabler/icons-react";
 
 const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/pcred_finance?igsh=aGNqeWdubzZ0c3Zo", icon: IconBrandInstagram },
   { label: "LinkedIn", href: "https://www.linkedin.com/company/pcred-ventures-pvt-ltd/", icon: IconBrandLinkedin },
+  { label: "Facebook", href: "https://www.facebook.com/share/1DGppEGwjN/", icon: IconBrandFacebook },
+  { label: "Youtube", href: "https://youtube.com/@pcredfinance?si=5znWjkN_vyREzmRx", icon: IconBrandYoutube },
 ];
 
 const quickLinks = [
@@ -78,7 +74,7 @@ export default function Footer() {
               >
                 <IconMapPin className="size-5 shrink-0" color="#A6A3A0" />
                 <span className="max-w-sm leading-relaxed">
-                  Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093
+                  Lodha Supremus, 520, Off Mahakali Caves Rd, Chakala Industrial Area (MIDC), Andheri East, Mumbai, Maharashtra 400093.
                 </span>
               </a>
               <div className="mt-2 flex flex-col gap-4">

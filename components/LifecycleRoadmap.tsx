@@ -118,7 +118,7 @@ export function LifecycleRoadmap({ stages }: { stages: Stage[] }) {
       >
         <defs>
           <linearGradient id="lifecycleRoadmapGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#0037d8" />
+            <stop offset="0%" stopColor="#00b2fc" />
             <stop offset="100%" stopColor="#00255a" />
           </linearGradient>
 
@@ -163,7 +163,7 @@ export function LifecycleRoadmap({ stages }: { stages: Stage[] }) {
           <motion.path
             d={LIFECYCLE_PATH}
             fill="none"
-            stroke="#0037d8"
+            stroke="#00b2fc"
             strokeWidth="3"
             strokeLinecap="round"
             strokeDasharray={beamDasharray}
@@ -200,7 +200,7 @@ export function LifecycleRoadmap({ stages }: { stages: Stage[] }) {
               <motion.path
                 d={`M ${-R},0 A ${R},${R} 0 0,0 ${R},0`}
                 fill="none"
-                stroke="#0037d8"
+                stroke="#00b2fc"
                 strokeWidth="4"
                 strokeLinecap="round"
                 strokeDasharray={`${SEMI} ${SEMI * 10}`}
@@ -217,7 +217,7 @@ export function LifecycleRoadmap({ stages }: { stages: Stage[] }) {
               <motion.path
                 d={`M ${-R},0 A ${R},${R} 0 0,1 ${R},0`}
                 fill="none"
-                stroke="#0037d8"
+                stroke="#00b2fc"
                 strokeWidth="4"
                 strokeLinecap="round"
                 strokeDasharray={`${SEMI} ${SEMI * 10}`}
@@ -243,7 +243,7 @@ export function LifecycleRoadmap({ stages }: { stages: Stage[] }) {
                 height="130"
               >
                 <div className="flex flex-col items-center text-center">
-                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0037d8]">
+                  <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#00b2fc]">
                     Step {index + 1}
                   </span>
                   <p className="text-xl font-semibold text-[#00255a]">{stage.title}</p>

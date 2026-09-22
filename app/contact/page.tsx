@@ -124,9 +124,9 @@ function page() {
             <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
               Connecting Through
               <br />
-              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Smart Finance</span>
+              <span className="text-[#00b2fc]">Smart Finance</span>
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-base">
               We partner with businesses and growing enterprises to deliver strategic
               financial advisory, funding solutions, and long-term growth support.
             </p>
@@ -139,7 +139,7 @@ function page() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_bottom_right,rgba(141,140,143,0.15),transparent_60%)] bg-white py-20 md:py-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#EEF6FB] via-white to-[#FAFAF9] py-20 md:py-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00b2fc]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
@@ -161,7 +161,7 @@ function page() {
                   style={{ left: "23.4%", top: "15.8%", width: "53.2%", height: "73.1%" }}
                 >
                   <div className="relative overflow-hidden rounded-2xl p-4 flex justify-center">
-                    <img src="/logo.webp" alt="PCRED Logo" className='h-12'/>
+                    <img src="/pcred_logo.webp" alt="PCRED Logo" className='h-12'/>
                   </div>
                   <div className="flex flex-col gap-2.5">
                     {contactInfo.map((item, i) => (
@@ -269,7 +269,7 @@ function page() {
                     </label>
                     <div className="relative">
                       <select id="service" name="service" value={form.service} onChange={handleFormChange} className={formSelectClass}>
-                        <option value="">Select a service</option>
+                        <option selected hidden>Select a service</option>
                         {contactServices.map((s) => (
                           <option key={s} value={s}>{s}</option>
                         ))}
@@ -290,7 +290,7 @@ function page() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-4xl bg-[#00255a] px-6 py-4 text-base font-semibold text-white shadow-lg shadow-[#00255a]/25 transition-all duration-300 hover:bg-[#00255a] hover:shadow-xl hover:shadow-[#00255a]/30 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="group flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#00b2fc] px-6 py-4 text-sm font-semibold text-white shadow-md shadow-black/15 transition-all duration-300 hover:bg-[#0037d8] hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {loading ? "Sending…" : "Send Message"}
                     {!loading && <IconSend className="size-5 transition-transform group-hover:translate-x-1" />}

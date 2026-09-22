@@ -77,9 +77,9 @@ export default function Page() {
               </span>
               <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
                 A Group Built Around <br />
-                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Financial Trust.</span>
+                <span className="text-[#00b2fc]">Financial Trust.</span>
               </h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-base">
                 The PCRED Group brings together specialised companies working
                 across financial advisory, insurance and credit, each focused
                 on a distinct part of the financial journey.
@@ -142,12 +142,12 @@ export default function Page() {
             transition={{ duration: 0.5 }}
             className="mb-14 max-w-3xl"
           >
-            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
-              <span className="size-2 rounded-full bg-[#8D8C8F]" />
+            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
+              <span className="size-2 rounded-full bg-[#00b2fc]" />
               Our Companies
             </span>
             <h2 className="font-serif text-3xl font-bold text-[#00255a] md:text-4xl">
-              Part of the <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">PCRED Family.</span>
+              Part of the <span className="text-[#00b2fc]">PCRED Family.</span>
             </h2>
           </motion.div>
 
@@ -163,7 +163,7 @@ export default function Page() {
                 className="group relative flex flex-col overflow-hidden rounded-3xl bg-linear-to-br from-[#8D8C8F]/15 via-white to-[#00255a]/10 p-8 shadow-[0_2px_8px_-2px_rgba(0,37,90,0.08),0_20px_50px_-20px_rgba(0,37,90,0.18)] ring-1 ring-[#00255a]/8 transition-shadow duration-300 hover:shadow-[0_2px_8px_-2px_rgba(0,37,90,0.08),0_30px_70px_-20px_rgba(0,37,90,0.3)] md:p-10"
               >
                 {/* Top accent bar */}
-                <div className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-[#00255a] via-[#8D8C8F] to-[#00255a] bg-[length:200%_100%] transition-[background-position] duration-500 group-hover:bg-[position:100%_0]" />
+                <div className="absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-[#00255a] via-[#00b2fc] to-[#00255a] bg-[length:200%_100%] transition-[background-position] duration-500 group-hover:bg-[position:100%_0]" />
 
                 {/* Company logo */}
                 {company.logo && (
@@ -183,7 +183,7 @@ export default function Page() {
                 )}
 
                 <div className="relative flex flex-1 flex-col">
-                  <h3 className="pr-28 pt-7 text-lg font-semibold text-[#00255a] sm:pr-32 md:text-xl">
+                  <h3 className="pr-28 pt-7 text-lg font-semibold text-[#00255a] sm:pr-32">
                     {company.name}
                   </h3>
 
@@ -193,7 +193,7 @@ export default function Page() {
                         key={point}
                         className="flex items-start gap-3 text-sm leading-relaxed text-[#00255a]/70"
                       >
-                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[#8D8C8F]" />
+                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-[#00b2fc]" />
                         {point}
                       </li>
                     ))}

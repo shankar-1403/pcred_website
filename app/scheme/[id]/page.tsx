@@ -345,14 +345,14 @@ function FaqItem({
         onClick={onToggle}
         className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left bg-brand-gradient"
       >
-        <span className="font-semibold text-white text-sm md:text-lg">{question}</span>
+        <span className="font-semibold text-white text-sm md:text-base">{question}</span>
         <IconChevronDown
           className={`size-5 shrink-0 text-[#00b2fc] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
       <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 bg-white"}`}>
         <div className="overflow-hidden">
-          <p className="px-6 py-4 leading-relaxed text-[#00255a] text-sm md:text-base lg:text-lg">{answer}</p>
+          <p className="px-6 py-4 leading-relaxed text-[#00255a] text-sm md:text-base">{answer}</p>
         </div>
       </div>
     </div>
@@ -434,7 +434,7 @@ export default function Scheme() {
                 ) : null}
             </div>
             <h1 className="font-serif text-3xl font-bold leading-tight text-[#00255a] md:text-4xl lg:text-5xl">
-              {scheme.section_1_header} <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">{scheme.section_1_subheader}</span>
+              {scheme.section_1_header} <span className="text-[#00b2fc]">{scheme.section_1_subheader}</span>
             </h1>
             {scheme.section_1_description ? (
               <div className="text-sm text-[#00255a] mt-3 md:text-base md:mt-4" dangerouslySetInnerHTML={{
@@ -449,7 +449,7 @@ export default function Scheme() {
                      TablerIcons[item.icon as keyof typeof TablerIcons] as React.ComponentType<IconProps>
                   return (
                     <div key={`${item.point}-${index}`} className="flex items-center gap-2 md:gap-3">
-                      <div className="flex size-8 shrink-0 items-center justify-center rounded-4xl bg-[#8D8C8F]/10 text-[#8D8C8F] text-xs font-semibold md:size-10">
+                      <div className="flex size-8 shrink-0 items-center justify-center rounded-4xl bg-[#00b2fc]/10 text-[#00b2fc] text-xs font-semibold md:size-10">
                         {Icon ? <Icon size={18} stroke={2} className="md:hidden" /> : null}
                         {Icon ? <Icon size={22} stroke={2} className="hidden md:block" /> : null}
                       </div>
@@ -462,7 +462,7 @@ export default function Scheme() {
               <div className="mt-4 grid gap-2 sm:grid-cols-2 md:mt-8">
                 {heroFeatures.map((item) => (
                   <div key={item.title} className="flex items-center gap-2 md:gap-3">
-                    <div className="flex size-8 shrink-0 items-center justify-center rounded-4xl bg-[#8D8C8F]/10 text-[#8D8C8F] md:size-10">
+                    <div className="flex size-8 shrink-0 items-center justify-center rounded-4xl bg-[#00b2fc]/10 text-[#00b2fc] md:size-10">
                       <item.icon className="size-5 md:size-6" stroke={1.75} />
                     </div>
                     <p className="text-xs font-semibold text-[#00255a] md:text-sm">{item.title}</p>
@@ -472,9 +472,9 @@ export default function Scheme() {
             )}
 
             <div className="mt-5 flex flex-wrap items-center gap-3 md:mt-8 md:gap-4">
-              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between gap-3 rounded-4xl bg-[#00255a] border-2 border-[#00255a] pl-4 pr-2 py-2 text-white shadow-md shadow-[#00255a]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm">Apply Now
+              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between gap-2 rounded-full bg-[#00b2fc] hover:bg-[#0037d8] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-40 text-sm font-semibold whitespace-nowrap">Apply Now
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                  <IconArrowRight className="size-4" color="#00255a" />
+                  <IconArrowRight className="size-4" color="#00b2fc" />
                 </span>
               </button>
               {scheme.video_link ? (
@@ -482,10 +482,10 @@ export default function Scheme() {
                   href={scheme.video_link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-2 rounded-4xl border-2 border-[#8D8C8F] bg-white text-[#8D8C8F] text-base font-semibold cursor-pointer text-center flex items-center gap-2"
+                  className="px-6 py-2 rounded-full border-2 border-[#00255a]/20 bg-white text-[#00255a] text-sm font-semibold cursor-pointer text-center flex items-center gap-2"
                 >
-                  <span className="flex size-8 items-center justify-center rounded-full border border-[#8D8C8F]/20 bg-white/80 backdrop-blur-sm">
-                    <IconPlayerPlay className="size-4 fill-[#8D8C8F] text-[#8D8C8F]" />
+                  <span className="flex size-8 items-center justify-center rounded-full border border-[#00b2fc]/20 bg-white/80 backdrop-blur-sm">
+                    <IconPlayerPlay className="size-4 fill-[#00b2fc] text-[#00b2fc]" />
                   </span>
                   How It Works
                 </Link>
@@ -495,16 +495,16 @@ export default function Scheme() {
         </div>
       </section>
 
-      <section id="what-is-scheme" className="relative overflow-hidden bg-linear-to-b from-[#FAFAF9] via-white to-white py-20 md:py-28">
+      <section id="what-is-scheme" className="relative overflow-hidden bg-linear-to-br from-[#EEF6FB] via-white to-[#FAFAF9] py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 gap-6 md:grid-cols-3">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="border-b border-[#8D8C8F] pb-4 md:border-b-0 md:border-r md:pb-0 flex items-center"
+            className="border-b border-[#00255a]/15 pb-4 md:border-b-0 md:border-r md:pb-0 flex items-center"
           >
-            <h2 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl">
+            <h2 className="font-serif text-3xl font-bold text-[#00255a] md:text-4xl">
               {scheme.section_2_header ?? "About This Scheme"}
             </h2>
           </motion.div>
@@ -514,9 +514,9 @@ export default function Scheme() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-base leading-relaxed md:text-lg col-span-2"
+            className="text-sm leading-relaxed md:text-base col-span-2"
           >
-            <div className="text-[#00255a] text-sm leading-7 md:text-base md:leading-8 lg:text-lg"
+            <div className="text-[#4a5568] text-sm leading-relaxed md:text-base"
               dangerouslySetInnerHTML={{
                 __html: scheme.section_2_description ?? "",
               }}
@@ -525,7 +525,7 @@ export default function Scheme() {
         </div>
       </section>
 
-      <section className="bg-linear-to-b from-gray-50 to-white py-20 md:py-28">
+      <section className="relative isolate overflow-hidden bg-linear-to-br from-[#EEF6FB] via-white to-[#FAFAF9] py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-7 lg:gap-16">
             <motion.div
@@ -535,10 +535,10 @@ export default function Scheme() {
               transition={{ duration: 0.5 }}
               className="lg:col-span-3"
             >
-              <h3 className="text-3xl font-semibold text-[#00255a] md:text-4xl">
+              <h3 className="font-serif text-3xl font-bold text-[#00255a] md:text-4xl">
                 Eligibility Criteria
               </h3>
-              <p className="mt-4 text-base leading-relaxed text-[#00255a] md:text-lg">
+              <p className="mt-4 text-sm leading-relaxed text-[#4a5568] md:text-base">
                 {scheme.section_3_description ??
                   "Review the eligibility requirements for this scheme below."}
               </p>
@@ -591,17 +591,17 @@ export default function Scheme() {
                               className="flex py-4 items-center justify-between bg-white"
                             >
                               <div className="flex items-center gap-2 w-[70%] md:gap-3 md:w-[80%]">
-                                <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#8D8C8F]/20 border border-[#8D8C8F] text-[#8D8C8F] text-sm font-semibold md:size-14">
+                                <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#00b2fc]/10 border border-[#00b2fc]/25 text-[#00b2fc] text-sm font-semibold md:size-14">
                                   {Icon ? <Icon size={18} stroke={2} className="md:hidden" /> : null}
                                   {Icon ? <Icon size={22} stroke={2} className="hidden md:block" /> : null}
                                 </div>
                                 <div className="flex flex-col">
-                                  <span className="font-bold text-[#00255a] text-sm md:text-lg">{item.label}</span>
-                                  <span className="text-[#00255a] text-xs">{item.description}</span>
+                                  <span className="font-bold text-[#00255a] text-sm md:text-base">{item.label}</span>
+                                  <span className="text-[#4a5568] text-xs">{item.description}</span>
                                 </div>
                               </div>
                               <div className="w-[30%] flex flex-col md:w-[20%]">
-                                <p className="text-sm font-semibold leading-relaxed text-[#00255a] md:text-xl">
+                                <p className="text-sm font-semibold leading-relaxed text-[#00255a] md:text-base">
                                   {item.criteria}
                                 </p>
                                 <span className="text-xs text-[#00255a]">
@@ -621,16 +621,16 @@ export default function Scheme() {
                           className="flex py-4 items-center justify-between bg-white"
                         >
                           <div className="flex items-center gap-2 w-[70%] md:gap-3 md:w-[80%]">
-                            <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#8D8C8F]/20 border border-[#8D8C8F] text-[#8D8C8F] md:size-14">
+                            <div className="flex size-10 shrink-0 items-center justify-center rounded-4xl bg-[#00b2fc]/10 border border-[#00b2fc]/25 text-[#00b2fc] md:size-14">
                               <item.icon className="size-5 md:size-7" stroke={1.5} />
                             </div>
                             <div className="flex flex-col">
-                              <span className="font-bold text-[#00255a] text-sm md:text-lg">{item.label}</span>
-                              <span className="text-[#00255a] text-xs">{item.description}</span>
+                              <span className="font-bold text-[#00255a] text-sm md:text-base">{item.label}</span>
+                              <span className="text-[#4a5568] text-xs">{item.description}</span>
                             </div>
                           </div>
                           <div className="w-[30%] flex flex-col md:w-[20%]">
-                            <p className="text-sm font-semibold leading-relaxed text-[#00255a] md:text-xl">
+                            <p className="text-sm font-semibold leading-relaxed text-[#00255a] md:text-base">
                               {item.value}
                             </p>
                             <span className="text-xs text-[#00255a]">{item.desc_value}</span>
@@ -654,21 +654,22 @@ export default function Scheme() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-4xl bg-brand-gradient-br px-8 py-12 md:px-14 md:py-14"
+            className="relative overflow-hidden rounded-3xl bg-cover bg-[80%_center] bg-no-repeat px-8 py-10 md:bg-center md:px-14"
+            style={{ backgroundImage: "url('/right_advisor.webp')" }}
           >
-            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-white/10 blur-2xl" />
+            <div className="absolute inset-0 bg-linear-to-br from-[#001538]/90 to-[#00255a]/75" />
 
             <div className="relative flex flex-col items-center text-center justify-between gap-8 md:flex-row md:items-center md:text-left">
               <div className="max-w-2xl">
-                <h4 className="text-3xl font-semibold text-white md:text-4xl">
+                <h4 className="font-serif text-3xl font-semibold text-white md:text-4xl md:leading-tight">
                   {scheme?.section_4_header}
                 </h4>
-                <p className="mt-3 text-white/80 text-sm md:text-lg">{scheme?.section_4_description}</p>
-                <p className="mt-3 font-semibold text-[#00b2fc] text-sm md:text-lg">{scheme?.section_4_tagline}</p>
+                <p className="mt-3 text-white/70 text-sm md:text-base">{scheme?.section_4_description}</p>
+                <p className="mt-3 font-semibold text-[#00b2fc] text-sm md:text-base">{scheme?.section_4_tagline}</p>
               </div>
-              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between gap-3 rounded-4xl bg-[#00255a] hover:bg-[#0037d8] pl-4 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-48 text-sm">Check Eligibility
+              <button onClick={() => setIsModalOpen(true)} className="group flex items-center justify-between gap-2 rounded-full bg-[#00b2fc] hover:bg-[#0037d8] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-48 text-sm font-semibold whitespace-nowrap">Check Eligibility
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                  <IconArrowRight className="size-4" color="#8D8C8F" />
+                  <IconArrowRight className="size-4" color="#00b2fc" />
                 </span>
               </button>
             </div>
@@ -685,10 +686,10 @@ export default function Scheme() {
             transition={{ duration: 0.5 }}
             className="mb-8 md:mb-12"
           >
-            <h5 className="text-2xl font-semibold text-[#00255a] md:text-3xl lg:text-4xl">
+            <h5 className="font-serif text-3xl font-bold text-[#00255a] md:text-4xl">
               Frequently Asked Questions
             </h5>
-            <p className="mt-3 max-w-2xl text-sm text-[#00255a] md:text-lg">
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#4a5568] md:text-base">
               {scheme.faq_description ??
                 "Find answers to common questions about this scheme and the application process."}
             </p>

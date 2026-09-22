@@ -41,9 +41,9 @@ export default function SchemesPage() {
             <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
               Funding Schemes For
               <br />
-              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Every Stage Of Growth</span>
+              <span className="text-[#00b2fc]">Every Stage Of Growth</span>
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-base">
               Explore government-backed and institutional funding schemes designed
               to support businesses and enterprises at every stage of their journey.
             </p>
@@ -56,7 +56,7 @@ export default function SchemesPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-linear-to-tr from-[#FAFAF9] via-white to-white py-20 md:py-24">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#EEF6FB] via-white to-[#FAFAF9] py-20 md:py-24">
         <div className="pointer-events-none absolute -right-32 top-20 size-96 rounded-full bg-[#00b2fc]/5 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
@@ -68,7 +68,7 @@ export default function SchemesPage() {
             className="mb-14"
           >
             <div className="flex items-end justify-between gap-6">
-              <h2 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl leading-tight">
+              <h2 className="font-serif text-3xl font-bold text-[#00255a] md:text-4xl leading-tight">
                 Explore Our Schemes
               </h2>
             </div>
@@ -119,7 +119,7 @@ export default function SchemesPage() {
                         </span>
                       </div>
 
-                      <h3 className="mb-1.5 text-base font-semibold leading-snug text-white w-40">
+                      <h3 className="mb-1.5 text-lg font-semibold leading-snug text-white w-40">
                         {scheme.section_1_header ?? "Scheme"}
                       </h3>
 
@@ -152,12 +152,10 @@ export default function SchemesPage() {
             style={{ backgroundImage: "url('/right_advisor.webp')" }}
           >
             <div className="absolute inset-0 bg-linear-to-br from-[#001538]/90 to-[#00255a]/75" />
-            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#00b2fc]/50 blur-2xl" />
-            <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
 
             <div className="relative flex flex-col items-center text-center justify-between gap-8 md:flex-row md:items-center md:text-left">
               <div className="max-w-xl">
-                <h4 className="text-3xl font-semibold text-white md:text-4xl">
+                <h4 className="font-serif text-3xl font-semibold text-white md:text-4xl md:leading-tight">
                   Not sure which scheme fits your needs?
                 </h4>
                 <p className="mt-3 text-white/70">
@@ -166,11 +164,11 @@ export default function SchemesPage() {
               </div>
               <Link
                 href="/contact"
-                className="group flex items-center justify-between gap-2 rounded-full bg-[#00255a] hover:bg-[#0037d8] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
+                className="group flex items-center justify-between gap-2 rounded-full bg-[#00b2fc] hover:bg-[#0037d8] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold whitespace-nowrap"
               >
                 Get In Touch
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                  <IconArrowRight className="size-4" color="#8D8C8F" />
+                  <IconArrowRight className="size-4" color="#00b2fc" />
                 </span>
               </Link>
             </div>

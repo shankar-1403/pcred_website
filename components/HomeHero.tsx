@@ -134,7 +134,7 @@ export function HomeHero() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.38)_0%,rgba(0,37,90,0.28)_42%,rgba(0,37,90,0.12)_70%,rgba(0,37,90,0.04)_100%),linear-gradient(to_top,rgba(0,37,90,0.16)_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-linear-[60deg] from-20% from-[#00255a]/90 via-20% via-[#00255a]/90 to-50% to-[#00255a]/20" />
       </div>
 
       {/* Hero content — aligned with header (max-w-7xl px-6) */}
@@ -173,11 +173,11 @@ export function HomeHero() {
         <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
           <Link
             href="/schemes"
-            className="group flex items-center justify-between gap-3 rounded-4xl bg-[#00255a] py-2 pl-4 pr-2 text-sm text-white shadow-md shadow-[#00255a]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg md:w-44"
+            className="group flex items-center justify-between gap-3 rounded-4xl bg-[#00b2fc] py-2 pl-4 pr-2 text-sm text-white shadow-md shadow-[#00255a]/25 transition-all hover:-translate-y-0.5 hover:shadow-lg md:w-44"
           >
             Our Schemes
             <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-              <IconArrowRight className="size-4" color="#00255a" />
+              <IconArrowRight className="size-4" color="#00b2fc" />
             </span>
           </Link>
           <Link

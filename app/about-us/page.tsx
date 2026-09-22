@@ -92,7 +92,7 @@ export default function AboutUsPage() {
             <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
               Building Businesses
               <br />
-              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Through Smart Finance</span>
+              <span className="text-[#00b2fc]">Through Smart Finance</span>
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
               We partner with businesses and growing enterprises to deliver strategic
@@ -159,7 +159,7 @@ export default function AboutUsPage() {
                 {/* Dot grid */}
                 <div className="pointer-events-none absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #00255a 1px, transparent 0)", backgroundSize: "24px 24px" }} />
 
-                <h2 className="font-serif relative text-2xl font-semibold leading-snug text-[#00255a] md:text-3xl lg:text-4xl">
+                <h2 className="font-serif relative text-xl font-bold leading-snug text-[#00255a] md:text-2xl lg:text-3xl">
                   Strategic financial guidance for business growth and clarity
                 </h2>
                 <p className="relative mt-3 text-sm leading-relaxed text-[#4a5568] max-w-full">
@@ -191,8 +191,8 @@ export default function AboutUsPage() {
 
                 {/* Left text content */}
                 <div className="px-7 py-7 flex-1 md:px-9 md:py-8">
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F] mb-2">Our direction</p>
-                  <h3 className="text-lg font-bold text-[#00255a] leading-snug max-w-sm">
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc] mb-2">Our direction</p>
+                  <h3 className="text-2xl font-bold text-[#00255a] leading-snug max-w-sm">
                     Leading the Future of Financial Advisory for Businesses
                   </h3>
                   <Link
@@ -223,9 +223,9 @@ export default function AboutUsPage() {
               transition={{ duration: 0.5, delay: 0.16 }}
               className="lg:col-span-1 lg:row-span-1"
             >
-              <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-[#0037d8] via-[#0037d8] to-[#6b4f15] p-7 h-full flex flex-col justify-between pb-4 md:p-8">
+              <div className="relative overflow-hidden rounded-3xl bg-[#00b2fc] p-7 h-full flex flex-col justify-between pb-4 md:p-8">
                 {/* Diagonal light sweep */}
-                <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rotate-45 bg-linear-to-br from-white/10 to-transparent" />
+                {/* <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rotate-45 bg-linear-to-br from-white/10 to-transparent" /> */}
                 {/* Bottom left shadow */}
                 <div className="pointer-events-none absolute -bottom-10 -left-10 size-32 rounded-full bg-[#3d2c0d]/50 blur-2xl" style={{ zIndex: 0 }} />
                 {/* Blue accent glow */}
@@ -266,16 +266,11 @@ export default function AboutUsPage() {
             transition={{ duration: 0.5 }}
             className="mb-8 max-w-xl md:mb-10"
           >
-            <span className="mb-2 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#0037d8]">
+            <span className="mb-2 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#00b2fc]">
               <span className="size-1.5 rounded-full bg-[#00b2fc]" />
               The People Behind PCRED
             </span>
-            <h2 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl">
-              Management{" "}
-              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">
-                Team
-              </span>
-            </h2>
+            <h2 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl">Management Team</h2>
           </motion.div>
 
           <motion.div
@@ -300,12 +295,9 @@ export default function AboutUsPage() {
                 transition={{ duration: 0.25, ease: "easeOut" }}
                 className="group relative w-full max-w-[400px] overflow-hidden rounded-3xl bg-linear-to-br from-[#8D8C8F]/10 via-white to-[#00255a]/8 shadow-[0_2px_8px_-2px_rgba(0,37,90,0.08),0_20px_50px_-20px_rgba(0,37,90,0.18)] ring-1 ring-[#00255a]/8 transition-shadow duration-300 hover:shadow-[0_2px_8px_-2px_rgba(0,37,90,0.08),0_30px_70px_-20px_rgba(0,37,90,0.32)]"
               >
-                {/* Animated top accent bar — the same signature used on the
-                    PCRED Group cards, so this matches the site's established
-                    modern-card language instead of a one-off treatment. */}
-                <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-linear-to-r from-[#00255a] via-[#00b2fc] to-[#00255a] bg-[length:200%_100%] transition-[background-position] duration-500 group-hover:bg-[position:100%_0]" />
+                <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-[#00255a]" />
 
-                <div className="relative aspect-[5/6] w-full overflow-hidden bg-white">
+                <div className="relative aspect-[6/6] w-full overflow-hidden bg-white">
                   {member.image ? (
                     <Image
                       src={member.image}
@@ -328,13 +320,13 @@ export default function AboutUsPage() {
                 {/* Navy-gradient info panel — the same brand gradient used for
                     CTAs elsewhere on the site — for real color contrast against
                     the photo instead of a flat white-on-white footer. */}
-                <div className="relative overflow-hidden bg-brand-gradient-r px-6 py-6 text-center">
+                <div className="relative overflow-hidden bg-[#00255a] px-6 py-6 text-center">
                   <div className="pointer-events-none absolute -left-10 -top-10 size-28 rounded-full bg-white/5 blur-2xl" />
                   <div className="pointer-events-none absolute -right-8 -bottom-10 size-28 rounded-full bg-gold-500/10 blur-2xl" />
                   <span className="relative mx-auto mb-3 block h-px w-10 bg-linear-to-r from-transparent via-gold-300 to-transparent" />
-                  <h3 className="relative font-serif text-lg font-semibold leading-snug text-white md:text-xl">
+                  <h4 className="relative font-serif text-lg font-semibold leading-snug text-white md:text-xl">
                     {member.name}
-                  </h3>
+                  </h4>
                   <p className="relative mt-2 inline-block rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-300 ring-1 ring-white/10 md:text-xs">
                     {member.designation}
                   </p>
@@ -368,21 +360,21 @@ export default function AboutUsPage() {
 
         <div className="relative mx-auto max-w-7xl px-6">
           {/* Section header */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="mb-8 max-w-2xl md:mb-10"
           >
-            <span className="mb-2 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#00b2fc]">
+            <span className="mb-2 flex items-center gap-2 text-11 font-semibold uppercase tracking-[0.22em] text-[#00b2fc]">
               <span className="size-2 rounded-full bg-[#00b2fc]" />
               Our Foundation
             </span>
-            <h4 className="mt-2 text-3xl font-semibold text-white md:text-4xl">
+            <h5 className="mt-2 text-3xl font-semibold text-white md:text-4xl">
               Mission & <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Vision</span>
-            </h4>
-          </motion.div>
+            </h5>
+          </motion.div> */}
 
           {/* Raised glass panels — icon centered on top */}
           <div className="flex flex-col items-stretch gap-4 md:flex-row md:gap-5">
@@ -412,7 +404,7 @@ export default function AboutUsPage() {
                   {pillar.title}
                 </h5>
                 <div className="relative my-2 h-px w-8 bg-[#00b2fc] shadow-[0_0_10px_rgba(204,102,105,0.7)]" />
-                <p className="relative max-w-xs text-sm leading-[1.7] text-white/70">{pillar.text}</p>
+                <p className="relative max-w-sm text-sm leading-[1.7] text-white/70">{pillar.text}</p>
               </motion.div>
             ))}
           </div>
@@ -435,16 +427,16 @@ export default function AboutUsPage() {
               transition={{ duration: 0.5 }}
               className="max-w-xl"
             >
-              <span className="mb-2 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#0037d8]">
+              <span className="mb-2 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#00b2fc]">
                 <span className="size-1.5 rounded-full bg-[#00b2fc]" />
                 What Drives Us
               </span>
-              <h2 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl">
+              <h5 className="font-serif text-3xl font-semibold text-[#00255a] md:text-4xl">
                 Our Core{" "}
-                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">
+                <span className="text-[#00b2fc]">
                   Beliefs
                 </span>
-              </h2>
+              </h5>
             </motion.div>
           </div>
 
@@ -482,9 +474,9 @@ export default function AboutUsPage() {
                   </span>
                 </div>
 
-                <h3 className="relative mt-4 font-serif text-lg font-semibold leading-snug text-[#00255a] md:text-xl">
+                <h5 className="relative mt-4 font-serif text-lg font-semibold leading-snug text-[#00255a] md:text-xl">
                   {belief.title}
-                </h3>
+                </h5>
 
                 <div className="relative mt-2 h-px w-8 bg-linear-to-r from-[#00b2fc] to-transparent transition-all duration-300 group-hover:w-12" />
 
@@ -509,26 +501,20 @@ export default function AboutUsPage() {
             style={{ backgroundImage: "url('/right_advisor.webp')" }}
           >
             <div className="absolute inset-0 bg-linear-to-br from-[#001538]/90 to-[#00255a]/75" />
-            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#00b2fc]/50 blur-2xl" />
-            <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
-            <div className="pointer-events-none absolute right-32 bottom-0 size-40 rounded-full bg-[#00b2fc]/10 blur-2xl" />
 
             <div className="relative flex flex-col items-center text-center justify-between gap-8 md:flex-row md:items-center md:text-left">
               <div className="max-w-xl">
-                <h5 className="text-3xl font-semibold text-white md:leading-14 md:text-4xl">
+                <h5 className="text-3xl font-semibold text-white md:leading-snug md:text-4xl">
                   Looking for the Right
                   <br />
-                  <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Financial Partner?</span>
+                  <span className="text-[#00b2fc]">Financial Partner?</span>
                 </h5>
-                <p className="mt-3 text-white/70">
+                <p className="mt-3 text-white/70 text-base">
                   Our Corporate advisory experts help businesses secure funding, optimize finances, and achieve sustainable growth.
                 </p>
               </div>
 
-              <Link
-                href="/contact"
-                className="group flex items-center justify-between gap-2 rounded-full bg-[#00255a] hover:bg-[#0037d8] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold"
-              >
+              <Link href="/contact" className="group flex items-center justify-between gap-2 rounded-full bg-[#00b2fc] hover:bg-[#0037d8] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold">
                 Get In Touch
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#00b2fc" />

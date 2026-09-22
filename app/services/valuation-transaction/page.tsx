@@ -99,9 +99,9 @@ export default function Page() {
             </span>
             <h1 className="font-serif mt-1 text-3xl font-bold text-white md:text-4xl lg:text-5xl leading-tight">
               Independent Perspective on <br/>
-              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Value and Transactions.</span>
+              <span className="text-[#00b2fc]">Value and Transactions.</span>
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-base">
               Valuation is fundamental to capital allocation, investment
               decisions and corporate transactions.
             </p>
@@ -126,16 +126,16 @@ export default function Page() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
-                <span className="size-2 rounded-full bg-[#8D8C8F]" />
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
+                <span className="size-2 rounded-full bg-[#00b2fc]" />
                 Our Perspective
               </span>
               <h2 className="font-serif text-3xl font-bold leading-snug text-[#00255a] md:text-4xl">
                 Assessed With Rigour,
                 <br />
-                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Not Assumption.</span>
+                <span className="text-[#00b2fc]">Not Assumption.</span>
               </h2>
-              <p className="mt-6 text-base leading-relaxed text-[#4a5568] md:text-lg">
+              <p className="mt-6 text-sm leading-relaxed text-[#4a5568] md:text-base">
                 PCRED provides valuation and transaction advisory to
                 companies, promoters, investors and stakeholders requiring a
                 rigorous assessment of:
@@ -208,11 +208,10 @@ export default function Page() {
               What We Advise On
             </span>
             <h2 className="font-serif text-3xl font-bold text-white md:text-4xl">
-              Valuation &amp; Transaction <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Solutions</span>
+              Valuation &amp; Transaction <span className="text-[#00b2fc]">Solutions</span>
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-white/70 md:text-lg">
-              Structured advisory across valuation, due diligence, transaction
-              structuring and deal support.
+            <p className="mt-4 text-base leading-relaxed text-white/70 md:text-base">
+              Structured advisory across Valuation, Due Diligence, Transaction Structuring and Deal Support.
             </p>
           </motion.div>
 
@@ -239,7 +238,7 @@ export default function Page() {
                         {service.number}
                       </span>
                     </div>
-                    <h3 className="text-xl font-semibold text-white">
+                    <h3 className="text-lg font-semibold text-white">
                       {service.title}
                     </h3>
                     <p className="mt-3 text-sm leading-relaxed text-white/70">
@@ -254,7 +253,7 @@ export default function Page() {
       </section>
 
       {/* APPROACH */}
-      <section className="relative isolate overflow-hidden bg-linear-to-br from-[#FAFAF9] via-white to-[#EEF6FB] py-20 md:py-28">
+      <section className="relative isolate overflow-hidden bg-linear-to-br from-[#EEF6FB] via-white to-[#FAFAF9] py-20 md:py-28">
         <div className="pointer-events-none absolute -left-20 top-0 size-72 rounded-full bg-[#0037d8]/8 blur-[90px]" />
         <div className="pointer-events-none absolute -right-16 bottom-0 size-80 rounded-full bg-[#00b2fc]/6 blur-[90px]" />
 
@@ -267,17 +266,17 @@ export default function Page() {
             className="flex flex-col md:flex-row md:gap-40"
           >
             <div>
-              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8D8C8F]">
-                <span className="size-1.5 rounded-full bg-[#8D8C8F]" />
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#00b2fc]">
+                <span className="size-1.5 rounded-full bg-[#00b2fc]" />
                 Our Approach
               </span>
 
               <h2 className="font-serif mt-4 text-3xl font-bold text-[#00255a] md:text-4xl leading-tight">
                 Evidence First.<br/>
-                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Judgement Second.</span>
+                <span className="text-[#00b2fc]">Judgement Second.</span>
               </h2>
 
-              <p className="mt-6 text-base leading-relaxed text-[#00255a]/70 md:text-lg">
+              <p className="mt-6 text-sm leading-relaxed text-[#00255a]/70 md:text-base">
                 Our valuation work considers the factors that drive
                 sustainable enterprise value:{" "}
                 <span className="font-semibold text-[#00255a]">
@@ -285,7 +284,7 @@ export default function Page() {
                   business fundamentals, risk and future prospects.
                 </span>
               </p>
-              <p className="mt-4 text-base leading-relaxed text-[#00255a]/70 md:text-lg">
+              <p className="mt-4 text-sm leading-relaxed text-[#00255a]/70 md:text-base">
                 We translate these factors into a structured financial view
                 that supports informed transaction decisions.
               </p>
@@ -327,7 +326,7 @@ export default function Page() {
             </span>
             <h2 className="font-serif text-3xl font-bold text-white md:text-4xl">
               What Effective Advisory{" "}
-              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Delivers.</span>
+              <span className="text-[#00b2fc]">Delivers.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70">
               Providing stakeholders with:
@@ -368,9 +367,6 @@ export default function Page() {
             style={{ backgroundImage: "url('/right_advisor.webp')" }}
           >
             <div className="absolute inset-0 bg-linear-to-br from-[#001538]/90 to-[#00255a]/75" />
-            <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-[#00b2fc]/50 blur-2xl" />
-            <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-white/5 blur-2xl" />
-            <div className="pointer-events-none absolute bottom-0 right-32 size-40 rounded-full bg-[#00b2fc]/10 blur-2xl" />
 
             <div className="relative flex flex-col items-center text-center justify-between gap-8 md:flex-row md:items-center md:text-left">
               <div className="max-w-xl">
@@ -381,7 +377,7 @@ export default function Page() {
                 <h2 className="font-serif text-3xl font-semibold text-white md:text-4xl md:leading-tight">
                   Have a Valuation
                   <br />
-                  <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">or Transaction?</span>
+                  <span className="text-[#00b2fc]">or Transaction?</span>
                 </h2>
                 <p className="mt-3 text-white/70">
                   Speak with our advisors about business valuation, due
@@ -392,10 +388,10 @@ export default function Page() {
 
               <Link
                 href="/contact"
-                className="group flex items-center justify-between rounded-full bg-[#00255a] hover:bg-[#0037d8] py-2 pl-5 pr-2 text-sm font-semibold text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                className="group flex items-center justify-between gap-2 rounded-full bg-[#00b2fc] hover:bg-[#0037d8] pl-5 pr-2 py-2 text-white shadow-md shadow-black/15 transition-all hover:-translate-y-0.5 hover:shadow-lg w-44 text-sm font-semibold whitespace-nowrap"
               >
                 Talk to an Expert
-                <span className="ml-3 flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
                   <IconArrowRight className="size-4" color="#00b2fc" />
                 </span>
               </Link>

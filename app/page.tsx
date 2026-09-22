@@ -87,78 +87,78 @@ const CompaniesCard = ({ data }: CompaniesCardProps) => {
 }
 
 const reviews = [
-  {
-    id: 1,
+    {
+      id: 1,
     quote:
       "PCRED brought clarity to our financial decisions and helped us access the right funding at the right time. Their advisory approach has been valuable to our business growth.",
     role: "Managing Director, Manufacturing Company",
     rating: 5,
-  },
-  {
-    id: 2,
+    },
+    {
+      id: 2,
     quote:
       "We approached PCRED with a complex funding requirement, and their team understood our business before recommending a solution. Their guidance made the entire financing process smooth and structured.",
     role: "Director, Trading Company",
     rating: 4.5,
-  },
-  {
-    id: 3,
+    },
+    {
+      id: 3,
     quote:
       "PCRED has been more than a finance partner for us. Their corporate advisory and financial expertise have helped us make better decisions and plan our growth with greater confidence.",
     role: "Founder, MSME",
     rating: 4.5,
-  },
-  {
-    id: 4,
+    },
+    {
+      id: 4,
     quote:
       "What stood out about PCRED was their understanding of our business requirements. They helped us identify the right financial solution and supported us throughout the process.",
     role: "Director, Infrastructure Company",
     rating: 5,
-  },
-  {
-    id: 5,
+    },
+    {
+      id: 5,
     quote:
       "PCRED combines financial expertise with practical business advice. Their support has helped us improve our financial planning and approach our growth plans with much greater clarity.",
     role: "Founder & CEO, Growing Enterprise",
     rating: 4.5,
-  },
-  {
-    id: 6,
+    },
+    {
+      id: 6,
     quote:
       "From understanding our requirement to structuring the right solution, PCRED handled the process professionally. Their advisory has given us greater confidence in our financial decisions.",
     role: "Managing Partner, Engineering Company",
     rating: 5,
-  },
-  {
-    id: 7,
+    },
+    {
+      id: 7,
     quote:
       "PCRED's approach is professional, transparent and business-focused. They helped us navigate our funding requirements while keeping our long-term objectives in focus.",
     role: "Director, SME Enterprise",
     rating: 4.5,
-  },
-  {
-    id: 8,
+    },
+    {
+      id: 8,
     quote:
       "As our business volumes increased, managing working capital became a challenge. PCRED helped us secure the right working capital facility, enabling us to maintain smooth operations and support our growing orders.",
     role: "Director, Manufacturing Company",
     rating: 5,
-  },
-  {
-    id: 9,
+    },
+    {
+      id: 9,
     quote:
       "We were exploring collateral-free funding for our expansion when PCRED introduced us to the CGTMSE scheme. Their guidance throughout the process helped us secure the required finance and move ahead with our plans.",
     role: "Founder, Engineering Company",
     rating: 4.5,
-  },
-  {
-    id: 10,
+    },
+    {
+      id: 10,
     quote:
       "PCRED helped us evaluate multiple financing options before arriving at the right structure for our business. Their advisory-led approach made the decision-making process much clearer.",
     role: "Managing Director, Trading Company",
     rating: 5,
-  },
-  {
-    id: 11,
+    },
+    {
+      id: 11,
     quote:
       "PCRED gave us a clear way forward when we were facing challenges with our existing debt. Their structured approach to debt restructuring helped us improve cash-flow management and plan our finances more effectively.",
     role: "Promoter, SME Enterprise",
@@ -221,25 +221,25 @@ const whyPcred = [
   {
     title: "Proactive Financial Expertise",
     icon: IconChartLine,
-    description:
+      description:
       "Tailored financial solutions designed to help MSMEs and businesses improve stability, optimize performance, and achieve sustainable growth.",
-  },
-  {
+    },
+    {
     title: "Progressive Growth Support",
     icon: IconTrendingUp,
-    description:
+      description:
       "From funding solutions to strategic advisory, we help businesses unlock opportunities for expansion and long-term success.",
-  },
-  {
+    },
+    {
     title: "Personalized MSME Advisory",
     icon: IconUsers,
-    description:
+      description:
       "We understand the unique challenges faced by MSMEs and deliver customized financial guidance aligned with their business goals.",
-  },
-  {
+    },
+    {
     title: "Principled Partnerships & Transparency",
     icon: IconShieldCheck,
-    description:
+      description:
       "Through ethical practices, honest communication, and reliable support, we build long-term relationships founded on trust and accountability.",
   },
 ];
@@ -408,11 +408,7 @@ export default function Home() {
       <HomeHero />
 
       {/* Stats Strip */}
-      <section className="relative overflow-hidden bg-brand-gradient py-4 md:py-5">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-24 top-1/2 size-56 -translate-y-1/2 rounded-full bg-white/5 blur-3xl" />
-          <div className="absolute -right-24 top-0 size-64 rounded-full bg-[#00b2fc]/8 blur-3xl" />
-        </div>
+      <section className="relative overflow-hidden bg-linear-to-b from-[#00255a] to-[#00255a]/90 py-4 md:py-5">
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/6 backdrop-blur-sm">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-[#00b2fc]/60 to-transparent" />
@@ -436,7 +432,7 @@ export default function Home() {
                       {stat.accent}
                     </span>
                     <span className="size-1.5 rounded-full bg-[#00b2fc]/80" />
-                  </div>
+            </div>
                   <span className="font-serif block text-2xl font-bold leading-none text-white md:text-[1.75rem]">
                     {stat.value}
                   </span>
@@ -471,13 +467,13 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               className="order-1 flex flex-col justify-center lg:col-span-2"
             >
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#0037d8]">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
                 <span className="size-2 rounded-full bg-[#00b2fc]" />
                 Our Purpose
               </span>
               <h2 className="font-serif text-3xl font-semibold leading-tight text-[#00255a] md:text-4xl">
                 Structure First.<br />
-                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text font-bold text-transparent">
+                <span className="text-[#00b2fc] font-bold">
                   Capital Second.
                 </span>
               </h2>
@@ -490,14 +486,14 @@ export default function Home() {
               <div className="mt-6 flex flex-col items-start gap-3 md:flex-row md:items-center">
                 <Link
                   href="#contact"
-                  className="group inline-flex items-center justify-between gap-3 rounded-full bg-[#00255a] py-2 pl-4 pr-2 text-sm text-white shadow-md shadow-[#00255a]/20 transition-all hover:-translate-y-0.5 hover:shadow-lg md:w-50"
+                  className="group inline-flex items-center justify-between gap-3 rounded-full bg-[#00b2fc] py-2 pl-4 pr-2 text-sm text-white shadow-md shadow-[#00255a]/20 transition-all hover:-translate-y-0.5 hover:shadow-lg md:w-50"
                 >
                   Talk to an Expert
                   <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white/90">
                     <IconArrowRight className="size-3.5" color="#00255a" />
                   </span>
                 </Link>
-              </div>
+      </div>
             </motion.div>
 
             <motion.div
@@ -583,12 +579,12 @@ export default function Home() {
                 Who We Are
               </span>
 
-              <h2 className="font-serif text-3xl font-semibold leading-tight text-white md:text-4xl">
+              <h3 className="font-serif text-3xl font-semibold leading-tight text-white md:text-4xl">
                 Strategic Advisors for Businesses
-                <span className="mt-1 block bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">
+                <span className="mt-1 block text-[#00b2fc]">
                   That Think Long-Term
                 </span>
-              </h2>
+              </h3>
 
               <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/75 md:text-base">
                 Every successful business reaches moments where the right financial
@@ -627,15 +623,15 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
-                <span className="size-2 rounded-full bg-[#8D8C8F]" />
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
+                <span className="size-2 rounded-full bg-[#00b2fc]" />
                 Business Lifecycle
               </span>
-              <h2 className="font-serif text-3xl font-semibold text-[#00255a] leading-12 md:text-4xl">
+              <h4 className="font-serif text-3xl font-semibold text-[#00255a] leading-12 md:text-4xl">
                 One Advisory Partner.
                 <br />
-                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Every stage of growth.</span>
-              </h2>
+                <span className="text-[#00b2fc]">Every stage of growth.</span>
+              </h4>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-[#00255a]/70 md:text-lg">
                 From ambitious startups to established enterprises, we support businesses
                 throughout their journey with strategic financial guidance and corporate
@@ -664,7 +660,7 @@ export default function Home() {
       </section>
 
       {/* Platform / Capabilities Section */}
-      <section className="relative overflow-hidden bg-brand-gradient py-16 md:py-20">
+      <section className="relative overflow-hidden bg-[#00b2fc]/5 py-16 md:py-20">
         <div className="pointer-events-none absolute inset-0 opacity-10">
           <div className="absolute -right-52 -top-52 size-150 rounded-full border border-[#00b2fc]" />
           <div className="absolute -bottom-52 -left-52 size-125 rounded-full border border-[#00b2fc]" />
@@ -683,12 +679,12 @@ export default function Home() {
               <span className="size-2 rounded-full bg-[#00b2fc]" />
               Strategic Advantage
             </span>
-            <h2 className="font-serif text-3xl font-semibold leading-tight text-white md:text-4xl">
+            <h5 className="font-serif text-3xl font-semibold leading-tight text-[#00255a] md:text-4xl">
               Trusted by Businesses.
-              <span className="mt-1 block bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">
+              <span className="mt-1 block text-[#00b2fc]">
                 Driven by Results.
               </span>
-            </h2>
+            </h5>
           </motion.div>
 
           {/* Mobile: vertical accordion */}
@@ -895,13 +891,13 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               className="flex flex-col justify-center"
             >
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
-                <span className="size-2 rounded-full bg-[#8D8C8F]" />
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
+                <span className="size-2 rounded-full bg-[#00b2fc]" />
                 Our Partners
               </span>
 
               <h2 className="text-3xl font-semibold leading-tight text-[#00255a] md:text-4xl">
-                Trusted <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Banking Partners</span>
+                Trusted <span className="text-[#00b2fc]">Banking Partners</span>
               </h2>
             </motion.div>
           </div>
@@ -933,8 +929,8 @@ export default function Home() {
         className="relative bg-cover bg-fixed bg-[65%_center] bg-no-repeat py-14 md:bg-center md:py-14"
         style={{ backgroundImage: "url('/site/generated/cta_financial_partner.png')" }}
       >
-        <div className="absolute inset-0 bg-linear-to-r from-[#001538]/85 to-[#00255a]/65" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(141,140,143,0.15),transparent_60%)]" />
+        <div className="absolute inset-0 bg-linear-to-r from-[#001538]/85 to-transparent" />
+        {/* <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_right,rgba(141,140,143,0.15),transparent_60%)]" /> */}
 
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 md:flex-row md:items-center">
           <motion.div
@@ -947,7 +943,7 @@ export default function Home() {
             <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
               Looking for the Right
               <br />
-              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Financial Partner?</span>
+              <span className="text-[#00b2fc]">Financial Partner?</span>
             </h2>
             <p className="mt-3 text-sm text-white/70 md:text-lg">
               Our Corporate Advisory advisory experts help businesses secure funding, optimize
@@ -964,7 +960,7 @@ export default function Home() {
           >
             <Link href="/contact" className="group flex items-center justify-between gap-3 rounded-4xl bg-[#00255a] hover:bg-[#0037d8] pl-4 pr-2 py-2 text-white transition-all hover:-translate-y-0.5 hover:shadow-lg w-52 sm:w-50 text-sm">Talk to an Expert
               <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/90 shadow-sm">
-                <IconArrowRight className="size-4" color="#00b2fc" />
+                <IconArrowRight className="size-4" color="#00255a" />
               </span>
             </Link>
           </motion.div>
@@ -985,15 +981,15 @@ export default function Home() {
             className="mb-10 flex flex-col items-start justify-between gap-6 md:mb-14 md:flex-row md:items-end"
           >
             <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8D8C8F] mb-4">
-                <span className="size-1.5 rounded-full bg-[#8D8C8F]" />
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#00b2fc] mb-4">
+                <span className="size-1.5 rounded-full bg-[#00b2fc]" />
                 Client Stories
               </span>
 
               <h2 className="text-3xl font-semibold leading-tight text-[#00255a] md:text-4xl">
                 Trusted by Businesses
                 <br />
-                <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Across India</span>
+                <span className="text-[#00b2fc]">Across India</span>
               </h2>
             </div>
 
@@ -1126,7 +1122,7 @@ export default function Home() {
       {/* Contact Section */}
       <section
         id="contact"
-        className="relative overflow-hidden bg-linear-to-b from-[#00255a]/20 via-white to-[#8D8C8F]/15 py-20 md:py-28"
+        className="relative overflow-hidden bg-linear-to-b from-[#00255a]/5 via-white to-[#8D8C8F]/15 py-20 md:py-28"
       >
         <div className="pointer-events-none absolute -left-40 top-20 size-80 rounded-full bg-[#00b2fc]/5 blur-3xl" />
 
@@ -1138,13 +1134,13 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="max-w-2xl mb-14"
           >
-            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#8D8C8F]">
-              <span className="size-2 rounded-full bg-[#8D8C8F]" />
+            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#00b2fc]">
+              <span className="size-2 rounded-full bg-[#00b2fc]" />
               Get In Touch
             </span>
             <h2 className="text-3xl font-semibold leading-tight md:text-4xl text-[#00255a]">
               {"Let's Start a "}
-              <span className="bg-linear-to-r from-[#00b2fc] to-[#0037d8] bg-clip-text text-transparent">Conversation</span>
+              <span className="text-[#00b2fc]">Conversation</span>
             </h2>
             <p className="mt-5 text-base leading-relaxed md:text-lg text-[#00255a]/80">
               Tell us about your business goals. Our advisory team will respond within one business day.
@@ -1198,7 +1194,7 @@ export default function Home() {
                   </label>
                   <div className="relative">
                     <select id="service" name="service" value={form.service} onChange={handleFormChange} className={formSelectClass}>
-                      <option value="">Select a service</option>
+                      <option selected hidden>Select a service</option>
                       {contactServices.map((s) => (
                         <option key={s} value={s}>{s}</option>
                       ))}
@@ -1254,7 +1250,7 @@ export default function Home() {
                   alt="PCRED advisors reviewing a client portfolio"
                   className="absolute inset-0 h-full w-full object-cover object-center"
                 />
-              </div>
+      </div>
             </motion.div>
           </div>
         </div>
