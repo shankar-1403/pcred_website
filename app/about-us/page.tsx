@@ -227,7 +227,7 @@ export default function AboutUsPage() {
                 {/* Diagonal light sweep */}
                 {/* <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rotate-45 bg-linear-to-br from-white/10 to-transparent" /> */}
                 {/* Bottom left shadow */}
-                <div className="pointer-events-none absolute -bottom-10 -left-10 size-32 rounded-full bg-[#3d2c0d]/50 blur-2xl" style={{ zIndex: 0 }} />
+                {/* <div className="pointer-events-none absolute -bottom-10 -left-10 size-32 rounded-full bg-[#3d2c0d]/50 blur-2xl" style={{ zIndex: 0 }} /> */}
                 {/* Blue accent glow */}
                 <div className="pointer-events-none absolute bottom-6 right-6 size-20 rounded-full bg-[#00b2fc]/10 blur-xl" />
                 {/* Dot grid */}
