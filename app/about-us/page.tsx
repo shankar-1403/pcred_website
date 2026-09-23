@@ -8,7 +8,7 @@ import AboutUsThree from "../../public/aboutpage3.png";
 import AboutUsTwo from "../../public/aboutpage2.png";
 import WhoWeAre from "../../public/who_we_are.webp";
 import MissionVisionBg from "../../public/site/aboutus_reception_interior.webp";
-import AboutHeroImage from "../../public/site/generated/aboutus_hero_banner.png";
+import AboutHeroImage from "../../public/site/generated/aboutus_hero_banner.webp";
 
 const aboutPillars = [
   {
