@@ -251,7 +251,8 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* ── MANAGEMENT TEAM ── */}
+      {/* ── MANAGEMENT TEAM ── (temporarily disabled, not deleted — flip to `true` to bring it back) */}
+      {false && (
       <section className="relative overflow-hidden bg-linear-to-br from-[#FAFAF9] via-white to-[#FBF6EC] py-12 md:py-16">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -right-24 -top-24 size-96 rounded-full bg-[#00b2fc]/8 blur-3xl" />
@@ -336,6 +337,7 @@ export default function AboutUsPage() {
           </motion.div>
         </div>
       </section>
+      )}
 
       {/* ── MISSION VISION AIM ── */}
       <section className="relative overflow-hidden py-12 md:py-16">

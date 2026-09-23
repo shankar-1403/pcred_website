@@ -45,6 +45,18 @@ const companies = [
     logoSize: "h-16 w-36 sm:h-20 sm:w-44",
     logoOffset: "-right-3",
   },
+  {
+    number: "04",
+    name: "Orvena",
+    tagline: "Connected healthcare, better decisions.",
+    points: [
+      "Expert medical second opinions, medical tourism and disease-reversal programs",
+      "Corporate wellness solutions backed by verified specialists and preventive health analytics",
+      "An intelligent HealthOS ecosystem connecting patients, doctors and care providers",
+    ],
+    href: "https://orvenahealth.com",
+    logo: "/orvena-logo.webp",
+  },
 ];
 
 export default function Page() {
