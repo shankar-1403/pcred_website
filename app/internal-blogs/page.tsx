@@ -308,9 +308,9 @@ function BlogsCMSPage() {
                         <div>
                           <label htmlFor="cover_image" className="mb-2 block text-sm font-medium text-[#00255a]">Cover Image {!editingBlogId && "*"}</label>
                           <input id="cover_image" name="cover_image" type="file" accept="image/*" onChange={handleFileChange} className="border border-[#00255a] rounded-4xl w-full py-2 px-3" />
-                          <p className="mt-1 text-xs text-[#8E8E90]">Locked to 16:9 (e.g. 1280x720px).</p>
+                          <p className="mt-1 text-xs text-[#8D8C8F]">Locked to 16:9 (e.g. 1280x720px).</p>
                           {existingImages.cover_image ? (
-                            <p className="mt-1 text-xs text-[#8E8E90]">Current image saved. Upload only to replace.</p>
+                            <p className="mt-1 text-xs text-[#8D8C8F]">Current image saved. Upload only to replace.</p>
                           ) : null}
                         </div>
                         <div className="flex items-center gap-3 pt-6">
@@ -337,9 +337,9 @@ function BlogsCMSPage() {
                           onChange={handleFileChange}
                           className="border border-[#00255a] rounded-4xl w-full py-2 px-3"
                         />
-                        <p className="mt-1 text-xs text-[#8E8E90]">Shown inside the blog only, not on cards. Any size/aspect ratio accepted.</p>
+                        <p className="mt-1 text-xs text-[#8D8C8F]">Shown inside the blog only, not on cards. Any size/aspect ratio accepted.</p>
                         {existingImages.inner_image ? (
-                          <p className="mt-1 text-xs text-[#8E8E90]">Current image saved. Upload only to replace.</p>
+                          <p className="mt-1 text-xs text-[#8D8C8F]">Current image saved. Upload only to replace.</p>
                         ) : null}
                       </div>
 
@@ -401,19 +401,19 @@ function BlogsCMSPage() {
               <tbody className="divide-y divide-[#00255a]">
                 {blogsLoading ? (
                   <tr>
-                    <td colSpan={6} className="px-4 py-6 text-center text-[#8E8E90]">Loading blogs…</td>
+                    <td colSpan={6} className="px-4 py-6 text-center text-[#8D8C8F]">Loading blogs…</td>
                   </tr>
                 ) : blogs.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="px-4 py-6 text-center text-[#8E8E90]">No blogs added yet.</td>
+                    <td colSpan={6} className="px-4 py-6 text-center text-[#8D8C8F]">No blogs added yet.</td>
                   </tr>
                 ) : (
                   tablePageItems.map((blog) => (
                     <tr key={blog.id} className="text-[#00255a] text-sm">
                       <td className="px-4 py-2 text-[#00255a] max-w-xs truncate">{blog.title || "Untitled"}</td>
-                      <td className="px-4 py-2 text-[#8E8E90]">{blog.category || "N/A"}</td>
-                      <td className="px-4 py-2 text-[#8E8E90]">{blog.author || "N/A"}</td>
-                      <td className="px-4 py-2 text-[#8E8E90]">{blog.date || "N/A"}</td>
+                      <td className="px-4 py-2 text-[#8D8C8F]">{blog.category || "N/A"}</td>
+                      <td className="px-4 py-2 text-[#8D8C8F]">{blog.author || "N/A"}</td>
+                      <td className="px-4 py-2 text-[#8D8C8F]">{blog.date || "N/A"}</td>
                       <td className="px-4 py-2">
                         {blog.featured ? (
                           <span className="rounded-full bg-[#0037d8]/15 px-2 py-0.5 text-xs font-semibold text-[#0037d8]">Yes</span>

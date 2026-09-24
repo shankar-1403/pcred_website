@@ -93,6 +93,11 @@
   --color-tertiary: #00255a;
   --color-brand-deep: #001538;
 
+  /* Body copy on light backgrounds. Kept deliberately darker than stone-500
+     so paragraph text clears WCAG AA (8.6:1 on white; stone-500 is only 3.4:1
+     and is for muted/meta text only). */
+  --color-ink: #4a5568;
+
   --color-navy-50: #E6EEF8;
   --color-navy-100: #C2D4EC;
   --color-navy-200: #8FAFDC;

@@ -44,6 +44,9 @@ const companies = [
     logo: "/primacred-logo.webp",
     logoSize: "h-16 w-36 sm:h-20 sm:w-44",
     logoOffset: "-right-3",
+    // Its box is taller than the other logos', so the contained artwork centres
+    // lower — nudge the box up to keep the wordmark optically aligned.
+    logoTop: "top-2",
   },
   {
     number: "04",
@@ -180,9 +183,11 @@ export default function Page() {
                 {/* Company logo */}
                 {company.logo && (
                   <div
-                    className={`pointer-events-none absolute top-6 opacity-90 ${
-                      company.logoOffset ?? "right-6"
-                    } ${company.logoSize ?? "h-14 w-32 sm:h-16 sm:w-36"}`}
+                    className={`pointer-events-none absolute opacity-90 ${
+                      company.logoTop ?? "top-6"
+                    } ${company.logoOffset ?? "right-6"} ${
+                      company.logoSize ?? "h-14 w-32 sm:h-16 sm:w-36"
+                    }`}
                   >
                     <Image
                       src={company.logo}

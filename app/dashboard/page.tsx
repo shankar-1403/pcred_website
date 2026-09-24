@@ -508,7 +508,7 @@ function SchemesCMSPage() {
                           <label htmlFor="section_1_logo" className="mb-2 block text-sm font-medium text-[#00255a]">Logo</label>
                           <input id="section_1_logo" name="section_1_logo" type="file" accept="image/*" onChange={handleFileChange} className='border border-[#00255a] rounded-4xl w-full py-2 px-3'/>
                           {existingImages.section_1_logo ? (
-                            <p className="mt-1 text-xs text-[#8E8E90]">Current image saved. Upload only to replace.</p>
+                            <p className="mt-1 text-xs text-[#8D8C8F]">Current image saved. Upload only to replace.</p>
                           ) : null}
                         </div>
                         <div>
@@ -587,7 +587,7 @@ function SchemesCMSPage() {
                           <label htmlFor="section_1_banner" className="mb-2 block text-sm font-medium text-[#00255a]">Banner</label>
                           <input id="section_1_banner" name="section_1_banner" onChange={handleFileChange} type="file" accept="image/*" className='border border-[#00255a] rounded-4xl w-full py-2 px-3' />
                           {existingImages.section_1_banner ? (
-                            <p className="mt-1 text-xs text-[#8E8E90]">Current image saved. Upload only to replace.</p>
+                            <p className="mt-1 text-xs text-[#8D8C8F]">Current image saved. Upload only to replace.</p>
                           ) : null}
                         </div>
                       </div>
@@ -629,7 +629,7 @@ function SchemesCMSPage() {
                           <label htmlFor="section_3_img" className="mb-2 block text-sm font-medium text-[#00255a]">Image</label>
                           <input id="section_3_img" name="section_3_img" onChange={handleFileChange} type="file" accept="image/*" className='border border-[#00255a] rounded-4xl w-full py-2 px-3' />
                           {existingImages.section_3_img ? (
-                            <p className="mt-1 text-xs text-[#8E8E90]">Current image saved. Upload only to replace.</p>
+                            <p className="mt-1 text-xs text-[#8D8C8F]">Current image saved. Upload only to replace.</p>
                           ) : null}
                         </div>
                       </div>
@@ -732,7 +732,7 @@ function SchemesCMSPage() {
                           <label htmlFor="faq_image" className="mb-2 block text-sm font-medium text-[#00255a]">Image</label>
                           <input id="faq_image" name="faq_image" onChange={handleFileChange} type="file" accept="image/*" className='border border-[#00255a] rounded-4xl w-full py-2 px-3' />
                           {existingImages.faq_image ? (
-                            <p className="mt-1 text-xs text-[#8E8E90]">Current image saved. Upload only to replace.</p>
+                            <p className="mt-1 text-xs text-[#8D8C8F]">Current image saved. Upload only to replace.</p>
                           ) : null}
                         </div>
                         <div className='bg-[#0037d8]/10 p-4 rounded-4xl col-span-2'>
@@ -824,13 +824,13 @@ function SchemesCMSPage() {
               <tbody className="divide-y divide-[#00255a]">
                 {schemesLoading ? (
                   <tr className="text-[#00255a] text-sm">
-                    <td colSpan={3} className="px-4 py-6 text-center text-[#8E8E90]">
+                    <td colSpan={3} className="px-4 py-6 text-center text-[#8D8C8F]">
                       Loading schemes…
                     </td>
                   </tr>
                 ) : schemes.length === 0 ? (
                   <tr className="text-[#00255a] text-sm">
-                    <td colSpan={3} className="px-4 py-6 text-center text-[#8E8E90]">
+                    <td colSpan={3} className="px-4 py-6 text-center text-[#8D8C8F]">
                       No schemes added yet.
                     </td>
                   </tr>
@@ -840,7 +840,7 @@ function SchemesCMSPage() {
                       <td className="px-4 py-2 text-[#00255a]">
                         {scheme.section_1_header || "Untitled scheme"}
                       </td>
-                      <td className="px-4 py-2 text-[#8E8E90]">
+                      <td className="px-4 py-2 text-[#8D8C8F]">
                         {scheme.createdAt
                           ? new Date(scheme.createdAt).toLocaleDateString()
                           : "N/A"}

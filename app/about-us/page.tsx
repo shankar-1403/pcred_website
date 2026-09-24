@@ -208,9 +208,9 @@ export default function AboutUsPage() {
 
                 {/* Right image flush to border */}
                 <div className="relative h-full w-96 shrink-0 hidden lg:block">
-                  <Image src={WhoWeAre} alt="Who We Are" fill className="object-cover" />
+                  <Image src={WhoWeAre} alt="Who We Are" fill className="object-cover" sizes="384px" />
                   <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,37,90,0.35)_0%,rgba(0,37,90,0.15)_35%,transparent_60%),linear-gradient(to_top,rgba(0,37,90,0.28)_0%,transparent_40%)]" />
-                  <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-[#faf5ec] via-[#faf5ec]/60 to-transparent" />
+                  <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-[#EEF6FB] via-[#EEF6FB]/60 to-transparent" />
                 </div>
               </div>
             </motion.div>
@@ -223,24 +223,24 @@ export default function AboutUsPage() {
               transition={{ duration: 0.5, delay: 0.16 }}
               className="lg:col-span-1 lg:row-span-1"
             >
-              <div className="relative overflow-hidden rounded-3xl bg-[#00b2fc] p-7 h-full flex flex-col justify-between pb-4 md:p-8">
+              <div className="relative overflow-hidden rounded-3xl bg-brand-gradient-br p-7 h-full flex flex-col justify-between pb-4 md:p-8">
                 {/* Diagonal light sweep */}
-                {/* <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rotate-45 bg-linear-to-br from-white/10 to-transparent" /> */}
-                {/* Bottom left shadow */}
-                {/* <div className="pointer-events-none absolute -bottom-10 -left-10 size-32 rounded-full bg-[#3d2c0d]/50 blur-2xl" style={{ zIndex: 0 }} /> */}
-                {/* Blue accent glow */}
-                <div className="pointer-events-none absolute bottom-6 right-6 size-20 rounded-full bg-[#00b2fc]/10 blur-xl" />
+                <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rotate-45 bg-linear-to-br from-white/8 to-transparent" />
+                {/* Bottom left deeper blue shadow */}
+                <div className="pointer-events-none absolute -bottom-10 -left-10 size-32 rounded-full bg-[#00b2fc]/60 blur-2xl" style={{ zIndex: 0 }} />
+                {/* Gold accent glow */}
+                <div className="pointer-events-none absolute bottom-6 right-6 size-20 rounded-full bg-[#8D8C8F]/15 blur-xl" />
                 {/* Dot grid */}
                 <div className="pointer-events-none absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "20px 20px" }} />
 
                 <div className="relative z-10 flex items-center justify-between">
-                  <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/70">Enterprises served</span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.25em] text-white/40">Enterprises served</span>
                   <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[length:var(--text-10)] font-semibold uppercase tracking-widest text-white/80">Pan India</span>
                 </div>
                 <div className="relative z-10 flex flex-1 flex-col items-start justify-center">
                   <span className="block text-5xl font-black leading-none text-white sm:text-6xl lg:text-8xl">2500+</span>
-                  <div className="mt-4 h-px w-10 bg-white/50" />
-                  <span className="mt-3 block text-sm text-white font-medium leading-relaxed">Businesses transformed through strategic advisory</span>
+                  <div className="mt-4 h-px w-10 bg-[#8D8C8F]/60" />
+                  <span className="mt-3 block text-sm text-white/90 leading-relaxed">Businesses transformed through strategic advisory</span>
 
                 </div>
               </div>
@@ -253,7 +253,7 @@ export default function AboutUsPage() {
 
       {/* ── MANAGEMENT TEAM ── (temporarily disabled, not deleted — flip to `true` to bring it back) */}
       {false && (
-      <section className="relative overflow-hidden bg-linear-to-br from-[#FAFAF9] via-white to-[#FBF6EC] py-12 md:py-16">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#EEF6FB] via-white to-[#FAFAF9] py-12 md:py-16">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -right-24 -top-24 size-96 rounded-full bg-[#00b2fc]/8 blur-3xl" />
           <div className="absolute -bottom-24 -left-24 size-80 rounded-full bg-[#00b2fc]/6 blur-3xl" />
@@ -414,7 +414,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* ── CORE BELIEFS ── */}
-      <section className="relative overflow-hidden bg-linear-to-br from-[#FAFAF9] via-white to-[#FBF6EC] py-12 md:py-16">
+      <section className="relative overflow-hidden bg-linear-to-br from-[#EEF6FB] via-white to-[#FAFAF9] py-12 md:py-16">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -right-24 -top-24 size-96 rounded-full bg-[#00b2fc]/8 blur-3xl" />
           <div className="absolute -bottom-24 -left-24 size-80 rounded-full bg-[#00b2fc]/6 blur-3xl" />

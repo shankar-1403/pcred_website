@@ -72,7 +72,7 @@ const eligibilityCriteria = [
 ];
 
 const inputClass =
-  "w-full rounded-4xl border border-[#00255a]/15 bg-white px-4 py-3.5 text-[#00255a] placeholder:text-[#8E8E90]/60 outline-none transition-all duration-200 focus:border-[#00255a] focus:ring-2 focus:ring-[#00255a]/15";
+  "w-full rounded-4xl border border-[#00255a]/15 bg-white px-4 py-3.5 text-[#00255a] placeholder:text-[#8D8C8F]/60 outline-none transition-all duration-200 focus:border-[#00255a] focus:ring-2 focus:ring-[#00255a]/15";
 
 const initialForm = {
   name: "",
@@ -142,7 +142,7 @@ function ApplyModal({
             <div className="sticky top-0 flex items-center justify-between border-b border-[#00255a]/10 bg-white px-6 py-5">
               <div>
                 <h2 className="font-serif text-xl font-bold text-[#00255a]">Apply for CGTMSE Funding</h2>
-                <p className="mt-1 text-sm text-[#8E8E90]">
+                <p className="mt-1 text-sm text-[#8D8C8F]">
                   Fill in your details and our team will contact you.
                 </p>
               </div>
@@ -162,7 +162,7 @@ function ApplyModal({
                     <IconCheck className="size-7" />
                   </div>
                   <h3 className="text-xl font-bold text-[#00255a]">Application Submitted!</h3>
-                  <p className="mt-2 max-w-sm text-sm text-[#8E8E90]">
+                  <p className="mt-2 max-w-sm text-sm text-[#8D8C8F]">
                     Thank you for applying. Our funding experts will review your profile and get
                     back to you shortly.
                   </p>
@@ -378,7 +378,7 @@ export default function Scheme() {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 px-6 text-center">
         <h1 className="font-serif text-2xl font-semibold text-[#00255a]">Scheme not found</h1>
-        <p className="text-[#8E8E90]">This scheme may have been removed or the link is incorrect.</p>
+        <p className="text-[#8D8C8F]">This scheme may have been removed or the link is incorrect.</p>
         <Link
           href="/services"
           className="rounded-4xl bg-[#00255a] px-6 py-3 text-sm font-semibold text-white"

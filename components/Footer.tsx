@@ -67,7 +67,7 @@ export default function Footer() {
             <h3 className="mb-4 font-sans text-sm font-semibold uppercase tracking-widest text-gold-300 text-left md:text-center">Get In Touch</h3>
             <div className="flex flex-col gap-5">
               <a
-                href="https://maps.google.com/?q=Lodha+Supremus,520,Off+Mahakali+Caves+Rd,Chakala+Industrial+Area+MIDC,Andheri+East,Mumbai,Maharashtra+400093"
+                href="https://www.google.com/maps/place/PCRED/@19.1220757,72.8663934,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c96714ce57ed:0x1b179a27f41db6f0!8m2!3d19.1220757!4d72.8663934!16s%2Fg%2F11wnqlq01m"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 text-sm text-white/70 transition-colors hover:text-white"

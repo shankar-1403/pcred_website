@@ -81,7 +81,7 @@ export function FontSizeToggle({ className = "" }: { className?: string }) {
               );
             })}
           </div>
-          <p className="mt-2 text-center text-[0.75rem] text-[#8E8E90]">
+          <p className="mt-2 text-center text-[0.75rem] text-[#8D8C8F]">
             Font Size: {current.px}
           </p>
         </div>

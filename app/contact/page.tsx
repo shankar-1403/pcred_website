@@ -92,7 +92,7 @@ function page() {
   const contactInfo = [
     { icon: IconPhone, label: "Phone", value: "+91 22 3512 0060", href: "tel:+912235120060" },
     { icon: IconMail, label: "Email", value: "info@pcred.org", href: "mailto:info@pcred.org" },
-    { icon: IconClock, label: "Hours", value: "Mon – Sat, 9:00 AM – 6:00 PM", href: undefined as string | undefined },
+    { icon: IconClock, label: "Hours", value: "Mon – Sat, 10:00 AM – 7:00 PM", href: undefined as string | undefined },
   ];
   
   return (
@@ -177,7 +177,7 @@ function page() {
                           <item.icon className="size-5" />
                         </div>
                         <div className="min-w-0">
-                          <p className="text-[length:var(--text-11)] font-semibold uppercase tracking-wider text-[#8E8E90] leading-none">{item.label}</p>
+                          <p className="text-[length:var(--text-11)] font-semibold uppercase tracking-wider text-[#8D8C8F] leading-none">{item.label}</p>
                           {item.href ? (
                             <a href={item.href} className="mt-1 block truncate text-sm font-medium text-[#00255a] hover:underline">
                               {item.value}
@@ -199,7 +199,7 @@ function page() {
                         <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#00b2fc]/10 text-[#00255a]">
                           <IconMapPin className="size-5" />
                         </div>
-                        <span className="text-[length:var(--text-11)] font-semibold uppercase tracking-wider text-[#8E8E90]">Location</span>
+                        <span className="text-[length:var(--text-11)] font-semibold uppercase tracking-wider text-[#8D8C8F]">Location</span>
                       </div>
                       <div className="overflow-hidden rounded-lg">
                         <iframe
@@ -269,7 +269,7 @@ function page() {
                     </label>
                     <div className="relative">
                       <select id="service" name="service" value={form.service} onChange={handleFormChange} className={formSelectClass}>
-                        <option selected hidden>Select a service</option>
+                        <option value="" disabled hidden>Select a service</option>
                         {contactServices.map((s) => (
                           <option key={s} value={s}>{s}</option>
                         ))}

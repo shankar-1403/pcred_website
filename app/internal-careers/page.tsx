@@ -320,19 +320,19 @@ function CareersCMSPage() {
               <tbody className="divide-y divide-[#00255a]">
                 {careersLoading ? (
                   <tr>
-                    <td colSpan={6} className="px-4 py-6 text-center text-[#8E8E90]">Loading jobs…</td>
+                    <td colSpan={6} className="px-4 py-6 text-center text-[#8D8C8F]">Loading jobs…</td>
                   </tr>
                 ) : careers.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="px-4 py-6 text-center text-[#8E8E90]">No jobs added yet.</td>
+                    <td colSpan={6} className="px-4 py-6 text-center text-[#8D8C8F]">No jobs added yet.</td>
                   </tr>
                 ) : (
                   tablePageItems.map((career) => (
                     <tr key={career.id} className="text-[#00255a] text-sm">
                       <td className="px-4 py-2 text-[#00255a] max-w-xs truncate">{career.title || "Untitled"}</td>
-                      <td className="px-4 py-2 text-[#8E8E90]">{career.department || "N/A"}</td>
-                      <td className="px-4 py-2 text-[#8E8E90]">{career.location || "N/A"}</td>
-                      <td className="px-4 py-2 text-[#8E8E90]">{career.type || "N/A"}</td>
+                      <td className="px-4 py-2 text-[#8D8C8F]">{career.department || "N/A"}</td>
+                      <td className="px-4 py-2 text-[#8D8C8F]">{career.location || "N/A"}</td>
+                      <td className="px-4 py-2 text-[#8D8C8F]">{career.type || "N/A"}</td>
                       <td className="px-4 py-2">
                         {career.active ? (
                           <span className="rounded-full bg-green-50 px-2 py-0.5 text-xs font-semibold text-green-600">Active</span>

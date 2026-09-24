@@ -157,7 +157,7 @@ export function MobileLifecycleTimeline({ stages }: { stages: Stage[] }) {
           <motion.path
             d={`M ${CX},0 L ${CX},${svgH}`}
             fill="none"
-            stroke="#0037d8"
+            stroke="#00b2fc"
             strokeWidth="3"
             strokeLinecap="round"
             strokeDasharray={beamDasharray}
@@ -178,7 +178,7 @@ export function MobileLifecycleTimeline({ stages }: { stages: Stage[] }) {
               <g key={index} transform={`translate(${CX}, ${y - topY})`}>
                 <motion.path
                   d={`M 0,${-M_R} A ${M_R},${M_R} 0 0,0 0,${M_R}`}
-                  fill="none" stroke="#0037d8" strokeWidth="2.5" strokeLinecap="round"
+                  fill="none" stroke="#00b2fc" strokeWidth="2.5" strokeLinecap="round"
                   strokeDasharray={`${M_SEMI} ${M_SEMI * 10}`}
                   animate={{ strokeDashoffset: dashOffset, opacity: arcOpacity }}
                   initial={{ strokeDashoffset: M_SEMI, opacity: 0 }}
@@ -190,7 +190,7 @@ export function MobileLifecycleTimeline({ stages }: { stages: Stage[] }) {
                 />
                 <motion.path
                   d={`M 0,${-M_R} A ${M_R},${M_R} 0 0,1 0,${M_R}`}
-                  fill="none" stroke="#0037d8" strokeWidth="2.5" strokeLinecap="round"
+                  fill="none" stroke="#00b2fc" strokeWidth="2.5" strokeLinecap="round"
                   strokeDasharray={`${M_SEMI} ${M_SEMI * 10}`}
                   animate={{ strokeDashoffset: dashOffset, opacity: arcOpacity }}
                   initial={{ strokeDashoffset: M_SEMI, opacity: 0 }}
@@ -214,14 +214,14 @@ export function MobileLifecycleTimeline({ stages }: { stages: Stage[] }) {
           <div key={stage.title} className={`flex items-start gap-4${isLast ? "" : " mb-10"}`}>
             <div
               ref={(el) => { nodeRefs.current[index] = el; }}
-              className="relative z-10 flex size-11 shrink-0 items-center justify-center rounded-full bg-[#00b2fc]"
+              className="relative z-10 flex size-11 shrink-0 items-center justify-center rounded-full bg-[#00255a]"
             >
               <StageIcon size={20} stroke={1.5} className="text-white" />
             </div>
             <div className="pt-1">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0037d8]">Step {index + 1}</span>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#00b2fc]">Step {index + 1}</span>
               <h3 className="mt-0.5 text-base font-semibold text-[#00255a]">{stage.title}</h3>
-              <p className="mt-0.5 text-sm leading-relaxed text-[#00255a]/65">{stage.description}</p>
+              <p className="mt-0.5 text-sm leading-snug text-[#00255a]/60">{stage.description}</p>
             </div>
           </div>
         );

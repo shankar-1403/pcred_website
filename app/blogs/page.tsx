@@ -34,7 +34,7 @@ function BlogCard({ blog, index }: { blog: Blog; index: number }) {
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <div className="mb-3 flex flex-wrap items-center gap-4 text-xs text-[#8E8E90]">
+        <div className="mb-3 flex flex-wrap items-center gap-4 text-xs text-[#8D8C8F]">
           {blog.date && (
             <span className="inline-flex items-center gap-1">
               <IconCalendar className="size-3.5" />
@@ -137,9 +137,9 @@ export default function BlogsPage() {
 
         <div className="relative mx-auto max-w-7xl px-6">
           {loading ? (
-            <div className="mt-24 py-20 text-center text-[#8E8E90]">Loading articles…</div>
+            <div className="mt-24 py-20 text-center text-[#8D8C8F]">Loading articles…</div>
           ) : blogs.length === 0 ? (
-            <div className="mt-24 py-20 text-center text-[#8E8E90]">No articles published yet.</div>
+            <div className="mt-24 py-20 text-center text-[#8D8C8F]">No articles published yet.</div>
           ) : (
             <>
               <motion.div
@@ -204,7 +204,7 @@ export default function BlogsPage() {
                           {featuredBlog.category}
                         </span>
                       )}
-                      <div className="mb-4 flex flex-wrap gap-4 text-xs text-[#8E8E90]">
+                      <div className="mb-4 flex flex-wrap gap-4 text-xs text-[#8D8C8F]">
                         {featuredBlog.date && (
                           <span className="inline-flex items-center gap-1">
                             <IconCalendar className="size-3.5" />

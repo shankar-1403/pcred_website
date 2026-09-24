@@ -115,6 +115,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-font-size="medium"
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
       className={cn("h-full", "antialiased", "font-sans", plusJakartaSans.variable, fraunces.variable)}
     >

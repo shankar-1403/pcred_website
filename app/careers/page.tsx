@@ -97,7 +97,7 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
         <div className="flex items-center justify-between border-b border-[#00255a]/10 px-6 py-5">
           <div>
             <h2 className="font-serif text-xl font-bold text-[#00255a]">Apply Now</h2>
-            <p className="mt-0.5 text-xs text-[#8E8E90]">{career.title}</p>
+            <p className="mt-0.5 text-xs text-[#8D8C8F]">{career.title}</p>
           </div>
           <button
             type="button"
@@ -117,7 +117,7 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
                 </svg>
               </div>
               <h3 className="text-lg font-semibold text-[#00255a]">Application Submitted!</h3>
-              <p className="mt-2 text-sm text-[#8E8E90]">We will review your application and get back to you shortly.</p>
+              <p className="mt-2 text-sm text-[#8D8C8F]">We will review your application and get back to you shortly.</p>
               <button
                 onClick={onClose}
                 className="mt-6 rounded-full bg-[#00b2fc] px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#0037d8]"
@@ -202,7 +202,7 @@ function ApplyModal({ career, onClose }: { career: Career; onClose: () => void }
 
               {/* Resume upload */}
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-[#00255a]">Resume *  <span className="font-normal text-[#8E8E90]">(PDF, DOC, max 5 MB)</span></label>
+                <label className="mb-1.5 block text-sm font-medium text-[#00255a]">Resume *  <span className="font-normal text-[#8D8C8F]">(PDF, DOC, max 5 MB)</span></label>
                 <input
                   ref={fileRef}
                   type="file"
@@ -255,7 +255,7 @@ function JobCard({ career, index, onApply }: { career: Career; index: number; on
         )}
       </div>
 
-      <div className="flex flex-wrap gap-4 text-xs text-[#8E8E90]">
+      <div className="flex flex-wrap gap-4 text-xs text-[#8D8C8F]">
         {career.department && (
           <span className="inline-flex items-center gap-1.5">
             <IconBriefcase className="size-3.5" />
@@ -379,9 +379,9 @@ export default function CareersPage() {
 
           <div className="mt-14">
             {loading ? (
-              <div className="py-20 text-center text-[#8E8E90]">Loading openings…</div>
+              <div className="py-20 text-center text-[#8D8C8F]">Loading openings…</div>
             ) : activeJobs.length === 0 ? (
-              <div className="py-20 text-center text-[#8E8E90]">No open positions at the moment. Check back soon.</div>
+              <div className="py-20 text-center text-[#8D8C8F]">No open positions at the moment. Check back soon.</div>
             ) : (
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {activeJobs.map((career, i) => (

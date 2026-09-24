@@ -630,7 +630,7 @@ export default function Home() {
               <h4 className="font-serif text-3xl font-semibold text-[#00255a] leading-12 md:text-4xl">
                 One Advisory Partner.
                 <br />
-                <span className="text-[#00b2fc]">Every stage of growth.</span>
+                <span className="text-[#00b2fc]">Every Stage of Growth.</span>
               </h4>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-[#00255a]/70 md:text-lg">
                 From ambitious startups to established enterprises, we support businesses
@@ -968,9 +968,9 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <section className="relative overflow-hidden bg-linear-to-b from-white via-[#FBF9F3] to-white py-20 md:py-28">
+      <section className="relative overflow-hidden bg-linear-to-b from-white via-[#EEF6FB] to-white py-20 md:py-28">
         <div className="pointer-events-none absolute -right-32 -top-32 size-96 rounded-full bg-[#00b2fc]/5 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-32 -left-32 size-96 rounded-full bg-[#5BBCEB]/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -left-32 size-96 rounded-full bg-[#00b2fc]/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-6">
           <motion.div
@@ -998,7 +998,7 @@ export default function Home() {
                 <p className="text-3xl font-bold text-[#00255a]">4.7</p>
                 <div className="mt-1 flex justify-center gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <IconStarFilled key={i} className="size-4 text-[#0037d8]" />
+                    <IconStarFilled key={i} className="size-4 text-[#D9B872]" />
                   ))}
                 </div>
               </div>
@@ -1023,7 +1023,7 @@ export default function Home() {
                 >
                   <div className="relative overflow-hidden rounded-3xl bg-brand-gradient-br p-8 md:p-12">
                     <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-white/5" />
-                    <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-[#5BBCEB]/10" />
+                    <div className="pointer-events-none absolute -bottom-16 -left-16 size-56 rounded-full bg-[#00b2fc]/10" />
 
                     <div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
                       <div>
@@ -1046,7 +1046,7 @@ export default function Home() {
                             return (
                               <IconStarFilled
                                 key={i}
-                                className="size-5 text-[#0037d8]"
+                                className="size-5 text-[#D9B872]"
                               />
                             );
                           }
@@ -1055,7 +1055,7 @@ export default function Home() {
                             return (
                               <IconStarHalfFilled
                                 key={i}
-                                className="size-5 text-[#0037d8]"
+                                className="size-5 text-[#D9B872]"
                               />
                             );
                           }
@@ -1063,7 +1063,7 @@ export default function Home() {
                           return (
                             <IconStar
                               key={i}
-                              className="size-5 text-[#0037d8]"
+                              className="size-5 text-[#D9B872]"
                             />
                           );
                         })}
@@ -1194,7 +1194,7 @@ export default function Home() {
                   </label>
                   <div className="relative">
                     <select id="service" name="service" value={form.service} onChange={handleFormChange} className={formSelectClass}>
-                      <option selected hidden>Select a service</option>
+                      <option value="" disabled hidden>Select a service</option>
                       {contactServices.map((s) => (
                         <option key={s} value={s}>{s}</option>
                       ))}

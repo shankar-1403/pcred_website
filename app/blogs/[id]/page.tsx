@@ -14,7 +14,7 @@ export default function BlogDetailPage() {
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <p className="text-[#8E8E90]">Loading…</p>
+        <p className="text-[#8D8C8F]">Loading…</p>
       </div>
     );
   }
@@ -55,7 +55,7 @@ export default function BlogDetailPage() {
               {blog.title}
             </h1>
 
-            <div className="mt-6 flex flex-wrap items-center gap-5 text-sm text-[#8E8E90]">
+            <div className="mt-6 flex flex-wrap items-center gap-5 text-sm text-[#8D8C8F]">
               {blog.author && (
                 <span className="inline-flex items-center gap-1.5">
                   <IconUser className="size-4" />
@@ -111,7 +111,7 @@ export default function BlogDetailPage() {
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
           ) : (
-            <p className="text-[#8E8E90]">No content available for this article.</p>
+            <p className="text-[#8D8C8F]">No content available for this article.</p>
           )}
         </motion.div>
 
