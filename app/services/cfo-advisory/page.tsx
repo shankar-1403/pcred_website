@@ -167,7 +167,7 @@ export default function Page() {
               <div className="absolute -inset-1 rounded-3xl border border-[#8D8C8F]/25" />
               <div className="relative aspect-4/3 overflow-hidden rounded-3xl shadow-xl shadow-[#00255a]/10">
                 <Image
-                  src="/who_we_are.webp"
+                  src="/site/cfo_perspective.webp"
                   alt="CFO advisory"
                   fill
                   className="object-cover"
