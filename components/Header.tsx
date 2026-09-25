@@ -10,11 +10,11 @@ export default function Header() {
   const { schemes } = useSchemes();
 
   const services = [
-    {id:1,name:"Corporate Finance",link:"corporate-finance"},
-    {id:2,name:"M&A Advisory",link:"ma-advisory"},
-    {id:3,name:"Valuation & Transaction",link:"valuation-transaction"},
-    {id:4,name:"CFO Advisory",link:"cfo-advisory"},
-    {id:5,name:"Risk & Governance",link:"risk-governance"},
+    { id: 1, name: "Corporate Finance", link: "corporate-finance" },
+    { id: 2, name: "M&A Advisory", link: "ma-advisory" },
+    { id: 3, name: "Valuation & Transaction", link: "valuation-transaction" },
+    { id: 4, name: "CFO Advisory", link: "cfo-advisory" },
+    { id: 5, name: "Risk & Governance", link: "risk-governance" },
   ]
 
   const navItems = [
@@ -35,7 +35,7 @@ export default function Header() {
     },
     {
       name: "Schemes",
-      link:"/schemes",
+      link: "/schemes",
       children: schemes.map((scheme) => ({
         name: scheme.dropdown_label ?? "",
         link: `/scheme/${scheme.id}`,
@@ -86,50 +86,110 @@ export default function Header() {
               setOpenMobileDropdown(null);
             }}
           >
-            {navItems.map((item, idx) =>
-              item.children ? (
-                <div key={`mobile-link-${idx}`} className="w-full">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setOpenMobileDropdown((prev) => (prev === idx ? null : idx))
-                    }
-                    className="relative flex w-full items-center justify-start gap-2 text-sm text-white"
+            {navItems.map((item, idx) => {
+              if (item.link && item.children) {
+                return (
+                  <div key={`mobile-link-${idx}`} className="w-full">
+                    <div className="flex w-full items-center justify-between">
+                      <Link
+                        href={item.link}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="text-sm text-white"
+                      >
+                        {item.name}
+                      </Link>
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setOpenMobileDropdown((prev) =>
+                            prev === idx ? null : idx
+                          )
+                        }
+                        className="flex items-center justify-center"
+                      >
+                        <IconChevronDown
+                          className={`size-4 transition-transform ${openMobileDropdown === idx ? "rotate-180" : ""
+                            }`}
+                        />
+                      </button>
+                    </div>
+
+                    {openMobileDropdown === idx && (
+                      <div className="mt-3 flex flex-col gap-3 pl-4">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.link}
+                            href={child.link}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="flex items-center gap-2 text-sm text-white/70"
+                          >
+                            <span className="size-1.5 shrink-0 rounded-full bg-gold-500" />
+                            <span>{child.name}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              if (item.link) {
+                return (
+                  <Link
+                    key={`mobile-link-${idx}`}
+                    href={item.link}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="relative text-sm text-white"
                   >
                     <span className="block">{item.name}</span>
-                    <IconChevronDown
-                      className={`size-4 transition-transform ${openMobileDropdown === idx ? "rotate-180" : ""}`}
-                    />
-                  </button>
-                  {openMobileDropdown === idx && (
-                    <div className="mt-3 flex flex-col gap-3 pl-4">
-                      {item.children.map((child) => (
-                        <a
-                          key={child.link}
-                          href={child.link}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="relative flex items-center gap-2 text-sm text-white/70"
-                        >
-                          <span className="size-1.5 shrink-0 rounded-full bg-gold-500" />
-                          {child.name}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <a
-                  key={`mobile-link-${idx}`}
-                  href={item.link}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="relative text-sm text-white"
-                >
-                  <span className="block">{item.name}</span>
-                </a>
-              )
-            )}
+                  </Link>
+                );
+              }
+
+              if (item.children) {
+                return (
+                  <div key={`mobile-link-${idx}`} className="w-full">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setOpenMobileDropdown((prev) =>
+                          prev === idx ? null : idx
+                        )
+                      }
+                      className="flex w-full items-center justify-start gap-2 text-sm text-white"
+                    >
+                      <span>{item.name}</span>
+
+                      <IconChevronDown
+                        className={`size-4 transition-transform ${openMobileDropdown === idx ? "rotate-180" : ""
+                          }`}
+                      />
+                    </button>
+
+                    {openMobileDropdown === idx && (
+                      <div className="mt-3 flex flex-col gap-3 pl-4">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.link}
+                            href={child.link}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="flex items-center gap-2 text-sm text-white/70"
+                          >
+                            <span className="size-1.5 shrink-0 rounded-full bg-gold-500" />
+                            <span>{child.name}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return null;
+            })}
             <div className="flex w-full flex-col gap-4">
-              <NavbarButton href="/contact" onClick={() => setIsMobileMenuOpen(false)} variant="primary" className="w-full bg-[#00255a] text-white hover:bg-[#0037d8]">Contact Us</NavbarButton>
+              <NavbarButton href="/contact" onClick={() => setIsMobileMenuOpen(false)} variant="primary" className="w-full bg-[#00b2fc] text-white hover:bg-[#0037d8]">Contact Us</NavbarButton>
             </div>
           </MobileNavMenu>
         </MobileNav>
